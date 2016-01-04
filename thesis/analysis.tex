@@ -1,0 +1,113 @@
+\chapter{Analysis}
+
+
+
+\section{Particle Identification}
+
+
+
+
+\section{Data Selection}
+
+\subsection{Spill Level Cuts}
+
+\subsubsection{Duty Factor}
+
+The beam structure is delivered in \emph{bunches} 
+of protons separated by 18.9ns. These bunches are better
+known as \emph{RF buckets}, as they are synchronized with the 18.9ns cycle of the Fermilab RF clock. Ideally, each of these RF buckets deliver a steady number of protons per bucket.
+
+In practice however, this is not the case, and not all the RF buckets delivered are occupied within a given spill. The fraction of buckets occupied is known as the accelerator Duty Factor, \emph{DF}, and can be measured using a reference beam counter as
+
+\begin{eqnarray} DF = \frac{\langle I \rangle ^2}{\langle I^2 \rangle} &
+with &  I = \sum_{N_trig} N_{X2T}
+\end{eqnarray}
+
+where $N_X2T$ is the number of hits in the X2T 
+
+\subsection{Dimuon Level Cuts}
+
+\subsection{Track Level Cuta}
+
+\subsection{Other Cuts}
+
+\section{Dimuon Yields}
+
+
+\subsection{Binning of Data}
+
+The $x_2$ bins for this EMC ratio measurement were chosen such that each
+bin in $x_2$ has similar levels of statistics. 
+
+Concurrent with this analysis, studies of $\bar{d}(x_2)/\bar{u}(x_2)$ and 
+parton energy loss are conducted. Due to the nearly
+identical source of signal across these studies (good Drell-Yan target
+dimuons), a consistent selection of kinematic binning maintains a 
+certain continuity among analyses. The $x_2$ binning chosen can be found in Table \ref{tab:x2bins}
+
+\begin{table}
+	\centering
+	\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+	\centering
+	\begin{tabular}{ll}
+		\toprule
+		Bin\# & $x_2$ Range\\
+		\midrule
+		0 & (0.08, 0.14] \\
+		1 & (0.14, 0.16] \\
+		2 & (0.16, 0.18] \\
+		3 & (0.18, 0.21] \\
+		4 & (0.21, 0.25] \\
+		5 & (0.25, 0.31] \\
+		6 & (0.31, 0.53] \\
+		\bottomrule
+	\end{tabular}
+	\caption{$x_2$ bin ranges}
+	\label{tab:x2bins} 
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+	\centering
+	\begin{tabular}{ll}
+		\toprule
+		target & yield \\ 
+		\midrule
+		None   &  104 \\
+		Empty  &  84 \\
+		LH2    &  3138 \\
+		LD2    &  3472 \\
+		C      &  1721 \\ 
+		Fe     &  1370 \\
+		W      &  1553 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Raw dimuon yields for Roadset 57} 
+	\label{tab:targyields} 
+\end{minipage}
+\end{table}
+
+\subsection{Raw Yields}
+
+The total number of target Drell-Yan events recorded for each target can be found in Table
+\ref{tab:targyields}. The number of events broken down into 
+
+\section{Rate Dependence and Combinatorial Background Correction}
+
+
+
+\section{Empty/None Target Background Subtraction}
+
+
+
+\section{Dimuon Yield Ratios}
+
+
+
+\section{$ld_2$ Contamination Correction}
+
+
+
+\section{Isoscalar Corrections for $^{183}W$ and $^{56}Fe$}
+
+

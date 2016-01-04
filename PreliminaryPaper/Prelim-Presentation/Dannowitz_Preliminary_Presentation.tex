@@ -1,0 +1,73 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{}
+}
+
+\usepackage[absolute,overlay]{textpos}
+\newenvironment{reference}[2]{%
+  \begin{textblock*}{\textwidth}(#1,#2)
+      \footnotesize\it\bgroup\color{red!50!black}}{\egroup\end{textblock*}}
+
+\expandafter\def\expandafter\insertshorttitle\expandafter{%
+  \insertshorttitle\hfill%
+  \insertframenumber}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title[The Nuclear EMC Effect]{A Drell-Yan Study of the EMC Effect and Short Range Correlations at SeaQuest}
+\subtitle{}
+
+\author[Bryan Dannowitz]
+{B.~Dannowitz \newline Advisor: Naomi C.R. Makins}
+
+\institute{SeaQuest at Fermi National Accelerator Laboratory \\ The University of Illinois at Urbana-Champaign}
+
+\date{October 19th, 2011}
+
+%\pgfdeclareimage[height=1.0cm]{UIUCLogo}{UIUC_Logo.jpg}
+%\logo{\pgfuseimage{UIUCLogo}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction: SeaQuest, Nucleons, and The Drell-Yan Process}
+
+\begin{frame}{The SeaQuest Experiment}{Spectrometer}
+  \begin{columns}
+
+\column{.5\textwidth}
+	\begin{itemize}
+	\item
+	Solid Iron Magnet
+	\item
+	Open-air Spectrometer Magnet
+	\end{itemize}
+\column{.5\textwidth}
+	\begin{itemize}
+	\item
+	Hodoscopes for triggering
+	\item
+	Drift Chambers for tracking
+	\end{itemize}
+\end{columns}
+	
+\end{frame}
+
+
+\end{document}
+
+

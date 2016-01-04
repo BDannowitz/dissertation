@@ -1,0 +1,560 @@
+\chapter{Apparatus}
+
+SeaQuest is the operational name of Fermilab Experiment \#906 (\emph{E-906}) performed at its Neutrino-Muon (\emph{NM})
+experimental area. The experiment was designed
+to take \emph{high-intensity beam} at relatively \emph{low center-of-mass energy}, provide
+\emph{good mass resolution}, and allow for \emph{accurate target-to-target systematic normalization}.
+The apparatus consists of a moving target table, two dipole magnets, 7 hodoscope planes, 24 drift 
+chamber planes, and 4 proportional tube planes. Upstream of the target table (towards the beam source),
+there is also a Cherenkov counter for beam intensity monitoring and there are
+several segmented wire ionization chambers (SWIC's) for beam profiling.
+
+\section{Apparatus Overview}
+
+SeaQuest is a fixed-target experiment. In this style of
+experiment, a stationary target is placed in the path of an accelerated beam of particles, as opposed to \emph{collider} 
+experiments where two accelerated beams are directed against each other, in opposite directions. The proton beam
+interacts with the target material and produces a variety of daughter particles. These daughter particles are 
+tracked through a forward spectrometer and selectively filtered dependent on the purpose of the study.
+
+The tuned and monitored 120 GeV proton beam is sent from the Fermilab Main Injector (MI) where the beam
+protons strike one of the 7 targets. The high-momentum charged particles that are produced are focused
+onto the various detectors with the solid iron dipole magnet, FMAG, or NM3S. 
+This solid focusing magnet also sweeps away low-momentum particles and acts as a beam dump / absorber.
+
+The SeaQuest Spectrometer consists of a focusing magnet to bend charged particles into the experiment's acceptance,
+several tracking chambers that record the positions of charged particles through the length of the spectrometer, and
+an analyzer magnet to bend the particles between tracking stations. The spectrometer measures particle momenta by
+recording the bend of each charged particle as it passed through the analyzer magnet, where the magnetic field is known.
+This is performed by reconstructing the trajectory of a particle in one half of the spectrometer (before the
+analyzer magnet) and then similarly reconstructing the trajectory of particles in the other half. If two 
+trajectories can be matched up, then the particle momentum can be extracted by taking the ratio of the 
+magnet's $p_T$-kick to the change in the track's direction.
+
+The spectrometer geometric design and event
+triggering selection is optimized to detect oppositely-charged pairs of muons while minimizing the sensitivity
+to various sources of unwanted backgrounds. Positive identification of muons is achieved by requiring signals
+in the hodoscopes for known muon \emph{"roads"} along with requiring signals in the proportional tubes located at
+the farthest end of the experiment, past an iron wall. Electrons and any hadrons are stopped by the solid iron
+focusing magnet an iron wall further down, while muons will pass through them unencumbered.
+
+The coordinate system is defined as the following: the \emph{z}-axis points along the beam direction, the
+\emph{y}-axis points upwards vertically, and the \emph{x}-axis lies along the horizontal direction
+in such a way that a right-handed coordinate system is formed. The terms \emph{upstream} and 
+\emph{downstream} are often used when referring directions or regions in the experimental hall.
+\emph{Upstream} often refers to the region of the experiment towards the beam source, while
+\emph{downstream} refers to everything towards the $+z$ direction. 
+The The origin of the coordinate system was chosen to be the point where the proton beam meets 
+the \emph{upstream}-facing surface of FMAG, the solid focusing magnet.
+
+
+\section{Main Injector Proton Beam}
+
+The beam is extracted in a \emph{"slow spill"} structure. "Slow" being that the spill lasts just under five seconds.  Typically, the time between spills is just over one minute.  Beam is extracted using a resonant process and the extracted beam retains the 53.1 MHz structure of the Main Injector RF.  Each bunch of protons is less than 2 ns long and the time between bunches is $\approx18.8$ ns.
+
+
+
+\subsection{Trigger Sensitivity to Instantaneous Intensity}
+The SeaQuest beam is not uniform in time throughout the slow spill.  There are beam bunches in the Main Injector that are intentionally left empty so that the abort kickers can ramp to full field during a gap in the beam and bunches left empty to allow the injection kickers to inject 8 GeV protons from the Fermilab Booster without disturbing bunches of protons already in the Main Injector.  Typically, 498 of the 588 ``RF buckets'' in the Main Injector contain protons during the SeaQuest slow spill cycle.  Unfortunately for SeaQuest, the intensity of the bunches corresponding to these 498 full buckets varies greatly throughout the slow spill.
+
+The SeaQuest trigger system is synchronized with the Main Injector RF and is sensitive only to interactions of a single bunch of protons.  The SeaQuest trigger is designed to accept events containing a high mass pair of oppositely charged muons.  Typically, this implies muon pairs in which both tracks have high transverse momentum.  The trigger uses hits in one scintillation counter hodoscope located upstream of the second spectrometer magnet and two hodoscopes located downstream of the second spectrometer magnet.  SeaQuest triggers mostly on fake dimuons identified using hits in the downstream hodoscopes caused by two low p$_T$ muons from unrelated pion decays, combined with hits in the upstream hodoscope from two other unrelated particles.  Since this type of fake trigger involves four unrelated particles, the probability that a trigger will occur increases with the fourth power of the number of protons in the triggering beam bunch.
+
+The SeaQuest data acquisition system can read out approximately 1000 events per second without significant dead time.  During the commissioning of SeaQuest, the trigger rate was very high and the trigger dead time was close to 100\%.  These triggers were taken at such high instantaneous luminosity that the occupancy of all SeaQuest detector elements was more than 50$\%$, making pattern recognition essentially impossible.  The Beam Intensity Monitor was designed to solve this problem.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.65\textwidth]{figures/SpillStructure.png}
+		\caption{The SeaQuest spill sub-structure.}
+		\label{fig:BIMCerenkov}
+	\end{center}
+\end{figure}
+
+\subsection{Beam Intensity Monitor}
+The SeaQuest Beam Intensity Monitor (BIM) senses when the beam intensity is above a programmable threshold. Once a too-large instantaneous intensity is measured, it sends a signal to inhibit certain triggers until the intensity falls to an acceptable level.  The inhibit threshold is tuned frequently as trigger and beam conditions change, but the inhibit threshold is typically set at approximately 95,000 protons per RF bunch. For reference, a full RF bucket at an intensity of $2\times10^{12}$ protons per spill is $\approx$10,000 protons.
+
+The beam intensity is measured using an atmospheric pressure gas Cerenkov counter. A gas mixture of 80$\%$ Argon and 20$\%$ CO$_2$ is used as the Cerenkov radiator. The counter and readout electronics were designed to have $O(ns)$ time resolution, and a linear response over a large dynamic range.  A diagram of the counter is shown in Figure~\ref{fig:BIMCerenkov}.  A 45 degree aluminized Kapton mirror directs light to a single photomultiplier tube.  A \emph{baffle} of black construction paper held parallel to the mirror ensures that the proton path length through the light-radiating gas with respect to the mirror is independent of beam position.  A two-inch diameter 8-stage photomultiplier tube (PMT) is positioned close to the mirror so that all Cerenkov light falls directly on the aperture of the PMT. It was observed during commissioning runs that after exposure to $\approx3\times10^{17}$ protons, the mirror reflectivity is significantly reduced in the beam spot, and the mirror then needs to be replaced.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{figures/BIMCerenkov.pdf}
+\caption{The Beam Intensity Monitor (BIM) Cerenkov counter.}
+\label{fig:BIMCerenkov}
+\end{center}
+\end{figure}
+
+The signal from the BIM is integrated and digitized using a custom \emph{QIE}\footnote{QIE stands for Charge (Q) Integrator and Encoder.} integrated circuit board, which comes from a family of circuits used first by the KTeV experiment at Fermilab\cite{QIE}.  The chip is clocked with the Main Injector RF clock and provides an ADC (analog-digital conversion) every 18.8ns clock cycle.  The light incident on the photomultiplier tube is attenuated using neutral density filters (NDF's) so that the QIE least count corresponds to $\sim$30 protons per beam bunch.  The QIE full scale corresponds to more than 3,000,000 protons per beam bunch. 
+
+In addition to inhibiting triggers when the instantaneous intensity is above threshold, the BIM readout module provides the information required to count the number of protons incident on the SeaQuest targets while the experiment is ready and able to trigger.  This information is needed to normalize SeaQuest cross section measurements.  The BIM readout module provides the following:
+\begin{itemize}
+\item QIESum (Sum for entire spill).
+\item Sum while inhibit is asserted at trigger logic.
+\item Sum during trigger dead time (excluding bunches inhibited while event is being read out).
+\item A snapshot of beam intensity close in time to the trigger (ADC measurements for 32 bunches before the trigger, the triggered bunch, and 32 bunches after the trigger).
+\item A complete record of the bunch-by-bunch intensity for the slow spill.
+\end{itemize}
+The timing of the inhibit signal and of all of the sums calculated by the BIM readout module are controlled using programmable registers.  The module is normally controlled using a 100 Mbps Ethernet interface.  All information other than the complete spill record is read out through the same Ethernet interface used to control the module.  One third of the complete spill information is also read out using this interface.  Two additional 100 Mbps Ethernet interfaces are used to read out the remainder of the complete spill information.  This readout occurs between spills.  The snapshot of beam intensity close in time to the trigger is also output on a twisted pair ribbon cable and is read out through the SeaQuest event data acquisition system.
+
+The linear range of the phototube and voltage divider was established using an LED pulser.  The largest (linear) dynamic range was found with a bias voltage of $\approx-$900V.  This agrees with vendor-provided information on the phototube performance.  The neutral density filters used to control the Cerenkov light yield allow the tube to be biased at $-$870V while providing signals of appropriate amplitude to match the QIE dynamic range.
+
+The BIM measurement of beam intensity is normalized using a Secondary Emission Monitor (SEM) located just upstream of the Cerenkov counter.  The SEM is calibrated by foil activation.  The linear dynamic range of the BIM measurement was also verified using the SEM.
+
+\section{The SeaQuest Targets}
+
+%%%
+% Description of the E906/SeaQuest target system - JR 2015
+
+% 20" upstream
+% range of 36" 
+
+The SeaQuest targets reside 50.8cm upstream of the face of the beam-dump/focusing magnet iron.  The general design and many parts of the target
+are inherited from the E866/NuSea experiment.   As depicted in Fig. \ref{fig:target} (left), the target system consists of two liquid targets, 
+three solid targets, and two positions for measuring background count rates -- an empty flask and an empty solid-target holder.  The targets are
+mounted on a remotely positionable table which translates in a direction perpendicular to the beam axis over a range of 91.4cm.
+The details of the target materials in the seven target positions are summarized in Table \ref{target-materials}.
+
+The $H_2$ gas used is "Ultra High Purity 5.0 Grade" or 99.999\% pure.  The deuterium has come from two different sources.  The first of these is a supply of gas at Fermilab left over from previous bubble chamber experiments.  This gas was known to have a small hydrogen contamination and was measured by mass spectroscopy to have a composition of 85.2\% D$_2$, 12.7\% HD, 1.2\% $^4$He, and 0.8\% H$_2$ by mole.  To simplify analysis and reduce the substantial cost of further gas analysis (as bottle-to-bottle variation in contamination is not well known), SeaQuest switched to commercially available ``Research Grade'' D$_2$ which is better than 99.6\% pure with virtually all HD to balance.
+
+%10'' apart to approximate the 20'' 
+%  more closely spaced (6.73'').
+
+Each of the three solid target positions is divided into three disks of 1/3 the total thickness provided in Table \ref{target-materials}.  These are spaced 25.4cm apart to approximate the distribution of the liquid target thereby minimizing target-dependent variation in spectrometer acceptance.  The one exception to this is that during the Run II period the iron plugs were more closely spaced (17.1cm).
+
+\begin{center}
+	\begin{table}
+	\begin{tabular}{c c c c c c c}
+	 \parbox{1.5cm}{\centering{~\\Position} } & \parbox{1.5cm}{\centering{~\\Material} }  &\parbox{1.5cm}{\centering{Density\\{[g/cm$^3$]}} }  &  \parbox{1.75cm}{\centering{Thickness\\{[cm]}} }& \parbox{2cm}{\centering{Interaction\\Length} }&  \parbox{1.5cm}{\centering{Spills/\\Cycle} } \\ [0.5ex] \hline
+	1 &    $H_2$  & 0.071      & 50.8 & 0.069 &10 & \\
+	2 & Empty Flask& NA  & NA  & 0.0016 &2 & \\
+	3 &    $D_2$    &0.163    & 50.8 & 0.12&5 & \\
+	4 & No Target    & NA  & NA &  0 & 2 & \\
+	5 &    Iron          &7.87  & 1.905 & 0.114 &1    & \\
+	6 & Carbon       &1.80  & 3.322 & 0.070 &2  & \\
+	7 & Tungsten    &19.30  & 0.953 & 0.096 & 1 & \\ [0.5ex] \hline
+	\end{tabular}
+	\caption{Characteristics of the seven SeaQuest target positions.  The "Spills/Cycle" should be regarded as a typical configuration.  It can vary in response to sample balancing needs and running configurations.  The non-zero interaction length of the empty flask is due to the 51$\mu$m-thick stainless steel end-caps of the flask and the 140 $\mu$m-thick titanium windows of the vacuum vessel that contains it.}
+	\label{target-materials}
+	\end{table}
+\end{center}
+
+\section{Focusing and Analyzing Magnets}
+
+
+Central to the spectrometer are two large dipole magnets.  The most upstream magnet, denoted FMag, is a solid iron A-frame magnet assembled 
+from 43.2cm x 160cm x 503cm iron slabs, as shown in Fig.~\ref{fig:FMag}. The iron was recovered from the dismantled Columbia University 
+Nevis Laboratory Cyclotron in 1980~\cite{NevisCyclotron}.  The magnet has no air gap and the iron has extremely high purity, allowing a 
+2000A excitation current to generate a central magnetic field of 1.9 Tesla (yielding a 2.8 GeV total magnetic deflection). FMag uses one 
+of the three sets of \emph{"bedstead"} coils recovered from the dismantled E866 SM3 
+magnet~\cite{PhysRevD.43.2815, PhysRevLett.64.2479, PhysRevLett.80.3715, Towell:2001nh}.  
+The coils are made from 5cm square extruded Aluminum.  They are excited to 2000 Amps at 25 Volts (50 kW). 
+ The current exciting FMag is monitored by the Fermilab accelerator control system and is broadcast to the SeaQuest slow data acquisition 
+ system every acceleration cycle.  The excitation is also input to the safety system to prevent beam from hitting the E906 spectrometer when 
+ FMag is not fully excited. The magnetic field distribution in FMag was modeled using a magnetostatic modeling program.  The excitation was 
+ checked by wrapping a 1-turn coil around the central region of the magnet and integrating the charge induced as the magnet is energized.
+ The final calibration of the magnetic field is determined by examining the reconstructed mass of the $J/\psi$(3097) resonance. FMag also acts 
+ as the beam dump for the 120 GeV beam delivered to the SeaQuest spectrometer.  There is a 5cm diameter by 25cm deep reentrant hole drilled into 
+ the upstream end of FMag.  The 120 GeV protons in the beam, that do not interact in the SeaQuest targets 125cm upstream of FMag, interact in the 
+ central  43.2cm x 160cm x 503cm iron slab.  Most of the 2.0 kW beam power is dissipated in this slab and is eventually conducted to the coils and 
+ the external surfaces of FMag to be radiated away.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=8cm]{figures/FMAG}
+	\caption{Perspective drawing of FMag showing the arrangement of the iron slabs. \label{fig:FMag}}
+\end{figure}
+
+The downstream magnet, denoted KMAG, is a 300cm long iron rectangular magnet with a 289cm wide by 203cm high central air gap.  It was originally 
+%constructed by the E799/KTeV collaboration~\cite{PhysRevD.67.012005} at Fermilab.  It is excited to a central field of 0.4 Tesla (0.41 GeV 
+magnetic deflection) by 1600 Amps at 270 Volts (430kW).  The spatial distribution of the magnetic field in KMAG was measured by the KTeV group.  
+SeaQuest checked the central field calibration with a Hall probe.  The final value for the magnetic field again derives from the measurement of 
+the exact mass of the $J/\psi$(3097) resonance.   In normal running conditions, both FMag and KMAG bend muons horizontally in the same direction.  
+This simple two- magnet configuration is often referred to as a focusing spectrometer.
+
+
+\section{Triggering Hodoscopes}
+
+Hodoscope planes were located at each of the four detector stations and were used
+to trigger on dimuon events. Each hodoscope plane was split into two half-planes
+(top and bottom, or left and right) of parallel scintillator paddles attached to pho-
+tomultiplier tubes by plexiglass light guides. Station 1, 2 and 4 each had two ho-
+doscope planes, with their paddles oriented in the x and y directions respectively.
+Station 3 had only one hodoscope plane, with its paddles oriented perpendicular to
+the floor. The hodoscope planes were named according to the tracking station they
+belonged to, preceded by “T” or “B” ( “L” or “R”). H indicates horizontal pad-
+dles which measure Y position while V indicates vertical paddles which measure X
+position. For example, T, B, L and R stand for top, bottom, left and right. “H1T
+hodoscope” (“H1L hodoscope”) referre to the Station-1 hodoscope plane in which
+23 (23) scintillator detectors were positioned horizontally on the top (left w.r.t. the
+beam direction) side. The detailed specifications of the eight hodoscope planes are
+given in Table 3.2. A precise alignment of the hodoscopes was achieved by exam-
+ining the distributions of positions of muon tracks at each hodoscope plane when a
+given hodoscope in that plane was fired.
+
+\section{Tracking Chambers}
+
+\subsection{Overall structure}
+
+Each of Stations 1, 2 and 3 is equipped with a drift chamber (DC)
+%to measure the trajectory of muons.
+to measure the passing $x$ and $y$ positions of muons at its $z$ location.
+The trajectory of muons are reconstructed with the measured positions,
+as described later.
+The DCs at Stations 1 and 2 are called ``DC1'' and ``DC2'', respectively.
+Two DCs at Station 3 cover the top and bottom halves,
+and are called ``DC3p'' and ``DC3m''
+where ``p'' and ``m'' stand for ``plus'' and ``minus''.
+
+The basic structure is common to all the chambers.
+Each DC consists of six planes of sense wires.
+Wires are aligned in the vertical direction
+in two planes called ``X'' and ``X$^\prime$''.
+Wires are tilted
+by $+14$ degrees in other two planes called  ``U'' and ``U$^\prime$'', and
+by $-14$ degrees in the other two planes called ``V'' and ``V$^\prime$''.
+The wires in the primed planes are offset by half the drift cell size
+to resolve the left-right ambiguity of drift direction.
+Every wire plane is flat vertical to the $z$ axis, and a drift cell is of the box shape.
+Table~\ref{table:cham:param} summarizes the parameters of the DCs.
+DC1 and DC3m have been upgraded during the data taking,
+as listed in Tab.~\ref{tab:cham:comb}.
+
+The gas mixture for DC1.2 is Argon:CF4:Isobutane:Methylal
+(68\%:16\%:13\%:3\%), % (68.5\%:16\%:13\%:2.5\%)
+with which the drift velocity is larger than 50 $\mu$m/ns (i.e.~fast gas)
+and thus the hit-rate tolerance is better.
+The gas mixture for the other chambers is
+Argon:Methane:CF4 (88\%:8\%:4\%).
+
+\begin{table}[bthp]\centering
+  \caption{Parameters of all chambers.
+    Those of primed planes are almost the same as of unprimed planes.
+    The $z$-positions of U and V planes are relative to those of X planes.
+  }
+  \label{table:cham:param}
+  \begin{tabular}{cc|cccc}
+    \hline
+    Chamber & Plane & Number   & Cell  & Width            & $z$-position \\
+            &       & of wires & width & $\times$ height  &      \\ 
+            &       &          & (cm)  & (cm)             & (cm) \\ 
+    \hline
+    DC1.1    & X     & 160      & 0.64  & 102 $\times$ 122 &  617    \\
+             & U, V  & 201      & 0.64  & 101 $\times$ 122 & $\pm$20 \\
+    DC1.2    & X     & 320      & 0.50  & 153 $\times$ 137 &  617    \\
+             & U, V  & 384      & 0.50  & 153 $\times$ 137 & $\pm$1.2 \\
+    DC2      & X     & 112      & 2.1   & 233 $\times$ 264 & 1347    \\
+             & U, V  & 128      & 2.0   & 233 $\times$ 264 & $\pm$25 \\
+    DC3p     & X     & 116      & 2.0   & 232 $\times$ 166 & 1931    \\
+             & U, V  & 134      & 2.0   & 268 $\times$ 166 & $\pm$6  \\
+    DC3m.1   & X     & 176      & 1.0   & 179 $\times$ 168 & 1879    \\
+             & U, V  & 208      & 1.0   & 171 $\times$ 163 & $\pm$19 \\
+    DC3m.2   & X     & 116      & 2.0   & 232 $\times$ 166 & 1895    \\
+             & U, V  & 134      & 2.0   & 268 $\times$ 166 & $\pm$6  \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[bthp]\centering
+  \caption{Combination of chambers per data taking period.}
+  \label{tab:cham:comb}
+  \begin{tabular}{ccc}
+    \hline
+    Run & Period & Chamber combination \\
+    \hline
+    1 & 2012 Mar.-2012 Apr.  &  DC1.1-DC2-DC3p-DC3m.1 \\
+    2 & 2013 Nov.-2014 Aug.  &  DC1.1-DC2-DC3p-DC3m.2 \\
+    3 & 2014 Nov.-2015 May   &  DC1.1-DC2-DC3p-DC3m.2 \\
+    3 & 2015 Jun.-2015 Jul.  &  DC1.2-DC2-DC3p-DC3m.2 \\
+    4 & 2015 Sep.-2016 $X$   &  DC1.2-DC2-DC3p-DC3m.2 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Performance requirement}
+
+The acceptance size of each chamber has been adjusted with
+a Drell-Yan event simulation
+in order to be as sensitive as possible to the $x_2$ range of interest.
+Particularly the wider the acceptance width is,
+the higher the reach in $x_2$ is.
+
+The position resolution of every single plane is required to be 400 $\mu$m.
+It corresponds to a momentum resolution of
+$\Delta p / p$ (\%) $= 0.03 \cdot p$ (GeV/$c$).
+The resolution of dimuon invariant mass is dominated by
+the multiple scattering in FMag, 
+since the chamber momentum resolution is about 10\% of the total mass resolution at maximum.
+Therefore this requirement is not more strict than the others.
+
+The detection efficiency of every single plane is required to be 95\% or more.
+In the track reconstruction, 
+if a track is required to associate with five planes out of six per every chamber,
+the reconstruction efficiency of a track is 90\%,
+which is thought to be acceptable.
+
+The hit-rate tolerance is a key feature because
+the spectrometer is exposed to a large number of background particles.
+It is particularly significant for the most-upstream station (i.e.~Station 1).
+The hit rate is maximum at the edge of chamber acceptance.
+As extracted from experimental data,
+%Using the random-RF events,
+it is 3.0 MHz/wire at DC1, 1.6 MHz/wire at DC2 and 0.7 MHz/wire at DC3
+with a beam intensity of $5\times10^{12}$ protons/spill.
+%According the Geant4 simulation,
+%it is 4.0 MHz/wire at DC1, 2.5 MHz/wire at DC2 and 0.7 MHz/wire at DC3.
+The gas-amplification gain should not be degraded under these hit rates.
+The probability of double hits per wire per event should be low enough.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Constructions}
+
+The DC1.1, DC2 and DC3m.1 chambers have been inherited from
+E605 (DC2 and DC3m.1)~\cite{PhysRevD.43.2815} and E866/NuSea (DC1.1)~\cite{PhysRevLett.80.3715, Towell:2001nh}, previous Drell-Yan experiments based at Fermilab.
+Since these chambers haven't been used for decades after the previous experiment, 
+they had to be refurbished
+by restringing a large fraction (30\% of sense wires in these chambers)
+of broken and loose wires with wires of appropriate tension
+and by attaching new readout electronics.
+%The repair work span over few months since the new wires were manually
+%strung using a special tool (pulley) to ensure holding each wire to its appropriate
+%tension before soldering it to its permanent electronics trace.
+
+The DC3p and DC3m.2 chambers were designed and constructed for this experiment
+in order to cover the large acceptance required at Station 3.
+The first part of data taking, Run 1, was carried out with DC3m.1
+while preparing for the construction of DC3m.2.
+%DC3m.2 was installed during the scheduled accelerator shutdown.
+As DC3m.2 is wider than DC3m.1 by 25 cm at each side,
+the anticipated statistics on $\bar{d}/\bar{u}$ will increase
+by 20\% at $x_2 \sim 0.3$ and 10\% at $x_2 \sim 0.4$.
+The operational stability has been greatly improved;
+no dead/noisy wire, no HV trip and no leak current.
+
+The DC1.2 chamber was also designed and constructed for this experiment.
+As it is wider than DC1.1 by 25 cm at each side,
+the anticipated statistics on $\bar{d}/\bar{u}$ will increase
+by ??\% at $x_2 \sim ??$.
+In addition, with the smaller cell width it has a better hit-rate tolerance.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\subsection{Electronics}
+
+The SeaQuest wire chamber readout system uses a custom amplifier-discriminator integrated circuit called ASDQ designed at U. Penn. for CDF \cite{ASDQ}.  8-channel ``ASDQ cards'' are mounted on each wire chamber.  On DC2 and DC3, copper grounding card guides\footnote{Unitrack ``Ground-R-Guide,'' see http://www.unitrack.com/metal\_card\_guide-ground-r-guide.html.} connected to the chamber frames provide both mechanical support and the reference voltage for the ASDQ inputs.  Except in DC1.1, all cathode wires are biased with negative high voltage and the anode wire signals are DC coupled to the ASDQ inputs.  DC1.1 uses positive HV applied to the anode wires.  The signals from these chambers are AC coupled to the ASDQ inputs through high voltage blocking capacitors that are integral to the chambers.
+
+A single twisted pair ribbon cable connects each ASDQ card to a Level Shifter Board (LSB).  This cable carries the (differential) discriminated output signals and also the bias voltages for the ASDQ as well as a discrimination threshold voltage and other control voltages.  Each LSB services 8 ASDQ cards.  Up to 14 LSBs are housed in a 9U crate that distributes 24V power to the LSBs on a narrow backplane.  The 24V is provided by a rack mounted linear power supply connected by a cable bundle to the LSB crate backplane.  Multiple LSB crates can be serviced by a single power supply.  One LSB per station is controlled using an Ethernet interface.  Control of the other LSBs at that station occurs using a two pair serial protocol implemented using short RJ11 cables linking one LSB to the next.  A test pulse can also be injected to selected groups of channels.  The timing of the test pulse can be determined by a TTL pulse distributed to the LSBs using a daisy-chain of LEMO cables, or independently by each ASDQ card being tested.
+
+Eight 17-pair ribbon cables connect eight ASDQ cards to the back side of a single LSB.  The LSB converts the differential signals from the ASDQs to standard LVDS.  The LVDS outputs are carried on 4 ribbon cables to TDC modules.  Typically, one 64-channel LSB is connected to one corresponding 64-channel TDC. The ASDQ/LSB system was designed at Fermilab for SeaQuest.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Measurement of Performance}
+
+Table \ref{tab:cham:performance} summarizes the performance of all the DCs.
+The performance of DC1.2 is of anticipated values based on simulations
+because DC1.2 is being constructed.
+Those of the other DCs are of measured values in Run 3.
+
+Figure \ref{fig:cham:eff} shows the detection efficiency of all 18 planes.
+All planes of DC3p and DC3m.2 are nearly 100\% efficient.
+Several planes of DC1.1 and DC2 are less efficient,
+because the high voltages of these planes were set lower
+to prevent occasional power supply trips.
+All the planes have been proven to meet the requirement.
+The efficiency of DC1.2 hasn't been measured yet.
+
+Figure \ref{fig:cham:reso} shows the position resolution of all 18 planes.
+The resolutions of all planes are on average 500 $\mu$m.
+All the planes have been proven to meet the requirement.
+The resolution of DC1.2 hasn't been measured yet.
+
+Regarding the hit-rate tolerance,
+the probability of double hits per wire per event is estimated to be xx\% on average,
+based on the measured hit rate per wire.
+Analysis techniques to resolve the double hits are being examined.
+
+\begin{figure}\centering
+  \begin{minipage}[t]{0.50\linewidth}
+    \includegraphics[width=\linewidth]{figures/cham_eff.pdf}
+    \caption{Single-plane efficiency.
+      {\it This plot is NOT final.  Should we show those of DC3m.1?
+        Should we use a table instead of plot?}
+    }
+    \label{fig:cham:eff}
+  \end{minipage}
+  \begin{minipage}[t]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{figures/cham_reso}
+    \caption{Single-plane position resolution.
+      {\it This plot is NOT final.
+        The horizontal axis has to be converted to drift distance.
+        If the resolution of all chambers/planes is rather constant,
+        we should use a table instead of plot.
+    }}
+    \label{fig:cham:reso}
+  \end{minipage}
+\end{figure}
+
+\begin{table}[bthp]\centering
+  \caption{Performance of all DCs.
+    That of DC1.2 is of anticipated values based on simulations,
+    and those of the others are of measured values in Run 3.}
+  \label{tab:cham:performance}
+  \begin{tabular}{c|cccc}
+    \hline
+    Chamber & Drift       & Maximum    & Position   & Plane \\
+            & velocity    & drift time & resolution & efficiency \\
+            & ($\mu$m/ns) & (ns)       & ($\mu$m)   & (\%) \\ 
+    \hline
+    DC1.1   &    30       &     100    &   500??    & 98\%?? \\
+    DC1.2   &    n/a      &     n/a    &   n/a      & n/a    \\
+    DC2     &     5       &     200    &   500??    & 98\%?? \\
+    DC3p    &     5       &     200    &   500??    & 98\%?? \\
+    DC3m.1  &     5       &     100??  &   500??    & 98\%?? \\
+    DC3m.2  &     5       &     200    &   500??    & 98\%?? \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Mass Resolution}
+
+The mass resolution of the spectrometer is limited by the resolution of the tracking chambers.
+First the momentum resolution can be derived from the respective positions of the chambers and the
+resolutions of the individual chambers:
+\begin{equation}
+\frac{\Delta P}{P} = \frac{P}{P_{kick}} \sqrt{\Delta r_1 ^2 + \left( 1 + \frac{z_1 - z_2}{z_2 - z_3} \right) \Delta r_2^2 +
+	\left( \frac{z_1 - z_2}{z_2 - z_3} \right)^2 \Delta r_3^2 }
+\end{equation}
+where $z_n$ is the z-position of the \emph{n}th station, and $\Delta r_n$ is
+the resolution of the \emph{n}th chamber.
+
+There are two other additional factors that contribute to the momentum resolution: 
+
+
+\section{Triggering Matrices}
+
+The SeaQuest Trigger System selects candidate dimuon events from the high-rate environment using discriminated hodoscope signals. 
+
+\subsection{Requirements}
+%*select drellyan dimuons with acceptable efficiency*
+The trigger must select events of interest to the main physics goals with high-enough efficiency to facilitate high-statistics analyses.
+Therefore, the trigger is optimized to accept high-mass ($4-10$GeV) dimuons originating from the targets.
+The trigger should intentionally reduce acceptance of dimuons from other, higher-rate sources, such as $J/\Psi$ decays and dimuons originating from the beam-dump.
+The overall trigger rate must be kept low enough to maintain an acceptable DAQ livetime.
+%*keep DAQ livetime high by minimizing trigger rate*
+Additionally, the trigger should be internally deadtime-free. The trigger should be capable of firing on any and all RF-buckets while the DAQ is live.
+%*internally deadtime free*
+\par
+The trigger should be sufficiently flexible to quickly accomodate changes in the spectrometer, beam conditions, and physics goals.
+Any changes to the geometric acceptance of the spectrometer, whether caused by new/moved detectors, changes in the magnetic fields, or something else, must be immediately reflected in the trigger in order to maintain high-signal efficiency and high background rejection power.
+Similarly, a change in the beam duty factor or intensity should be accompanied by a change in the trigger acceptance, ensuring trigger rate optimization.
+Finally, the trigger should be capable of modifying the acceptance to facilitate special runs for other physics goals.
+For these reasons, the design of the trigger system must allow for significant flexibility in the trigger-imposed acceptance.
+%*flexibility*
+\par
+Lastly, the design of the trigger system should include self-diagnostic capabilities, allowing for constant monitoring of the trigger system's performance.
+Internal pulser-testing is employed to test the function of each compiled firmware, every time the trigger logic changes.
+Data from the internal TDCs is used by offline software to check the self-consistency of the trigger for each recorded physics event.
+%*self-diagnostics (internal TDCs, internal pulser test)*
+
+
+\begin{table}[bthp]\centering
+  \caption{Performance of all DCs.
+    That of DC1.2 is of anticipated values based on simulations,
+    and those of the others are of measured values in Run 3.}
+  \label{tab:cham:performance}
+  \begin{tabular}{c|ccc}
+    \hline
+    Trigger & Condition       & Sign    & \#$\mu$ \\
+    \hline
+    FPGA-1   &    T $\land$ B, 3-of-4    &   $+\land-$    &   2 \\
+    FPGA-2   &    T $\lor$ B, 3-of-4      &  $+\lor-$       &  1 \\
+    FPGA-3     &  T, 3-of-4       &    $+\lor-$   &   1  \\
+    FPGA-4    &   B, 3-of-4       &    $+\lor-$    &   1 \\
+    FPGA-5  &     T $\land$ B, 3-of-4       &     Any  &   2  \\
+    NIM-1  &     T $\land$ B, 4-of-4       &     NA    &   NA   \\
+    NIM-2  &     T $\land |$ B, X3-X4       &     NA    &   NA   \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{Data Acquisitioning Systems}
+
+\section{Data Productions}
+
+\subsection{Production Processing}
+
+The three raw outputs of the data acquisition systems, as described above are (1) Main DAQ CODA files, (2) Scaler DAQ CODA files, and (3) Beam DAQ ASCII files.
+
+Each raw data file corresponds to the data taken from certain subsystems over approximately one to two hours of running time. These three types require varying degrees of de-serialization, parsing, processing, and storage -- a process as a whole defined as \emph{decoding}. 
+
+All raw data files are backed up to long-term tape storage (managed by FNAL Computing Division), and the decoded and processed data gets stored on one of four MySQL servers to be used for analysis by the collaboration. Data is also output to a ROOT file for the ease of use of one of the two independent tracking programs.
+
+Contiguous blocks of decoded and tracked data is then grouped together into \emph{merged} productions, available on all MySQL servers, providing collaborators large sets of curated and easily analyzable data.
+
+\subsection{Decoding Raw Data}
+
+The CODA file decoding is nearly identical for MainDAQ and ScalerDAQ, and only differ by content; the MainDAQ contains TDC readout. For each one to two hour \emph{Run}, the CODA files can be well-described as the following sequence of events (and the data they contain):
+\begin{enumerate}
+	\item Prestart Event (Run data)
+	\item Begin Spill Event (Spill data, Scaler readout)
+	\item Many Physics Events (Event data, TDC readout)
+	\item End Spill Event (Spill data, Scaler readout)
+	\item SlowControl Event (Slow control readout, Spill ID readout)
+	\item Spill Counter Event (Spill ID readout) \newline ...(Repeat 2-6 for each \emph{Spill})
+	\item End Event
+\end{enumerate}
+
+Our decoding program uses C and C++ in conjunction with Jefferson Lab's CODA I/O library to read these events and parse them according to their individual formats. Data from these CODA events are decoded and placed into hierarchical categories.
+
+\subsubsection{Run Level Data}
+Run-level data contains data and metadata pertaining to the entirety of the run that is recorded. At the time of the Prestart Event, the date and time of the run are stored, along with a readout of the specific settings of all non-trigger TDC boards.
+
+After the End Event is encountered, metadata is aggregated and stored regarding such items as the number of chamber hits, the triggers that were fired, the target positions used, average magnet currents, and other useful metrics. 
+
+\subsubsection{Spill Level Data}
+The \emph{Beginning of Spill} (BOS) and \emph{End of Spill} (EOS) events bookend the set of physics events for a given spill. At each BOS and EOS events, the 140 MHz VME scalers are read out. At the beginning of the spill, all scalers should be zeroed out, and then read out again after the spill has ended.
+
+Slow Control events are read out between spills, which contain data regarding the current spill identifier number, target systems, beam and radiation monitors, and environmental readings.
+
+The spill identifier (\emph{spillID}) is what is used to synchronize the data together across various data acquisition systems. As such, the \emph{spillID} is read out redundantly in both Slow Control and Spill Counter events (which contain only the \emph{spillID} value) to ensure that the data is appropriately labeled.
+
+When the End Event is reached, the independently-recorded Beam DAQ data (recorded in an ASCII file) is read and stored with the rest of the Spill-level data.
+
+\subsubsection{Event Level Data}
+For each spill, $\sim3k$ events are triggered to be recorded. With each event, three types of information is stored: the trigger which fired the event, a measure of the beam intensity per RF bucket, and the full detector readouts.
+The detector readouts require the most processing of all the rest of the data. The CODA files contain the hardware addresses of each detector \emph{hit}, along with a \emph{TDC time}. The following steps briefly summarize the processing steps:
+\begin{enumerate}
+	\item Mapping: Map the hardware address to a detector name and detector element number
+	\item Timing: Classify hits as in-time or not and calculate \emph{drift time} from TDC time
+	\item R-T (time-to-space): Translate \emph{drift time} to \emph{drift distance}
+	\item After-Pulse Elimination: Remove hits that result from signal reflection and other electronic artefacts
+	\item Trigger Road Reconstruction: Use \emph{v1495} TDC hits to reconstruct possible trigger roads that may have fired
+	\item Hodoscope Masking: Remove drift chamber hits that have no adjacent hodoscope hit
+	\item Trigger Road Masking: Same as hodoscope masking, but only using hodoscopes from reconstructed trigger roads
+\end{enumerate}
+This fully processed data is then stored into one the experiment's MySQL databases.
+
+%%%%%%%%%%%%%%%%
+
+\subsection{Online and Offline Processing}
+
+There are two modes of productions: on-line and off-line productions. For on-line productions, all Run- and Spill-level data is decoded, but only 1-in-$n$ Physics Events are processed, where $n$ is typically $15$. This \emph{"sampling mode"} is used in order for the decoding to reliably keep up with even high-intensity beam data.
+
+For off-line productions, a large group of categorically similar runs is defined, and the chain of production processing is initiated. The steps of this process is generally emph{decoding, tracking, archiving, and merging}.
+
+The decoding and tracking is performed on Fermilab Computing Service's FermiGrid, which provides the computing resources necessary to process hundreds of runs simultaneously.
+
+A single decoding job submission will output the processed data to one of the four available MySQL servers and also to a ROOT file. Then, one job will be submitted to run one of the two tracking programs on the ROOT file, while another job is submitted to run the other tracking program on the MySQL data.
+
+Once the tracking is completed, the ROOT file and the \emph{Hit} table from the MySQL production is archived on the Fermilab BlueArc NAS backup system for future use, if necessary.
+
+Upon the completion of decoding and tracking of a specified range of runs, all of their Run-, Spill-, and Event-level data, along with its tracked data, is combined into a single \emph{merged} schema. These \emph{merged} schemas are mirrored across all four of the MySQL servers for optimal redundancy and availability.
+
+\section{RDBMS Data Structure}
+
+The processed data is primarily stored in MySQL Server 5.1 databases. MySQL is an open-source \textbf{R}elational \textbf{D}ata\textbf{b}ase \textbf{M}anagement \textbf{S}ystem (RDBMS) developed by Oracle that is well-suited for the storage and responsive querying of hierarchical data.
+
+Each run is decoded into its own schema, and contains its own instances of all tables of a specified design. The tables are all \emph{join}-able to each other by sharing \emph{foreign keys} with each other in the form of the \emph{runID}'s, \emph{spillID}'s, and \emph{eventID}'s. The contents of the tables are \emph{indexed} in such a way that \emph{joins} and queries gain a speed performance boost, but this comes at the cost of disk space.
+
+The data on the server is world-wide accessible and can be queried using the standard querying language. The queried data can be directed to any analysis code in any programming language due to the large array of MySQL API's available.
+
+\section{Data Quality}
+

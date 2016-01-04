@@ -1,0 +1,15 @@
+*.nav
+*.snm
+*.bbl
+*.lof
+*.lot
+*.zip
+*.toc
+*.aux
+*.log
+*.out
+*.blg
+*.synctex.gz
+*.pyc
+.idea*
+.my.cnf*
