@@ -50,24 +50,28 @@ the \emph{upstream}-facing surface of FMAG, the solid focusing magnet.
 
 \section{Main Injector Proton Beam}
 
-The beam is extracted in a \emph{"slow spill"} structure. "Slow" being that the spill lasts just under five seconds.  Typically, the time between spills is just over one minute.  Beam is extracted using a resonant process and the extracted beam retains the 53.1 MHz structure of the Main Injector RF.  Each bunch of protons is less than 2 ns long and the time between bunches is $\approx18.8$ ns.
+%% January 7th begin
+
+The Fermilab Main Injector (MI) receives protons that have been accelerated by the Radio Frequency Quadrupoles (RFQ), the Linear Accelerator (LINAC), and the Booster, and it continues to accelerate them from 8 GeV up to the nomimal energy of 120 GeV. Along the way, the radio-frequency cavity (RFC) accelerators in the LINAC and the MI ``bunches'' up the protons such that the beam has its characteristic 53.1 MHz structure. After the period of acceleration, the protons are then 'scraped off' slowly with each passing \emph{turn} of the collected proton beam and sent down the Neutrino-Muon (NM) beam delivery line for approximately five seconds of every minute, called a ``slow spill'', or just ``spill''. Beam is extracted using a resonant process, and the extracted beam retains the 53.1 MHz structure of the Main Injector RFC. Each bunch, or ``bucket'' of protons is less than 2 ns long and the time between bunches is approximately 18.8ns. The spill structure of the beam is depicted in greater detail in Figure \ref{fig:SpillStructure}.
+
+The beam sent to SeaQuest is not uniform in time throughout the spill (in more ways than one).  There are beam bunches in the Main Injector that are intentionally left empty so that the abort kickers can ramp to full field during a gap in the beam. There are also bunches left empty to allow the injection kickers to inject 8 GeV protons from the Booster without disturbing bunches of protons already in the Main Injector.  Typically, 498 of the 588 ``RF buckets'' in the Main Injector contain protons during the SeaQuest slow spill cycle.  It is the case, however, for SeaQuest, that the intensity of the bunches corresponding to these 498 full buckets varies greatly throughout the slow spill. On \emph{average}, each bucket will have \emph{O}($10^4$) protons, and the spill has an intensity of approximately $2\times10^{12}$ protons/s and therefore about $1\times10^{13}$ protons delivered per spill.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.65\textwidth]{figures/SpillStructure.pdf}
+		\caption{The SeaQuest spill sub-structure.}
+		\label{fig:SpillStructure}
+	\end{center}
+\end{figure}
 
 
 
 \subsection{Trigger Sensitivity to Instantaneous Intensity}
-The SeaQuest beam is not uniform in time throughout the slow spill.  There are beam bunches in the Main Injector that are intentionally left empty so that the abort kickers can ramp to full field during a gap in the beam and bunches left empty to allow the injection kickers to inject 8 GeV protons from the Fermilab Booster without disturbing bunches of protons already in the Main Injector.  Typically, 498 of the 588 ``RF buckets'' in the Main Injector contain protons during the SeaQuest slow spill cycle.  Unfortunately for SeaQuest, the intensity of the bunches corresponding to these 498 full buckets varies greatly throughout the slow spill.
 
-The SeaQuest trigger system is synchronized with the Main Injector RF and is sensitive only to interactions of a single bunch of protons.  The SeaQuest trigger is designed to accept events containing a high mass pair of oppositely charged muons.  Typically, this implies muon pairs in which both tracks have high transverse momentum.  The trigger uses hits in one scintillation counter hodoscope located upstream of the second spectrometer magnet and two hodoscopes located downstream of the second spectrometer magnet.  SeaQuest triggers mostly on fake dimuons identified using hits in the downstream hodoscopes caused by two low p$_T$ muons from unrelated pion decays, combined with hits in the upstream hodoscope from two other unrelated particles.  Since this type of fake trigger involves four unrelated particles, the probability that a trigger will occur increases with the fourth power of the number of protons in the triggering beam bunch.
+The SeaQuest trigger system is synchronized with the Main Injector RF and is sensitive only to interactions of a single bunch of protons.  The SeaQuest trigger is designed to accept events containing a high mass pair of oppositely charged muons.  Typically, this implies muon pairs in which both tracks have high transverse momentum.  The trigger uses hits in one scintillation counter hodoscope located upstream of the second spectrometer magnet and two hodoscopes located downstream of the second spectrometer magnet.  SeaQuest triggers mostly on fake dimuons identified using hits in the downstream hodoscopes caused by two low $p_T$ muons from unrelated pion decays, combined with hits in the upstream hodoscope from two other unrelated particles.  Since this type of fake trigger involves four unrelated particles, the probability that a trigger will occur increases with the fourth power of the number of protons in the triggering beam bunch.
 
 The SeaQuest data acquisition system can read out approximately 1000 events per second without significant dead time.  During the commissioning of SeaQuest, the trigger rate was very high and the trigger dead time was close to 100\%.  These triggers were taken at such high instantaneous luminosity that the occupancy of all SeaQuest detector elements was more than 50$\%$, making pattern recognition essentially impossible.  The Beam Intensity Monitor was designed to solve this problem.
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=0.65\textwidth]{figures/SpillStructure.png}
-		\caption{The SeaQuest spill sub-structure.}
-		\label{fig:BIMCerenkov}
-	\end{center}
-\end{figure}
 
 \subsection{Beam Intensity Monitor}
 The SeaQuest Beam Intensity Monitor (BIM) senses when the beam intensity is above a programmable threshold. Once a too-large instantaneous intensity is measured, it sends a signal to inhibit certain triggers until the intensity falls to an acceptable level.  The inhibit threshold is tuned frequently as trigger and beam conditions change, but the inhibit threshold is typically set at approximately 95,000 protons per RF bunch. For reference, a full RF bucket at an intensity of $2\times10^{12}$ protons per spill is $\approx$10,000 protons.
