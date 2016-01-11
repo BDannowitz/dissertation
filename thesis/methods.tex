@@ -81,9 +81,11 @@ has an intensity of approximately $2\times 10^{12}$ protons per second and there
 Several guiding and focusing magnets bend and deliver beam to the NM beamline which serves both the test beam facility and SeaQuest at NM4.
 The beam is focused to a width of 250$\mu$m. The profile, position, and intensity are measured along the NM beamline by several detectors.
 The intensity of the beam is monitored by an ion chamber (IC) and a secondary emission monitor (SEM) in the NM3 sector. The beam profile
-and position are monitored by segmented wire ion chambers (SWICs) and beam-position monitors (BPMs), respectively. The Accelerator Control Network
-(ACNET) display of the SWIC readout can be seen in Figure \ref{fig:Profile}. The closest BPMs and SWICs to the spectrometer were located in NM2
-enclosure. The profile of the beam by the time it reached the targets was approximately 6mm wide by 1mm high during data taking.
+and position are monitored by SWICs and beam-position monitors (BPMs), respectively. The Accelerator Control Network
+(ACNET) display of the SWIC readout can be seen in Figure \ref{fig:Profile}. The closest BPMs and SWICs to the spectrometer were
+located in NM2 enclosure. The beam profile does not maintain its 250$\mu$m shape, and spreads slightly as it moves towards the
+spectrometer. The final beam profile is measured by inspecting the upstream-facing side of the solid targets, and it was found
+to be approximately 6mm wide by 1mm high.
 
 \begin{figure}
 	\begin{center}
@@ -93,61 +95,77 @@ enclosure. The profile of the beam by the time it reached the targets was approx
 	\end{center}
 \end{figure}
 
-\subsection{Trigger Sensitivity to Instantaneous Intensity}
+\section{Beam Intensity Monitor}
 
-The SeaQuest trigger system is synchronized with the Main Injector RF and is sensitive only to interactions of a single bunch
-of protons.  The SeaQuest trigger is designed to accept events containing a high mass pair of oppositely charged muons.
-Typically, this implies muon pairs in which both tracks have high transverse momentum.  The trigger uses hits in one scintillation
-counter hodoscope located upstream of the second spectrometer magnet and two hodoscopes located downstream of the second
-spectrometer magnet.  SeaQuest triggers mostly on fake dimuons identified using hits in the downstream hodoscopes caused by two
-low $p_T$ muons from unrelated pion decays, combined with hits in the upstream hodoscope from two other unrelated particles.
-Since this type of fake trigger involves four unrelated particles, the probability that a trigger will occur increases with
-the fourth power of the number of protons in the triggering beam bunch.
+SeaQuest's trigger system (described in detail later) mostly fires on fake dimuons caused by two low $p_T$ muons from
+unrelated pion decays. The hits in downstream hodoscopes from the pions combined with hits in the upstream
+hodoscope from two other unrelated particles frequently add up to a false dimuon signal. Since this type of fake
+trigger involves four unrelated particles, the probability that a trigger will occur increases with $I^4$, where
+$I$ is the intensity of the beam bucket, or the number of protons in the triggered beam bunch.
 
-The SeaQuest data acquisition system can read out approximately 1000 events per second without significant dead time.  During the
-commissioning of SeaQuest, the trigger rate was very high and the trigger dead time was close to 100\%.  These triggers were taken
-at such high instantaneous luminosity that the occupancy of all SeaQuest detector elements was more than 50$\%$, making pattern
-recognition essentially impossible.  The Beam Intensity Monitor was designed to solve this problem.
+The SeaQuest data acquisition system (also described later in detail) can read out approximately 3000 events per
+second without significant dead time.  During the commissioning run of SeaQuest, the trigger rate was very high and the
+trigger dead time was close to 100\%.  These triggers were taken at such high beam intensities that the occupancy
+of all SeaQuest detector elements was more than 50$\%$, making pattern recognition essentially impossible
+(see Figure. \ref{fig:splat}). The Beam Intensity Monitor (BIM) was designed to solve this problem.
 
-\subsection{Beam Intensity Monitor}
-The SeaQuest Beam Intensity Monitor (BIM) senses when the beam intensity is above a programmable threshold. Once a too-large
-instantaneous intensity is measured, it sends a signal to inhibit certain triggers until the intensity falls to an acceptable
-level.  The inhibit threshold is tuned frequently as trigger and beam conditions change, but the inhibit threshold is typically
-set at approximately 95,000 protons per RF bunch. For reference, a full RF bucket at an intensity of $2\times 10^{12}$ protons per
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.85\textwidth]{figures/splat1.png}
+		\caption{A single high-intensity event with majority of all detector elements firing off. Track reconstruction in
+				 these cases is impossible.}
+		\label{fig:splat}
+	\end{center}
+\end{figure}
+
+The SeaQuest Beam Intensity Monitor (BIM) senses when the beam intensity is above a programmable threshold.
+If an RF bucket with an intensity above this threshold is detected, the BIM sends a signal to inhibit
+certain triggers until the intensity once more falls below the threshold. The inhibit threshold is tuned
+frequently as trigger and beam conditions change, but the inhibit threshold is typically set at approximately
+95,000 protons per RF bunch. For reference, a full RF bucket at an intensity of $2\times 10^{12}$ protons per
 spill is $\approx$10,000 protons.
 
 The beam intensity is measured using an atmospheric pressure gas Cerenkov counter. A gas mixture of 80$\%$ Argon and 20$\%$ CO$_2$
 is used as the Cerenkov radiator. The counter and readout electronics were designed to have $O(ns)$ time resolution, and a linear
 response over a large dynamic range.  A diagram of the counter is shown in Figure~\ref{fig:BIMCerenkov}.  A 45 degree aluminized
 Kapton mirror directs light to a single photomultiplier tube.  A \emph{baffle} of black construction paper held parallel to the
-mirror ensures that the proton path length through the light-radiating gas with respect to the mirror is independent of beam position.
-A two-inch diameter 8-stage photomultiplier tube (PMT) is positioned close to the mirror so that all Cerenkov light falls directly on
-the aperture of the PMT. It was observed during commissioning runs that after exposure to $\approx3\times 10^{17}$ protons, the mirror
-reflectivity is significantly reduced in the beam spot, and the mirror then needs to be replaced.
+mirror ensures that the proton path length through the light-radiating gas with respect to the mirror is independent of beam
+position. A two-inch diameter 8-stage photomultiplier tube (PMT) is positioned close to the mirror so that all Cerenkov light created between the baffle and the mirror falls directly on the aperture of the PMT. It was observed during the commissioning run
+that after exposure to $\approx 3 \times 10^{17}$ protons (~3 weeks of uninterrupted usage), the mirror reflectivity is significantly reduced in the beam spot, and the mirror then needs to be replaced.
 
 \begin{figure}
-\begin{center}
-\includegraphics[width=0.6\textwidth]{figures/BIMCerenkov.pdf}
-\caption{The Beam Intensity Monitor (BIM) Cerenkov counter.}
-\label{fig:BIMCerenkov}
-\end{center}
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{figures/BIMCerenkov.pdf}
+		\caption{The Beam Intensity Monitor (BIM) Cerenkov counter. Measurements are in inches.}
+		\label{fig:BIMCerenkov}
+	\end{center}
 \end{figure}
 
-The signal from the BIM is integrated and digitized using a custom \emph{QIE}\footnote{QIE stands for Charge (Q) Integrator and Encoder.} integrated circuit board, which comes from a family of circuits used first by the KTeV experiment at Fermilab\cite{QIE}.  The chip is clocked with the Main Injector RF clock and provides an ADC (analog-digital conversion) every 18.8ns clock cycle.  The light incident on the photomultiplier tube is attenuated using neutral density filters (NDF's) so that the QIE least count corresponds to $\sim$30 protons per beam bunch.  The QIE full scale corresponds to more than 3,000,000 protons per beam bunch. 
+The signal from the BIM is integrated and digitized using a custom charge (Q) integrator and encoder (\emph{QIE}) integrated circuit board, which comes from a family of circuits used first by the KTeV experiment at Fermilab\cite{QIE}. The chip is clocked with the Main Injector RF clock and provides an ADC (analog-digital conversion) every 18.8ns clock cycle. The light incident on
+the photomultiplier tube is attenuated using neutral density filters (NDF's) so that the QIE least count corresponds to
+$\sim$30 protons per beam bunch.
 
-In addition to inhibiting triggers when the instantaneous intensity is above threshold, the BIM readout module provides the information required to count the number of protons incident on the SeaQuest targets while the experiment is ready and able to trigger.  This information is needed to normalize SeaQuest cross section measurements.  The BIM readout module provides the following:
+In addition to inhibiting triggers during high-intensity periods of beam, the BIM readout module also provides critical
+information used to calculate the number of protons incident on the SeaQuest targets while the experiment is ready
+and able to trigger. This value is needed to normalize SeaQuest cross section measurements. The BIM readout module provides the following:
 \begin{itemize}
-\item QIESum (Sum for entire spill).
+\item Sum of all ADC signals for the entire spill (QIESum).
 \item Sum while inhibit is asserted at trigger logic.
-\item Sum during trigger dead time (excluding bunches inhibited while event is being read out).
-\item A snapshot of beam intensity close in time to the trigger (ADC measurements for 32 bunches before the trigger, the triggered bunch, and 32 bunches after the trigger).
-\item A complete record of the bunch-by-bunch intensity for the slow spill.
+\item Sum during trigger dead time.
+\item A snapshot of beam intensity 16 buckets before and after the triggered RF bucket
 \end{itemize}
-The timing of the inhibit signal and of all of the sums calculated by the BIM readout module are controlled using programmable registers.  The module is normally controlled using a 100 Mbps Ethernet interface.  All information other than the complete spill record is read out through the same Ethernet interface used to control the module.  One third of the complete spill information is also read out using this interface.  Two additional 100 Mbps Ethernet interfaces are used to read out the remainder of the complete spill information.  This readout occurs between spills.  The snapshot of beam intensity close in time to the trigger is also output on a twisted pair ribbon cable and is read out through the SeaQuest event data acquisition system.
 
-The linear range of the phototube and voltage divider was established using an LED pulser.  The largest (linear) dynamic range was found with a bias voltage of $\approx-$900V.  This agrees with vendor-provided information on the phototube performance.  The neutral density filters used to control the Cerenkov light yield allow the tube to be biased at $-$870V while providing signals of appropriate amplitude to match the QIE dynamic range.
+These are used to calculate a ratio of protons that were `live' (the experiment can trigger) via the following:
+\begin{eqnarray}
+	liveRatio & = & \frac{QIESum - (inhibit\ sum + dead\ time\ sum)}{QIESum} \\
+	liveProton & = & totalProton \cdot liveRatio
+	\label{eqn:liveproton}
+\end{eqnarray}
+where ``totalProton'' is the intensity value recorded from the SEM detector located just upstream of the BIM Cerenkov counter.
+The SEM itself is calibrated by foil activation.
 
-The BIM measurement of beam intensity is normalized using a Secondary Emission Monitor (SEM) located just upstream of the Cerenkov counter.  The SEM is calibrated by foil activation.  The linear dynamic range of the BIM measurement was also verified using the SEM.
+The snapshot of the triggered RF bucket intensity along with the 32 surrounding RF bucket intensities is used for
+studies and corrections of the rate-dependent effects on detector efficiencies and reconstructed measurements.
 
 \section{The SeaQuest Targets}
 
@@ -171,7 +189,7 @@ The $H_2$ gas used is ``Ultra High Purity 5.0 Grade'' or 99.999\% pure.  The deu
 Each of the three solid target positions is divided into three disks of 1/3 the total thickness provided in Table \ref{target-materials}.  These are spaced 25.4cm apart to approximate the distribution of the liquid target thereby minimizing target-dependent variation in spectrometer acceptance.  The one exception to this is that during the Run II period the iron plugs were more closely spaced (17.1cm).
 
 \begin{center}
-	\begin{table}
+	\begin{table}[bthp]
 	\begin{tabular}{c c c c c c c}
 	 \parbox{1.5cm}{\centering{~\\Position} } & \parbox{1.5cm}{\centering{~\\Material} }  &\parbox{1.5cm}{\centering{Density\\{[g/cm$^3$]}} }  &  \parbox{1.75cm}{\centering{Thickness\\{[cm]}} }& \parbox{2cm}{\centering{Interaction\\Length} }&  \parbox{1.5cm}{\centering{Spills/\\Cycle} } \\ [0.5ex] \hline
 	1 &    $H_2$  & 0.071      & 50.8 & 0.069 &10 & \\
@@ -526,7 +544,7 @@ Data from the internal TDCs is used by offline software to check the self-consis
   \end{tabular}
 \end{table}
 
-\section{Data Acquisitioning Systems}
+\section{Data Acquisition Systems}
 
 \section{Data Productions}
 
