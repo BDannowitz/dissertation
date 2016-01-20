@@ -265,9 +265,30 @@ The tracking detectors are the instruments used for measuring the values of the 
 
 Hodoscope arrays are located at each of the four detector stations. These detectors' primary usage is to select events with two opposite-signed muon tracks in them. Certain `roads' through the spectrometer are defined in the fast trigger logic, and when two desired roads are observed in a given event, the trigger system tells the data acquisitioning systems to record that event's data. In addition to this, the hodoscopes provide analysts with the ability to discard or ignore certain hits in adjacent chambers for which there is no corresponding nearby hodoscope hit. This is useful in decreasing the hit multiplicities in the wire chambers, which in turn decreases the combinatoric complexity of reconstruction algorithms.
 
-Each of the eight hodoscope planes are split into two halves: top and bottom in the case of planes with vertically-oriented paddles, or left and right for planes with horizontally-oriented paddles (denoted by `T', `B', `L', and `R', respectively). A single hodoscope detector element is composed of plastic scintillator material connected to Philips XP 2008 photomultiplier tubes (PMT) by plexiglass light guides. Stations 1, 2, and 4 each had two hodoscope planes, with planes of both vertically- and horizontally-oriented paddles (for measuring in $x$ and $y$, respectively). Station 3 only had vertically-oriented plane, and thus measures in the $x-$direction only, which is in the experiment's $x-z$ bend plane. The hodoscope planes are named according to detector station and the direction that they measure. For example, the $y$-measuring hodoscope plane in Station 2 is called ``H2Y''. The individual half-planes are named according to detector station and which half it is of the two. For example, the top half of the $x$-measuring hodoscope plane in Station 1 is referred to as ``H1T''. The detailed specifications of each hodoscope plane are given in Table \ref{tab:hodoscopes}. A precise alignment of the hodoscopes was achieved by examining the distributions of positions of tracked muons at each hodoscope plane when a given hodoscope element in that plane was fired.
+Each of the eight hodoscope planes are split into two halves: top and bottom in the case of planes with vertically-oriented paddles, or left and right for planes with horizontally-oriented paddles (denoted by `T', `B', `L', and `R', respectively). A single hodoscope detector element is composed of plastic scintillator material connected to Philips XP 2008 photomultiplier tubes (PMT) by plexiglass light guides. Stations 1, 2, and 4 each have two hodoscope planes, with planes of both vertically- and horizontally-oriented paddles (for measuring in $x$ and $y$, respectively). Station 3 only has vertically-oriented plane, and thus measures in the $x-$direction only, which is in the experiment's $x-z$ bend plane. The hodoscope planes are named according to detector station and the direction that they measure. For example, the $y$-measuring hodoscope plane in Station 2 is called ``H2Y''. The individual half-planes are named according to detector station and which half it is of the two. For example, the top half of the $x$-measuring hodoscope plane in Station 1 is referred to as ``H1T''. The detailed specifications of each hodoscope plane are given in Table \ref{tab:hodoscopes}. A precise alignment of the hodoscopes was achieved by examining the distributions of positions of tracked muons at each hodoscope plane when a given hodoscope element in that plane was fired.
 
-
+\begin{table}[bthp]\centering
+  \begin{tabular}{llllll}
+    \hline
+    \hline
+    Detector & Width & Overlap & \# of paddles & Width (x) $\times$ Height (y) & $z$-position [cm] \\
+    & [cm] & [cm] & (per half-plane) & (per half-plane) &  \\
+    & & & & [cm] $\times$ [cm] & \\
+    \hline
+    H1X & 7.32 & 0.3175 & 23 & 162.01 $\times$ 69.85 & 666.17 (T), 668.08 (B) \\
+    H1Y & 7.32 & 0.3175 & 20 & 78.74 $\times$ 140.12 & 653.23 (L), 654.83 (R) \\
+    H2X & 13.00 & 0.3175 & 16 & 203.24 $\times$ 152.00 & 1,421.21 (T), 1,420.90 (B) \\
+    H2Y & 13.00 & 0.3175 & 19  & 132.00 $\times$ 241.29 & 1,399.88 (L), 1,405.84 (R) \\
+    H3X & 14.59 & 0.3175 & 16  & 227.52 $\times$ 167.64 & 1,958.82 (T), 1,958.19 (B) \\
+    H4X & 19.65 & 0.3175 & 16  &  304.52 $\times$ 182.88 & 2,234.02 (T), 2,251.15 (B) \\
+    H4Y1 & 23.48 & 0.3175 & 16  & 152.40 $\times$ 365.80 & 2,130.27 (L), 2,146.45 (R) \\
+    H4Y2 & 23.48 & 0.3175 & 16  & 152.40 $\times$ 365.80 & 2,200.44 (L), 2,216.62 (R)\\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{Parameters of all hodoscope planes. $z$-positions of half-planes are offset slightly due to slight misalignment and/or overlap of half-planes.}
+  \label{tab:hodoscopes}
+\end{table}
 
 \subsection{Overall structure}
 
