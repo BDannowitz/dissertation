@@ -4,7 +4,7 @@ SeaQuest is the operational name of Fermilab Experiment \#906 (\emph{E-906}) per
 experimental area. The experiment was designed
 to take \emph{high-intensity beam} at relatively \emph{low center-of-mass energy}, provide
 \emph{good mass resolution}, and allow for \emph{accurate target-to-target systematic normalization}.
-The apparatus consists of a moving target table, two dipole magnets, 7 hodoscope planes, 24 drift 
+The apparatus consists of a moving target table, two dipole magnets, 8 hodoscope planes, 24 drift 
 chamber planes, and 4 proportional tube planes. Upstream of the target table (towards the beam source),
 there is also a Cherenkov counter for beam intensity monitoring and there are
 several segmented wire ionization chambers (SWIC's) for beam profiling.
@@ -22,7 +22,16 @@ protons strike one of the 7 targets. The high-momentum charged particles that ar
 onto the various detectors with the solid iron dipole magnet, FMAG, or NM3S. 
 This solid focusing magnet also sweeps away low-momentum particles and acts as a beam dump / absorber.
 
-The SeaQuest Spectrometer consists of a focusing magnet to bend charged particles into the experiment's acceptance,
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{figures/Spectrometer.png}
+		\caption{Perspective view of the SeaQuest spectrometer apparatus.}
+		\label{fig:spectrometer-perspective}
+	\end{center}
+\end{figure}
+
+
+The SeaQuest Spectrometer (Fig. \ref{fig:spectrometer-perspective}) consists of a focusing magnet to bend charged particles into the experiment's acceptance,
 several tracking chambers that record the positions of charged particles through the length of the spectrometer, and
 an analyzer magnet to bend the particles between tracking stations. The spectrometer measures particle momenta by
 recording the bend of each charged particle as it passed through the analyzer magnet, where the magnetic field is known.
@@ -111,9 +120,8 @@ of all SeaQuest detector elements was more than 50$\%$, making pattern recogniti
 
 \begin{figure}
 	\begin{center}
-		\includegraphics[width=0.85\textwidth]{figures/splat1.png}
-		\caption{A single high-intensity event with majority of all detector elements firing off. Track reconstruction in
-				 these cases is impossible.}
+		\includegraphics[width=0.5\textwidth]{figures/splat2.png}
+		\caption{A single high-intensity event with majority of all detector elements firing off. White space within the rectangles indicates inactive elements whereas red, blue, and green represent elements which have fired during that event. Track reconstruction in these cases is impossible.}
 		\label{fig:splat}
 	\end{center}
 \end{figure}
@@ -265,185 +273,95 @@ The tracking detectors are the instruments used for measuring the values of the 
 
 Hodoscope arrays are located at each of the four detector stations. These detectors' primary usage is to select events with two opposite-signed muon tracks in them. Certain `roads' through the spectrometer are defined in the fast trigger logic, and when two desired roads are observed in a given event, the trigger system tells the data acquisitioning systems to record that event's data. In addition to this, the hodoscopes provide analysts with the ability to discard or ignore certain hits in adjacent chambers for which there is no corresponding nearby hodoscope hit. This is useful in decreasing the hit multiplicities in the wire chambers, which in turn decreases the combinatoric complexity of reconstruction algorithms.
 
-Each of the eight hodoscope planes are split into two halves: top and bottom in the case of planes with vertically-oriented paddles, or left and right for planes with horizontally-oriented paddles (denoted by `T', `B', `L', and `R', respectively). A single hodoscope detector element is composed of plastic scintillator material connected to Philips XP 2008 photomultiplier tubes (PMT) by plexiglass light guides. Stations 1, 2, and 4 each have two hodoscope planes, with planes of both vertically- and horizontally-oriented paddles (for measuring in $x$ and $y$, respectively). Station 3 only has vertically-oriented plane, and thus measures in the $x-$direction only, which is in the experiment's $x-z$ bend plane. The hodoscope planes are named according to detector station and the direction that they measure. For example, the $y$-measuring hodoscope plane in Station 2 is called ``H2Y''. The individual half-planes are named according to detector station and which half it is of the two. For example, the top half of the $x$-measuring hodoscope plane in Station 1 is referred to as ``H1T''. The detailed specifications of each hodoscope plane are given in Table \ref{tab:hodoscopes}. A precise alignment of the hodoscopes was achieved by examining the distributions of positions of tracked muons at each hodoscope plane when a given hodoscope element in that plane was fired.
+Each of the eight hodoscope planes are split into two halves: top and bottom in the case of planes with vertically-oriented paddles, or left and right for planes with horizontally-oriented paddles (denoted by `T', `B', `L', and `R', respectively). In each half-plane, the hodoscopes are a set of long rectangles arranged `picket fence'-style with a small 0.3175cm overlap, as to prevent any particles from possibly slipping between paddles. A single hodoscope detector element is composed of plastic scintillator material connected to Philips XP 2008 photomultiplier tubes (PMT) by plexiglass light guides. Stations 1, 2, and 4 each have two hodoscope planes, with planes of both vertically- and horizontally-oriented paddles (for measuring in $x$ and $y$, respectively). Station 3 only has vertically-oriented plane, and thus measures in the $x-$direction only, which is in the experiment's $x-z$ bend plane. The hodoscope planes are named according to detector station and the direction that they measure. For example, the $y$-measuring hodoscope plane in Station 2 is called ``H2Y''. The individual half-planes are named according to detector station and which half it is of the two. For example, the top half of the $x$-measuring hodoscope plane in Station 1 is referred to as ``H1T''. As such, the ``H3X'' detector is composed of ``H3T'' and ``H3B''. The detailed specifications of each hodoscope plane are given in Table \ref{tab:hodoscopes}. A precise alignment of the hodoscopes was achieved by examining the distributions of positions of tracked muons at each hodoscope plane when a given hodoscope element in that plane was fired.
 
 \begin{table}[bthp]\centering
   \begin{tabular}{llllll}
     \hline
     \hline
-    Detector & Width & Overlap & \# of paddles & Width (x) $\times$ Height (y) & $z$-position [cm] \\
-    & [cm] & [cm] & (per half-plane) & (per half-plane) &  \\
-    & & & & [cm] $\times$ [cm] & \\
+    Detector & Paddle & Overlap & \# of paddles & Width $\times$ Height & $z$-position [cm] \\
+    & Width & [cm] & (per half-plane) & (per half-plane) &  \\
+    & [cm] & & & [cm] $\times$ [cm] & \\
     \hline
-    H1X & 7.32 & 0.3175 & 23 & 162.01 $\times$ 69.85 & 666.17 (T), 668.08 (B) \\
-    H1Y & 7.32 & 0.3175 & 20 & 78.74 $\times$ 140.12 & 653.23 (L), 654.83 (R) \\
-    H2X & 13.00 & 0.3175 & 16 & 203.24 $\times$ 152.00 & 1,421.21 (T), 1,420.90 (B) \\
-    H2Y & 13.00 & 0.3175 & 19  & 132.00 $\times$ 241.29 & 1,399.88 (L), 1,405.84 (R) \\
-    H3X & 14.59 & 0.3175 & 16  & 227.52 $\times$ 167.64 & 1,958.82 (T), 1,958.19 (B) \\
-    H4X & 19.65 & 0.3175 & 16  &  304.52 $\times$ 182.88 & 2,234.02 (T), 2,251.15 (B) \\
-    H4Y1 & 23.48 & 0.3175 & 16  & 152.40 $\times$ 365.80 & 2,130.27 (L), 2,146.45 (R) \\
-    H4Y2 & 23.48 & 0.3175 & 16  & 152.40 $\times$ 365.80 & 2,200.44 (L), 2,216.62 (R)\\
+    H1X & 7.32 & 0.3175 & 23 & 162 $\times$ 70 & 666 \\
+    H1Y & 7.32 & 0.3175 & 20 & 79 $\times$ 140 & 653 \\
+    H2X & 13.00 & 0.3175 & 16 & 203 $\times$ 152 & 1421 \\
+    H2Y & 13.00 & 0.3175 & 19  & 132 $\times$ 241 & 1400 (L), 1406 (R) \\
+    H3X & 14.59 & 0.3175 & 16  & 228 $\times$ 168 & 1959 \\
+    H4X & 19.65 & 0.3175 & 16  &  305 $\times$ 183 & 2234 (T), 2251 (B) \\
+    H4Y1 & 23.48 & 0.3175 & 16  & 152 $\times$ 366 & 2130 (L), 2146 (R) \\
+    H4Y2 & 23.48 & 0.3175 & 16  & 152 $\times$ 366 & 2200 (L), 2217 (R)\\
     \hline
     \hline
   \end{tabular}
-  \caption{Parameters of all hodoscope planes. $z$-positions of half-planes are offset slightly due to slight misalignment and/or overlap of half-planes.}
+  \caption{Parameters of all hodoscope planes. $z$-positions of H2Y and H4 half-planes are offset slightly due to the half-planes themselves overlapping.}
   \label{tab:hodoscopes}
 \end{table}
 
-\subsection{Overall structure}
+\subsection{Drift Chambers}
 
-Each of Stations 1, 2 and 3 is equipped with a drift chamber (DC)
-%to measure the trajectory of muons.
-to measure the passing $x$ and $y$ positions of muons at its $z$ location.
-The trajectory of muons are reconstructed with the measured positions,
-as described later.
-The DCs at Stations 1 and 2 are called ``DC1'' and ``DC2'', respectively.
-Two DCs at Station 3 cover the top and bottom halves,
-and are called ``DC3p'' and ``DC3m''
-where ``p'' and ``m'' stand for ``plus'' and ``minus''.
+Each of Stations 1, 2 and 3 is equipped with a drift chamber (DC) to measure the passing $x$ and $y$ positions of muons at its $z$ location, with each DC flat vertical to the $z$ axis, and a drift cell is of the box shape.. These measured positions are critical for reconstructing the trajectory of muons, and thereby their kinematics. Each DC contains six drift chamber planes, arranged in three pairs with parallel wire orientations (each pair referred to as a ``view''). Wires oriented vertically ($x$-measuring) are referred to as being in the ``X'' view, and at angles of $+14^\circ$ and $-14^\circ$ with respect to the $y$-axis are the ``V'' and ``U'' planes, respectively. The second plane in each view is offset from the first by one half of a wire-to-wire distance (\emph{``cell width''}) in order to resolve the left-right ambiguity of drift direction. This offset plane of each pair is referred to as the \emph{primed} plane, and is denoted with a `$\prime$'. So, in each DC, there are X, X$^\prime$, U, U$^\prime$, V, and V$^\prime$ planes, with primed and unprimed planes (like X and X$^\prime$) constituting a view.
 
-The basic structure is common to all the chambers.
-Each DC consists of six planes of sense wires.
-Wires are aligned in the vertical direction
-in two planes called ``X'' and ``X$^\prime$''.
-Wires are tilted
-by $+14$ degrees in other two planes called  ``U'' and ``U$^\prime$'', and
-by $-14$ degrees in the other two planes called ``V'' and ``V$^\prime$''.
-The wires in the primed planes are offset by half the drift cell size
-to resolve the left-right ambiguity of drift direction.
-Every wire plane is flat vertical to the $z$ axis, and a drift cell is of the box shape.
-Table~\ref{table:cham:param} summarizes the parameters of the DCs.
-DC1 and DC3m have been upgraded during the data taking,
-as listed in Tab.~\ref{tab:cham:comb1}.
-
-The gas mixture for DC1.2 is Argon:CF4:Isobutane:Methylal
-(68\%:16\%:13\%:3\%), % (68.5\%:16\%:13\%:2.5\%)
-with which the drift velocity is larger than 50 $\mu$m/ns (i.e.~fast gas)
-and thus the hit-rate tolerance is better.
-The gas mixture for the other chambers is
-Argon:Methane:CF4 (88\%:8\%:4\%).
+The individual drift chambers at Stations 1 and 2 are called ``D1'' and ``D2'', respectively. Station 3 has two drift chambers, since the desired acceptance area it has to cover is substantially larger than one DC can cover. These are split vertically to cover the top and bottom halves, and are called ``D3p'' and ``D3m'' where ``p'' and ``m'' stand for ``plus'' and ``minus''. Table~\ref{table:cham:param} summarizes the parameters of the DC's. D1 and D3m have been upgraded during the data taking, as listed in Tab.~\ref{tab:cham:comb1}. This original and upgraded versions are referred to as D$N$.1 and D$N$.2, respectively.
 
 \begin{table}[bthp]\centering
-  \caption{Parameters of all chambers.
-    Those of primed planes are almost the same as of unprimed planes.
-    The $z$-positions of U and V planes are relative to those of X planes.
-  }
-  \label{table:cham:param}
   \begin{tabular}{cc|cccc}
-    \hline
+    \hline \hline
     Chamber & Plane & Number   & Cell  & Width            & $z$-position \\
             &       & of wires & width & $\times$ height  &      \\ 
-            &       &          & (cm)  & (cm)             & (cm) \\ 
+            &       &          & [cm]  & [cm] $\times$ [cm] & [cm] \\ 
     \hline
-    DC1.1    & X     & 160      & 0.64  & 102 $\times$ 122 &  617    \\
+    D1.1    & X     & 160      & 0.64  & 102 $\times$ 122 &  617    \\
              & U, V  & 201      & 0.64  & 101 $\times$ 122 & $\pm$20 \\
-    DC1.2    & X     & 320      & 0.50  & 153 $\times$ 137 &  617    \\
+    D1.2    & X     & 320      & 0.50  & 153 $\times$ 137 &  617    \\
              & U, V  & 384      & 0.50  & 153 $\times$ 137 & $\pm$1.2 \\
-    DC2      & X     & 112      & 2.1   & 233 $\times$ 264 & 1347    \\
+    D2      & X     & 112      & 2.1   & 233 $\times$ 264 & 1347    \\
              & U, V  & 128      & 2.0   & 233 $\times$ 264 & $\pm$25 \\
-    DC3p     & X     & 116      & 2.0   & 232 $\times$ 166 & 1931    \\
+    D3p     & X     & 116      & 2.0   & 232 $\times$ 166 & 1931    \\
              & U, V  & 134      & 2.0   & 268 $\times$ 166 & $\pm$6  \\
-    DC3m.1   & X     & 176      & 1.0   & 179 $\times$ 168 & 1879    \\
+    D3m.1   & X     & 176      & 1.0   & 179 $\times$ 168 & 1879    \\
              & U, V  & 208      & 1.0   & 171 $\times$ 163 & $\pm$19 \\
-    DC3m.2   & X     & 116      & 2.0   & 232 $\times$ 166 & 1895    \\
+    D3m.2   & X     & 116      & 2.0   & 232 $\times$ 166 & 1895    \\
              & U, V  & 134      & 2.0   & 268 $\times$ 166 & $\pm$6  \\
+    \hline
     \hline
   \end{tabular}
+  \caption{Parameters of all chambers.
+  	Those of primed planes are almost the same as of unprimed planes.
+  	The $z$-positions of U and V planes are relative to those of X planes.
+  }
+  \label{table:cham:param}
 \end{table}
 
 \begin{table}[bthp]\centering
-  \caption{Combination of chambers per data taking period.}
-  \label{tab:cham:comb1}
   \begin{tabular}{ccc}
     \hline
     Run & Period & Chamber combination \\
     \hline
-    1 & 2012 Mar.-2012 Apr.  &  DC1.1-DC2-DC3p-DC3m.1 \\
-    2 & 2013 Nov.-2014 Aug.  &  DC1.1-DC2-DC3p-DC3m.2 \\
-    3 & 2014 Nov.-2015 May   &  DC1.1-DC2-DC3p-DC3m.2 \\
-    3 & 2015 Jun.-2015 Jul.  &  DC1.2-DC2-DC3p-DC3m.2 \\
-    4 & 2015 Sep.-2016 $X$   &  DC1.2-DC2-DC3p-DC3m.2 \\
+    1 & 2012 Mar.-2012 Apr.  &  D1.1, D3m.1 \\
+    2 & 2013 Nov.-2014 Aug.  &  D1.1, D3m.2 \\
+    3 & 2014 Nov.-2015 May   &  D1.1, D3m.2 \\
+    3 & 2015 Jun.-2015 Jul.  &  D1.2, D3m.2 \\
+    4 & 2015 Sep.-   &  D1.2, D3m.2 \\
     \hline
   \end{tabular}
+  \caption{Combination of D1 and D3m chambers per data taking period.}
+  \label{tab:cham:comb1}
 \end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Performance requirement}
+The acceptance size of each chamber has been adjusted with a Drell-Yan event simulation in order to be as sensitive as possible to the $x_2$ range of interest. Particularly, the greater the acceptance width is, the higher the reach in $x_2$ is. This makes the hit-rate tolerance of the chambers a key feature, because the spectrometer is exposed to a large number of background particles, particularly near the edges where the desired $x_2$ events occur. It is particularly significant for the most-upstream station (i.e.~Station 1) which receives the highest hit rates. Experimental data shows that the rate tolerances are 3.0 MHz/wire at D1, 1.6 MHz/wire at D2 and 0.7 MHz/wire at D3 with a beam intensity of $5\times10^{12}$ protons/spill. The gas-amplification gain should not be degraded under these hit rates.
 
-The acceptance size of each chamber has been adjusted with
-a Drell-Yan event simulation
-in order to be as sensitive as possible to the $x_2$ range of interest.
-Particularly the wider the acceptance width is,
-the higher the reach in $x_2$ is.
+For Run 2 and beyond, the gas mixture used for almost all the chambers is Argon:Methane:CF4 (88\%:8\%:4\%) with a drift velocity of about 20 $\mu$m/ns. A ``fast gas'' mixture used for D1.2 (upgraded D1) is Argon:CF4:Isobutane:Methylal (68\%:16\%:13\%:3\%) with a drift velocity of 50 $\mu$m/ns and thereby a better hit-rate tolerance. This is ``fast'' in comparison to the $\approx20\mu$m/ns rest of the DCs. The spatial resolution of each plane is required to be 400$\mu$m, which corresponds to a momentum resolution of $\Delta p / p = 0.03 \cdot p$ (GeV/$c$). The resolution of dimuon invariant mass is dominated by the multiple scattering in FMAG; the chamber momentum resolution is about 10\% of the total mass resolution at maximum.
 
-The position resolution of every single plane is required to be 400 $\mu$m.
-It corresponds to a momentum resolution of
-$\Delta p / p$ (\%) $= 0.03 \cdot p$ (GeV/$c$).
-The resolution of dimuon invariant mass is dominated by
-the multiple scattering in FMag, 
-since the chamber momentum resolution is about 10\% of the total mass resolution at maximum.
-Therefore this requirement is not more strict than the others.
+The D1.1, D2 and D3m.1 chambers have been inherited from previous Drell-Yan experiments that have been conducted at Fermilab.
+Chambers D2 and D3m.1 have their origin in E-906~\cite{PhysRevD.43.2815} and D1.1 is from SeaQuest's direct predecessor, E-866/NuSea~\cite{PhysRevLett.80.3715, Towell:2001nh}. Since these chambers haven't been used for decades after the previous experiment, they had to be refurbished by restringing $\approx30\%$ of their sense wires due to them being loose or broken. Newly supplied electronic readout boards were also mounted on these chambers.
 
-The detection efficiency of every single plane is required to be 95\% or more.
-In the track reconstruction, 
-if a track is required to associate with five planes out of six per every chamber,
-the reconstruction efficiency of a track is 90\%,
-which is thought to be acceptable.
+The D3p and D3m.2 chambers were designed and constructed specifically for this experiment in order to cover the large acceptance required at Station 3. D3p was newly constructed by the TokyoTech SeaQuest collaborators and was shipped from Japan to Fermilab. The first part of data taking, Run 1, was carried out using D3m.1 while preparing for the construction of D3m.2. The newer D3m.2 is wider than D3m.1 by 25 cm at each side, allowing the high-$x_2$ statistics on $\bar{d}/\bar{u}$ and $Y_A / Y_{^2H}$ to increase by $\approx20\%$ at $x_2 \sim 0.3$ and $\approx10\%$ at $x_2 \sim 0.4$. The operational stability also improved, as D3m.1 suffered from frequent dead/noisy wires, HV trips, and leak currents. The D1.2 chamber was also designed and constructed for this experiment by the University of Colorado Boulder. As it is wider than D1.1 by 25 cm at each side and greater hit-rate tolerance, the anticipated statistics is expected in the high-$x_2$ region is expected to increase still more. It was installed in the experimental hall near the end of Run 3.
 
-The hit-rate tolerance is a key feature because
-the spectrometer is exposed to a large number of background particles.
-It is particularly significant for the most-upstream station (i.e.~Station 1).
-The hit rate is maximum at the edge of chamber acceptance.
-As extracted from experimental data,
-%Using the random-RF events,
-it is 3.0 MHz/wire at DC1, 1.6 MHz/wire at DC2 and 0.7 MHz/wire at DC3
-with a beam intensity of $5\times10^{12}$ protons/spill.
-%According the Geant4 simulation,
-%it is 4.0 MHz/wire at DC1, 2.5 MHz/wire at DC2 and 0.7 MHz/wire at DC3.
-The gas-amplification gain should not be degraded under these hit rates.
-The probability of double hits per wire per event should be low enough.
+\subsection{Proportional Tubes}
 
+Downstream of Station 3 and the iron hadron absorber wall is Station 4 with its hodoscope planes and proportional tube detectors. This detector group exists for the purpose of particle identification (PID), particularly for muon discrimination.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Constructions}
-
-The DC1.1, DC2 and DC3m.1 chambers have been inherited from
-E605 (DC2 and DC3m.1)~\cite{PhysRevD.43.2815} and E866/NuSea (DC1.1)~\cite{PhysRevLett.80.3715, Towell:2001nh}, previous Drell-Yan experiments based at Fermilab.
-Since these chambers haven't been used for decades after the previous experiment, 
-they had to be refurbished
-by restringing a large fraction (30\% of sense wires in these chambers)
-of broken and loose wires with wires of appropriate tension
-and by attaching new readout electronics.
-%The repair work span over few months since the new wires were manually
-%strung using a special tool (pulley) to ensure holding each wire to its appropriate
-%tension before soldering it to its permanent electronics trace.
-
-The DC3p and DC3m.2 chambers were designed and constructed for this experiment
-in order to cover the large acceptance required at Station 3.
-The first part of data taking, Run 1, was carried out with DC3m.1
-while preparing for the construction of DC3m.2.
-%DC3m.2 was installed during the scheduled accelerator shutdown.
-As DC3m.2 is wider than DC3m.1 by 25 cm at each side,
-the anticipated statistics on $\bar{d}/\bar{u}$ will increase
-by 20\% at $x_2 \sim 0.3$ and 10\% at $x_2 \sim 0.4$.
-The operational stability has been greatly improved;
-no dead/noisy wire, no HV trip and no leak current.
-
-The DC1.2 chamber was also designed and constructed for this experiment.
-As it is wider than DC1.1 by 25 cm at each side,
-the anticipated statistics on $\bar{d}/\bar{u}$ will increase
-by ??\% at $x_2 \sim ??$.
-In addition, with the smaller cell width it has a better hit-rate tolerance.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\subsection{Electronics}
-
-The SeaQuest wire chamber readout system uses a custom amplifier-discriminator integrated circuit called ASDQ designed at U. Penn. for CDF \cite{ASDQ}.  8-channel ``ASDQ cards'' are mounted on each wire chamber.  On DC2 and DC3, copper grounding card guides\footnote{Unitrack ``Ground-R-Guide,'' see http://www.unitrack.com/metal\_card\_guide-ground-r-guide.html.} connected to the chamber frames provide both mechanical support and the reference voltage for the ASDQ inputs.  Except in DC1.1, all cathode wires are biased with negative high voltage and the anode wire signals are DC coupled to the ASDQ inputs.  DC1.1 uses positive HV applied to the anode wires.  The signals from these chambers are AC coupled to the ASDQ inputs through high voltage blocking capacitors that are integral to the chambers.
-
-A single twisted pair ribbon cable connects each ASDQ card to a Level Shifter Board (LSB).  This cable carries the (differential) discriminated output signals and also the bias voltages for the ASDQ as well as a discrimination threshold voltage and other control voltages.  Each LSB services 8 ASDQ cards.  Up to 14 LSBs are housed in a 9U crate that distributes 24V power to the LSBs on a narrow backplane.  The 24V is provided by a rack mounted linear power supply connected by a cable bundle to the LSB crate backplane.  Multiple LSB crates can be serviced by a single power supply.  One LSB per station is controlled using an Ethernet interface.  Control of the other LSBs at that station occurs using a two pair serial protocol implemented using short RJ11 cables linking one LSB to the next.  A test pulse can also be injected to selected groups of channels.  The timing of the test pulse can be determined by a TTL pulse distributed to the LSBs using a daisy-chain of LEMO cables, or independently by each ASDQ card being tested.
-
-Eight 17-pair ribbon cables connect eight ASDQ cards to the back side of a single LSB.  The LSB converts the differential signals from the ASDQs to standard LVDS.  The LVDS outputs are carried on 4 ribbon cables to TDC modules.  Typically, one 64-channel LSB is connected to one corresponding 64-channel TDC. The ASDQ/LSB system was designed at Fermilab for SeaQuest.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Measurement of Performance}
 
