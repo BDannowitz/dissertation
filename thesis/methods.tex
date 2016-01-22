@@ -269,9 +269,9 @@ The tracking detectors are the instruments used for measuring the values of the 
 	\label{fig:stations}
 \end{figure}
 
-\section{Triggering Hodoscopes}
+\subsection{Triggering Hodoscopes}
 
-Hodoscope arrays are located at each of the four detector stations. These detectors' primary usage is to select events with two opposite-signed muon tracks in them. Certain `roads' through the spectrometer are defined in the fast trigger logic, and when two desired roads are observed in a given event, the trigger system tells the data acquisitioning systems to record that event's data. In addition to this, the hodoscopes provide analysts with the ability to discard or ignore certain hits in adjacent chambers for which there is no corresponding nearby hodoscope hit. This is useful in decreasing the hit multiplicities in the wire chambers, which in turn decreases the combinatoric complexity of reconstruction algorithms.
+Hodoscope arrays are located at each of the four detector stations. These detectors' primary usage is to select events with two opposite-signed muon tracks in them. Certain `roads' through the spectrometer are defined in the fast trigger logic, and when two desired roads are observed in a given event, the trigger system tells the data acquisition systems to record that event's data. In addition to this, the hodoscopes provide analysts with the ability to discard or ignore certain hits in adjacent chambers for which there is no corresponding nearby hodoscope hit. This is useful in decreasing the hit multiplicities in the wire chambers, which in turn decreases the combinatoric complexity of reconstruction algorithms.
 
 Each of the eight hodoscope planes are split into two halves: top and bottom in the case of planes with vertically-oriented paddles, or left and right for planes with horizontally-oriented paddles (denoted by `T', `B', `L', and `R', respectively). In each half-plane, the hodoscopes are a set of long rectangles arranged `picket fence'-style with a small 0.3175cm overlap, as to prevent any particles from possibly slipping between paddles. A single hodoscope detector element is composed of plastic scintillator material connected to Philips XP 2008 photomultiplier tubes (PMT) by plexiglass light guides. Stations 1, 2, and 4 each have two hodoscope planes, with planes of both vertically- and horizontally-oriented paddles (for measuring in $x$ and $y$, respectively). Station 3 only has vertically-oriented plane, and thus measures in the $x-$direction only, which is in the experiment's $x-z$ bend plane. The hodoscope planes are named according to detector station and the direction that they measure. For example, the $y$-measuring hodoscope plane in Station 2 is called ``H2Y''. The individual half-planes are named according to detector station and which half it is of the two. For example, the top half of the $x$-measuring hodoscope plane in Station 1 is referred to as ``H1T''. As such, the ``H3X'' detector is composed of ``H3T'' and ``H3B''. The detailed specifications of each hodoscope plane are given in Table \ref{tab:hodoscopes}. A precise alignment of the hodoscopes was achieved by examining the distributions of positions of tracked muons at each hodoscope plane when a given hodoscope element in that plane was fired.
 
@@ -360,84 +360,39 @@ The D3p and D3m.2 chambers were designed and constructed specifically for this e
 
 \subsection{Proportional Tubes}
 
-Downstream of Station 3 and the iron hadron absorber wall is Station 4 with its hodoscope planes and proportional tube detectors. This detector group exists for the purpose of particle identification (PID), particularly for muon discrimination.
+Downstream of Station 3 and the 1 m thick iron hadron absorber wall is Station 4 with its hodoscope planes and proportional tube  detectors (prop tubes). At Station 4, the only beam-induced particles that remain that can leave tracks in an ionization detector are high energy muons. The prop tubes enable the task of muon particle identification (PID) for the experiment, and consist of four planes. Each detector plane is made of 9 prop-tube modules, with each module assembled from 16 12-ft long 2" diameter prop-tubes staggered to form two sub-layers. The first and fourth planes are oriented along the horizontal direction (tubes parallel to the floor) to provide positional measurements in $y$, as shown in Fig.~\ref{fig:proptube:xzview}. The second and third planes are arranged vertiacally to measure $x$-position as shown in and Fig.~\ref{fig:proptube:yzview}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Measurement of Performance}
-
-Table \ref{tab:cham:performance1} summarizes the performance of all the DCs.
-The performance of DC1.2 is of anticipated values based on simulations
-because DC1.2 is being constructed.
-Those of the other DCs are of measured values in Run 3.
-
-Figure \ref{fig:cham:eff} shows the detection efficiency of all 18 planes.
-All planes of DC3p and DC3m.2 are nearly 100\% efficient.
-Several planes of DC1.1 and DC2 are less efficient,
-because the high voltages of these planes were set lower
-to prevent occasional power supply trips.
-All the planes have been proven to meet the requirement.
-The efficiency of DC1.2 hasn't been measured yet.
-
-Figure \ref{fig:cham:reso} shows the position resolution of all 18 planes.
-The resolutions of all planes are on average 500 $\mu$m.
-All the planes have been proven to meet the requirement.
-The resolution of DC1.2 hasn't been measured yet.
-
-Regarding the hit-rate tolerance,
-the probability of double hits per wire per event is estimated to be xx\% on average,
-based on the measured hit rate per wire.
-Analysis techniques to resolve the double hits are being examined.
-
-\begin{figure}\centering
-  \begin{minipage}[t]{0.50\linewidth}
-    \includegraphics[width=\linewidth]{figures/cham_eff.pdf}
-    \caption{Single-plane efficiency.
-      {\it This plot is NOT final.  Should we show those of DC3m.1?
-        Should we use a table instead of plot?}
-    }
-    \label{fig:cham:eff}
-  \end{minipage}
-  \begin{minipage}[t]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{figures/cham_reso}
-    \caption{Single-plane position resolution.
-      {\it This plot is NOT final.
-        The horizontal axis has to be converted to drift distance.
-        If the resolution of all chambers/planes is rather constant,
-        we should use a table instead of plot.
-    }}
-    \label{fig:cham:reso}
-  \end{minipage}
+\begin{figure}
+	\centering
+	\begin{minipage}[t]{0.49\linewidth}
+		\includegraphics[width=\linewidth]{figures/proptubeview_xz.pdf}
+		\caption{Proportional tube top ($x-z$ plane) view.}
+		\label{fig:proptube:xzview}
+	\end{minipage}
+	\begin{minipage}[t]{0.49\linewidth}
+		\includegraphics[width=1.03\linewidth]{figures/proptubeview_yz.pdf}
+		\caption{Proportional tube side ($y-z$ plane) view.}
+		\label{fig:proptube:yzview}
+	\end{minipage}
 \end{figure}
 
-\begin{table}[bthp]\centering
-  \caption{Performance of all DCs.
-    That of DC1.2 is of anticipated values based on simulations,
-    and those of the others are of measured values in Run 3.}
-  \label{tab:cham:performance2}
-  \begin{tabular}{c|cccc}
-    \hline
-    Chamber & Drift       & Maximum    & Position   & Plane \\
-            & velocity    & drift time & resolution & efficiency \\
-            & ($\mu$m/ns) & (ns)       & ($\mu$m)   & (\%) \\ 
-    \hline
-    DC1.1   &    30       &     100    &   500??    & 98\%?? \\
-    DC1.2   &    n/a      &     n/a    &   n/a      & n/a    \\
-    DC2     &     5       &     200    &   500??    & 98\%?? \\
-    DC3p    &     5       &     200    &   500??    & 98\%?? \\
-    DC3m.1  &     5       &     100??  &   500??    & 98\%?? \\
-    DC3m.2  &     5       &     200    &   500??    & 98\%?? \\
-    \hline
-  \end{tabular}
-\end{table}
+A single prop tube is made of 2" diameter aluminum tubes with wall thickness of 1/16". The central anode wire is a gold-plated $20 \mu$m diameter tungsten wire. Considering the staggered nature of each plane, one can in principle achieve a spatial resolution of 0.3mm.  During Runs 2 and 3 of data taking, a resolution of 0.5mm for high energy muons was observed, which is more than sufficient for muon identification purpose. The gas mixture for prop-tubes is P-10 (Ar:Methane = 90:10) mixed with a $10\%$ CF4 gas (Ar:CO$_2$:CF$_4$ = 70:20:10) which yields the maximum drift time about 400ns. With this maximum, the prop tubes can handle a singles rate up to 2MHz, while normal operational hit rates are typically below 1MHz.
+
+A typical desired high-energy muon within spectrometer acceptance will traverse through two prop-tubes in each plane and induces hit signals on two anode wires. The path of track is reconstructed from the drift time measured on the two anode output, with a custom TDC board that provides 0.44 ns timing resolution. With the hit information reconstructed from readouts of the forward and backward planes in $x-z$ and $y-z$ direction, precise reconstruction of the track trajectories can be obtained. Ideally, 8 hits from the 4 planes are used to form a track pointing back to the target. If such is the case, a candidate muon track is successfully identified.
 
 \subsection{Mass Resolution}
 
-The mass resolution of the spectrometer is limited by the resolution of the tracking chambers.
-First the momentum resolution can be derived from the respective positions of the chambers and the
-resolutions of the individual chambers:
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/momentum-resolution.pdf}
+	\caption{A simplistic depiction of a track passing through from Station 1, through KMAG where its path is bent by the magnetic field, and then straight on through Stations 2 and 3.}
+	\label{fig:mom-res}
+\end{figure}
+
+The mass resolution of the spectrometer is, in part, limited by the resolution of the tracking chambers. First the momentum resolution due to chamber position resolution can be derived from the respective positions of the chambers and the resolutions of the individual chambers:
 \begin{equation}
-\frac{\Delta P}{P} = \frac{P}{P_{kick}} \sqrt{\Delta r_1 ^2 + \left( 1 + \frac{z_1 - z_2}{z_2 - z_3} \right) \Delta r_2^2 +
-	\left( \frac{z_1 - z_2}{z_2 - z_3} \right)^2 \Delta r_3^2 }
+\frac{\Delta P}{P} = \frac{P}{P_{kick}} \sqrt{\Delta r_1 ^2 + \left( 1 + \left(\frac{z_{12}}{z_{23}}\right)^2 \right) \Delta r_2^2 +
+	\left( \frac{z_{12}}{z_{23}} \right)^2 \Delta r_3^2 }
 \end{equation}
 where $z_n$ is the z-position of the \emph{n}th station, and $\Delta r_n$ is
 the resolution of the \emph{n}th chamber.
