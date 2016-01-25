@@ -376,11 +376,31 @@ Downstream of Station 3 and the 1 m thick iron hadron absorber wall is Station 4
 	\end{minipage}
 \end{figure}
 
-A single prop tube is made of 2" diameter aluminum tubes with wall thickness of 1/16". The central anode wire is a gold-plated $20 \mu$m diameter tungsten wire. Considering the staggered nature of each plane, one can in principle achieve a spatial resolution of 0.3mm.  During Runs 2 and 3 of data taking, a resolution of 0.5mm for high energy muons was observed, which is more than sufficient for muon identification purpose. The gas mixture for prop-tubes is P-10 (Ar:Methane = 90:10) mixed with a $10\%$ CF4 gas (Ar:CO$_2$:CF$_4$ = 70:20:10) which yields the maximum drift time about 400ns. With this maximum, the prop tubes can handle a singles rate up to 2MHz, while normal operational hit rates are typically below 1MHz.
+Each plane of proportional tubes is composed of 9 \emph{modules}, which each have a set of 16 proportional tubes: 8 in lined in an horizontal or vertical orientation and 8 more offset (``primed'') from the first 8 by 0.5 inches. This offset structure prevents any muons from going undetected between tubes and allows for left-right disambiguation for two hits in adjacent primed-unprimed sub-plane pairs in the same module. The modules are labeled $1-9$ in increasing order from left to right for the $x-$measuring planes and from $1-9$ in increasing order from top to bottom. So, the top module of the first vertical plane of prop tubes is P2H1. Additionally, in each module, the primed and unprimed sub-planes are referred to as \emph{f} for ``front'' (facing upstream) and \emph{b} for ``back'' (facing downstream). This substructure can be seen in detail on Fig.~\ref{fig:proptube:xzview} and Fig.~\ref{fig:proptube:yzview}.
+
+A single prop tube is made of 2-inch diameter aluminum tubes with wall thickness of 1/16 inches. The central anode wire is a gold-plated $20 \mu$m diameter tungsten wire kept at approximately 1.95 kV. Considering the staggered nature of each plane's substructure, one can in principle achieve a spatial resolution of 0.3mm.  During Runs 2 and 3 of data taking, a resolution of 0.5mm for high energy muons was observed, which is more than sufficient for muon identification purpose. The gas mixture for prop-tubes is P-10 (Ar:Methane = 90:10) mixed with a $10\%$ CF4 gas (Ar:CO$_2$:CF$_4$ = 70:20:10) which yields the maximum drift time about 400ns. With this maximum, the prop tubes can handle a singles rate up to 2MHz, while normal operational hit rates are typically below 1MHz.
 
 A typical desired high-energy muon within spectrometer acceptance will traverse through two prop-tubes in each plane and induces hit signals on two anode wires. The path of track is reconstructed from the drift time measured on the two anode output, with a custom TDC board that provides 0.44 ns timing resolution. With the hit information reconstructed from readouts of the forward and backward planes in $x-z$ and $y-z$ direction, precise reconstruction of the track trajectories can be obtained. Ideally, 8 hits from the 4 planes are used to form a track pointing back to the target. If such is the case, a candidate muon track is successfully identified.
 
-\subsection{Mass Resolution}
+\begin{table}[bthp]\centering
+	\begin{tabular}{c|ccccc}
+		\hline \hline
+		Detector & Number   	& \# tubes 	& Width ($x$)           	& $z$-position \\
+		Plane	 & of modules	& per	 	& $\times$ height ($y$)  	& of front (back)   \\ 
+				 &    		    & module  	& [cm] $\times$ [cm]		& sub-plane	[cm]    \\ 
+		\hline
+		P1H    &  9     & 16  & 368 $\times$ 368 &  2,099 (+4)    \\
+		P1V    &  9     & 16  & 368 $\times$ 368 &  2,175 (+4)    \\
+		P2V    &  9     & 16  & 368 $\times$ 368 &  2,367 (+4)    \\
+		P2H    &  9		& 16  & 368 $\times$ 368 &  2,389 (+4)    \\
+		\hline
+		\hline
+	\end{tabular}
+	\caption{Parameters of the four proportional tube planes.}
+	\label{table:prop:param}
+\end{table}
+
+\subsection{Mass Resolution from Chamber Resolutions}
 
 \begin{figure}
 	\centering
@@ -389,26 +409,38 @@ A typical desired high-energy muon within spectrometer acceptance will traverse 
 	\label{fig:mom-res}
 \end{figure}
 
-The mass resolution of the spectrometer is, in part, limited by the resolution of the tracking chambers and the distances between them. For an arbitrary set of hit positions in Stations 1, 2, and 3 ($r_1, r_2, r_3$) which are separated from each other in $z$ by distances $z_{12}$ and $z_{23}$, with KMAG in between Stations 1 and 2 supplying a $P_{kick}$, one can derive $\Delta P / P$. A line, or track segment, is first reconstructed between $r_2$ and $r_3$. The slope (and its uncetainty) of this track segment in the $z-x$ plane is:
-\begin{eqnarray}
-	s_{23} & = & \frac{r_3 - r_2}{z_{23}} \\
-	\Delta s_{23} & = & \frac{1}{z_{23}}\sqrt{\Delta r_3^2 + \Delta r_2^2}
-\end{eqnarray}
+The mass resolution of the spectrometer is, in part, limited by the resolution of the tracking chambers and the distances between them. For an arbitrary set of hit positions in Stations 1, 2, and 3 ($r_1, r_2, r_3$) which are separated from each other in $z$ by distances $z_{12}$ and $z_{23}$, with KMAG in between Stations 1 and 2 supplying a $P_{kick}$, one can derive $\Delta P / P$. A line, or track segment, is first reconstructed between $r_2$ and $r_3$. The slope (and its uncertainty) of this track segment in the $z-x$ plane is:
+\begin{equation}
+	s_{23} = \frac{r_3 - r_2}{z_{23}} \ \ ,\ \ \Delta s_{23} = \frac{1}{z_{23}}\sqrt{\Delta r_3^2 + \Delta r_2^2}
+\end{equation}
 The values of $\Delta r_n$ here are the position resolutions of the individual tracking chambers at each Station. One can use this slope to project a trajectory through KMAG and onto Station 1. The momentum is calculated by seeing where the actual hit position is in Station 1 and looking to the distance ($d$) between where the particle hit the station and where it would have hit had KMAG's magnetic field not existed. This is called a \emph{sagitta analysis}, as the magnetic field moves the particle's trajectory as if along a circle, and we are looking to the particle's path along the sagitta of that circle. Ultimately, the momentum uncertainty is related to this distance as:
 \begin{equation}
 	\frac{\Delta P }{P} = \frac{P}{P_{kick}}\Delta d
 \end{equation}
-
+The expected sagitta point ($r_s$) is located at:
+\begin{eqnarray}
+r_s & = & s_{23} z_{12} + r_2 \\
+\Delta r_s = \sqrt{\Delta s_{23}^2 z_{12}^2 + \Delta r_2^2} & = & \sqrt{ \Delta r_3^2 \left(\frac{z_{12}}{z_{23}}\right)^2 + (1+\left(\frac{z_{12}}{z_{23}}\right)^2) \Delta r_2^2}
+\end{eqnarray}
+And the distance, $d$ follows as:
+\begin{eqnarray}
+d & = & r_s - r_1 \\
+\Delta d = \sqrt{\Delta r_s^2 + \Delta r_1^2} & = & \sqrt{ \Delta r_3^2 \left(\frac{z_{12}}{z_{23}}\right)^2 + (1 + \left( \frac{z_{12}}{z_{23}} \right)^2) \Delta r_2^2 + \Delta r_1^2}
+\end{eqnarray}
+The momentum resolution due to chamber resolution can therefore be described as:
 \begin{equation}
-\frac{\Delta P}{P} = \frac{P}{P_{kick}} \sqrt{\Delta r_1 ^2 + \left( 1 + \left(\frac{z_{12}}{z_{23}}\right)^2 \right) \Delta r_2^2 +
-	\left( \frac{z_{12}}{z_{23}} \right)^2 \Delta r_3^2 }
+\frac{\Delta P}{P} = \frac{P}{P_{kick}} \sqrt{ \Delta r_3^2 \left(\frac{z_{12}}{z_{23}}\right)^2 + (1 + \left( \frac{z_{12}}{z_{23}} \right)^2) \Delta r_2^2 + \Delta r_1^2}
 \end{equation}
-where $z_n$ is the z-position of the \emph{n}th station, and $\Delta r_n$ is
-the resolution of the \emph{n}th chamber.
+The dependence of the resolution on $P/P_{kick}$ works such that the larger the $P_{kick}$ is (w.r.t. particle momentum $P$), the more the track is bent, and the more precisely the original momentum is defined. Besides chamber resolution, other contributions to this momentum resolution are from multiple scattering through FMAG's iron beam dump and from the spectrometer's angular resolution. These will be discussed elsewhere in this paper.
 
-There are two other additional factors that contribute to the momentum resolution: 
-
-
+The mass resolution is linked to momentum resolution via the following relation
+\begin{equation}
+\frac{\Delta M}{M} = \frac{\Delta P}{2 P}
+\end{equation}
+The factor of two arises from the fact that the Drell-Yan dilepton mass comes from two independent muons with the same momentum resolution. This mass resolution is important because it, in turn, contributes to the $\Delta x_2 / x_2$ resolution, which is the key dependent variable for SeaQuest measurements.
+\begin{equation}
+\frac{\Delta x_2}{x_2} \approx 0.57 \Delta x_F + 0.012 M^2 \frac{\Delta M}{M}
+\end{equation}
 \section{Triggering Matrices}
 
 The SeaQuest Trigger System selects candidate dimuon events from the high-rate environment using discriminated hodoscope signals. 
