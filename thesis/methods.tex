@@ -429,7 +429,7 @@ d & = & r_s - r_1 \\
 \end{eqnarray}
 The momentum resolution due to chamber resolution can therefore be described as:
 \begin{equation}
-\frac{\Delta P}{P} = \frac{P}{P_{kick}} \sqrt{ \Delta r_3^2 \left(\frac{z_{12}}{z_{23}}\right)^2 + (1 + \left( \frac{z_{12}}{z_{23}} \right)^2) \Delta r_2^2 + \Delta r_1^2}
+\frac{\Delta P}{P} = \frac{P}{P_{kick}} \sqrt{ \Delta r_3^2 \left(\frac{z_{12}}{z_{23}}\right)^2 + \left(1 + \left( \frac{z_{12}}{z_{23}} \right)^2 \right) \Delta r_2^2 + \Delta r_1^2}
 \end{equation}
 The dependence of the resolution on $P/P_{kick}$ works such that the larger the $P_{kick}$ is (w.r.t. particle momentum $P$), the more the track is bent, and the more precisely the original momentum is defined. Besides chamber resolution, other contributions to this momentum resolution are from multiple scattering through FMAG's iron beam dump and from the spectrometer's angular resolution. These will be discussed elsewhere in this paper.
 
@@ -441,7 +441,18 @@ The factor of two arises from the fact that the Drell-Yan dilepton mass comes fr
 \begin{equation}
 \frac{\Delta x_2}{x_2} \approx 0.57 \Delta x_F + 0.012 M^2 \frac{\Delta M}{M}
 \end{equation}
-\section{Triggering Matrices}
+
+
+
+\section{Trigger}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/v1495-trigger.pdf}
+	\caption{The trigger system at SeaQuest is composed of 9 CAEN v1495 FPGA modules. These modules output a trigger signal to the Trigger Supervisor, which tells the DAQ when to record data.}
+	\label{fig:1495-trigger}
+\end{figure}
+
 
 The SeaQuest Trigger System selects candidate dimuon events from the high-rate environment using discriminated hodoscope signals. 
 
