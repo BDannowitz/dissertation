@@ -453,50 +453,51 @@ The factor of two arises from the fact that the Drell-Yan dilepton mass comes fr
 	\label{fig:1495-trigger}
 \end{figure}
 
+The SeaQuest Trigger System is designed to quickly select candidate dimuon events from the high-rate, high-background environment using discriminated hodoscope signals.
 
-The SeaQuest Trigger System selects candidate dimuon events from the high-rate environment using discriminated hodoscope signals. 
+\subsection{Design Requirements}
 
-\subsection{Requirements}
-%*select drellyan dimuons with acceptable efficiency*
-The trigger must select events of interest to the main physics goals with high-enough efficiency to facilitate high-statistics analyses.
-Therefore, the trigger is optimized to accept high-mass ($4-10$GeV) dimuons originating from the targets.
-The trigger should intentionally reduce acceptance of dimuons from other, higher-rate sources, such as $J/\Psi$ decays and dimuons originating from the beam-dump.
-The overall trigger rate must be kept low enough to maintain an acceptable DAQ livetime.
-%*keep DAQ livetime high by minimizing trigger rate*
-Additionally, the trigger should be internally deadtime-free. The trigger should be capable of firing on any and all RF-buckets while the DAQ is live.
-%*internally deadtime free*
-\par
-The trigger should be sufficiently flexible to quickly accomodate changes in the spectrometer, beam conditions, and physics goals.
-Any changes to the geometric acceptance of the spectrometer, whether caused by new/moved detectors, changes in the magnetic fields, or something else, must be immediately reflected in the trigger in order to maintain high-signal efficiency and high background rejection power.
-Similarly, a change in the beam duty factor or intensity should be accompanied by a change in the trigger acceptance, ensuring trigger rate optimization.
-Finally, the trigger should be capable of modifying the acceptance to facilitate special runs for other physics goals.
-For these reasons, the design of the trigger system must allow for significant flexibility in the trigger-imposed acceptance.
-%*flexibility*
-\par
-Lastly, the design of the trigger system should include self-diagnostic capabilities, allowing for constant monitoring of the trigger system's performance.
-Internal pulser-testing is employed to test the function of each compiled firmware, every time the trigger logic changes.
-Data from the internal TDCs is used by offline software to check the self-consistency of the trigger for each recorded physics event.
-%*self-diagnostics (internal TDCs, internal pulser test)*
+%% DY selection, trigger rate
+The trigger must select events of interest to the main physics goals with good enough efficiency (maximum signal-to-background ratio) to facilitate high-statistics analyses. In general, it is optimized to accept high-mass ($4-10$GeV) dimuons originating from the targets and beam dump. The event selection is also designed to intentionally reduce acceptance of dimuons from other, higher-rate sources, such as $J/\Psi$ decays and non Drell-Yan dimuons originating from the beam-dump, though enough $J/\Psi$ events are triggered on to allow high-statistics analysis of $J/\Psi$ physics. Other goals of the trigger design is to keep the triggering rate low enough to maintain an acceptable DAQ livetime and to keep the trigger's internal throughput deadtime-free. By design, there should be no bottleneck at this stage, and the trigger should be capable of firing on any and all RF-buckets while the DAQ is live.
 
+%% Flexibility
+The hardware, firmware, and design should be sufficiently flexible to quickly accommodate changes in the spectrometer, beam conditions, and physics goals. Any changes to the geometric acceptance of the spectrometer, such as new/moved detectors or changes in the magnetic fields must be immediately reflected in the trigger selection in order to maintain high-signal efficiency and good background rejection power. Similarly, a change in the beam duty factor or intensity should be accompanied by a change in the event selection, ensuring trigger rate optimization and zero internal deadtime. Finally, the trigger should be capable of specific modifications to facilitate special runs for other physics goals. For these reasons, the design of the trigger system underscores a significant need for flexibility in its hardware and design.
+
+%% Self-monitoring, transparent
+Lastly, the design of the trigger system should include self-diagnostic capabilities, allowing for constant monitoring of the trigger system's performance. Internal pulser-testing is employed to test the function of each compiled firmware every time the trigger logic changes. For added transparency, data from the internal TDC's is used by online and offline software to monitor the self-consistency of the trigger for each recorded physics event.
+
+\subsection{Trigger Hardware}
+
+The triggering system, which is depicted in Fig.~\ref{fig:1495-trigger}, begins with the Stations 1-4 hodoscope arrays. Hodoscopes are used for this task as the time resolution and high speed is limited only by the speed of light through the scintillator paddles and secondary emission of electrons (through the stages of the PMTs. This occurs over the span of nanoseconds, which allows for fast triggering on RF buckets that occur every 19ns during spills. The hodoscope planes - both x- and y-measuring planes - are separated into top and bottom sections as far as triggering is concerned. The signals from the hodoscope arrays are passed through a set of discriminator modules, which will only pass a signal on to the rest of the trigger if there is enough of a signal from the PMT's past a preset threshold.
+
+The output of the discriminators is passed along to one of the nine CAEN v1495 FPGA (Field Programmable Gate Arrays) VME-bus modules~\cite{caen:v1495}. This hardware trigger consists of a single decision stage with a three-step parallel pipeline. These steps are referred to as the \emph{level-0}, \emph{level-1}, and \emph{level-2} stage triggers. The detailed internal flowchart of the CAEN v1495 electronics can be seen in Fig.~\ref{fig:v1495-internal}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/trigger-block-diagram.png}
+	\caption{A block diagram of the major functions of the v1495 FPGA~\cite{Shiu:2015ura}.}
+	\label{fig:v1495-internal}
+\end{figure}
+
+The 
 
 \begin{table}[bthp]\centering
-  \caption{Performance of all DCs.
-    That of DC1.2 is of anticipated values based on simulations,
-    and those of the others are of measured values in Run 3.}
-  \label{tab:cham:performance1}
-  \begin{tabular}{c|ccc}
+  \begin{tabular}{c|cccl}
     \hline
-    Trigger & Condition       & Sign    & \#$\mu$ \\
+    Trigger & Condition       & Sign    & \#$\mu$ & Prescale\\
     \hline
-    FPGA-1   &    T $\land$ B, 3-of-4    &   $+\land-$    &   2 \\
-    FPGA-2   &    T $\lor$ B, 3-of-4      &  $+\lor-$       &  1 \\
-    FPGA-3     &  T, 3-of-4       &    $+\lor-$   &   1  \\
-    FPGA-4    &   B, 3-of-4       &    $+\lor-$    &   1 \\
-    FPGA-5  &     T $\land$ B, 3-of-4       &     Any  &   2  \\
-    NIM-1  &     T $\land$ B, 4-of-4       &     NA    &   NA   \\
-    NIM-2  &     T $\land |$ B, X3-X4       &     NA    &   NA   \\
+    FPGA-1   & $T \land B$    					& Opposite  & 2		& 1    \\
+    FPGA-2   & $(T \land T)\ \lor (B \land B)$  & Opposite  & 2		& 1000 \\
+    FPGA-3   & $T \land B$						& Same		& 2		& 123  \\
+    FPGA-4   & $T \lor B$				        & $+ \lor -$& 1		& 30000\\
+    FPGA-5   & $T \lor B$						& $+ \lor -$& 1		& 2000 \\
+    NIM-1    & Y-coincidence 					& NA		& NA	& 30000\\
+    NIM-2    & X-coincidence					& NA		& NA	& 1000 \\
+    NIM-3	 & Random RF						& NA		& NA	& 1000 \\
     \hline
   \end{tabular}
+    \caption{Trigger settings for Run 3 and beyond. Prescale figures shown are typical values, and were adjusted as experimental needs were tuned. NIM-1 and NIM-2 triggers' exact conditions could be changed and reconfigured from the counting room.}
+    \label{tab:trigger-settings}
 \end{table}
 
 \section{Data Acquisition Systems}
