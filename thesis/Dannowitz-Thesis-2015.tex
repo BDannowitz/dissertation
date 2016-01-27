@@ -10,12 +10,16 @@
 %% Package and Class "uiucthesis2009" for use with LaTeX2e.
 \documentclass[edeposit,fullpage]{uiucthesis2009}
 \usepackage{graphicx}
+\usepackage{xspace}     %to get spaces in commands right
 \usepackage{subfig}
 \usepackage{booktabs}
 \usepackage{wrapfig}
 \usepackage{longtable}
+\usepackage{units}      %to get proper nobreak spaces for units
+\usepackage{hyperref}   %clickable links in pdfs
 
 \newcommand{\CN}{$^{[citation\ needed]}$}
+\newcommand{\us}{$\mu$s\xspace}
 
 \begin{document}
 
@@ -79,7 +83,9 @@ This paper does not acknowledge Star Wars Episodes I-III, nor does it acknowledg
 
 \begin{symbollist*}
 	\item[ACNET] Accelerator control system network
+	\item[AD] Accelerator division (of Fermilab)
 	\item[BIM] Beam intensity monitor
+	\item[BOS] Beginning of spill
 	\item[BPM] Beam profile monitor
 	\item[CEBAF] Continuous Electron Beam Accelerator Facility
 	\item[CODA] CEBAF On-line Data Acquisition
@@ -88,7 +94,10 @@ This paper does not acknowledge Star Wars Episodes I-III, nor does it acknowledg
 	\item[DIS] Deep-inelastic scattering
 	\item[DY] Drell-Yan
 	\item[E906] Experiment number 906 at Fermilab National Accelerator Laboratory, a.k.a. SeaQuest
+	\item[EOS] End of spill
+	\item[FEE] Front-end electronics
 	\item[FNAL] Fermi National Accelerator Laboratory (Fermilab)
+	\item[FPGA] Field programmable gate arrays
 	\item[IC] Ion chamber
 	\item[KTeV] Fermilab experiment that previously inhabited the NM4 experimental hall
 	\item[LINAC] Fermilab Linear Accelerator
@@ -103,13 +112,16 @@ This paper does not acknowledge Star Wars Episodes I-III, nor does it acknowledg
 	\item[PMT] Photomultiplier tube
 	\item[RF] Radio frequency
 	\item[RFQ] Radio frequency quadrupole
+	\item[ROC] Readout controller
 	\item[SEM] Secondary emission monitor
+	\item[TS] Trigger supervisor
 	\item[QCD] Quantum chromodynamics
 	\item[QED] Quantum electrodynamics
 	\item[QIE] Charge (Q) integrator and encoder
 	\item[RDBMS] Relational database management system
 	\item[SQL] Structured querying language
 	\item[SWIC] Segmented wire ion chamber
+	\item[VME] Versa Module Europa
 \end{symbollist*}
 
 %% Create a List of Symbols. The left column

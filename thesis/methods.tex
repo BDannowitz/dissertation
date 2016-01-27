@@ -6,7 +6,7 @@ to take \emph{high-intensity beam} at relatively \emph{low center-of-mass energy
 \emph{good mass resolution}, and allow for \emph{accurate target-to-target systematic normalization}.
 The apparatus consists of a moving target table, two dipole magnets, 8 hodoscope planes, 24 drift 
 chamber planes, and 4 proportional tube planes. Upstream of the target table (towards the beam source),
-there is also a Cherenkov counter for beam intensity monitoring and there are
+there is also a \v{C}erenkov counter for beam intensity monitoring and there are
 several segmented wire ionization chambers (SWIC's) for beam profiling.
 
 \section{Apparatus Overview}
@@ -133,18 +133,13 @@ frequently as trigger and beam conditions change, but the inhibit threshold is t
 95,000 protons per RF bunch. For reference, a full RF bucket at an intensity of $2\times 10^{12}$ protons per
 spill is $\approx$10,000 protons.
 
-The beam intensity is measured using an atmospheric pressure gas Cerenkov counter. A gas mixture of 80$\%$ Argon and 20$\%$ CO$_2$
-is used as the Cerenkov radiator. The counter and readout electronics were designed to have $O(ns)$ time resolution, and a linear
-response over a large dynamic range.  A diagram of the counter is shown in Figure~\ref{fig:BIMCerenkov}.  A 45 degree aluminized
-Kapton mirror directs light to a single photomultiplier tube.  A \emph{baffle} of black construction paper held parallel to the
-mirror ensures that the proton path length through the light-radiating gas with respect to the mirror is independent of beam
-position. A two-inch diameter 8-stage photomultiplier tube (PMT) is positioned close to the mirror so that all Cerenkov light created between the baffle and the mirror falls directly on the aperture of the PMT. It was observed during the commissioning run
+The beam intensity is measured using an atmospheric pressure gas \v{C}erenkov counter. A gas mixture of 80$\%$ Argon and 20$\%$ CO$_2$ is used as the \v{C}erenkov radiator. The counter and readout electronics were designed to have $O(ns)$ time resolution, and a linear response over a large dynamic range.  A diagram of the counter is shown in Figure~\ref{fig:BIMCerenkov}.  A 45 degree aluminized Kapton mirror directs light to a single photomultiplier tube.  A \emph{baffle} of black construction paper held parallel to the mirror ensures that the proton path length through the light-radiating gas with respect to the mirror is independent of beam position. A two-inch diameter 8-stage photomultiplier tube (PMT) is positioned close to the mirror so that all \v{C}erenkov light created between the baffle and the mirror falls directly on the aperture of the PMT. It was observed during the commissioning run
 that after exposure to $\approx 3 \times 10^{17}$ protons (~3 weeks of uninterrupted usage), the mirror reflectivity is significantly reduced in the beam spot, and the mirror then needs to be replaced.
 
 \begin{figure}
 	\begin{center}
 		\includegraphics[width=0.6\textwidth]{figures/BIMCerenkov.pdf}
-		\caption{The Beam Intensity Monitor (BIM) Cerenkov counter. Measurements are in inches.}
+		\caption{The Beam Intensity Monitor (BIM) \v{C}erenkov counter. Measurements are in inches.}
 		\label{fig:BIMCerenkov}
 	\end{center}
 \end{figure}
@@ -169,10 +164,7 @@ These are used to calculate a ratio of protons that were `live' (the experiment 
 	liveProton & = & totalProton \cdot liveRatio
 	\label{eqn:liveproton}
 \end{eqnarray}
-where ``totalProton'' is the intensity value recorded from the SEM detector located just upstream of the BIM Cerenkov counter.
-The SEM itself is calibrated by foil activation. The snapshot of the triggered RF bucket intensity along with the 32
-surrounding RF bucket intensities is used for studies and corrections of the rate-dependent effects on detector efficiencies
-and reconstructed measurements.
+where ``totalProton'' is the intensity value recorded from the SEM detector located just upstream of the BIM \v{C}erenkov counter. The SEM itself is calibrated by foil activation. The snapshot of the triggered RF bucket intensity along with the 32 surrounding RF bucket intensities is used for studies and corrections of the rate-dependent effects on detector efficiencies and reconstructed measurements.
 
 \section{The SeaQuest Targets}
 
@@ -470,7 +462,7 @@ Lastly, the design of the trigger system should include self-diagnostic capabili
 
 The triggering system, which is depicted in Fig.~\ref{fig:1495-trigger}, begins with the Stations 1-4 hodoscope arrays. Hodoscopes are used for this task as the time resolution and high speed is limited only by the speed of light through the scintillator paddles and secondary emission of electrons (through the stages of the PMTs. This occurs over the span of nanoseconds, which allows for fast triggering on RF buckets that occur every 19ns during spills. The hodoscope planes - both x- and y-measuring planes - are separated into top and bottom sections as far as triggering is concerned. The signals from the hodoscope arrays are passed through a set of discriminator modules, which will only pass a signal on to the rest of the trigger if there is enough of a signal from the PMT's past a preset threshold.
 
-The output of the discriminators is passed along to one of the nine CAEN v1495 FPGA (Field Programmable Gate Arrays) VME-bus modules~\cite{caen:v1495}. This hardware trigger consists of a single decision stage with a three-step parallel pipeline. These steps are referred to as the \emph{level-0}, \emph{level-1}, and \emph{level-2} stage triggers. The detailed internal flowchart of the CAEN v1495 electronics can be seen in Fig.~\ref{fig:v1495-internal}.
+The output of the discriminators is passed along to one of the nine CAEN v1495 FPGA (Field Programmable Gate Arrays) VMEbus (Versa Module Europa) modules~\cite{caen:v1495}. This hardware trigger consists of a single decision stage with a three-step parallel pipeline. These steps are referred to as the \emph{level-0}, \emph{level-1}, and \emph{level-2} stage triggers. The detailed internal flowchart of the CAEN v1495 electronics can be seen in Fig.~\ref{fig:v1495-internal}.
 
 \begin{figure}
 	\centering
@@ -479,7 +471,17 @@ The output of the discriminators is passed along to one of the nine CAEN v1495 F
 	\label{fig:v1495-internal}
 \end{figure}
 
-The 
+At the first step, level-0, there is nothing actively performed during nominal data taking. The signal is passed on through, unaltered, to level-1. As it stands, level-0 is not used for any of the triggering modes. This stage is, however, extensively used for the pulser testing and self-diagnostic purposes. The level-0 stage is capable of being programmed to pulse arbitrary patterns on to the level-1 stage, which is very useful for observing how level-1 (and subsequently, level-2) will behave in a controlled setting. Whenever a new firmware is installed on the v1495, a pulser test is performed to ensure that all design requirements are met before uploading the firmware for production data taking.
+
+The next level-1 trigger records the hit signals from the x- and y-measuring hodoscope hits, split into top and bottom partitions with respect to their location in the SeaQuest spectrometer. The hit patterns are tested via a lookup table against a preselected set of hodoscope hit patterns, or \emph{``trigger roads''}. Each trigger road corresponds to a set of four hodoscopes: one from each station, with all being in the top or bottom half of the spectrometer. In this lookup table, there is a charge and approximate $p_T$ value for each preselected road. These are known via studies of Monte Carlo studies of muon paths from di- or single-muon events originating from the targets or beam dump. The roads were selected such that as many good dimuons are selected while reducing roads that are dominated by background signal that might cause trigger and/or DAQ deadtime.
+
+During data taking, only the x-measuring hodoscopes were used for the v1495 trigger. As such, the two level-1 stages that look to the y-measuring hodoscope signals were unused. The level-1 trigger logic identifies four-out-of-four X1-X2-X3-X4 coincidences, which are characteristic of high $p_T$ single muons produced from the targets or beam dump. Each time a candidate coincidence that satisfies a preselected road is found, the level-1 step outputs certain logical bits indicating the track's charge, detector half (top or bottom), and $p_T$ bin.
+
+The third step of the triggering logic is the level-2 trigger, or the \emph{``Track Correlator''} stage. This step takes the outputs of level-1 (charge, detector half, $p_T$ bin) and finds if any combinations satisfy any of the preprogrammed triggering modes. If one of these modes was satisfied, a signal is sent to the Trigger Supervisor (TS) module that communicates with the DAQ system to record an event at a specific synchronized RF bucket.
+
+\subsection{Triggering Modes}
+
+The v1495 FPGA had five configurable sets of physics triggers were used in the trigger system for the majority of production-level data taking. These five are referred to interchangeably as ``Matrix'' and ``FPGA'' triggers, followed by the number 1-5 indicating which of the five. These modes are described in detail in Table~\ref{tab:trigger-settings}.
 
 \begin{table}[bthp]\centering
   \begin{tabular}{c|cccl}
@@ -489,8 +491,8 @@ The
     FPGA-1   & $T \land B$    					& Opposite  & 2		& 1    \\
     FPGA-2   & $(T \land T)\ \lor (B \land B)$  & Opposite  & 2		& 1000 \\
     FPGA-3   & $T \land B$						& Same		& 2		& 123  \\
-    FPGA-4   & $T \lor B$				        & $+ \lor -$& 1		& 30000\\
-    FPGA-5   & $T \lor B$						& $+ \lor -$& 1		& 2000 \\
+    FPGA-4   & $T \lor B$, all $p_T$	        & $+ \lor -$& 1		& 30000\\
+    FPGA-5   & $T \lor B$, $p_T > 3GeV$			& $+ \lor -$& 1		& 2000 \\
     NIM-1    & Y-coincidence 					& NA		& NA	& 30000\\
     NIM-2    & X-coincidence					& NA		& NA	& 1000 \\
     NIM-3	 & Random RF						& NA		& NA	& 1000 \\
@@ -500,7 +502,49 @@ The
     \label{tab:trigger-settings}
 \end{table}
 
+Different trigger settings were used for capturing data for different purposes. The primary triggering mode is FPGA-1, which looked for a combination of two roads of opposite sign that reside in opposite halves of the spectrometer. The FPGA-2 looked for good muon pairs that occurred in the same half. This, however, turned out to have a combinatoric problem that had two adverse effects: track reconstruction was difficult for these types of events, and the trigger fired off too often, causing high trigger and DAQ deadtime. As such, FPGA-2 was disabled for much of data taking. FPGA-3 trigger looked for the same kind of signal as FPGA-1, but with same-sign muon pairs. This type of event is useful for analyzing the experiment's combinatoric background. FPGA-4 and -5 are ``singles'' triggers that record events that are useful for estimating backgrounds and detector efficiencies. Each of these has a \emph{``prescale factor''} that limits how many of each mode actually fires the trigger. For example, FPGA-3 has a prescale factor of 123, which means that, within a single spill, there has to be 123 FPGA-3 events before it tells the DAQ to record one. This keeps certain high-frequency trigger modes from dominating the readout and causing undue deadtimes.
+
+In addition to the v1495 FPGA triggering mechanism, the outputs of the hodoscope discriminators are also sent up to the control room to a set of NIM logic modules. These signals, however, do not describe each hodoscope paddle, but are \emph{AND}s of the tops and bottoms of each plane. For example, if one or more paddles in H1T fires, then a positive signal is sent out indicating that H1T fired. These signals can be used to form a rudimentary trigger on situations such as 4- or 3-out-of-4 coincidences in the X- or Y-direction hodoscope planes. In general, NIM-1 is used for Y-coincidences, and NIM-2 is used for X-coincidences.
+
+The third NIM trigger mode is of particular importance, as it is used for estimating a great deal regarding backgrounds and rate dependence issues. The NIM-3 trigger is called the ``Random RF'' trigger, as it is controlled by two different clocks beating against each other. When the two clocks are in coincidence, they will send a signal to the Trigger Supervisor to record the event corresponding to the next immediate RF bucket. This trigger allows the experiment to get a random sample of the events that are occurring at the spectrometer, notably without a bias that a selective trigger can incur.
+
 \section{Data Acquisition Systems}
+
+The whole of the SeaQuest experiment spans two sectors of the NM beamline (NM3 and NM4) and records not only detector data, but also accelerator and atmospheric conditions. Designing a data acquisition (DAQ) for this experiment therefore requires a bandwidth and timing which cannot be provided by a single central computer system. SeaQuest has therefore employed four separate DAQ subsystems called ``Main DAQ'', ``Scaler DAQ'', ``Beam DAQ'' and ``Slow Control''. Main DAQ records the main detector information and the trigger timing. Scaler DAQ records various scaler readouts once per spill to reduce bias from the dead time of Main DAQ. Beam DAQ records information from a beamline \v{C}erenkov detector read out by its QIE board. The Slow Control is a catch-all for everything else, from magnet current to radiation monitors that is read out once per spill.
+
+\subsection{Main DAQ}
+
+The MainDAQ is powered by a Jefferson Lab developed software package named CODA (CEBAF\footnote{The old acronym inside of an acronym bit. CEBAF: Continuous Electron Beam Accelerator Facility} On-line Data Acquisition). The Trigger Supervisor could receive up to 12 different kinds of triggers. The first four triggers (FPGA 1-4) can be prescaled up to 24 bits. The second four triggers (FPGA 5, NIM 1-3) can be prescaled up to 16 bits. The rest of triggers (NIM4, flush trigger, Beginning of Spill (BOS), End of Spill (EOS)) are not prescalable. The Main DAQ can configure which triggers are enabled at the Trigger Supervisor level and what the  prescale factors are for each triggering mode. Once the TS receives a trigger, it will count the prescale factor and, based on how many triggers of that type have fired so far, it will decide if the Main DAQ will accepted trigger or not. 
+
+Once the TS accepts the trigger, it send an ``accepted trigger'' signal to the other front end electronics, such as the detectors' TDC readouts. Facilitating intercommunications, the Main DAQ system is connected to the TS and the CPU's in the VME crates via a local network. These CPU's are known colloquially at SeaQuest as readout controllers, or ROC's. The TS connects with each VME crate, and when the TS sends an ``accepted trigger'', an interrupt signal is sent to each of the ROC's. The ROC's will then start reading the various front-end electronics (FEE).
+
+The TS also sends a signal to the to QIE of the BIM, and the QIE retains information regarding the $\pm$16 RF buckets around that triggered RF bucket to assist in investigating the beam quality around each of our event triggers. The output of the QIE is encoded into a scaler latch card format. If the beam intensity in RF buckets neighboring the trigger is higher than the user-select threshold, then the board will issue a veto signal to the TS to ignore this trigger.
+
+The Main DAQ's deadtime is considerable, as it has to communicate with the TDC's, which have the longest copy-in-progress time of \unit[32]{\us}. The average TDC readout time is approximately \unit[300]{ns} per 32bits (one hit), and as such, the slowest ROC which contains 7 TDCs has, on average, \unit[150]{\us} deadtime. This deadtime is accounted for under the umbrella term of \emph{``busy''} time and factored into the calculation of the ``live protons'' received by the experiment.
+
+\subsection{Scaler DAQ}
+
+The Scaler DAQ is used to ensure that the detector and trigger systems are working properly. The read out controller CPU is a MVME5500~\cite{mvme:scaler} with four scalers. One the these scalers is triggered by the coincidence of a \unit[7.5]{kHz} gate generator and the beam spill signal. This records the \unit[7.5]{kHz} response of the hodoscope arrays. The other three scalers are triggered by the BOS or EOS signals and thus record spill-level rates. Data collected by these spill-level scalers are the number of times each Main DAQ trigger is satisfied (both raw and accepted), intensity of the beam, and the rates of the hodoscope arrays. The readout of this VMEbus DAQ is done using CODA very similarly to the Main DAQ, but on a completely different system. An independent program analyzes the data in real time in order to monitor the performance of the detectors and triggers, as well as the quality of the beam. 
+%%An example of the ever-present online set of Scaler DAQ plots can be seen in Fig.~\ref{fig:scalerdaq}.
+
+
+\subsection{Beam DAQ}
+
+The Beam DAQ is composed of a \v{C}erenkov detector in the proton beam (the Beam Intensity Monitor discussed earlier in this chapter), a QIE board, and a custom C++ program to control their operation and read out. The Beam DAQ is responsible for recording the \unit[53]{MHz} structure of the beam, i.e. the intensity of each RF bucket. Its calculation of the \unit[53]{MHz} duty factor $DF=\frac{<I>^{2}}{<I^{2}>}$ is the primary measure of beam quality that accelerator operators use for tuning. In short, the duty factor is a measure of the \emph{uniformity} of the intensity of the beam. If we were to ignore the buckets intentionally left empty, and if it were to be the case that every RF bucket had the same number of protons, the \unit[53]{MHz} duty factor would be 100\%.
+
+There four types of data recorded by the QIE have already been covered in the Beam Intensity Monitor section: QIESum, beam inhibit, busy time, and the $\pm16$ RF bucket intensities. The Beam DAQ commences read out of each of these blocks of data when the EOS signal is seen. The block of QIE data for all buckets is about \unit[300]{MB}. To read this much data in time to analyze it and be ready for the next spill, the DAQ program utilizes multithreaded processes. Three threads are used to read the data from the QIE board's three ethernet chips, and up to eight threads are used to analyze the data. Analyzed data is displayed on a public webpage so that shifters and accelerator operators can monitor the quality of the beam (Fig.~\ref{fig:beamdaq}). The fully processed data is also written out to tab-delimited ASCII files, which are archived and also uploaded to our online MySQL server.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/E906FFT-scalerDAQ.png}
+	\caption{A standard Beam DAQ display showing beam characteristics and spill data. The bottom two plots show the output of the QIE on a \unit[]{ms} scale.}
+	\label{fig:beamdaq}
+\end{figure}
+
+
+\subsection{Slow Control Readout}
+
+There are three DAQ machines. The spill-counter script puts the spill-counter in a text file and share with all 3 DAQ system.
 
 \section{Data Productions}
 
