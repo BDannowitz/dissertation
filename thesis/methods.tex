@@ -541,10 +541,38 @@ There four types of data recorded by the QIE have already been covered in the Be
 	\label{fig:beamdaq}
 \end{figure}
 
-
 \subsection{Slow Control Readout}
 
-There are three DAQ machines. The spill-counter script puts the spill-counter in a text file and share with all 3 DAQ system.
+The Slow Control readout system is an aggregation of many different readouts from various parts of the experiment. This is also the umbrella term for other critical monitoring and book keeping tasks that must be performed. The one common thread to them all is that they only \emph{need} to be read out / performed once per spill in order to give perspective on the conditions of the experiment for each given spill. The term \emph{``Slow''} in Slow Control is adapted from the term ``Slow Spill'', which is used to characterize the method of beam delivery to SeaQuest. The Slow Control is run by an array of Python, Perl, and Bash scripts that, for the most part, run independently. These scripts primarily interact with and read out from EPICS, ACNET, and the local Spill Counter.
+
+\subsubsection{EPICS, ACNET, and Kiethley}
+
+The EPICS software package (Experimental Physics and Industrial Control System) is used for communicating any number of variables across the experiment's local network. EPICS is used for feeding readouts from many different sources and formats, and making them available to any other system that may have need of certain information, but does not natively communicate with a different system's format. Bridging this gap, EPICS is able to gather information regarding the target, beam, and environmental data into one place.
+
+The EPICS server is installed on SeaQuest's target control computer, where the target position, pressures, temperatures, and proximity sensors are monitored and controlled. These values are critical to track and monitor, as they affect what target is in position at any given spill, along with information that may infer the cryogenic liquid targets' densities. Additionally, there is information regarding the operational mode of the target table, such as whether or not the target table is being manually controlled or if it is automatically repositioning itself. In Slow Control parlance, information from the target computer that is sent to the EPICS server is labeled as ``Target'' type data.
+
+Several values are read into the EPICS server from the Accelerator Network (ACNET), which monitors many critical systems. Beam intensities (S:G2SEM) and FMAG / KMAG currents are two of the major factors that must be factored in for any analysis. There are additional readouts with esoteric names that can record anything from beam pipe vacuum to upstream radiation monitors. It is important to note that the FMAG and KMAG variables from ACNET are read out to the EPICS server every \unit[3]{s}, particularly because it is unsafe to deliver beam to the sensitive detectors without FMAG being fully powered. As such, the FMAG current is read into the beam interlock system. In the Slow Control feed, this type of information is labeled as ``Beam'' data.
+
+Finally, there is a Keithley multimeter \CN in SeaQuest Hall near the electronics racks by Station 3. This device has the responsibility of relaying information regarding ambient temperature, air pressure, and humidity up to the control room. This information on its own is not typically used for any analyses, but in the case that, for example, a rise in humidity results in any electrical device failures, the monitoring data exists to diagnose it as such. This data is gathered by a `kscan' program that is run on the target machine, and its operation typically takes 11s to return a result. Data from the Keithley multimeter that is put into the Slow Control feed is labeled as ``Environment'' data.
+
+\subsubsection{Spill Counter}
+
+Perhaps one of the most critical components of the data acquisition is the coordination between the many sources of data in the DAQ. The Main DAQ, Scaler DAQ, Beam DAQ, and Slow Control do not share a single clock or network, so some measures need to be taken to ensure that data from different sources regarding a single spill's worth of data actually all correspond to the same spill. The concept of a locally maintained Spill Counter arose as a solution to this problem, and it is handled in the form of a simple Python script and a flat text file containing a single integer.
+
+The enacted solution begins with placing an initialized spill counter (\emph{spillID})value (currently \emph{O}($10^5$)) into an otherwise empty text file at a specified location. Then, when the ACNET readout receives a BOS/EOS signal from AD, a simple python script performs the following:
+\begin{itemize}
+	\item Read the current spillID from the file
+	\item Broadcast this value over the EPICS server
+	\item Insert a single ASCII-encoded event into the Main DAQ and Scaler DAQ CODA streams containing only that spillID number
+	\item Waits for 20s while other scripts may want to use the current spillID value to connect its value to the spill that just ended
+	\item Updates the file to contain spillID + 1
+\end{itemize}
+
+This simple approach has been very effective in its usage so far, and the spillID incremented via this method has been shown to be accurate upon scrutiny of data contents across DAQs.
+
+\subsubsection{Python Slow Control Script}
+
+
 
 \section{Data Productions}
 
