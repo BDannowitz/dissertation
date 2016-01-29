@@ -568,90 +568,18 @@ The enacted solution begins with placing an initialized spill counter (\emph{spi
 	\item Updates the file to contain spillID + 1
 \end{itemize}
 
-This simple approach has been very effective in its usage so far, and the spillID incremented via this method has been shown to be accurate upon scrutiny of data contents across DAQs.
+This simple approach has been very effective in its usage so far, and the spillID incremented via this method has been shown to be accurate upon scrutiny of data contents across DAQs. This can be easily done by looking at a series of full and empty spills, as it is obvious which spills had beam and which did not investigating the output of each DAQ. The weakness lies in the fact that this system relies on a single file, which is susceptible to any number of file access and timing issues. At some point in the future, it would be advisable to have all spillID-using systems to read the current value from the broadcasted EPICS server value instead of having several applications attempting to access and read the single file (even if just read-only).
 
 \subsubsection{Python Slow Control Script}
 
+With all of this going on to aggregate data from several sources, there is one final script that takes this aggregated data and makes it readily available for the rest of the DAQ systems. A \verb|read_slowcontrol.py| script, once every \unit[60]{s} supercycle, puts the following together into a single ASCII text file:
+\begin{itemize}
+	\item Clock time (``vxticks'') of the Trigger Supervisor
+	\item Spill count data
+	\item Beam data
+	\item Environmental data
+	\item Target data
+	\item Timestamp
+\end{itemize}
 
-
-\section{Data Productions}
-
-\subsection{Production Processing}
-
-The three raw outputs of the data acquisition systems, as described above are (1) Main DAQ CODA files, (2) Scaler DAQ CODA files, and (3) Beam DAQ ASCII files.
-
-Each raw data file corresponds to the data taken from certain subsystems over approximately one to two hours of running time. These three types require varying degrees of de-serialization, parsing, processing, and storage -- a process as a whole defined as \emph{decoding}. 
-
-All raw data files are backed up to long-term tape storage (managed by FNAL Computing Division), and the decoded and processed data gets stored on one of four MySQL servers to be used for analysis by the collaboration. Data is also output to a ROOT file for the ease of use of one of the two independent tracking programs.
-
-Contiguous blocks of decoded and tracked data is then grouped together into \emph{merged} productions, available on all MySQL servers, providing collaborators large sets of curated and easily analyzable data.
-
-\subsection{Decoding Raw Data}
-
-The CODA file decoding is nearly identical for MainDAQ and ScalerDAQ, and only differ by content; the MainDAQ contains TDC readout. For each one to two hour \emph{Run}, the CODA files can be well-described as the following sequence of events (and the data they contain):
-\begin{enumerate}
-	\item Prestart Event (Run data)
-	\item Begin Spill Event (Spill data, Scaler readout)
-	\item Many Physics Events (Event data, TDC readout)
-	\item End Spill Event (Spill data, Scaler readout)
-	\item SlowControl Event (Slow control readout, Spill ID readout)
-	\item Spill Counter Event (Spill ID readout) \newline ...(Repeat 2-6 for each \emph{Spill})
-	\item End Event
-\end{enumerate}
-
-Our decoding program uses C and C++ in conjunction with Jefferson Lab's CODA I/O library to read these events and parse them according to their individual formats. Data from these CODA events are decoded and placed into hierarchical categories.
-
-\subsubsection{Run Level Data}
-Run-level data contains data and metadata pertaining to the entirety of the run that is recorded. At the time of the Prestart Event, the date and time of the run are stored, along with a readout of the specific settings of all non-trigger TDC boards.
-
-After the End Event is encountered, metadata is aggregated and stored regarding such items as the number of chamber hits, the triggers that were fired, the target positions used, average magnet currents, and other useful metrics. 
-
-\subsubsection{Spill Level Data}
-The \emph{Beginning of Spill} (BOS) and \emph{End of Spill} (EOS) events bookend the set of physics events for a given spill. At each BOS and EOS events, the 140 MHz VME scalers are read out. At the beginning of the spill, all scalers should be zeroed out, and then read out again after the spill has ended.
-
-Slow Control events are read out between spills, which contain data regarding the current spill identifier number, target systems, beam and radiation monitors, and environmental readings.
-
-The spill identifier (\emph{spillID}) is what is used to synchronize the data together across various data acquisition systems. As such, the \emph{spillID} is read out redundantly in both Slow Control and Spill Counter events (which contain only the \emph{spillID} value) to ensure that the data is appropriately labeled.
-
-When the End Event is reached, the independently-recorded Beam DAQ data (recorded in an ASCII file) is read and stored with the rest of the Spill-level data.
-
-\subsubsection{Event Level Data}
-For each spill, $\sim3k$ events are triggered to be recorded. With each event, three types of information is stored: the trigger which fired the event, a measure of the beam intensity per RF bucket, and the full detector readouts.
-The detector readouts require the most processing of all the rest of the data. The CODA files contain the hardware addresses of each detector \emph{hit}, along with a \emph{TDC time}. The following steps briefly summarize the processing steps:
-\begin{enumerate}
-	\item Mapping: Map the hardware address to a detector name and detector element number
-	\item Timing: Classify hits as in-time or not and calculate \emph{drift time} from TDC time
-	\item R-T (time-to-space): Translate \emph{drift time} to \emph{drift distance}
-	\item After-Pulse Elimination: Remove hits that result from signal reflection and other electronic artefacts
-	\item Trigger Road Reconstruction: Use \emph{v1495} TDC hits to reconstruct possible trigger roads that may have fired
-	\item Hodoscope Masking: Remove drift chamber hits that have no adjacent hodoscope hit
-	\item Trigger Road Masking: Same as hodoscope masking, but only using hodoscopes from reconstructed trigger roads
-\end{enumerate}
-This fully processed data is then stored into one the experiment's MySQL databases.
-
-%%%%%%%%%%%%%%%%
-
-\subsection{Online and Offline Processing}
-
-There are two modes of productions: on-line and off-line productions. For on-line productions, all Run- and Spill-level data is decoded, but only 1-in-$n$ Physics Events are processed, where $n$ is typically $15$. This \emph{``sampling mode''} is used in order for the decoding to reliably keep up with even high-intensity beam data.
-
-For off-line productions, a large group of categorically similar runs is defined, and the chain of production processing is initiated. The steps of this process is generally emph{decoding, tracking, archiving, and merging}.
-
-The decoding and tracking is performed on Fermilab Computing Service's FermiGrid, which provides the computing resources necessary to process hundreds of runs simultaneously.
-
-A single decoding job submission will output the processed data to one of the four available MySQL servers and also to a ROOT file. Then, one job will be submitted to run one of the two tracking programs on the ROOT file, while another job is submitted to run the other tracking program on the MySQL data.
-
-Once the tracking is completed, the ROOT file and the \emph{Hit} table from the MySQL production is archived on the Fermilab BlueArc NAS backup system for future use, if necessary.
-
-Upon the completion of decoding and tracking of a specified range of runs, all of their Run-, Spill-, and Event-level data, along with its tracked data, is combined into a single \emph{merged} schema. These \emph{merged} schemas are mirrored across all four of the MySQL servers for optimal redundancy and availability.
-
-\section{RDBMS Data Structure}
-
-The processed data is primarily stored in MySQL Server 5.1 databases. MySQL is an open-source \textbf{R}elational \textbf{D}ata\textbf{b}ase \textbf{M}anagement \textbf{S}ystem (RDBMS) developed by Oracle that is well-suited for the storage and responsive querying of hierarchical data.
-
-Each run is decoded into its own schema, and contains its own instances of all tables of a specified design. The tables are all \emph{join}-able to each other by sharing \emph{foreign keys} with each other in the form of the \emph{runID}'s, \emph{spillID}'s, and \emph{eventID}'s. The contents of the tables are \emph{indexed} in such a way that \emph{joins} and queries gain a speed performance boost, but this comes at the cost of disk space.
-
-The data on the server is world-wide accessible and can be queried using the standard querying language. The queried data can be directed to any analysis code in any programming language due to the large array of MySQL API's available.
-
-\section{Data Quality}
-
+Once all of this is written to a file, this is sent to the Main DAQ and Scaler DAQ to be integrated into the full CODA file as a plain text event with a simple, tab-delimited format.

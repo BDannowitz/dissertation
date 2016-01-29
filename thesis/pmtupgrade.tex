@@ -1,36 +1,43 @@
 \chapter{PMT Upgrade}
 
-
-\begin{figure*}
+\begin{figure}
 	\centerline{
 		\mbox{\includegraphics[width=0.5\textwidth]{figures/nosag.jpg} \includegraphics[width=0.5\textwidth]{figures/sag.jpg}}
 	}
-	\caption{(Left) Histogram of hodoscope 'hits' in a typical event; (Right) Histogram of high-intensity event, with marked sagging in the middle of the y-measuring hodoscopes}
+	\caption{(Left) Histogram of hodoscope `hits' in a typical event; (Right) Histogram of high-intensity event, with marked sagging most noticeably in the middle of the y-measuring hodoscopes}
 	\label{fig:sag}
-\end{figure*}
+\end{figure}
 
-\section{Introduction: PMT Sagging}
+During Run I of SeaQuest, observations of hodoscope wire maps (as in Fig.~\ref{fig:sag}) suggested an apparent drop in expected performance in the $y-$measuring hodoscopes. While this performance was most obviously seen in the $y-$measuring hodoscope planes, the $x-$measuring planes were likely also affected. This effect was assumed to be due to high-intensity RF buckets that caused very high multiplicity in all of the detectors in the spectrometer for that event. The result of these intense events seemed to push the PMTs and/or their PMT base electronics past their operational capacity.
 
-During Run I of SeaQuest, it was observed on April 17th that there appeared to be a drop in expected performance in the $y-$measuring hodoscopes (Figure \ref{fig:sag}). This is assumed to be due to periods of beam reaching the NM3 enclosure being unusually intense. The result of this is pulses of light being channeled to the PMT's at an intensity and/or rate that the PMT is not capable of handling.
+The understood cause of this \emph{``sag''} in performance, as it came to be called, was due to a destabilization in the voltage divider in the PMT base. This critical component holds each dynode stage at a specific voltage, and when this destabilizes and is unable to maintain an appropriate voltage difference between dynode stages, inefficient performance of the PMT results.
 
-The understood cause of this \emph{"sag"} in performance is due to a destabilization in the voltage divider (PMT base) that holds each dynode stage at a specific voltage. When the PMT base destabilizes and is unable to maintain an appropriate voltage difference between dynode stages, this leads to inefficient performance of the PMT.
+During the Fall of 2012, prototyping and testing was performed with the goal in mind being to assemble a new base for the Philips XP-2008 PMTs~\cite{tubespecs} and compare its performance to the original PMT base and to some modern, high-performance Hamamatsu PMTs. Once a base design tested well, the new bases would be manufactured and installed in the existing frames of the original PMT bases.
 
-Here, we assemble a new base for our Philips XP-2008 PMT's, test several variations, and compare its performance to the original PMT base and to some Hamamatsu PMT's.
+\section{PMT Basic Construction and Operation}
 
-\section{PMT Base Terminology and Common Characteristics}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/pmt-diagram.png}
+	\caption{A diagram of typical PMT operation. The circuit controlling the voltage-dropping resistors is the part that was upgraded in this chapter.}
+	\label{fig:pmt}
+\end{figure}
 
-Each base divides -1500V over the photocathode (K), ten dynode stages (D1-D10), and the anode (A). Some common features.
+Figure~\ref{fig:pmt} shows a schematic design of a typical photomultiplier tube and base setup. It consists of a photocathode that is followed by an electron multiplier section (or dynode string) then an anode from which a final signal is delivered. During operation, a high voltage is applied to the photocathode, dynodes, and anode in such a way that there's a potential ``ladder'' going from stage to stage. When an incident photon from the hodoscope scintillator paddle hits the photocathode, an electron is emitted via the photoelectric effect. The voltage difference between the cathode and dynode stages draws the emitted electron to the dynodes, and each time an electron hits a dynode, some of that electron's energy is transferred to other electrons in the dynode. These electrons then are emitted and become accelerated towards the next dynode stage. This process is called secondary emission, and by the time the process is repeated, there is a cascade or avalanche of electrons that land on the anode, resulting in a signal that can be amplified and analyzed.
 
-There are two currents that are discussed in this document are:
+It is the case that the voltage divider ultimately supplies the electrons that are emitted in this signal cascade. If too many photons and resultant electron cascades occur, the dynode stages' voltage divider will destabilize as they attempt to resupply the the dynode stages with electrons. The problem that was experienced at SeaQuest was that these high-intensity events were flooding the PMTs with photons, causing this ``saturation'' which caused this destabilization and the inefficient performance that was observed. The goal specifically was to test out modern base designs that provided for added stability to the performance of the voltage divider, even under high rates.
+
+In general, each base divides around a \unit[-1500]{V} potential total over the photocathode (K), ten dynode stages (D1-D10), and the anode (A). There are two currents that are referred to here:
 \begin{itemize}
-	\item \textbf{Signal Current} - This is the signal that passes over the anode, which is the end-result of the cascading secondary emission electrons from each dynode stage.
-	\item \textbf{Bleeder Current} - This is the current through the voltage divider. It is termed the "bleeder" current since the compounding electrons in the signal current must be "bled" from the current through the voltage divider.
+	\item Signal Current: This is the signal that passes over the anode, which is the end-result of the cascading secondary emission electrons from each dynode stage.
+	\item Bleeder Current: This is the current through the voltage divider. It is termed the ``bleeder'' current since the compounding electrons in the signal current must be ``bled'' from the current through the voltage divider.
 \end{itemize}
 
-Throughout these voltage base designs, capacitors are commonly implemented in the latter dynode stages. These capacitors, when charged, are utilized when a large pulse of light induces a large signal current.  When this happens, the capacitors help to replenish the charge on the dynode stages without requiring the charges to be drawn from the bleeder current, thereby keeping the voltage across the dynode stages more stable.
-
+Throughout these voltage base designs, capacitors are commonly implemented in the latter dynode stages where the most electrons are emitted. These capacitors, when charged, are able to replenish the lost charge on its corresponding dynode stage in the event that an intense light pulse induces a large signal current.  As the capacitor is able to hold its own chare, this resupply can occur without requiring the charges to be drawn from the bleeder current, thereby keeping the voltage across the dynode stages more stable.
 
 \section{PMT Base Design Iterations}
+
+There were several iterations of base design to determine which was best to approach for full base production and installation. The core addition was the inclusion of transistors
 
 \subsection{Original Base}
 
