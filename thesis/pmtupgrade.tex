@@ -33,88 +33,91 @@ In general, each base divides around a \unit[-1500]{V} potential total over the 
 	\item Bleeder Current: This is the current through the voltage divider. It is termed the ``bleeder'' current since the compounding electrons in the signal current must be ``bled'' from the current through the voltage divider.
 \end{itemize}
 
-Throughout these voltage base designs, capacitors are commonly implemented in the latter dynode stages where the most electrons are emitted. These capacitors, when charged, are able to replenish the lost charge on its corresponding dynode stage in the event that an intense light pulse induces a large signal current.  As the capacitor is able to hold its own chare, this resupply can occur without requiring the charges to be drawn from the bleeder current, thereby keeping the voltage across the dynode stages more stable.
+Throughout these voltage base designs, capacitors are commonly implemented in the latter dynode stages where the most electrons are emitted. These capacitors, when charged, are able to replenish the lost charge on its corresponding dynode stage in the event that an intense light pulse induces a large signal current.  As the capacitor is able to hold its own charge, this resupply can occur without requiring the charges to be drawn from the bleeder current, thereby keeping the voltage across the dynode stages more stable.
 
 \section{PMT Base Design Iterations}
 
-There were several iterations of base design to determine which was best to approach for full base production and installation. The core addition was the inclusion of transistors
+There were several iterations of base design to determine which was best to approach for full base production and installation at SeaQuest. The core addition was the inclusion of transistors between dynode stages, according to the improvements suggested by C.R. Kerns in his paper regarding high-rate PMT bases~\cite{Kerns:1977qr}. Common solutions to destabilization in PMT bases have been to have (1) very large capacitor banks with charges $> 10^3$ times greater than the time-averaged dynode current and/or (2) miniature on-board,separately-powered Cockroft-Walton power supplies for the final dynode stages. A Kerns-style transistorized base allows for a light-weight, small size, and simple base that does not require extra power supplies or voluminous energy storage capacitors.
 
-\subsection{Original Base}
-
-This is the PMT base that is currently used with our XP-2008 PMT's. It features capacitors of increasing capacitance along the last six stages, and steadily increases the voltage across the final four stages.
-
-\begin{figure*}[h]
-	\centerline{
-		\mbox{\includegraphics[width=0.75\textwidth]{figures/pmt.png}}
-	}
-	\caption{The original PMT base design.}
-	\label{fig:original-board}
-\end{figure*}
-
-\begin{figure*}[h]
-	\centerline{
-		\mbox{\includegraphics[width=0.75\textwidth]{figures/original-volt.jpg}}
-	}
-	\caption{The (negative) voltage between subsequent stages for the original PMT base.}
-	\label{fig:original-volt}
-\end{figure*}
-
-\subsection{Prototype Base v1}
-
-This is the base design provided by Sten Hansen (Fermilab Particle Physics Division), designed in 2010 for the same model of PMT's for use at CERN. 
-
-Three important features of this design include:
-
+In general, there are three important features that were tuned in this set of prototypes that affected the performance of the phototubes:
 \begin{itemize}
 	\item
 	Lower resistance
 	\item
-	Parallel currents
+	Transistors (with protective diodes)
 	\item
-	Transistors and diodes
-	\item
-	(More) Even distribution of voltage
+	Distribution of voltage division
 \end{itemize}
 
-The lower overall resistance of the voltage divider increases the bleeder current. This means that the base will be more capable of handing high-intensity/-rate events, as it will be better able to replenish the charges on each dynode stage in the case of a large signal. Typically, the larger the bleeder current, the larger the signal current can be without destabilizing the voltage divider.
+Lower overall resistance of the voltage divider increases the bleeder current. This means that the base will be more capable of handing high-intensity, as it will be better able to replenish the charges on each dynode stage in the case of a large signal. Typically, the larger the bleeder current, the larger the signal current can be without destabilizing the voltage divider. Higher rates usually put higher demand on the signal current, so by reducing the overall resistance, one can easily increase the rate capability. The shortfall here is that with voltage constant and resistance decreased, according to Ohm's Law ($V = IR$), the current will increase. As a result, the power dissipated by the circuit ($P = I^2 R$) will go as $I^2$, and the PMT base may heat up to critical temperatures faster than it can dissipate the heat as there is no significant ventilation in the PMT base enclosure. The Philips XP-2008 manual quotes that for continuous usage and storage the ambient temperature should not exceed $50^\circ C$ ($122^\circ F$). In addition to heat concerns, there's typically a power rating for the class of small on-board resistors that were planned to be used. Approaching or exceeding that power limit would run the risk of burning out a resistor and rendering the base inoperable. 
 
-At dynode six on Figure \ref{fig:v1-board}, we see that the current is split into two paths. The intent here is for the smaller current that goes through the series of $1M\Omega$ resistors maintains the voltage difference, and the larger current that freely passes through the transistors supplies the dynode stages with needed charge.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/MOSFET_Structure.png}
+	\caption{MOSFET showing gate (G), body (B), source (S) and drain (D) terminals. The gate is separated from the body by an insulating layer (white)~\cite{wmc:mosfet}}
+	\label{fig:mosfet}
+\end{figure}
 
-Transistors are introduced here to maintain the proper voltage division. If at any point the proper voltage drop across the gates of the transistors is not supplied (and thereby across the dynode stages), the source-to-drain current through the transistor is stopped until the proper gate voltage is restored. This helps to regulate the voltage across the dynodes, but if the charges lost to the signal current are not restored, the PMT will still eventually "sag" and fail.
+Metal–oxide–semiconductor field-effect transistors (MOSFETs) are introduced here to maintain the proper voltage division. In general, MOSFET transistors have an \emph{source}, a \emph{drain}, and a \emph{gate}, where current flows freely through from the source to the drain, gate permitting. If at any point a certain voltage across the gate of the transistor is not supplied (here, the voltage across dynode stages), then the source-to-drain current through the transistor is stopped until the proper gate voltage is restored. This helps greatly to ``intelligently'' regulate the voltage across the dynodes. Wherever transistors are used, diodes are also implemented to prevent the unlikely case of a current moving across the transistors in the wrong direction. This protects the transistors from being damaged particularly when powering the circuit on and off.
 
-The diodes are there to prevent the current from moving across the transistors improperly, and thereby preventing them from being damaged when powering the circuit on and off.
+Finally, the specific division of voltage across each stage, from D1 to A, has an influence on the behavior of the PMT operation. As we see from the operations manual of the phototube in Fig.~\ref{fig:voltage_schemes}, in the case of a progressively increasing voltage division, there is a good compromise between timing and linearity. With respect to phototube operation, ``linearity'' is the quality that the amount of charge deposited on the anode is linearly proportional to the energy of the incident photon. ``Timing'', on the other hand, is the quality that the time it takes for a high-energy photon signal and a low-energy photon signal to progress through the stages should be the same. For the purpose of optimization at SeaQuest, we wish to optimize the amount of signal (i.e. amplification or \emph{gain}) that the phototube can accommodate. For this, the recommended voltage partitioning is flat from D1-A~\cite{tubespecs}.
 
-Also, the voltage across each stage, from D1 to A, are relatively flat. According to the specifications for the Philips XP-2008 photomultiplier tube, this is the recommended voltage configuration for maximum gain \cite{tubespecs}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/voltage_divider.png}
+	\caption{Suggested voltage division schemes for gain vs. timing/linearity compromise~\cite{tubespecs}.}
+	\label{fig:voltage_schemes}
+\end{figure}
 
-\begin{figure*}[h]
+\subsection{Original Base}
+
+The base that came attached to the PMTs were manufactured specifically for use by the ARGUS experiment, which was a relatively (by SeaQuest standards) lower-rate collider experiment that used $e^+ e^-$ annihilation at the \emph{DORIS\ II} ring at DESY. After their tenure at ARGUS, they were handed down to the HERMES experiment located at the \emph{HERA} polarized electron accelerator at DESY.
+
+Though no actual circuit diagram was documented for the original PMT base, it was dissected and each component was measured. The results can be found in Fig.~\ref{eqn:original-board}, and its voltage division seen in Fig.~\ref{fig:original-volt}. It features a simple string of resistors with capacitors of increasing capacitance along the last six stages. The voltage division can be recognized to be similar to the timing-linearity compromise scheme described in Fig.~\ref{fig:voltage_schemes}. The hope is that introducing MOSFET transistors, tuning the resistance, and altering the voltage division will yield better high-rate performance.
+
+\begin{figure}
+	\centerline{
+		\mbox{\includegraphics[width=0.75\textwidth]{figures/pmt.png}}
+	}
+	\caption{The original PMT base inherited from the ARGUS and HERMES experiments.}
+	\label{fig:original-board}
+\end{figure}
+
+\begin{figure}
+	\centerline{
+		\mbox{\includegraphics[width=0.7\textwidth]{figures/original-volt.jpg}}
+	}
+	\caption{The voltage division between subsequent stages for the original PMT base design.}
+	\label{fig:original-volt}
+\end{figure}
+
+\subsection{Prototype Base v1}
+
+Once the task was set to update the PMT base design, the Fermilab Particle Physics Division was consulted on the matter. In 2010 a base design with similar goals for the exact same PMT model was designed by Sten Hansen~\cite{pc:sten}. The circuit diagram for the new base can be found in Fig.~\ref{fig:v1-board}.
+
+Here, the resistance was significantly reduced by a factor of about 2.4, allowing for much more bleeder current, without exceeding or closely approaching the on-board resistors' power rating. Also, the voltage division was designed to be relatively ``flat'' (Fig.~\ref{fig:v123-volt}) across stages from D1 to A, which is stated to be recommended for optimal gain.
+
+\begin{figure}
 	\centerline{
 		\mbox{\includegraphics[width=0.7\textwidth]{figures/newbase.png}}
 	}
-	\caption{The Prototype v1 board.}
+	\caption{The Prototype v1 board circuit diagram received from Sten Hansen. The parts denoted with a Q are the MOSFET transistors, and the parts denoted with a D are the zener diodes.~\cite{pc:sten}}
 	\label{fig:v1-board}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[h]
+\begin{figure}
 	\centerline{
-		\mbox{\includegraphics[width=0.75\textwidth]{figures/v2-volt.jpg}}
+		\mbox{\includegraphics[width=0.7\textwidth]{figures/v123-volt.jpg}}
 	}
-	\caption{The (negative) voltage between subsequent stages for the Prototype v1 PMT base.}
-	\label{fig:v1-volt}
-\end{figure*}
+	\caption{The voltage devision between subsequent stages for the Prototypes v1, v2, and v3 PMT base designs.}
+	\label{fig:v123-volt}
+\end{figure}
 \newpage
 
 \subsection{Prototype Base v2}
 
 The first modification made to the prototype board was to simply halve the resistance of each of the first six stages (R6-R13 on Fig. \ref{fig:v1-board}) to increase the bleeder current.
 
-\begin{figure*}[h]
-	\centerline{
-		\mbox{\includegraphics[width=0.75\textwidth]{figures/v2-volt.jpg}}
-	}
-	\caption{The (negative) voltage between subsequent stages for the Prototype v2 PMT base.}
-	\label{fig:v2-volt}
-\end{figure*}
-\newpage
 
 \subsection{Prototype Base v3}
 
@@ -122,32 +125,23 @@ This modification "transistorized" the D5-D6 and D6-D7 stages in the case that t
 
 \begin{figure*}[h]
 	\centerline{
-		\mbox{\includegraphics[width=0.75\textwidth]{figures/newbase_6mosfet.png}}
+		\mbox{\includegraphics[width=0.7\textwidth]{figures/newbase_6mosfet.png}}
 	}
 	\caption{The Prototype v3 board: 3 more transistorized stages than the Prototype v1 design.}
 	\label{fig:v3-board}
 \end{figure*}
 
-\begin{figure*}[h]
-	\centerline{
-		\mbox{\includegraphics[width=0.75\textwidth]{figures/v3-volt.jpg}}
-	}
-	\caption{The (negative) voltage between subsequent stages for the Prototype v3 PMT base.}
-	\label{fig:v3-volt}
-\end{figure*}
-\newpage
 \subsection{Prototype Base v4}
 
 Here, the resistance over the final stage (D10-A) was increased from $1M\Omega$ to $1.5M\Omega$ (R5 in Figure \ref{fig:v1-board}). This was done in case that the final batch of electrons needed help being "swept" to the anode with a higher voltage difference.
 
-\begin{figure*}[h]
+\begin{figure}
 	\centerline{
 		\mbox{\includegraphics[width=0.75\textwidth]{figures/v4-volt.jpg}}
 	}
 	\caption{The (negative) voltage between subsequent stages for the Prototype v4 PMT base.}
 	\label{fig:v4-volt}
-\end{figure*}
-\newpage
+\end{figure}
 
 \section{PMT Base Comparisons}
 
