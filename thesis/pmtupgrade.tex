@@ -157,13 +157,31 @@ There is a specific difficulty with the objective to increase the rate capabilit
 
 Due to the effects of using different PMTs and due to temperature and humidity fluctuations, the PMT behavior can be somewhat variable from test to test. For this reason, one can only reasonably compare results within each base comparison test, and not across different comparison tests. Each was performed on different days, and sometimes with different PMT’s.
 
-\subsection{Testing Apparatus and Measurments}
+\subsection{Testing Apparatus, Measurements, and Procedure}
 
-In this experiment, a PMT attached to a PMT base was placed into a light-tight box facing a fast-pulsing 470nm wavelength LED, which provides the driving photonic signal. The LED itself was driven by an Agilent 33520 Function / Arbitrary Waveform Generator capable of generating signals up to 30MHz. The LED's unadulterated intensity was by far too much light to perform any useful test with such photosensitive hardware. Its intensity was attenuated by use of a neutral density filter (NDF), with a rating $D=3.0$, where the NDF allows 1 in $10^D$ photons through (1 in 1000 for $D=3.0$).
+In this experiment, a PMT attached to a PMT base was placed into a light-tight box facing a fast-pulsing 470nm wavelength LED, which provides the driving photonic signal. 
 
-These were all kept within the light-tight box\footnote{These light-tight boxes are paradoxically referred to as both ``light boxes'' and ``dark boxes'', as they're used for testing \emph{light}-sensitive equipment and they're made to be \emph{dark} inside.} loaned to the SeaQuest collaboration from the Daya Bay experiment. This light box was equipped with a patch panel that had both BNC and SHV connectors by which to power the PMT base and read out its signal.
+\subsubsection{PMT Test Setup}
 
-A simple data acquisition was assembled from an amplifier, discriminator, and scaler in order to observe that the PMT was functioning properly and firing off at the rate that the LED was set to pulse at. The PMT base was powered by a high voltage supply, and an ammeter was connected between the two in order to measure the amount of current drawn, or bleeder current, from the HV power supply. The PMT signal was processed by an oscilloscope, averaging the pulse over 300 pulses. The primary measurement was measuring the area of the averaged pulse ($V\cdot s$).
+The LED light source assembly consisted of a machined aluminum block that housed the LED, which was a fast-pulsing, narrow beam, water-clear blue LED, peaking in the $\lambda =$\unit[450]{nm} region. This block had a sliding aluminum insert which had a $1/4$'' depression used for inserting a 1'' diameter NDF of arbitrary optical density~\cite{ames1998measurement}. The LED, according to specifications, has a \unit[N]{ns} rise time and a \unit[N]{ns} fall time, which is important when considering pulsing frequencies on the order of \unit[30]{MHz}.
+
+The LED itself was driven by an Agilent 33520 Function / Arbitrary Waveform Generator~\cite{agilent:33520} capable of generating signals up to 30MHz. The LED's unadulterated intensity was by far too much light to perform any useful test with such photosensitive hardware. Its intensity was attenuated by use of a neutral density filter (NDF), with a rating $D=3.0$, where the NDF allows 1 in $10^D$ photons through (1 in 1000 for $D=3.0$).
+
+These were all kept within the light-tight box\footnote{These light-tight boxes are paradoxically referred to as both ``light boxes'' and ``dark boxes'', as they're used for testing \emph{light}-sensitive equipment and they're made to be very \emph{dark} inside.} loaned to the SeaQuest collaboration from the Daya Bay group. This light box was equipped with a patch panel that had both BNC and SHV connectors by which to power the PMT base and read out its signal. The light box and all of the installed components can be seen in Fig.~\ref{fig:pmtsetup}.
+
+\begin{figure}
+	\centerline{
+		\mbox{\includegraphics[width=0.75\textwidth]{figures/LightBox.pdf}}
+	}
+	\caption{Inside of the light box, with the prototype board (left) wired up to a Philips XP-2008 PMT (middle), facing a fast-pulsing LED source (right).}
+	\label{fig:pmtsetup}
+\end{figure}
+
+A simple data acquisition was assembled from an amplifier, discriminator, and scaler in order to observe that the PMT was functioning properly and firing off at the rate that the LED was set to pulse at.
+
+\subsubsection{Measured and Calculated Quantities}
+
+The PMT base was powered by a high voltage supply, and an ammeter was connected between the two in order to measure the amount of current drawn, or bleeder current, from the HV power supply. The PMT signal was processed by an oscilloscope, averaging the pulse over 300 pulses. The primary measurement was measuring the area of the averaged pulse ($V\cdot s$).
 
 We calculated the signal current from the anode as:
 \begin{eqnarray}
@@ -172,18 +190,41 @@ We calculated the signal current from the anode as:
 \end{eqnarray}
 where $f$ here is the driving frequency of the pulsing LED, $R$ is the termination resistance of the signal (\unit[50]{$\Omega$}), and $\int V dt$ is the integrated area of the averaged PMT pulse. The amplitude of the pulses was also measured, as it was important in determining if it were feasible to remove the typically noisy hodoscope amplifiers from the SeaQuest stations 1 and 2 DAQ setup.
 
-The measured and calculated quantities of interest are:
-\begin{itemize}
-	\item HV supply (bleeder) current
-	\item Averaged signal amplitude
-	\item Averaged signal area
-	\item Signal current over the anode
-\end{itemize}
+The measured and calculated quantities of interest are the HV supply (bleeder) current, the averaged signal amplitude, averaged signal area, and signal current over the anode.
 
-\begin{figure}
-	\centerline{
-		\mbox{\includegraphics[width=0.75\textwidth]{figures/setup.jpg}}
-	}
-	\caption{Inside of a lightbox, we have our prototype board (left) wired up to a Philips XP-2008 PMT (middle), facing a fast-led source (right) }
-	\label{fig:setup}
-\end{figure}
+\subsubsection{Test Procedure}
+
+Most of the prototyping was performed over the span of two weeks. As new suggestions were made at base improvements and the iterations v1-v4 progressed, more comparison tests were performed. The procedure for the each test was the same and is as follows:
+\begin{enumerate}[itemsep=-1ex]
+	\item Connect the base to the PMT and to the SHV and BNC connectors.
+	\item Close the lid to the light box.
+	\item Gradually power the PMT (\unit[-250]{V} every \unit[5]{s}) until it is as \unit[-1500]{V}.
+	\item Watch the scaler on the DAQ to see if it is rapidly counting. No (or very few) counts on the scaler. means the box is light-tight.
+	\item Let the PMT and base warm up to near-operational temperatures with its standing current for a minute or two.
+	\item Power on the function generator and LED, setting the function generator to create a \unit[16]{ns} square wave pulse to the LED circuit (the minimum achievable pulse width~\cite{agilent:33520}) at a frequency of \unit[10]{Hz}.
+	\item For each of several frequencies from \unit[10]{Hz} to \unit[30]{MHz}, perform the following:
+	\begin{enumerate}[itemsep=-1ex]
+		\item Observe the scaler to ensure that the count is increasing at the same rate as is set by the function generator. This confirms that both the PMT, base, function generator, and LED are generally working as planned.
+		\item Trigger on the signal from the PMT output.
+		\item Average the signal over 300 triggered pulses and then freeze the frame.
+		\item Record the current draw from the HV supply.
+		\item Measure and record the pulse amplitude with the oscilloscope cursor.
+		\item Measure the pulse area using the signal integration feature, setting vertical cursors at the zero-intercept on each side of the pulse.
+		\item Return to triggering mode and increase the function generator frequency as warranted.
+	\end{enumerate}
+	\item Power off the function generator and LED circuit.
+	\item Step the PMT voltage down slowly to \unit[0]{V}.
+	\item Open the light box and replace the base for subsequent tests as necessary, repeating the steps above.
+\end{enumerate}
+
+\subsection{Original vs. Prototype v1}
+
+\subsection{Original vs. Prototype v1 vs. Prototype v2}
+
+\subsection{Prototype v1 vs. Prototype v3}
+
+\subsection{Prototype v1 vs. Prototype v4}
+
+\subsection{Base Comparison Conclusions}
+
+\section{Base Manufacturing and Installation}
