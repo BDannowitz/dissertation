@@ -165,9 +165,9 @@ In this experiment, a PMT attached to a PMT base was placed into a light-tight b
 
 The LED light source assembly consisted of a machined aluminum block that housed the LED, which was a fast-pulsing, narrow beam, water-clear blue LED, peaking in the $\lambda =$\unit[450]{nm} region. This block had a sliding aluminum insert which had a $1/4$'' depression used for inserting a 1'' diameter NDF of arbitrary optical density~\cite{ames1998measurement}. The LED, according to specifications, has a \unit[N]{ns} rise time and a \unit[N]{ns} fall time, which is important when considering pulsing frequencies on the order of \unit[30]{MHz}.
 
-The LED itself was driven by an Agilent 33520 Function / Arbitrary Waveform Generator~\cite{agilent:33520} capable of generating signals up to 30MHz. The LED's unadulterated intensity was by far too much light to perform any useful test with such photosensitive hardware. Its intensity was attenuated by use of a neutral density filter (NDF), with a rating $D=3.0$, where the NDF allows 1 in $10^D$ photons through (1 in 1000 for $D=3.0$).
+The LED itself was driven by an Agilent 33520 Function / Arbitrary Waveform Generator~\cite{agilent:33520} capable of generating signals up to 30MHz. The LED's unadulterated intensity was by far too much light to perform any useful test with such photosensitive hardware. Its intensity was attenuated by use of a neutral density filter (NDF), with a rating $D=3.0$, where the NDF allows 1 in $10^D$ photons through (1 in 1000 for $D=3.0$). When testing began, a $D=4.0$ NDF was used, but the amount of light reaching the PMT was so small that no decrease in PMT performance for any of the bases was observed all the way up to the highest LED frequencies. As such, the $D=3.0$ NDF was chosed for this study.
 
-These were all kept within the light-tight box\footnote{These light-tight boxes are paradoxically referred to as both ``light boxes'' and ``dark boxes'', as they're used for testing \emph{light}-sensitive equipment and they're made to be very \emph{dark} inside.} loaned to the SeaQuest collaboration from the Daya Bay group. This light box was equipped with a patch panel that had both BNC and SHV connectors by which to power the PMT base and read out its signal. The light box and all of the installed components can be seen in Fig.~\ref{fig:pmtsetup}.
+These were all kept within the light-tight box\footnote{These light-tight boxes are paradoxically referred to as both ``light boxes'' and ``dark boxes'', as they're used for testing \emph{light}-sensitive equipment and they're made to be very \emph{dark} inside.} loaned to the SeaQuest collaboration from the Daya Bay group. This light box was equipped with a patch panel that had both BNC and HVBNC connectors by which to power the PMT base and read out its signal. The light box and all of the installed components can be seen in Fig.~\ref{fig:pmtsetup}.
 
 \begin{figure}
 	\centerline{
@@ -190,13 +190,15 @@ We calculated the signal current from the anode as:
 \end{eqnarray}
 where $f$ here is the driving frequency of the pulsing LED, $R$ is the termination resistance of the signal (\unit[50]{$\Omega$}), and $\int V dt$ is the integrated area of the averaged PMT pulse. The amplitude of the pulses was also measured, as it was important in determining if it were feasible to remove the typically noisy hodoscope amplifiers from the SeaQuest stations 1 and 2 DAQ setup.
 
-The measured and calculated quantities of interest are the HV supply (bleeder) current, the averaged signal amplitude, averaged signal area, and signal current over the anode.
+The measured and calculated quantities of interest are the bleeder current, the averaged signal amplitude, averaged signal area, and signal current over the anode.
+
+Due to the limitations of the instruments used in these tests, there is some systematic uncertainty to consider. The ammeter used to measure the bleeder current between the HV supply and the PMT base used an analog gauge that had closely spaced ticks at \unit[0.2]{mA} intervals. As such, the systematic uncertainty for the bleeder current is considered to be $\pm$\unit[0.05]{mA}. Also, due to pulse-to-pulse variations which cause a mild amount of smearing in the average, the measurement of the amplitudes and signal areas have an uncertainty of $\pm$\unit[5]{mV} and $\pm$\unit[0.1]{nVs}, respectively. The uncertainty in the signal area translates to an uncertainty in the calculated signal current of around $\pm$\unit[0.04]{mA}. These fluctuations are considered negligible with respect to the quantities measured.
 
 \subsubsection{Test Procedure}
 
 Most of the prototyping was performed over the span of two weeks. As new suggestions were made at base improvements and the iterations v1-v4 progressed, more comparison tests were performed. The procedure for the each test was the same and is as follows:
 \begin{enumerate}[itemsep=-1ex]
-	\item Connect the base to the PMT and to the SHV and BNC connectors.
+	\item Connect the base to the PMT and to the HVBNC and BNC connectors.
 	\item Close the lid to the light box.
 	\item Gradually power the PMT (\unit[-250]{V} every \unit[5]{s}) until it is as \unit[-1500]{V}.
 	\item Watch the scaler on the DAQ to see if it is rapidly counting. No (or very few) counts on the scaler. means the box is light-tight.
@@ -207,7 +209,7 @@ Most of the prototyping was performed over the span of two weeks. As new suggest
 		\item Observe the scaler to ensure that the count is increasing at the same rate as is set by the function generator. This confirms that both the PMT, base, function generator, and LED are generally working as planned.
 		\item Trigger on the signal from the PMT output.
 		\item Average the signal over 300 triggered pulses and then freeze the frame.
-		\item Record the current draw from the HV supply.
+		\item Record the current draw from the HV supply (bleeder current).
 		\item Measure and record the pulse amplitude with the oscilloscope cursor.
 		\item Measure the pulse area using the signal integration feature, setting vertical cursors at the zero-intercept on each side of the pulse.
 		\item Return to triggering mode and increase the function generator frequency as warranted.
@@ -219,11 +221,53 @@ Most of the prototyping was performed over the span of two weeks. As new suggest
 
 \subsection{Original vs. Prototype v1}
 
+\begin{figure}[h]
+	\centerline{
+		\mbox{\includegraphics[width=0.5\textwidth]{figures/Test_v1_Amp.eps} \includegraphics[width=0.5\textwidth]{figures/Test_v1_Current.eps}}}
+	\caption{Measurements of the (a) signal amplitudes and (b) bleeder and signal currents in the original and prototype v1 PMT bases. The HV was inadvertently set to \unit[-1600V]{V} for this test instead of the intended \unit[-1500]{V}.}
+	\label{fig:test-v1}
+\end{figure}
+
+The first test was to compare the original base with the first iteration of the prototype base. It was generally expected that this new design with more modern technology would exceed the performance of the original base, but the question was twofold: to what extent does it perform better and what is the baseline by which to compare future improvements? 
+
+The first important observation is the baseline amplitudes of the signals from the two bases, as seen in Fig.~\ref{fig:test-v1}(a). While the absolute voltage itself is not as useful since the LED doesn't necessarily reflect actual operating conditions, we do see that the amplitude from the new base design is increased by a factor of more than two. This in itself is significant in when considering the limits of the discriminators that were used in the hodoscope arrays for Stations 1 and 2. With even a modest boost to gain and signal amplitude, the PMT signals should be large enough that an amplifier is not required in order to get a discriminator to trigger on a PMT pulse. Seeing as the amplifiers used had often caused troubles with the amount of electronic noise they tended to imbue, this was an encouraging observation.
+
+Next, we look at the behavior of the amplitudes as the frequency progresses. It is safe to assume that the unchanging behavior in the lower frequencies indicate that the voltage divider is stable and that there is no voltage break down yet. At higher frequencies, there is a qualitative peak in amplitude for both bases, followed by a steep decline. This rise and then sharp fall would seem to indicate the end of stable PMT base operation, with the fall indicating the onset of degradation of performance.
+
+To better identify the conditions that cause this onset, we look to currents applicable to both bases (Fig.~\ref{fig:test-v1}(b)). In this particular test, we see the original base peak in amplitude at $\sim$\unit[4]{MHz} and prototype base v1 peak at $\sim$\unit[10]{MHz}. Looking to the currents, we see that these particular points mark a certain point for both where the signal current reaches almost exactly 50\% of the bleeder current. 
+
+Around the time of these tests, Sten Hansen conducted a SPICE (Simulation Program with Integrated Circuit Emphasis) simulation of the prototype circuit and was able to reproduce what was observed. In particular, it was observed that the gain began to change dramatically when the anode (signal) current reaches a significant fraction of the total current drawn from the HV supply; a current that is much less than 100\%. It was concluded that 50\% was consistent with his findings.
+
+The baseline improvement with this base over the original one was estimated to extend the operational range by a factor of three (to the point where the amplitude drops below the low-frequency baseline). Several suggestions were made in altering the prototype base in order to maximize this improvement, including lowering the overall resistance of the circuit. If the signal current grows at the same rate, then by increasing the bleeder current, there is a chance that a higher frequency signal is required to bring the signal current up to $\sim 50\%$ of the increased bleeder current.
+
 \subsection{Original vs. Prototype v1 vs. Prototype v2}
+
+\begin{figure}[h]
+	\centerline{
+		\mbox{\includegraphics[width=0.5\textwidth]{figures/Test_v2_Amp.eps} \includegraphics[width=0.5\textwidth]{figures/Test_v2_Current.eps}}}
+	\caption{Measurements of the (a) signal amplitudes and (b) bleeder and signal currents in the original, prototype v1, and prototype v2 PMT bases.}
+	\label{fig:test-v2}
+\end{figure}
+
+
 
 \subsection{Prototype v1 vs. Prototype v3}
 
+\begin{figure}[h]
+	\centerline{
+		\mbox{\includegraphics[width=0.5\textwidth]{figures/Test_v3_Amp.eps} \includegraphics[width=0.5\textwidth]{figures/Test_v3_Current.eps}}}
+	\caption{Measurements of the (a) signal amplitudes and (b) bleeder and signal currents in the prototype v1 and prototype v3 PMT bases.}
+	\label{fig:test-v3}
+\end{figure}
+
 \subsection{Prototype v1 vs. Prototype v4}
+
+\begin{figure}[h]
+	\centerline{
+		\mbox{\includegraphics[width=0.5\textwidth]{figures/Test_v4_Amp.eps} \includegraphics[width=0.5\textwidth]{figures/Test_v4_Current.eps}}}
+	\caption{Measurements of the (a) signal amplitudes and (b) bleeder and signal currents in the prototype v1 and prototype v4 PMT bases.}
+	\label{fig:test-v4}
+\end{figure}
 
 \subsection{Base Comparison Conclusions}
 
