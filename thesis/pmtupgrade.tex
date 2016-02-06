@@ -253,13 +253,13 @@ Looking to Figure~\ref{fig:test-v2}(a), we see that this basic premise is techni
 
 By halving the resistance, the bleeder current doubled (Figure~\ref{fig:test-v2}(b)). This caused the power being dissipated by the resistors to exceed their power rating. The prototype bases were built with \unit[0.25]{W} resistors, and as the bleeder current rose well above \unit[2.5]{mA}, one of the resistors failed. This did not bode well for how a smaller on-board resistor might fare with the same current.
 
-To further exacerbate matters, it was found that our LeCroy 1440 HV supplies could only supply a maximum of \unit[2.5]{mA} per channel~\cite{lecroy:1440}. Seeing as these power supplies had proven themselves sensitive and prone to communication and performance failures, it was deemed inadvisable to demand anywhere near the maximum current from these HV supplies.
+To further exacerbate matters, it was found that the LeCroy 1440 HV supplies that were to be used could only supply a maximum of \unit[2.5]{mA} per channel~\cite{lecroy:1440}. Seeing as these power supplies had proven themselves sensitive and prone to communication and performance failures, it was deemed inadvisable to demand anywhere near the maximum current from these HV supplies.
 
 For these reasons, it was decided that the new PMT base design of prototype v1 not be modified in this manner which might suffer from overheating, component failure, and a too-high current demand.
 
 \subsection{Prototype v1 vs. Prototype v3}
 
-Perhaps it was the case that the ``transistorized'' steps were doing their job well and the destabilization was occurring at prior stages. Since the only downside of adding additional steps was added cost, transistorized stages were added as depicted in Fig.~\ref{fig:v3-board}.
+Perhaps it was the case that the ``transistorized'' steps were doing their job well and the destabilization was occurring at prior stages. Since the only downside of adding additional steps was added cost, a base with more transistorized stages was created as depicted in Fig.~\ref{fig:v3-board}.
 
 \begin{figure}[h]
 	\centerline{
@@ -272,7 +272,7 @@ As is quite evident in Figure~\ref{fig:test-v3}, there was no significant differ
 
 \subsection{Prototype v1 vs. Prototype v4}
 
-
+The final test modification of increasing the resistance and thereby the voltage drop across the final D10-A stage was tested against the prototype v1 base.
 
 \begin{figure}[h]
 	\centerline{
@@ -281,6 +281,10 @@ As is quite evident in Figure~\ref{fig:test-v3}, there was no significant differ
 	\label{fig:test-v4}
 \end{figure}
 
+This modification turns the voltage divider slightly away from the ``optimum gain'' configuration and more towards the ``optimal timing / linearity compromise'' configuration. This is seen to have a direct effect in how a loss in gain can be observed between the v1 and v4 base in Fig.~\ref{fig:test-4}(a). While the rate capability does seem to slightly increase from \unit[4]{MHz} to \unit[5]{MHz}, the value of having a higher gain was deemed more desirable. Higher gain, again, means that the then-used noisy amplifiers would no longer be needed, and the marginal loss in rate capability was considered a reasonable tradeoff.
+
 \subsection{Base Comparison Conclusions}
+
+After these tests were conducted and the information regarding each of the bases' performances was evaluated, it was decided that the prototype v1 base design was the optimal base configuration to move forward with. It then became the task to fit this circuit onto small printed circuit boards (PCBs), and then manufacture, install, and test them.
 
 \section{Base Manufacturing and Installation}
