@@ -221,26 +221,26 @@ Most of the prototyping was performed over the span of two weeks. As new suggest
 
 \subsection{Original vs. Prototype v1}
 
-\begin{figure}[h]
+The first test was to compare the original base with the first iteration of the prototype base. It was generally expected that this new design with more modern technology would exceed the performance of the original base, but the question was twofold: to what extent does it perform better and what is the baseline by which to compare future improvements? 
+
+\begin{figure}[ht]
 	\centerline{
 		\mbox{\includegraphics[width=0.5\textwidth]{figures/Test_v1_Amp.eps} \includegraphics[width=0.5\textwidth]{figures/Test_v1_Current.eps}}}
 	\caption{Measurements of the (a) signal amplitudes and (b) bleeder and signal currents in the original and prototype v1 PMT bases. The HV was inadvertently set to \unit[-1600V]{V} for this test instead of the intended \unit[-1500]{V}.}
 	\label{fig:test-v1}
 \end{figure}
 
-The first test was to compare the original base with the first iteration of the prototype base. It was generally expected that this new design with more modern technology would exceed the performance of the original base, but the question was twofold: to what extent does it perform better and what is the baseline by which to compare future improvements? 
-
 The first important observation is the baseline amplitudes of the signals from the two bases, as seen in Fig.~\ref{fig:test-v1}(a). While the absolute voltage itself is not as useful since the LED doesn't necessarily reflect actual operating conditions, we do see that the amplitude from the new base design is increased by a factor of more than two. This in itself is significant in when considering the limits of the discriminators that were used in the hodoscope arrays for Stations 1 and 2. With even a modest boost to gain and signal amplitude, the PMT signals should be large enough that an amplifier is not required in order to get a discriminator to trigger on a PMT pulse. Seeing as the amplifiers used had often caused troubles with the amount of electronic noise they tended to imbue, this was an encouraging observation.
 
 Next, we look at the behavior of the amplitudes as the frequency progresses. It is safe to assume that the unchanging behavior in the lower frequencies indicate that the voltage divider is stable and that there is no voltage break down yet. At higher frequencies, there is a qualitative peak in amplitude for both bases, followed by a steep decline. This rise and then sharp fall would seem to indicate the end of stable PMT base operation, with the fall indicating the onset of degradation of performance.
 
-To better identify the conditions that cause this onset, we look to currents applicable to both bases (Fig.~\ref{fig:test-v1}(b)). In this particular test, we see the original base peak in amplitude at $\sim$\unit[4]{MHz} and prototype base v1 peak at $\sim$\unit[10]{MHz}. Looking to the currents, we see that these particular points mark a certain point for both where the signal current reaches almost exactly 50\% of the bleeder current. 
+To better identify the conditions that cause this onset, we look to currents applicable to both bases (Fig.~\ref{fig:test-v1}(b)). In this particular test, we see the original base peak in amplitude at $\sim$\unit[4]{MHz} and prototype base v1 peak at $\sim$\unit[10]{MHz}. Looking to the currents, we see that these particular points mark a certain point for both where the signal current reaches almost exactly 50\% of the bleeder current. The baseline improvement with this base over the original one was estimated to extend the operational range by a factor of three -- the point where the amplitude drops below the low-frequency baseline.
 
 Around the time of these tests, Sten Hansen conducted a SPICE (Simulation Program with Integrated Circuit Emphasis) simulation of the prototype circuit and was able to reproduce what was observed. In particular, it was observed that the gain began to change dramatically when the anode (signal) current reaches a significant fraction of the total current drawn from the HV supply; a current that is much less than 100\%. It was concluded that 50\% was consistent with his findings.
 
-The baseline improvement with this base over the original one was estimated to extend the operational range by a factor of three (to the point where the amplitude drops below the low-frequency baseline). Several suggestions were made in altering the prototype base in order to maximize this improvement, including lowering the overall resistance of the circuit. If the signal current grows at the same rate, then by increasing the bleeder current, there is a chance that a higher frequency signal is required to bring the signal current up to $\sim 50\%$ of the increased bleeder current.
-
 \subsection{Original vs. Prototype v1 vs. Prototype v2}
+
+Several suggestions were made in altering the prototype base in order to maximize this improvement, including lowering the overall resistance of the circuit. If the signal current grows at the same pace, then by increasing the bleeder current, there is a chance that a higher frequency signal will be required to bring the signal current up to the point where the divider breaks down, which we estimated above to be $\sim 50\%$ of the increased bleeder current.
 
 \begin{figure}[h]
 	\centerline{
@@ -249,9 +249,17 @@ The baseline improvement with this base over the original one was estimated to e
 	\label{fig:test-v2}
 \end{figure}
 
+Looking to Figure~\ref{fig:test-v2}(a), we see that this basic premise is technically sound. The prototype v2 base exceeds the dynamic range of both the original base and the prototype v1 base by factors of approximately a factor of four and two, respectively. This is a a significant improvement, and this at first seems to be an avenue to pursue. However, an issue arose after increasing the LED frequency from \unit[13]{MHz} to \unit[14]{MHz} when a resistor burned out. The test continued with the rest of the bases, but the results paint a clear picture of what happened. 
 
+By halving the resistance, the bleeder current doubled (Figure~\ref{fig:test-v2}(b)). This caused the power being dissipated by the resistors to exceed their power rating. The prototype bases were built with \unit[0.25]{W} resistors, and as the bleeder current rose well above \unit[2.5]{mA}, one of the resistors failed. This did not bode well for how a smaller on-board resistor might fare with the same current.
+
+To further exacerbate matters, it was found that our LeCroy 1440 HV supplies could only supply a maximum of \unit[2.5]{mA} per channel~\cite{lecroy:1440}. Seeing as these power supplies had proven themselves sensitive and prone to communication and performance failures, it was deemed inadvisable to demand anywhere near the maximum current from these HV supplies.
+
+For these reasons, it was decided that the new PMT base design of prototype v1 not be modified in this manner which might suffer from overheating, component failure, and a too-high current demand.
 
 \subsection{Prototype v1 vs. Prototype v3}
+
+Perhaps it was the case that the ``transistorized'' steps were doing their job well and the destabilization was occurring at prior stages. Since the only downside of adding additional steps was added cost, transistorized stages were added as depicted in Fig.~\ref{fig:v3-board}.
 
 \begin{figure}[h]
 	\centerline{
@@ -260,7 +268,11 @@ The baseline improvement with this base over the original one was estimated to e
 	\label{fig:test-v3}
 \end{figure}
 
+As is quite evident in Figure~\ref{fig:test-v3}, there was no significant difference in the performance of the two prototype bases. As such, this modification was not adopted into the final design.
+
 \subsection{Prototype v1 vs. Prototype v4}
+
+
 
 \begin{figure}[h]
 	\centerline{
