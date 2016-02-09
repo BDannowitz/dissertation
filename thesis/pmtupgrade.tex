@@ -285,6 +285,31 @@ This modification turns the voltage divider slightly away from the ``optimum gai
 
 \subsection{Base Comparison Conclusions}
 
-After these tests were conducted and the information regarding each of the bases' performances was evaluated, it was decided that the prototype v1 base design was the optimal base configuration to move forward with. It then became the task to fit this circuit onto small printed circuit boards (PCBs), and then manufacture, install, and test them.
+After these tests were conducted and the information regarding each of the bases' performances was evaluated, it was decided that the prototype v1 base design was the optimal base configuration to move forward with. This base design yielded a clear improvement in both signal amplitude ($\sim2x$) and rate capability ($\sim3x$) at the expense of more complex circuitry and an increased supply current draw. It then became the task to fit this circuit onto small printed circuit boards (PCBs), and then manufacture, install, and test them.
 
 \section{Base Manufacturing and Installation}
+
+It was decided that the original base structure was well-packaged and well-shielded with its $\mu$-metal canister. As such, a two-component board was designed by Sten Hansen that consisted of a 2.5'' diameter board and a small rectangular ``daughter board''. By June of 2013, the mother and daughter boards (attached) had been manufactured and delivered to UIUC for assembly into the rest of the base.
+
+Since the sockets that coupled the board to the PMT pins was not commercially available, they had to be salvaged by deconstructing the original bases. This consisted of cutting the components between the two boards of the original base and then using a solder vacuum to separate the board from the socket pins. The socket and the other structural elements of the PMT base were separates and prepared for construction with the new base PCB (Fig.~\ref{fig:old-new-base}).
+
+\begin{figure}[h]
+	\centerline{
+		\mbox{\includegraphics[height=2.5in]{figures/disassembled-base.jpg} \includegraphics[height=2.5in]{figures/old-new-base.png}}}
+	\caption{(Left) The components of the disassembled original base and the manufactured new base PCB with attached daughter board. (Right) The original and new bases fully assembled, side-by-side.}
+	\label{fig:old-new-base}
+\end{figure}
+
+The deconstruction and re-soldering of the bases took place over the span of about three weeks. Each base was tested to provide the same voltage division across stages and was tested in operation inside the light box apparatus by observing its signal characteristics and the rate of the scaler counting (which should match up with the LED frequency).
+
+After all bases were constructed and tested, the final task was to find the optimal operating voltage for a PMT assembly that would be suitable for detecting minimum ionizing particles passing through a scintillator paddle similar to the ones used at Stations 1 \& 2 at SeaQuest. We also want the minimum possible voltage, as higher voltages correspond to increased noise. This was performed by assembling three stacked scintillator paddles, each  with a PMT attached to their light guide. Their outputs were passed through a discriminator and then to a coincidence unit, which in turn had its output sent to a scaler counter. The top and bottom PMTs were powered to \unit[-1500]{V}, and their coincidences were counted on one channel of the scaler counter. Simultaneously, the middle paddle, set to a variable voltage setting, had its coincidences with the top and bottom paddles counted on the other channel of the scaler counter. The ratio of these to counts ($\epsilon = (triple\ coincidence) / (top-bottom\ coincidence)$) described the efficiency of the middle hodoscope. The voltage of the middle PMT is varied until a plateau in the efficiency is identified and recorded to be the `nominal voltage' of this reference PMT.
+
+All of the constructed PMT bases and the ``reference'' PMT and base were then sent up from UIUC to FNAL to be installed into Stations 1 \& 2. Once installed onto a scintillator paddle, the reference PMT was powered to nominal voltage, and a radioactive Cs-137 source was pointed at the paddle. Cs-137 emits $\gamma$-ray radiation according to a specific energy distribution. One feature that can be seen is the Compton edge of the energy spectrum, which looks qualitatively like a sharp drop off in $\gamma$-ray frequency at a certain energy. Since the PMT signal has some \emph{linearity} to its signal, the amount of energy of incoming photons will translate approximately linearly to the amount of signal out of the PMT. As such, the signal from the PMT (with the Cesium source pointing at the scintillator paddle) is passed through a qVt (charge-voltage-time module) in ``Q-mode'' to histogram the energy of the PMT signals. The channel of the Compton edge for this reference PMT at this nominal voltage is recorded. Then, every other PMT is powered and measured through the qVt with the Cesium source, and its voltage is adjusted until the Compton edge falls on the same channel. This procedure is generally known as ``gain matching''.
+
+\begin{figure}
+	\centerline{
+		\mbox{\includegraphics[width=0.55\textwidth]{figures/cs-137.png}}
+	}
+	\caption{The $\gamma$-decay energy spectrum of Cs-137 as seen through a scintillator-PMT-qVt setup \cite{Webb_Williams_1963}. Here, the Compton edge can be seen at channel 110.}
+	\label{fig:cs-137}
+\end{figure}
