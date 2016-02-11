@@ -1,4 +1,4 @@
-\chapter{PMT Upgrade}
+\chapter{Photomultiplier Tube Base Upgrade}
 
 \begin{figure}
 	\centerline{
@@ -18,7 +18,7 @@ During the Fall of 2012, prototyping and testing was performed with the goal in 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/pmt-diagram.png}
+	\includegraphics[width=0.7\textwidth]{figures/pmt-diagram.png}
 	\caption{A diagram of typical PMT operation. The circuit controlling the voltage-dropping resistors is the part that was upgraded in this chapter.}
 	\label{fig:pmt}
 \end{figure}
@@ -304,11 +304,23 @@ The deconstruction and re-soldering of the bases took place over the span of abo
 
 After all bases were constructed and tested, the final task was to find the optimal operating voltage for a PMT assembly that would be suitable for detecting minimum ionizing particles passing through a scintillator paddle similar to the ones used at Stations 1 \& 2 at SeaQuest. We also want the minimum possible voltage, as higher voltages correspond to increased noise. This was performed by assembling three stacked scintillator paddles, each  with a PMT attached to their light guide. Their outputs were passed through a discriminator and then to a coincidence unit, which in turn had its output sent to a scaler counter. The top and bottom PMTs were powered to \unit[-1500]{V}, and their coincidences were counted on one channel of the scaler counter. Simultaneously, the middle paddle, set to a variable voltage setting, had its coincidences with the top and bottom paddles counted on the other channel of the scaler counter. The ratio of these to counts ($\epsilon = (triple\ coincidence) / (top-bottom\ coincidence)$) described the efficiency of the middle hodoscope. The voltage of the middle PMT is varied until a plateau in the efficiency is identified and recorded to be the `nominal voltage' of this reference PMT.
 
-All of the constructed PMT bases and the ``reference'' PMT and base were then sent up from UIUC to FNAL to be installed into Stations 1 \& 2. Once installed onto a scintillator paddle, the reference PMT was powered to nominal voltage, and a radioactive Cs-137 source was pointed at the paddle. Cs-137 emits $\gamma$-ray radiation according to a specific energy distribution. One feature that can be seen is the Compton edge of the energy spectrum, which looks qualitatively like a sharp drop off in $\gamma$-ray frequency at a certain energy. Since the PMT signal has some \emph{linearity} to its signal, the amount of energy of incoming photons will translate approximately linearly to the amount of signal out of the PMT. As such, the signal from the PMT (with the Cesium source pointing at the scintillator paddle) is passed through a qVt (charge-voltage-time module) in ``Q-mode'' to histogram the energy of the PMT signals. The channel of the Compton edge for this reference PMT at this nominal voltage is recorded. Then, every other PMT is powered and measured through the qVt with the Cesium source, and its voltage is adjusted until the Compton edge falls on the same channel. This procedure is generally known as ``gain matching''.
+All of the constructed PMT bases and the ``reference'' PMT and base were then sent up from UIUC to FNAL to be installed into Stations 1 \& 2 and used for ``gain matching''. The gain matching is done by exposing a scintillator paddle to a $\gamma$-ray source while connected to a PMT and adjusting its voltage until it produces the same signal amplification, or \emph{gain}, as the rest of the PMTs. The original PMT that the rest are matched to is the reference PMT from the previous efficiency study.
+
+Matching the gain is not a simple task, and the typical approach is to take advantage of a physical phenomenon called the Compton Effect occurs in scintillator material when a $\gamma$-ray scatters off of it. Often times, the $\gamma$-ray of energy \emph{E} will not deposit the whole of its energy, but only a portion of it. The spectrum of the photons that scatter off will have energy
+\begin{equation}
+E' = \frac{E}{1 + \frac{(1-\cos \theta) E}{m_e c^2}}
+\end{equation}
+where $\theta$ is the angle of deflection and $m_e$ is the electron mass. This, in turn, deposits transferred energy $E_T = E - E'$ into the scintillator which has a maximum value of
+\begin{equation}
+(E_T)_{max} = E \left( 1 - \frac{1}{1-\frac{2 E}{m_e c^2}} \right)
+\end{equation}
+This energy is known as the Compton Edge, as it is characterized by a very sharp falloff in the energy spectrum of energy deposited by a source of a specific energy. The particular energy of this edge is not important for the purpose of gain matching. Instead, it's used as a qualitatively sharp feature that can be clearly identified when examining the energy spectrum of photons in scintillator material, as seen in Figure~\ref{fig:cs-137}. As such, it can be used as a landmark to use for adjusting the voltages of each PMT in a way such that the gain of each is the same.
+
+Once installed onto a scintillator paddle, the reference PMT was powered to nominal voltage and a radioactive Cs-137 source was pointed at the paddle. Since the PMT signal has some \emph{linearity} to its signal, the amount of energy of incoming photons will translate approximately linearly to the amount of signal out of the PMT. The signal from the PMT (with the Cesium source pointing at the scintillator paddle) is passed through a qVt (charge-voltage-time) module in ``Q-mode'' to histogram the total integrated charges of the PMT signals. The qVt's channel location of the Compton edge for this reference PMT at this nominal voltage is recorded. Then, every other PMT is powered and measured through the qVt with the Cesium source, and its voltage is adjusted until the Compton edge falls on the same channel. This procedure is generally known as ``gain matching''.
 
 \begin{figure}
 	\centerline{
-		\mbox{\includegraphics[width=0.55\textwidth]{figures/cs-137.png}}
+		\mbox{\includegraphics[width=0.55\textwidth]{figures/cs-137.pdf}}
 	}
 	\caption{The $\gamma$-decay energy spectrum of Cs-137 as seen through a scintillator-PMT-qVt setup \cite{Webb_Williams_1963}. Here, the Compton edge can be seen at channel 110.}
 	\label{fig:cs-137}

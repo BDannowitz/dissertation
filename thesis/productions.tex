@@ -1,18 +1,18 @@
 \chapter{Data Productions}
 
-\section{Production Processing}
+During my tenure at SeaQuest, I was primarily in charge of the effort to decode the raw, serialized data from our data acquisition systems and store it in a manner in which it could be readily accessible by collaborators worldwide. Beyond that, emphasis was placed on curating the tracked physics data and preparing it in such a way that facilitates quick and simple analysis from many different analytical software packages.
 
-The three raw outputs of the data acquisition systems, as described above are (1) Main DAQ CODA files, (2) Scaler DAQ CODA files, and (3) Beam DAQ ASCII files.
+The technologies used to perform this were a combination of compiled C/C++ codes, MySQL, ROOT, and the Fermilab Computing Division's primary computing grid. The end product provided to all collaborators was in the form of unified MySQL database ``schemas'' (or, groups of tables) possessing all of the combined run, spill, event, slow control, and tracked information, along with specific data quality flags in place to assist in the selection of good analysis data.
 
-Each raw data file corresponds to the data taken from certain subsystems over approximately one to two hours of running time. These three types require varying degrees of de-serialization, parsing, processing, and storage -- a process as a whole defined as \emph{decoding}. 
+\section{Raw Data Processing}
 
-All raw data files are backed up to long-term tape storage (managed by FNAL Computing Division), and the decoded and processed data gets stored on one of four MySQL servers to be used for analysis by the collaboration. Data is also output to a ROOT file for the ease of use of one of the two independent tracking programs.
+The three raw outputs of the data acquisition systems, as described above (and in Chapter 2) are Main DAQ CODA files, Scaler DAQ CODA files, and Beam DAQ ASCII files. Each raw data file corresponds to the data taken from certain subsystems over approximately one to two hours of running time. These three types require varying degrees of de-serialization, parsing, processing, and storage -- a process as a whole defined as \emph{decoding}. 
 
-Contiguous blocks of decoded and tracked data is then grouped together into \emph{merged} productions, available on all MySQL servers, providing collaborators large sets of curated and easily analyzable data.
+All raw data files are backed up to long-term tape storage (managed by FNAL Computing Division), and the decoded and processed data gets stored on one of four MySQL servers to be used for analysis by the collaboration. Data is also output to ROOT files for ease of use by independent tracking programs.
 
 \subsection{Decoding Raw Data}
 
-The CODA file decoding is nearly identical for MainDAQ and ScalerDAQ, and only differ by content; the MainDAQ contains TDC readout. For each one to two hour \emph{Run}, the CODA files can be well-described as the following sequence of events (and the data they contain):
+The CODA file decoding process is nearly identical in the cases of the Main DAQ and Scaler DAQ outputs, and only differ by content; the Scaler DAQ reads out specific scaler data, and the MainDAQ contains TDC readouts of the detectors. For each one to two hour \emph{Run}, the CODA files can be well-described as the following sequence of events (and the data they contain):
 \begin{enumerate}
 	\item Prestart Event (Run data)
 	\item Begin Spill Event (Spill data, Scaler readout)
@@ -26,9 +26,10 @@ The CODA file decoding is nearly identical for MainDAQ and ScalerDAQ, and only d
 Our decoding program uses C and C++ in conjunction with Jefferson Lab's CODA I/O library to read these events and parse them according to their individual formats. Data from these CODA events are decoded and placed into hierarchical categories.
 
 \subsubsection{Run Level Data}
-Run-level data contains data and metadata pertaining to the entirety of the run that is recorded. At the time of the Prestart Event, the date and time of the run are stored, along with a readout of the specific settings of all non-trigger TDC boards.
 
-After the End Event is encountered, metadata is aggregated and stored regarding such items as the number of chamber hits, the triggers that were fired, the target positions used, average magnet currents, and other useful metrics. 
+Run-level data contains data and metadata pertaining to the entirety of the run that is recorded. At the time of the Prestart Event, the date and time of the run are stored, along with a readout of the specific settings of all non-trigger TDC boards. Settings regarding which triggers are enabled and what each of their prescale factors is also stored in the run-level data.
+
+After the End Event is encountered, metadata is aggregated and stored regarding such items as the number of chamber hits, the types of triggers that were fired, the target positions used, average magnet currents, and other useful metrics. All of these fields of settings and aggregated values can be used later on to quickly determine if a run is analyzable, or if it has characteristics that are desirable for specific niche analyses.
 
 \subsubsection{Spill Level Data}
 The \emph{Beginning of Spill} (BOS) and \emph{End of Spill} (EOS) events bookend the set of physics events for a given spill. At each BOS and EOS events, the 140 MHz VME scalers are read out. At the beginning of the spill, all scalers should be zeroed out, and then read out again after the spill has ended.
