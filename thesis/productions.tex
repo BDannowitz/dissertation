@@ -10,6 +10,40 @@ The three raw outputs of the data acquisition systems, as described above (and i
 
 All raw data files are backed up to long-term tape storage (managed by FNAL Computing Division), and the decoded and processed data gets stored on one of four MySQL servers to be used for analysis by the collaboration. Data is also output to ROOT files for ease of use by independent tracking programs.
 
+\subsection{CODA Event Format}
+
+A single CODA file can be described as being a chain of events. These can generally be divided into ``CODA Events'' for those related to the CODA file itself, and ``Standard Physics Events'' when containing experimental data read out by CODA and its subsystems. Each event can be represented by an array of unsigned 32-bit integers. When using the CODA EVIO (event input/output), one whole event is read out into such an array, which can vary in size from 6 to $\sim50,000$ integers long, depending on the type of content.
+
+CODA Events primarily correspond to the actions taken by a shift-taker using the \emph{rcgui} application on the data acquisition computer. The types of events that fall under this category are: Sync, Prestart, Go, Pause, and End. It should be noted that the Sync and Pause events do not generally get used at SeaQuest. These provide markers in the CODA file of what commands were given to CODA through the course of taking data. 
+
+Before data taking can begin The readout controllers and the trigger supervisor need to be loaded with a designated firmware in order to operate properly. Before a CODA file is started and created, this ``Download'' is performed, and then CODA is ready to transition from the downloaded state to the prestarted state. The CODA file is then initialized with a prestart event, whose format can be seen in Figure~\ref{fig:coda-prestart-go}. The most important information stored in the prestart event is the run number, which is used universally through the experiment. 
+
+Once in a prestarted state, a ``Go'' action is initiated to transition it into data taking mode. This action generates a Go event. If ever paused, a Go event would be created once data taking was resumed. Go events contain the current time and the number of events in the run so far, also seen in Figure~\ref{fig:coda-prestart-go}. It should be noted that the ``time'' stored in these events is not trusted, as the data acquisition computers are not synced to an official external source.
+
+\begin{figure}
+	\centerline{
+		\mbox{\includegraphics[width=0.5\textwidth]{figures/prestart_event.png} \includegraphics[width=0.5\textwidth]{figures/go_event.png}}
+	}
+	\caption{(Left) The Prestart event, with event type 17; (Right) The Go event, with event type 18\cite{jlab:coda}.}
+	\label{fig:coda-prestart-go}
+\end{figure}
+
+The last CODA Event of importance is the End Event. This contains the number of events in the run, but primarily serves as a marker to any programs reading the CODA file that the EOF (end of file) has been reached, and to commence any post-run processes.
+
+Most of the events in the CODA file, however, will be ``Standard Physics Events''. The contents of these can be varied, but can be characterized generally as having a header containing the total length of the event (in number of 32-bit integer ``data words''), followed by several ``data banks'', which are typically filled with a series of ROC outputs (Fig.~\ref{fig:coda-physics-roc}). The contents and formats of the ROC data banks are completely controlled by the ROC programming, and whatever set of 32-bit words the ROC has to read out, it will store in its ``data words'' block. 
+
+\begin{figure}
+	\centerline{
+		\mbox{\includegraphics[width=0.5\textwidth]{figures/physics_event.png} \includegraphics[width=0.5\textwidth]{figures/roc_event.png}}
+	}
+	\caption{(Left) A standard physics event, with various event types, filled with a series of data banks; (Right) The ROC data bank format\cite{jlab:coda}.}
+	\label{fig:coda-physics-roc}
+\end{figure}
+
+
+\subsection{ROC Data Bank Formats}
+
+
 \subsection{Decoding Raw Data}
 
 The CODA file decoding process is nearly identical in the cases of the Main DAQ and Scaler DAQ outputs, and only differ by content; the Scaler DAQ reads out specific scaler data, and the MainDAQ contains TDC readouts of the detectors. For each one to two hour \emph{Run}, the CODA files can be well-described as the following sequence of events (and the data they contain):
@@ -20,10 +54,9 @@ The CODA file decoding process is nearly identical in the cases of the Main DAQ 
 	\item End Spill Event (Spill data, Scaler readout)
 	\item SlowControl Event (Slow control readout, Spill ID readout)
 	\item Spill Counter Event (Spill ID readout) \newline ...(Repeat 2-6 for each \emph{Spill})
-	\item End Event
 \end{enumerate}
 
-Our decoding program uses C and C++ in conjunction with Jefferson Lab's CODA I/O library to read these events and parse them according to their individual formats. Data from these CODA events are decoded and placed into hierarchical categories.
+Our decoding programs use C and C++ in conjunction with Jefferson Lab's CODA I/O library\cite{jlab:coda} to read these events and parse them according to their individual formats. Data from these CODA events are decoded and placed into hierarchical categories.
 
 \subsubsection{Run Level Data}
 
@@ -32,17 +65,16 @@ Run-level data contains data and metadata pertaining to the entirety of the run 
 After the End Event is encountered, metadata is aggregated and stored regarding such items as the number of chamber hits, the types of triggers that were fired, the target positions used, average magnet currents, and other useful metrics. All of these fields of settings and aggregated values can be used later on to quickly determine if a run is analyzable, or if it has characteristics that are desirable for specific niche analyses.
 
 \subsubsection{Spill Level Data}
-The \emph{Beginning of Spill} (BOS) and \emph{End of Spill} (EOS) events bookend the set of physics events for a given spill. At each BOS and EOS events, the 140 MHz VME scalers are read out. At the beginning of the spill, all scalers should be zeroed out, and then read out again after the spill has ended.
+The \emph{Beginning of Spill} (BOS) and \emph{End of Spill} (EOS) events bookend the set of physics events for a given spill. At each BOS and EOS events, the 140 MHz VME scalers are read out. At the beginning of the spill, all scalers are zeroed out, and then read out again after the spill has ended.
 
 Slow Control events are read out between spills, which contain data regarding the current spill identifier number, target systems, beam and radiation monitors, and environmental readings.
 
 The spill identifier (\emph{spillID}) is what is used to synchronize the data together across various data acquisition systems. As such, the \emph{spillID} is read out redundantly in both Slow Control and Spill Counter events (which contain only the \emph{spillID} value) to ensure that the data is appropriately labeled.
 
-When the End Event is reached, the independently-recorded Beam DAQ data (recorded in an ASCII file) is read and stored with the rest of the Spill-level data.
+When the End Event (for the whole CODA file) is reached, the independently-recorded Beam DAQ data (recorded in an ASCII file) is read and stored with the rest of the Spill-level data.
 
 \subsubsection{Event Level Data}
-For each spill, $\sim3k$ events are triggered to be recorded. With each event, three types of information is stored: the trigger which fired the event, a measure of the beam intensity per RF bucket, and the full detector readouts.
-The detector readouts require the most processing of all the rest of the data. The CODA files contain the hardware addresses of each detector \emph{hit}, along with a \emph{TDC time}. The following steps briefly summarize the processing steps:
+For each spill, $\sim3k$ events are triggered to be recorded, though this number can vary greatly with the particular beam settings of a run. With each event, three types of information is stored: the trigger which fired the event, a measure of the beam intensity per RF bucket, and the full detector readouts. The detector readouts require the most processing of all the rest of the data. The CODA files contain the hardware addresses of each detector \emph{hit}, along with a \emph{TDC time}. The following steps briefly summarize the processing steps:
 \begin{enumerate}
 	\item Mapping: Map the hardware address to a detector name and detector element number
 	\item Timing: Classify hits as in-time or not and calculate \emph{drift time} from TDC time
@@ -52,7 +84,7 @@ The detector readouts require the most processing of all the rest of the data. T
 	\item Hodoscope Masking: Remove drift chamber hits that have no adjacent hodoscope hit
 	\item Trigger Road Masking: Same as hodoscope masking, but only using hodoscopes from reconstructed trigger roads
 \end{enumerate}
-This fully processed data is then stored into one the experiment's MySQL databases.
+This fully processed data is then stored into one the experiment's MySQL databases and/or a ROOT file.
 
 %%%%%%%%%%%%%%%%
 
