@@ -1,6 +1,5 @@
 *.nav
 *.snm
-*.bbl
 *.lof
 *.lot
 *.zip
@@ -8,7 +7,6 @@
 *.aux
 *.log
 *.out
-*.blg
 *.synctex.gz
 *.pyc
 .idea*
