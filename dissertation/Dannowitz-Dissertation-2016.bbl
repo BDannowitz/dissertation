@@ -33,11 +33,47 @@ E~Ames, C~Seshagiri, M~Griswold, V~Simaitis, J~La~Due, F~Cogswell, S~Errede,
   tilecal module-0.
 \newblock Technical report, CERN-ATL-TILECAL-98-156, 1998.
 
+\bibitem{Aubert:1983xm}
+J.J. Aubert et~al.
+\newblock {The ratio of the nucleon structure functions $F2_n$ for iron and
+  deuterium}.
+\newblock {\em Phys.Lett.}, B123:275, 1983.
+
 \bibitem{caen:v1495}
 CAEN.
 \newblock v1495 general purpose vme board.
 \newblock \url{http://www.caen.it/csite/CaenProd.jsp?idmod=484\&parent=11}.
 \newblock Accessed: 2016-01-26.
+
+\bibitem{osg:doc}
+Open Science~Grid Consortium.
+\newblock Osg blueprint.
+\newblock
+  \url{http://osg-docdb.opensciencegrid.org/cgi-bin/RetrieveFile?docid=18\&extension=pdf}.
+\newblock Accessed: 2016-02-24.
+
+\bibitem{Drell:1970wh}
+S.~D. Drell and Tung-Mow Yan.
+\newblock {Massive Lepton Pair Production in Hadron-Hadron Collisions at
+  High-Energies}.
+\newblock {\em Phys. Rev. Lett.}, 25:316--320, 1970.
+\newblock [Erratum-ibid.25:902,1970].
+
+\bibitem{duan-2007-50}
+Chun-Gui Duan, Na~Liu, and Zhan-Yuan Yan.
+\newblock The extraction of nuclear sea quark distribution and energy loss
+  effect in drell-yan experiment.
+\newblock {\em EUR.PHYS.J.C}, 50:585, 2007.
+
+\bibitem{Estermann:169E}
+I.~Estermann, R.~Frisch, and O.~Stern.
+\newblock {Magnetic Moment of the Proton}.
+\newblock {\em Nature}, 132:169--170, jul 1933.
+
+\bibitem{Geesaman:1995yd}
+Donald~F. Geesaman, K.~Saito, and Anthony~William Thomas.
+\newblock {The nuclear EMC effect}.
+\newblock {\em Ann.Rev.Nucl.Part.Sci.}, 45:337--390, 1995.
 
 \bibitem{pc:sten}
 Sten Hansen.
@@ -89,12 +125,29 @@ HCZ Photonics.
 \newblock \url{http://hzcphotonics.com/products/XP2072.PDF}.
 \newblock Accessed: 2016-01-29.
 
+\bibitem{Pumplin:2002vw}
+J.~Pumplin et~al.
+\newblock {New generation of parton distributions with uncertainties from
+  global QCD analysis}.
+\newblock {\em JHEP}, 07:012, 2002.
+
+\bibitem{Seely:2009gt}
+J.~Seely et~al.
+\newblock {New measurements of the EMC effect in very light nuclei}.
+\newblock {\em Phys. Rev. Lett.}, 103:202301, 2009.
+
 \bibitem{Shiu:2015ura}
 Shiuan-Hal Shiu, Jinyuan Wu, Randall~Evan McClellan, Ting-Hua Chang, Wen-Chen
   Chang, Yen-Chu Chen, Ron Gilman, Kenichi Nakano, Jen-Chieh Peng, and Su-Yin
   Wang.
 \newblock {FPGA-based trigger system for the Fermilab SeaQuest experiment}.
 \newblock {\em Nucl. Instrum. Meth.}, A802:82--88, 2015.
+
+\bibitem{jlab:coda}
+Jefferson National Accelerator Laboratory Data~Acquisition Support.
+\newblock Coda (cebaf online data acquisition).
+\newblock \url{https://coda.jlab.org/drupal/}.
+\newblock Accessed: 2016-02-12.
 
 \bibitem{Towell:2001nh}
 R.~S. Towell et~al.
