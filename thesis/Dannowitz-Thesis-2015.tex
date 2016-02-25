@@ -9,6 +9,7 @@
 \def\fileversion{v2.25a} \def\filedate{2009/10/10}
 %% Package and Class "uiucthesis2009" for use with LaTeX2e.
 \documentclass[edeposit,fullpage]{uiucthesis2009}
+\usepackage[usenames, dvipsnames]{color}
 \usepackage{graphicx}
 \usepackage{xspace}     %to get spaces in commands right
 \usepackage{subfig}
@@ -20,8 +21,9 @@
 \usepackage{units}      %to get proper nobreak spaces for units
 \usepackage{hyperref}   %clickable links in pdfs
 
-\newcommand{\CN}{$^{[citation\ needed]}$}
+\newcommand{\CN}{\textcolor{red}{$^{[citation\ needed]}$}}
 \newcommand{\us}{$\mu$s\xspace}
+\newcommand{\red}[1]{\emph{\textcolor{red}{#1}}}
 
 \begin{document}
 
@@ -54,15 +56,16 @@ compared to predictions of models of the EMC effect.
 
 %% Create a dedication in italics with no heading, centered vertically
 %% on the page.
-\begin{dedication}
-To my dog, Charlemagne.
-\end{dedication}
+
+%\begin{dedication}
+%To my dog, Charlemagne.
+%\end{dedication}
 
 %% Create an Acknowledgements page, many departments require you to
 %% include funding support in this.
-\chapter*{Acknowledgments}
+%\chapter*{Acknowledgments}
 
-This paper does not acknowledge Star Wars Episodes I-III, nor does it acknowledge Pluto as a full-on planet.
+%This paper does not acknowledge Star Wars Episodes I-III, nor does it acknowledge Pluto as a full-on planet.
 
 %% The thesis format requires the Table of Contents to come
 %% before any other major sections, all of these sections after
@@ -147,18 +150,18 @@ This paper does not acknowledge Star Wars Episodes I-III, nor does it acknowledg
 
 \mainmatter
 
-\include{background}
+%\include{background}
 \include{methods}
 \include{pmtupgrade}
-\include{productions}
-\include{analysis}
-\include{results}
-\include{discussion}
-\include{conclusions}
+%\include{productions}
+%\include{analysis}
+%\include{results}
+%\include{discussion}
+%\include{conclusions}
 
 \appendix
 
-\include{Appendix}
+%\include{Appendix}
 
 \backmatter
 
