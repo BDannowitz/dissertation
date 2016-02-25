@@ -1,0 +1,5 @@
+[1] Config.pm:318> INFO - This is Biber 1.8
+[2] Config.pm:321> INFO - Logfile is 'Dannowitz_Preliminary_Paper_v2.blg'
+[291] biber:275> INFO - === Tue Nov  3, 2015, 12:49:25
+[435] Utils.pm:185> ERROR - Cannot find control file 'Dannowitz_Preliminary_Paper_v2.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
+[436] Biber.pm:109> INFO - ERRORS: 1
