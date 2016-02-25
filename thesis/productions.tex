@@ -1,6 +1,6 @@
 \chapter{Data Productions}
 
-During my tenure at SeaQuest, I was primarily in charge of the effort to decode the raw, serialized data from our data acquisition systems and store it in a manner in which it could be readily accessible by collaborators worldwide. Beyond that, emphasis was placed on curating the tracked physics data and preparing it in such a way that facilitates quick and simple analysis from many different analytical software packages.
+During my tenure at SeaQuest, I was primarily in charge of the effort to decode the raw, serialized data from the data acquisition systems and store it in a manner in which it could be readily accessible by collaborators worldwide. Beyond that, emphasis was placed on curating the tracked physics data and preparing it in such a way that facilitates quick and simple analysis from many different analytical software packages.
 
 The technologies used to perform this were a combination of compiled C/C++ codes, MySQL, ROOT, and the Fermilab Computing Division's primary computing grid. The end product provided to all collaborators was in the form of unified MySQL database ``schemas'' (or, groups of tables) possessing all of the combined run, spill, event, slow control, and tracked information, along with specific data quality flags in place to assist in the selection of good analysis data.
 
@@ -40,8 +40,8 @@ Most of the events in the CODA file, however, will be ``Standard Physics Events'
 	\label{fig:coda-physics-roc}
 \end{figure}
 
-
 \subsection{ROC Data Bank Formats}
+
 
 
 \subsection{Decoding Raw Data}
@@ -56,7 +56,7 @@ The CODA file decoding process is nearly identical in the cases of the Main DAQ 
 	\item Spill Counter Event (Spill ID readout) \newline ...(Repeat 2-6 for each \emph{Spill})
 \end{enumerate}
 
-Our decoding programs use C and C++ in conjunction with Jefferson Lab's CODA I/O library\cite{jlab:coda} to read these events and parse them according to their individual formats. Data from these CODA events are decoded and placed into hierarchical categories.
+The decoding programs use C and C++ in conjunction with Jefferson Lab's CODA I/O library\cite{jlab:coda} to read these events and parse them according to their individual formats. Data from these CODA events are decoded and placed into hierarchical categories.
 
 \subsubsection{Run Level Data}
 
@@ -90,15 +90,15 @@ This fully processed data is then stored into one the experiment's MySQL databas
 
 \section{Online and Offline Processing}
 
-There are two modes of productions: on-line and off-line productions. For on-line productions, all Run- and Spill-level data is decoded, but only 1-in-$n$ Physics Events are processed, where $n$ is typically $15$. This \emph{``sampling mode''} is used in order for the decoding to reliably keep up with even high-intensity beam data.
+There are two running modes of raw data processing: on-line and off-line. For on-line mode of productions, all Run- and Spill-level data is decoded, but only 1-in-$n$ Physics Events are processed, where $n$ is typically between 3 and 15, depending on the event data taking rates. This \emph{``sampling mode''} is used in order for the decoding to reliably keep up with even high-intensity beam data. This data pipeline is important for on-line monitoring of the experiment by shift crews. With this up-to-the-minute stream of data, any abnormalities in duty factor, wire maps, et al. can be observed directly and acted upon quickly.
 
-For off-line productions, a large group of categorically similar runs is defined, and the chain of production processing is initiated. The steps of this process is generally emph{decoding, tracking, archiving, and merging}.
+For off-line, or ``batch'', productions, a large group of categorically similar runs is defined, and the chain of production processing is initiated. The steps of this process is generally emph{decoding, tracking, archiving, and merging}. The logical blocks of runs are typically defined by ``roadset'', or, the version of the set of trigger roads used in the L1 trigger matrix. Differences in these trigger matrices can affect the distributions to a degree commensurate with the difference in the set of roads that are triggered on by the FPGA-1 trigger. As such, each block of data using a given roadset should be analyzed individually and then have its results combined with those of other roadsets via a weighted average.
 
-The decoding and tracking is performed on Fermilab Computing Service's FermiGrid, which provides the computing resources necessary to process hundreds of runs simultaneously.
+The decoding and tracking is performed on Fermilab Computing Service's FermiGrid, which provides the computing resources necessary to process hundreds of runs simultaneously. The tracking has also expanded its capabilities to run on the Open Science Grid, which is a grid computing network that pools together computational resources from national laboratories and universities throughout the world\cite{osg:doc}. This allows the intensive reconstruction algorithms to perform its tracking on thousands of grid nodes at once.
 
-A single decoding job submission will output the processed data to one of the four available MySQL servers and also to a ROOT file. Then, one job will be submitted to run one of the two tracking programs on the ROOT file, while another job is submitted to run the other tracking program on the MySQL data.
+A single decoding job submission will output the processed data to one of the four available MySQL servers and also to a ROOT file. The processed data in ROOT form at this stage is called the ``digit'' data. Whether or not the decoding sends Hit and TriggerHit information to the MySQL schemas is an option that can be set at the time of batch processing. The current operating mode is to perform batch processing, sending Hit/TriggerHit data to MySQL for only 1-in-50 runs. This allows users to capture a glimpse of full hit distributions for runs within a roadset while preventing a single pass of the experiment's data from filling up all available data storage space.
 
-Once the tracking is completed, the ROOT file and the \emph{Hit} table from the MySQL production is archived on the Fermilab BlueArc NAS backup system for future use, if necessary.
+After this step, jobs will be submitted to run one or both of the two tracking programs based on the ROOT file and/or the MySQL data. Once the tracking is completed, the ROOT file is archived on the Fermilab BlueArc NAS backup system for storage and for tracking.
 
 Upon the completion of decoding and tracking of a specified range of runs, all of their Run-, Spill-, and Event-level data, along with its tracked data, is combined into a single \emph{merged} schema. These \emph{merged} schemas are mirrored across all four of the MySQL servers for optimal redundancy and availability.
 
