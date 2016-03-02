@@ -36,9 +36,23 @@ The study of nucleon structure has come a long way, and at present, the proton
 is described as a composite particle consisting of three point-like \emph{valence quarks}
 interacting with each other through exchange of gluons.
 
-\section{\emph{ep} Scattering}
+\section{Di-lepton production in nucleon-nucleon collisions}
 
-Nucleon structure is still today one of the great frontiers of nuclear physics.  The primary tool used to probe the parton distribution has been Deep Inelastic Scattering (DIS), which is the scattering of a charged lepton off of a nucleus by the exchange of a virtual photon.  As the energy of the exchanged photon increases, the scattering becomes inelastic and is able to resolve the partonic substructure of hadrons.
+Studying the production of pairs of leptons resulting from hadron-hadron collisions has proven to be a powerful tool in probing nucleon structure and parton distribution functions (PDFs). Figure \ref{fig:DY-spectrum} shows the dimuon mass spectrum in proton-nucleus collisions measured at the E-866/NuSea experiment at Fermilab\cite{PhysRevLett.80.3715}. The resonances of the $J/\Psi$, $\Psi^\prime$, $\Upsilon$, $\Upsilon^\prime$, and $\Upsilon^{\prime\prime}$ can be seen atop a smooth, continuous distribution which decreases with mass. The process responsible with this distribution of $\mu^+\mu^-$ pairs is the Drell-Yan process\cite{PhysRevLett.25.316}, which is illustrated in the Feynman diagram in Fig.~\ref{fig:dis-dy}(b). This process is characterized by a quark annihilating with an anti-quark to form a virtual time-like photon which then decays into a pair of leptons. The study of this process can lend some insight into nucleon structure due to the fact that the mass and momentum of the di-lepton pair directly reflects the momentum distributions of the interacting quarks and anti-quarks. Current knowledge and models\CN of these momentum distributions come primarily from deep-inelastic lepton scattering (DIS) and the Drell-Yan (DY) process.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{figures/background/DY-spectrum-e866.png}
+	\caption{Dimuon mass spectrum from E-866 $p+h$ collisions at \unit[800]{GeV/c}\cite{PhysRevLett.80.3715}.}
+	\label{fig:DY-spectrum}
+\end{figure}
+
+%Di-lepton production has a record of being used as a technique for searching for new particles. 
+One particular focus of study for the Drell-Yan process is its nucleon number-dependent (A-dependent) behavior of its cross sections. This is of particular interest due to a phenomenon known as the EMC effect, in which the European Muon Collaboration (EMC) discovered in 1983 that parton distribution functions become modified when in the presence of the nuclear medium. This A-dependent behavior was not expected for hard scattering processes as the modest (maximum $\unit[8.8]{MeV}$) binding energy of a nucleus on a nucleon was not thought to have a significant effect on quark momentum distributions within a nucleon (\unit[938]{$Mev/c^2$}). Many experiments since\CN have confirmed, extended, and precisely characterized the A-dependent behavior observed. Among the many hard scattering probes for investigating this phenomenon, the Drell-Yan process is uniquely capable of isolating the effect on the anti-quark distributions to a high degree of accuracy. The study of the effects of the nuclear medium on nucleon anti-quark distributions is the secondary research goal of the SeaQuest experiment and is the main focus of this thesis.
+
+Within this thesis, the Drell-Yan process and its properties are discussed in \red{sections so and so} and various A-dependent behaviors seen in Drell-Yan and DIS are discussed in \red{sections so and so}. A few models are discussed in an attempt to theoretically characterize this A-dependent behavior in \red{sections so and so}.
+
+In cases where a Drell-Yan process occurs, it can often be the case that the incident quark must pass through the strongly-interacting nuclear medium prior to its annihilation with the anti-quark in the target. By investigating the momentum distribution of the quark from the beam and it's A-dependence, some insight can be gained regarding the parton energy loss as it moves through a foreign nuclear medium. This topic and its existing data are briefly discussed in \red{section so and so}.
 
 \section{The Drell-Yan Process}
 
@@ -51,7 +65,7 @@ Nucleon structure is still today one of the great frontiers of nuclear physics. 
 
 As useful as this has been, DIS is only sensitive to momentum and charge of the partonic structure.
 
-In 1970, S. Drell and T.M. Yan were the first to study the process in which high-mass lepton production occurs as a result of inelastic hadron-hadron collisions \cite{Drell:1970wh}.  This so-called "Drell-Yan" (DY) process is identified to be the result of a quark-antiquark annihilation into a virtual photon which then decays into a lepton pair. 
+In 1970, S. Drell and T.M. Yan were the first to study the process in which high-mass lepton production occurs as a result of inelastic hadron-hadron collisions \cite{Drell:1970wh}.  This so-called ``Drell-Yan'' (DY) process is identified to be the result of a quark-antiquark annihilation into a virtual photon which then decays into a lepton pair. 
 
 This process, as you see in Figure \ref{fig:dis-dy}, is the \emph{s}-channel counterpart to DIS's \emph{t}-channel process.  Similarly Drell-Yan can give a complementary view of the nucleon's parton distribution. The differential cross section that we will be using is in terms of the fractional momentum variables, $x_1$ and $x_2$, which represent the fraction of the respective hadron's momentum carried by the beam quark and target anti-quark, respectively.
 
@@ -93,7 +107,7 @@ In addition to the leading-order DY term, there are high-order QCD corrections t
 	\centering
 	\includegraphics[width=5.00in]{figures/background/DY.jpeg}
 	\caption{The Drell-Yan process has a large range of higher-order QCD corrections that need to be accounted for. 
-		(A) and (B) are high order $q\bar{q}$ annihilations, and (C) and (D) are gluon "Compton scattering" terms.}
+		(A) and (B) are high order $q\bar{q}$ annihilations, and (C) and (D) are gluon ``Compton scattering'' terms.}
 	\label{fig:nlo-dy}
 \end{figure}
 
@@ -130,9 +144,9 @@ As we will discuss in the next section, partons in a bound nucleon behave differ
 
 The European Muon Collaboration, in 1983, measured the DIS cross section per nucleon ratios of $Fe$ to $D$ over a large kinematic range.  The result, as seen in the top right of Figure \ref{fig:emc} came as quite a surprise.  It was revealed that the structure function of a nucleon bound in a nucleus differs fundamentally from that of a free nucleon  \cite{Aubert:1983xm}.  This difference was not a simple or small effect either; the cross section per nucleon of a nucleus showed to be smaller than that of deuterium at very low $x_2$, greater than deuterium at $0.1<x_2<0.2$, and then steadily less than deuterium for $0.2<x_2<0.6$. 
 
-This complex, unexplained behavior opened up a new field of research and theoretical work. Following suit, the different aspects of this nuclear modification garnered some common nicknames.  The region where $x_2<0.1$ became known as \emph{"Nuclear Shadowing"}, the transition region of $0.1<x_2<0.2$ is known as \emph{"Anti-shadowing"}, and the linear decline in the ratio of cross sections between $0.2<x_2<0.6$ is generally referred to as the \emph{"EMC Effect"} \cite{Geesaman:1995yd}.
+This complex, unexplained behavior opened up a new field of research and theoretical work. Following suit, the different aspects of this nuclear modification garnered some common nicknames.  The region where $x_2<0.1$ became known as \emph{``Nuclear Shadowing''}, the transition region of $0.1<x_2<0.2$ is known as \emph{"Anti-shadowing"}, and the linear decline in the ratio of cross sections between $0.2<x_2<0.6$ is generally referred to as the \emph{"EMC Effect"} \cite{Geesaman:1995yd}.
 
-The phenomenon was simple -- DIS off of a bound nucleon was not the same as off of a free nucleon -- but hundreds of theoretical papers were written attempting to explain it away, from multiquark ($6q$) clusters to the exchange of virtual pions in the nucleus. Some have joked that EMC should stand for \emph{"Every Model is Cool"}. The focus of recent work (and this paper) is on the "EMC Effect" region, characterized by the distinctly linear downward slope.
+The phenomenon was simple -- DIS off of a bound nucleon was not the same as off of a free nucleon -- but hundreds of theoretical papers were written attempting to explain it away, from multiquark ($6q$) clusters to the exchange of virtual pions in the nucleus. Some have joked that EMC should stand for \emph{"Every Model is Cool"}. The focus of recent work (and this paper) is on the ``EMC Effect'' region, characterized by the distinctly linear downward slope.
 
 Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
 \begin{itemize}
