@@ -39,11 +39,21 @@ J.J. Aubert et~al.
   deuterium}.
 \newblock {\em Phys.Lett.}, B123:275, 1983.
 
+\bibitem{Bethke:2006ac}
+Siegfried Bethke.
+\newblock {Experimental tests of asymptotic freedom}.
+\newblock {\em Prog. Part. Nucl. Phys.}, 58:351--386, 2007.
+
 \bibitem{caen:v1495}
 CAEN.
 \newblock v1495 general purpose vme board.
 \newblock \url{http://www.caen.it/csite/CaenProd.jsp?idmod=484\&parent=11}.
 \newblock Accessed: 2016-01-26.
+
+\bibitem{PhysRevD.16.2219}
+John~C. Collins and Davison~E. Soper.
+\newblock Angular distribution of dileptons in high-energy hadron collisions.
+\newblock {\em Phys. Rev. D}, 16:2219--2225, Oct 1977.
 
 \bibitem{osg:doc}
 Open Science~Grid Consortium.
@@ -58,6 +68,12 @@ S.~D. Drell and Tung-Mow Yan.
   High-Energies}.
 \newblock {\em Phys. Rev. Lett.}, 25:316--320, 1970.
 \newblock [Erratum-ibid.25:902,1970].
+
+\bibitem{PhysRevLett.25.316}
+Sidney~D. Drell and Tung-Mow Yan.
+\newblock Massive lepton-pair production in hadron-hadron collisions at high
+  energies.
+\newblock {\em Phys. Rev. Lett.}, 25:316--320, Aug 1970.
 
 \bibitem{duan-2007-50}
 Chun-Gui Duan, Na~Liu, and Zhan-Yuan Yan.
@@ -80,7 +96,7 @@ Sten Hansen.
 \newblock private communication, 2012.
 
 \bibitem{PhysRevLett.80.3715}
-E.~A. Hawker et~al.
+E.~A. et~al. Hawker.
 \newblock Measurement of the light antiquark flavor asymmetry in the nucleon
   sea.
 \newblock {\em Phys. Rev. Lett.}, 80:3715--3718, Apr 1998.

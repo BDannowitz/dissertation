@@ -38,7 +38,7 @@ interacting with each other through exchange of gluons.
 
 \section{Di-lepton production in nucleon-nucleon collisions}
 
-Studying the production of pairs of leptons resulting from hadron-hadron collisions has proven to be a powerful tool in probing nucleon structure and parton distribution functions (PDFs). Figure \ref{fig:DY-spectrum} shows the dimuon mass spectrum in proton-nucleus collisions measured at the E-866/NuSea experiment at Fermilab\cite{PhysRevLett.80.3715}. The resonances of the $J/\Psi$, $\Psi^\prime$, $\Upsilon$, $\Upsilon^\prime$, and $\Upsilon^{\prime\prime}$ can be seen atop a smooth, continuous distribution which decreases with mass. The process responsible with this distribution of $\mu^+\mu^-$ pairs is the Drell-Yan process\cite{PhysRevLett.25.316}, which is illustrated in the Feynman diagram in Fig.~\ref{fig:dis-dy}(b). This process is characterized by a quark annihilating with an anti-quark to form a virtual time-like photon which then decays into a pair of leptons. The study of this process can lend some insight into nucleon structure due to the fact that the mass and momentum of the di-lepton pair directly reflects the momentum distributions of the interacting quarks and anti-quarks. Current knowledge and models\CN of these momentum distributions come primarily from deep-inelastic lepton scattering (DIS) and the Drell-Yan (DY) process.
+Studying the production of pairs of leptons resulting from hadron-hadron collisions has proven to be a powerful tool in probing nucleon structure and parton distribution functions (PDFs). Figure \ref{fig:DY-spectrum} shows the dimuon mass spectrum in proton-nucleus collisions measured at the E-866/NuSea experiment at Fermilab\cite{PhysRevLett.80.3715}. The resonances of the $J/\Psi$, $\Psi^\prime$, $\Upsilon$, $\Upsilon^\prime$, and $\Upsilon^{\prime\prime}$ can be seen atop a smooth, continuous distribution which decreases with mass. The process responsible with this distribution of $\mu^+\mu^-$ pairs is the Drell-Yan process\cite{PhysRevLett.25.316}, which is illustrated in the Feynman diagram in Fig.~\ref{fig:dy-diagram}. This process is characterized by a quark annihilating with an anti-quark to form a virtual time-like photon which then decays into a pair of leptons. The study of this process can lend some insight into nucleon structure due to the fact that the mass and momentum of the di-lepton pair directly reflects the momentum distributions of the interacting quarks and anti-quarks. Current knowledge and models\CN of these momentum distributions come primarily from deep-inelastic lepton scattering (DIS) and the Drell-Yan (DY) process.
 
 \begin{figure}
 	\centering
@@ -58,14 +58,78 @@ In cases where a Drell-Yan process occurs, it can often be the case that the inc
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=4.50in]{figures/background/DIS-DY.png}
-	\caption{(A) Deep inelastic scattering (DIS) is a $t$-channel interaction which uses the emission of a virtual photon to probe the target hadron. (B) The similar Drell-Yan (DY) process, using the $s$ channel version of the DIS interaction, via annihilation of a beam quark with an anti-quark from the target hadron.}
-	\label{fig:dis-dy}
+	\includegraphics[width=5.0in]{figures/background/Drell-Yan.png}
+	\caption{The Drell-Yan process, an $s$ channel interaction consisting of the annihilation of a quark with an anti-quark.}
+	\label{fig:dy-diagram}
 \end{figure}
 
-As useful as this has been, DIS is only sensitive to momentum and charge of the partonic structure.
+The study of continuum di-lepton production in hadron collisions,
+\begin{equation}
+	h_A +  h_B \rightarrow l^+ l^- + X
+	\label{eq:hh2ll}
+\end{equation} 
+can be used to study hadronic structure in a way that is complementary to the study of deep-inelastic scattering,
+\begin{equation}
+l + h \rightarrow l^\prime + X.
+\label{eq:lh2lx}
+\end{equation}
+In 1970, S. Drell and T.M. Yan were the first to suggest that, at high $Q^2 (=M^2_{l^+ l^-}) \geq 16GeV^2$, the quarks inside the hadrons $h_A$ and $h_B$ can be considered free fermions in the instantaneous moment that they interact. The Drell-Yan model addresses the dominant subprocess here,
+\begin{equation}
+q_A + \bar{q}_B \rightarrow \gamma^* \rightarrow l^+ l^-
+\label{eq:dy-process}
+\end{equation} 
+as an electromagnetic annihilation process. In this high-$Q^2$ kinematic space, the final state of the hadrons that contain these quarks becomes more or less irrelevant. By the energy-time uncertainty principle\CN of $\Delta E \Delta t \sim \hbar$, the timescales under consideration are $<10^{-25}s$, and the corresponding distances are $<10^{-17}m$, where the size of a nucleon is $\sim 10^{-15}m$\CN. At these short space-time scales, electromagnetic annihilation dominates this quark-quark interaction.
 
-In 1970, S. Drell and T.M. Yan were the first to study the process in which high-mass lepton production occurs as a result of inelastic hadron-hadron collisions \cite{Drell:1970wh}.  This so-called ``Drell-Yan'' (DY) process is identified to be the result of a quark-antiquark annihilation into a virtual photon which then decays into a lepton pair. 
+This is further reinforced by the widely accepted non-Abelian gauge field theory of Quantum Chromodynamics (QCD) which describes the interactions between quarks and gluons. QCD provides a theoretical justification for treating Drell-Yan processes as events isolated from the rest of the hadron states, and it does so through the concept of the running of the coupling constant, or \emph{asymptotic freedom}\cite{Bethke:2006ac}. This characteristic feature of QCD is described by the decrease of the strength of the strong force coupling constant as the space-time scale of the interaction approaches zero (i.e. as $Q^2 \rightarrow \infty$). The strong coupling constant can be expressed as a function of $Q^2$ and some computed constants, unitless $\beta_0$ and energy scale $\Lambda$:
+\begin{equation}
+\alpha_s(Q^2) = \frac{1}{\beta_0 \ln (Q^2/\Lambda^2)}
+\end{equation}
+Experimental measurements of the running of the coupling constant as measured by many different processes can be seen in Figure~\ref{fig:asymptotic-freedom}.
+
+\begin{figure}
+	\centering
+	\includegraphics[height=2.5in]{figures/background/asymptotic-freedom.jpg}
+	\caption{A compilation of measurements of the running of the strong coupling constant, $\alpha_s(Q^2)$.}
+	\label{fig:asymptotic-freedom}
+\end{figure}
+
+\section{Drell-Yan Kinematics}
+
+In the center-of-mass frame, the Drell-Yan process can be broken down into three stages with three sets of kinematics (refer to Fig.~\ref{fig:dy-diagram}). Beginning with the quarks, \emph{x} is defined as the fraction of the hadron's momentum carried by the interacting quark or antiquark. Conventionally in fixed-target experiments, subscripts are assigned as $x_1$ and $x_2$, which refer to the quark/antiquark from the beam and the antiquark/quark from the target, respectively. This \emph{x} is called the Bjorken \emph{x}, and is well-known in DIS processes to have a value of
+\begin{equation}
+x = -q^2/2 p \cdot q
+\end{equation} where \emph{p} and \emph{q} are the 4-momenta of the hadron and the photon.
+
+The next stage of the process is the virtual photon. This photon' properties are effectively equivalent to the `dimuon' or `dilepton', which are the terms more commonly used in referring to kinematics. The first of its relevant kinematics is its mass $M_\gamma$, which represents its energy and virtuality. The value $x_F$, or Feynman-x, is the fraction of the maximum possible longitudinal momentum carried by the virtual photon in the beam direction. The transverse momentum, $p_T$, and the azimuthal production angle, $\phi_\gamma$ are the remaining kinematics associated with the virtual photon.
+
+The third stage regards the pair of leptons produced. In the frame of the virtual photon, there is a polar and azimuthal decay angle, $\theta_\mu$ and $\phi_\mu$, respectively, for each of the decay muons. It becomes impossible, however, to reconstruct these variables, as the individual transverse momenta of the quarks are unknown, and the thus the quark-antiquark annihilation axis is unknown. This is remedied by shifting the process into the Collins-Soper (CS) reference frame\cite{PhysRevD.16.2219} which orients the reference axis to be parallel to the bisector of the angle between the interacting hadrons in the rest frame of the muon pair. In total, this brings a total of eight kinematic variables, summarized in Table~\ref{tab:var}.
+
+Experimentally, six independent variables are measured, which form a basis by which all eight can be known. This is due to the fact that two pairs of variables, ($M_\gamma$, $x_F$) and ($x_1$, $x_2$) are correlated by the following, ignoring quark masses and considering $p_T << p_{||}$:
+\begin{eqnarray}
+x_F \def \frac{}{}
+\end{eqnarray}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{c|r}
+		Variable&Description\\ \hline \hline
+		$x_{1/2}$ & The momentum fraction of the beam/target quark\\
+		$M_\gamma$ & The mass of the virtual photon (dimuon)\\
+		$x_F$ & The fraction of the max. possible $p_{||}$ carried by virt. photon\\
+		$p_T$ & The transverse momentum carried by the virt. photon\\
+		$\theta_{\mu}, \phi_{\mu}$ & The polar and azimuthal decay angle\\ & of one of the muons, in the CS ref. frame\\ \hline
+		$\alpha$ & The fine structure constant \\
+		$K(x_1,x_2)$ & High-order QCD correction term \\
+		$\sqrt{s}$ & The center of mass energy of the hadronic collision \\
+		$\sqrt{\hat{s}}$ & The center of mass energy of the $q\bar{q}$ collision \\
+		$Q^{2}$ & The four-momentum of the intermediate time-like photon, squared \\ 
+		$q_i^{t/b}(x)$ & The quark number density in the nucleon of the target/beam \\ \hline \hline
+	\end{tabular}
+	\caption{Kinematic variables relevant to the Drell-Yan process .}
+	\label{tab:var}
+\end{table}
+
+in which high-mass lepton production occurs as a result of inelastic hadron-hadron collisions \cite{Drell:1970wh}.  This so-called ``Drell-Yan'' (DY) process is identified to be the result of a quark-antiquark annihilation into a virtual photon which then decays into a lepton pair. 
 
 This process, as you see in Figure \ref{fig:dis-dy}, is the \emph{s}-channel counterpart to DIS's \emph{t}-channel process.  Similarly Drell-Yan can give a complementary view of the nucleon's parton distribution. The differential cross section that we will be using is in terms of the fractional momentum variables, $x_1$ and $x_2$, which represent the fraction of the respective hadron's momentum carried by the beam quark and target anti-quark, respectively.
 
@@ -85,20 +149,7 @@ The hadronic Drell-Yan differential cross section can be obtained from this by t
 \label{eq:DY-cross2}
 \end{equation}
 
-\begin{table}[h]
-	\centering
-	\begin{tabular}{ccl}
-		Variable&Description\\ \hline \hline
-		$\alpha$ & The fine structure constant \\
-		$K(x_1,x_2)$ & High-order QCD correction term \\ \hline
-		$\sqrt{s}$ & The center of mass energy of the hadronic collision \\
-		$\sqrt{\hat{s}}$ & The center of mass energy of the $q\bar{q}$ collision \\
-		$Q^{2}$ & The four-momentum of the intermediate time-like photon, squared \\ 
-		$q_i^{t/b}(x)$ & The quark number density in the nucleon of the target/beam \\ \hline \hline
-	\end{tabular}
-	\caption{Kinematic variables relevant to the Drell-Yan process .}
-	\label{tab:var}
-\end{table}
+
 
 
 In addition to the leading-order DY term, there are high-order QCD corrections to consider. These have been studied and accounted for up to $O(\alpha_s)$ and $O(\alpha_s^2)$. These include contributions from high-order $q\bar{q}$ annihilation $(q \bar{q} \rightarrow \gamma * + g)$ and gluon Compton scattering $(q + g \rightarrow \gamma * + q)$ as seen in Figure \ref{fig:nlo-dy} \cite{duan-2007-50}. The cumulative effect is denoted in the cross section as the $K(x_1,x_2)$ factor, which can vary between 1.6 and 2.8.  For our $x_1$ and $x_2$ range, $K \sim 1.6$.

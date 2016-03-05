@@ -1,5 +1,55 @@
-[1] Config.pm:318> INFO - This is Biber 1.8
-[1] Config.pm:321> INFO - Logfile is 'Dannowitz-Dissertation-2016.blg'
-[266] biber:275> INFO - === Wed Mar  2, 2016, 03:44:15
-[371] Utils.pm:185> ERROR - Cannot find control file 'Dannowitz-Dissertation-2016.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
-[372] Biber.pm:109> INFO - ERRORS: 1
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Dannowitz-Dissertation-2016.aux
+A level-1 auxiliary file: background.aux
+A level-1 auxiliary file: methods.aux
+A level-1 auxiliary file: pmtupgrade.aux
+A level-1 auxiliary file: productions.aux
+A level-1 auxiliary file: analysis.aux
+A level-1 auxiliary file: results.aux
+A level-1 auxiliary file: discussion.aux
+A level-1 auxiliary file: conclusions.aux
+A level-1 auxiliary file: Appendix.aux
+The style file: plain.bst
+Database file #1: thesisbib.bib
+You've used 28 entries,
+            2118 wiz_defined-function locations,
+            694 strings with 10234 characters,
+and the built_in function-call counts, 11426 in all, are:
+= -- 1011
+> -- 902
+< -- 0
++ -- 362
+- -- 332
+* -- 937
+:= -- 2052
+add.period$ -- 92
+call.type$ -- 28
+change.case$ -- 245
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 268
+empty$ -- 663
+format.name$ -- 332
+if$ -- 2214
+int.to.chr$ -- 0
+int.to.str$ -- 28
+missing$ -- 18
+newline$ -- 151
+num.names$ -- 56
+pop$ -- 258
+preamble$ -- 1
+purify$ -- 217
+quote$ -- 0
+skip$ -- 193
+stack$ -- 0
+substring$ -- 482
+swap$ -- 27
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 112
+warning$ -- 0
+while$ -- 77
+width$ -- 30
+write$ -- 310
