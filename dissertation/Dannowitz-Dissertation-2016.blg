@@ -12,44 +12,46 @@ A level-1 auxiliary file: conclusions.aux
 A level-1 auxiliary file: Appendix.aux
 The style file: plain.bst
 Database file #1: thesisbib.bib
-You've used 28 entries,
+Warning--empty journal in Halzen:1984mc
+You've used 29 entries,
             2118 wiz_defined-function locations,
-            694 strings with 10234 characters,
-and the built_in function-call counts, 11426 in all, are:
-= -- 1011
-> -- 902
+            700 strings with 10394 characters,
+and the built_in function-call counts, 11674 in all, are:
+= -- 1035
+> -- 915
 < -- 0
-+ -- 362
-- -- 332
-* -- 937
-:= -- 2052
-add.period$ -- 92
-call.type$ -- 28
-change.case$ -- 245
++ -- 367
+- -- 336
+* -- 949
+:= -- 2098
+add.period$ -- 96
+call.type$ -- 29
+change.case$ -- 250
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 268
-empty$ -- 663
-format.name$ -- 332
-if$ -- 2214
+cite$ -- 30
+duplicate$ -- 278
+empty$ -- 680
+format.name$ -- 336
+if$ -- 2263
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 18
-newline$ -- 151
-num.names$ -- 56
-pop$ -- 258
+int.to.str$ -- 29
+missing$ -- 19
+newline$ -- 157
+num.names$ -- 58
+pop$ -- 264
 preamble$ -- 1
-purify$ -- 217
+purify$ -- 221
 quote$ -- 0
-skip$ -- 193
+skip$ -- 201
 stack$ -- 0
-substring$ -- 482
+substring$ -- 487
 swap$ -- 27
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 112
-warning$ -- 0
-while$ -- 77
-width$ -- 30
-write$ -- 310
+type$ -- 116
+warning$ -- 1
+while$ -- 79
+width$ -- 31
+write$ -- 321
+(There was 1 warning)

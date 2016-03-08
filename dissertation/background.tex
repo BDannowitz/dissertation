@@ -100,55 +100,80 @@ In the center-of-mass frame, the Drell-Yan process can be broken down into three
 x = -q^2/2 p \cdot q
 \end{equation} where \emph{p} and \emph{q} are the 4-momenta of the hadron and the photon.
 
-The next stage of the process is the virtual photon. This photon' properties are effectively equivalent to the `dimuon' or `dilepton', which are the terms more commonly used in referring to kinematics. The first of its relevant kinematics is its mass $M_\gamma$, which represents its energy and virtuality. The value $x_F$, or Feynman-x, is the fraction of the maximum possible longitudinal momentum carried by the virtual photon in the beam direction. The transverse momentum, $p_T$, and the azimuthal production angle, $\phi_\gamma$ are the remaining kinematics associated with the virtual photon.
+The next stage of the process is the virtual photon. This photon' properties are effectively equivalent to the `dimuon' or `dilepton', which are the terms more commonly used in referring to kinematics. The first of its relevant kinematics is its mass $M_{\gamma^*}$, which represents its energy and virtuality. The value $x_F$, or Feynman-x, is the fraction of the maximum possible longitudinal momentum carried by the virtual photon in the beam direction. The transverse momentum, $p_T$, and the azimuthal production angle, $\phi_{\gamma^*}$ are the remaining kinematics associated with the virtual photon.
 
 The third stage regards the pair of leptons produced. In the frame of the virtual photon, there is a polar and azimuthal decay angle, $\theta_\mu$ and $\phi_\mu$, respectively, for each of the decay muons. It becomes impossible, however, to reconstruct these variables, as the individual transverse momenta of the quarks are unknown, and the thus the quark-antiquark annihilation axis is unknown. This is remedied by shifting the process into the Collins-Soper (CS) reference frame\cite{PhysRevD.16.2219} which orients the reference axis to be parallel to the bisector of the angle between the interacting hadrons in the rest frame of the muon pair. In total, this brings a total of eight kinematic variables, summarized in Table~\ref{tab:var}.
 
-Experimentally, six independent variables are measured, which form a basis by which all eight can be known. This is due to the fact that two pairs of variables, ($M_\gamma$, $x_F$) and ($x_1$, $x_2$) are correlated by the following, ignoring quark masses and considering $p_T << p_{||}$:
+Experimentally, six independent variables are measured, which form a basis by which all eight can be known. This is due to the fact that two pairs of variables, ($M_{\gamma^*}$, $x_F$) and ($x_1$, $x_2$) are correlated by the following, ignoring quark masses and considering $p_\perp << p_{||}$:
 \begin{eqnarray}
-x_F \def \frac{}{}
+x_F & \equiv & \frac{p_{||}}{\sqrt{s}/2} \approx x_1 - x_2 \label{eq:xf=x1-x2} \\
+M_{\gamma^*}^2 & \equiv & E^2 - p_{||}^2  = s x_1 x_2 \label{eq:m=sx1x2} \\
+E & = & \frac{(x_1 + x_2) \sqrt{s}}{2} \\
+p_{||} & = & \frac{(x_1 - x_2)\sqrt{s}}{2}
 \end{eqnarray}
+In this frame, the longitudinal momenta of the quarks are $x_1 \sqrt{s}/2$ and $- x_2 \sqrt{s}/2$, with $\sqrt{s}$ being the center of mass energy of the hadronic collision. So, by measuring the 3-momenta of the $\mu^+$ and $\mu^-$, the quantities ($M_{\gamma^*}$, $x_F$, $p_T$, $\phi_{\gamma^*}$, $\theta_\mu$, $\phi_\mu$), which is sufficient to calculate the remaining ($x_1, x_2$) in our approximation.
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{c|r}
 		Variable&Description\\ \hline \hline
-		$x_{1/2}$ & The momentum fraction of the beam/target quark\\
-		$M_\gamma$ & The mass of the virtual photon (dimuon)\\
-		$x_F$ & The fraction of the max. possible $p_{||}$ carried by virt. photon\\
-		$p_T$ & The transverse momentum carried by the virt. photon\\
-		$\theta_{\mu}, \phi_{\mu}$ & The polar and azimuthal decay angle\\ & of one of the muons, in the CS ref. frame\\ \hline
+		$x_{1/2}$ & Momentum fraction of the beam/target quark\\
+		$M_{\gamma^*}$ & Mass of the virtual photon (dimuon)\\
+		$x_F$ & Fraction of the max. possible $p_{||}$ carried by virt. photon\\
+		$p_T$ & Transverse momentum carried by the virt. photon\\
+		$\theta_{\mu}, \phi_{\mu}$ & Polar and azimuthal decay angle\\ & of one of the muons, in the CS ref. frame\\ \hline
 		$\alpha$ & The fine structure constant \\
 		$K(x_1,x_2)$ & High-order QCD correction term \\
-		$\sqrt{s}$ & The center of mass energy of the hadronic collision \\
-		$\sqrt{\hat{s}}$ & The center of mass energy of the $q\bar{q}$ collision \\
-		$Q^{2}$ & The four-momentum of the intermediate time-like photon, squared \\ 
+		$\sqrt{s}$ & Center of mass energy of the hadronic collision \\
+		$\sqrt{\hat{s}}$ & Center of mass energy of the $q\bar{q}$ collision \\
+		$Q^{2}$ & Four-momentum of the intermediate time-like photon, squared \\ 
 		$q_i^{t/b}(x)$ & The quark number density in the nucleon of the target/beam \\ \hline \hline
 	\end{tabular}
 	\caption{Kinematic variables relevant to the Drell-Yan process .}
 	\label{tab:var}
 \end{table}
 
-in which high-mass lepton production occurs as a result of inelastic hadron-hadron collisions \cite{Drell:1970wh}.  This so-called ``Drell-Yan'' (DY) process is identified to be the result of a quark-antiquark annihilation into a virtual photon which then decays into a lepton pair. 
+\section{Cross-Section}
+
+As the participating quarks are asymptotically free within each hadron, there will be no correlations between the probability distributions of the annihilating particles, and the process is independent of the distributions. As a result, the cross section of the Drell-Yan process can be reduced to a function of the electromagnetic annihilation process and the quark probability distribution functions. With these components and some QCD considerations, we can construct it piece by piece.
+
+The first step is to begin with the known hard scattering cross section of $\epsilon + \bar{\epsilon} \rightarrow l^+ l^-$, where $\epsilon$ is an arbitrary lepton. This cross section\cite{Halzen:1984mc} is given by
+\begin{equation}
+\sigma(\epsilon\bar{\epsilon}\rightarrow l^+l^-) = \frac{4 \pi \alpha^2}{3M_{\gamma^*}^2} e_f^2
+\label{eq:annihilation-cross}
+\end{equation}
+where $\alpha$ is the electromagnetic fine structure constant, $e_f$ is the charge of the lepton, and $M_{\gamma^*}$ is the dilepton mass. With this, we add the QCD consideration that only $q\bar{q}$ of opposite color can annihilate with each other into a colorless virtual photon. Possible combinations are $R\bar{R}$, $B\bar{B}$, and $G\bar{G}$ out of $3\times 3$ possible cases. As such, an overall factor of $\frac{1}{3}$ is added to this cross section. Finally, factoring in the conservation of flavor (there can only be $u\bar{u}$, $d\bar{d}$, etc. combinations) and the quark structure of hadrons A and B,  we use the product ($q_f^A(x_1)\bar{q}_{f}^B(x_2)$) of the quark probability distributions for finding quarks of the same flavor-antiflavor combination in the two hadrons. It must also be considered that the quark or antiquark may be found in either hadron A or hadron B. The product of these three factors leads us to the Drell-Yan cross section\cite{Drell:1970wh}
+\begin{eqnarray}
+\frac{d^2\sigma}{dx_1dx_2}&=&\frac{1}{3}\frac{4\pi\alpha^2}{3M_{\gamma^*}^2}
+\sum_{f}e_f^2[q_f^A(x_1)\bar{q}_f^B(x_2)+
+\bar{q}_f^A(x_1)q_f^B(x_2)]\\
+&=&\frac{4\pi\alpha^2}{9 s x_1 x_2}
+\sum_{f}e_f^2[q_f^A(x_1)\bar{q}_f^B(x_2)+
+\bar{q}_f^A(x_1)q_f^B(x_2)]
+\label{eq:DY-cross}
+\end{eqnarray}
+where the sum is summing over flavors of quarks ($f\in\{u,d,s,...\}$). It should be noted that with collider experiments, it is conventional to refer to the hadrons A and B in terms of the beam and target hadrons, respectively, and as such, $x_1$ refers to the the quark in the beam hadron and $x_2$ refers to the quark in the target hadron. This can be evaluated in terms of the measurables $M_{\gamma^*}$ and $x_F$ via Equations~\ref{eq:xf=x1-x2}~and~\ref{eq:m=sx1x2}
+\begin{equation}
+M_{\gamma^*}^2 \frac{d^2\sigma}{dM_{\gamma^*}^2 dx_F} = 
+\frac{1}{3}\frac{4\pi\alpha^2}{3M_{\gamma^*}^2}
+\frac{x_1 x_2}{x_1 + x_2}
+\sum_{f}e_f^2[q_f^A(x_1)\bar{q}_f^B(x_2)+
+\bar{q}_f^A(x_1)q_f^B(x_2)]
+\end{equation}
+where $x_1$ and $x_2$ can be expressed as
+\begin{eqnarray}
+x_1 = \frac{1}{2}\left[\sqrt{x_F^2 + 4\tau} + x_F\right],\ \  
+x_2 = \frac{1}{2}\left[\sqrt{x_F^2 + 4\tau} - x_F\right],\ \ 
+\tau = \frac{M_{\gamma^*}^2}{s}
+\end{eqnarray}
 
 This process, as you see in Figure \ref{fig:dis-dy}, is the \emph{s}-channel counterpart to DIS's \emph{t}-channel process.  Similarly Drell-Yan can give a complementary view of the nucleon's parton distribution. The differential cross section that we will be using is in terms of the fractional momentum variables, $x_1$ and $x_2$, which represent the fraction of the respective hadron's momentum carried by the beam quark and target anti-quark, respectively.
 
 To begin, we start with the annihilation cross section for $e^+e^- \rightarrow \mu^+\mu^-$ and simply add a color factor of $\frac{1}{3}$ since only like flavor-antiflavor quarks will annihilate, and use the charge $e_i^2$ for quark flavor $i$ \cite{duan-2007-50}. Other variables referred to in Eq \ref{eq:DY-cross1} and \ref{eq:DY-cross2} and more are defined in Table \ref{tab:var}.
 
-\begin{equation}
-\frac{d\hat{\sigma}}{dM} = \frac{8 \pi \alpha^2}{9M}e_i^2\delta(\hat{s} - M^2)
-\label{eq:DY-cross1}
-\end{equation}
+
 
 The hadronic Drell-Yan differential cross section can be obtained from this by the convolution of the above cross section with the quark distributions in the beam and target.
-
-\begin{equation}
-\frac{d^2\sigma^{DY}}{dx_1x_2}=\frac{8\pi\alpha^2}{9sx_1x_2 K(x_1,x_2)}
-\sum_{i}e_i^2[q_i^b(x_1)\bar{q}_i^t(x_2)+
-\bar{q}_i^b(x_1)q_i^t(x_2)]
-\label{eq:DY-cross2}
-\end{equation}
-
 
 
 
@@ -186,10 +211,6 @@ An important metric to observe is the probability that a parton \emph{a} carries
 Looking to Figure \ref{fig:pdf} we see that at $x>0.1$, $u$ and $d$ quarks dominate $\bar{u}$ and $\bar{d}$ quarks.  This is key, because this means that, for SeaQuest where we have high $x_1$ and lower $x_2$, the Drell-Yan process is probabilistically dominated by a quark from the beam annihilating with an antiquark from the target. All antiquarks that exist in the target nucleons must come from what are called the \emph{sea quarks}, or the virtual $q\bar{q}$ pairs that pop in and out of existence amongst the gluons and valence quarks. 
 
 As we will discuss in the next section, partons in a bound nucleon behave differently than partons in a free nucleon. By studying Drell-Yan in nuclear targets, we can investigate the degree to which this modification is the result of a modification to the quark sea.
-
-\subsection{The Drell-Yan Cross-Section}
-
-\subsection{Drell-Yan Kinematics}
 
 \section{The EMC Effect}
 
