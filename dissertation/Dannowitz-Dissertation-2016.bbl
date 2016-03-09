@@ -39,6 +39,32 @@ J.J. Aubert et~al.
   deuterium}.
 \newblock {\em Phys.Lett.}, B123:275, 1983.
 
+\bibitem{PhysRevLett.43.830}
+D.~P. Barber, U.~Becker, H.~Benda, A.~Boehm, J.~G. Branson, J.~Bron,
+  D.~Buikman, J.~Burger, C.~C. Chang, H.~S. Chen, M.~Chen, C.~P. Cheng, Y.~S.
+  Chu, R.~Clare, P.~Duinker, G.~Y. Fang, H.~Fesefeldt, D.~Fong, M.~Fukushima,
+  J.~C. Guo, A.~Hariri, G.~Herten, M.~C. Ho, H.~K. Hsu, T.~T. Hsu, R.~W. Kadel,
+  W.~Krenz, J.~Li, Q.~Z. Li, M.~Lu, D.~Luckey, D.~A. Ma, C.~M. Ma, G.~G.~G.
+  Massaro, T.~Matsuda, H.~Newman, J.~Paradiso, F.~P. Poschmann, J.~P. Revol,
+  M.~Rohde, H.~Rykaczewski, K.~Sinram, H.~W. Tang, L.~G. Tang, Samuel C.~C.
+  Ting, K.~L. Tung, F.~Vannucci, X.~R. Wang, P.~S. Wei, M.~White, G.~H. Wu,
+  T.~W. Wu, J.~P. Xi, P.~C. Yang, X.~H. Yu, N.~L. Zhang, and R.~Y. Zhu.
+\newblock Discovery of three-jet events and a test of quantum chromodynamics at
+  petra.
+\newblock {\em Phys. Rev. Lett.}, 43:830--833, Sep 1979.
+
+\bibitem{1964PhRvL:12204B}
+V.~E. {Barnes}, P.~L. {Connolly}, D.~J. {Crennell}, B.~B. {Culwick}, W.~C.
+  {Delaney}, W.~B. {Fowler}, P.~E. {Hagerty}, E.~L. {Hart}, N.~{Horwitz}, P.~V.
+  {Hough}, J.~E. {Jensen}, J.~K. {Kopp}, K.~W. {Lai}, J.~{Leitner}, J.~L.
+  {Lloyd}, G.~W. {London}, T.~W. {Morris}, Y.~{Oren}, R.~B. {Palmer}, A.~G.
+  {Prodell}, D.~{Radoji{\v c}i{\'C}}, D.~C. {Rahm}, C.~R. {Richardson}, N.~P.
+  {Samios}, J.~R. {Sanford}, R.~P. {Shutt}, J.~R. {Smith}, D.~L. {Stonehill},
+  R.~C. {Strand}, A.~M. {Thorndike}, M.~S. {Webster}, W.~J. {Willis}, and S.~S.
+  {Yamamoto}.
+\newblock {Observation of a Hyperon with Strangeness Minus Three}.
+\newblock {\em Physical Review Letters}, 12:204--206, February 1964.
+
 \bibitem{Bethke:2006ac}
 Siegfried Bethke.
 \newblock {Experimental tests of asymptotic freedom}.
@@ -93,10 +119,10 @@ Donald~F. Geesaman, K.~Saito, and Anthony~William Thomas.
 
 \bibitem{Halzen:1984mc}
 F.~Halzen and Alan~D. Martin.
-\newblock Quarks and leptons: An introductory course in modern particle
-  physics.
-\newblock 1984.
-\newblock New York, Usa: Wiley ( 1984) 396p.
+\newblock {\em QUARKS AND LEPTONS: AN INTRODUCTORY COURSE IN MODERN PARTICLE
+  PHYSICS}.
+\newblock Wiley, 1984.
+\newblock New York, USA ( 1984) 396p.
 
 \bibitem{pc:sten}
 Sten Hansen.

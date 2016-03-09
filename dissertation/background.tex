@@ -1,44 +1,30 @@
-\chapter{Introduction}
+\chapter{Theoretical Background}
 
-\chapter{Nucleon Internal Structure Phenomenology}
+The topic of this paper is the exploration of the sub-structure of the \emph{nucleon}, a particle that makes up an atom's nucleus which can be either a proton (\emph{p}) or a neutron (\emph{n}). By sub-structure, I refer to the nucleon's composition and the momentum distributions carried by the nucleon's constituent particles, quarks and gluons.
 
-The topic of this paper, simply put, is the exploration of the momentum structure of 
-the \emph{nucleon}, a particle that makes up an atom's nucleus which can be either a
-proton (\emph{p}) or a neutron (\emph{n}). By momentum structure, I refer to the
-fractional momentum distributions carried by the nucleon's constituent particles,
-quarks and gluons.
-
-While a complete review of the history and physics behind nucleon structure and its
-investigative probes is beyond the scope of this paper, a brief overview of deep-inelastic
-scattering and Drell-Yan will help in understanding concepts and terminology relevant to this and later chapters.
+While a complete review of the history and physics behind nucleon structure and its investigative probes is beyond the scope of this paper, a brief overview of Drell-Yan, parton distribution functions, and nuclear structure phenomenology will help in understanding concepts and terminology relevant to this and later chapters.
 
 \section{Introduction}
 
-The first indication that the proton may have some internal structure was in a
-1933 experiment by Estermann \emph{et al.} measuring the magnetic moment of the proton 
-\cite{Estermann:169E}. Since the proton was thought to be a point-like Dirac particle, it's 
-magnetic moment ($\mu_p$) was expected to be $\mu_p = \frac{e}{2 m_p} = 1 n.m.$, or one \emph{nuclear magneton}. The experiment resulted in a value of 2.5 n.m., leading many
-to reconsider the notion that the proton is indeed point-like.
+The first indication that the proton may have some internal structure was in a 1933 experiment by Estermann \emph{et al.} measuring the magnetic moment of the proton \cite{Estermann:169E}. Since the proton was thought to be a point-like Dirac particle, it's magnetic moment ($\mu_p$) was expected to be $\mu_p = \frac{e}{2 m_p} = 1 n.m.$, or one \emph{nuclear magneton}. The experiment resulted in a value of 2.5 n.m., leading many to reconsider the notion that the proton is indeed point-like.
 
-Around the same time, Hideku Yukawa is credited for establishing the first theory
-of a \emph{strong force}, a force binding together nucleons in a nuclei against the sizable
-\emph{Coulomb} repulsion of protons \cite{}.
-The force was theorized to be mediated by the exchange of particles called \emph{mesons}, 
-and its range was limited to nuclei-scale distances, seeing as it's not observed at larger distances. Based upon the size of the nucleus, Yukawa estimated the mass of the intermediating particles to be approximately $2 \times 10^2 m_e \approx 100 MeV$, where $m_e$ is the electron mass. 
-The following year, Anderson et al. discovered the muon ($\mu$) at around this mass \cite{},
-which confused many, as it did not seem to partake in strong interactions. Eventually, by 1947,
-the meson theory was validated by the discovery of the \emph{pion} by Powell 
-\emph{et al.} \cite{}, and Yukawa was awarded a Nobel Prize for his theory in 1949.
+Around the same time, Hideku Yukawa is credited for establishing the first theory of a \emph{strong force}, a force binding together nucleons in a nuclei against the sizable \emph{Coulomb} repulsion of protons against each other. The force was theorized to be mediated by the exchange of particles called \emph{mesons}, and its range was limited to nuclei-scale distances, seeing as it's not observed at larger distances. Based upon the size of the nucleus, Yukawa estimated the mass of the intermediating particles to be approximately $2 \times 10^2 m_e \approx 100 MeV$, where $m_e$ is the electron mass. The following year, Anderson et al. discovered the muon ($\mu$) at around this mass\CN, which confused many as it did not seem to partake in strong interactions. Eventually, by 1947, the meson theory was validated by the discovery of the \emph{pion} by Powell \emph{et al.}\CN, and Yukawa was awarded a Nobel Prize for his theory in 1949. While the pion turned out to be just another composite particle, its discovery was a watershed moment in particle physics that led to a cascading series of discoveries. 
+\begin{figure}
+	\centering
+	\includegraphics[width=4.5in]{figures/background/mesons_baryons.pdf}
+	\caption{The octets and decuplet of Gell-Mann's ``Eightfold Way''. Top left: the eight particles of the meson octet; top right: the spin-$\frac{1}{2}$ baryon octet; bottom: the spin-$\frac{3}{2}$ baryon decuplet.}
+	\label{fig:mesons-baryons}
+\end{figure}
 
-While the 
+Near the end of the 1960's, SLAC began the first set of experiments to use an electron beam to investigate the nucleon in what is now known as Deep Inelastic Scattering (DIS). What they discovered was that the functions used to describe nuclear structure were largely independent of momentum transfer ($Q^2$) above a certain threshold. This so-called ``scaling'' behavior lent credence to the theory that nucleons were composed of a point-like particles. This discovery coupled with the proliferation of new particles (the ``particle zoo'') led Murray Gell-Mann and Yuval Ne'eman to construct a framework that would make some sense of it all. Gell-Mann had organized the host of mesons and baryons discovered into a geometric order named the ``Eightfold Way''\footnote{Gell-Mann here makes a rather poetic allusion to the Buddhist ``Noble Eightfold Path''} as depicted in Figure~\ref{fig:mesons-baryons}. The underlying explanation for all of this, as described independently by Gell-Man and Ne'eman, was to characterize these many particles as the several combinations of three \emph{flavors} of constituent particles, named \emph{quarks}. The flavors, \emph{u}, \emph{d}, and \emph{s} were named \emph{up}, \emph{down}, and \emph{strange}. Here, mesons were predicted to be composite particles of integer spin containing two quarks and baryons be half-integer spin particles composed of three quarks. This model led Gell-Mann to predict the existence of the $\Omega^-$ particle, along with its \emph{strangeness}, charge, and mass. The discovery of this particle\cite{1964PhRvL:12204B} earned Gell-Mann the 1969 Nobel Prize for his work on the quark model.
 
-The study of nucleon structure has come a long way, and at present, the proton 
-is described as a composite particle consisting of three point-like \emph{valence quarks}
-interacting with each other through exchange of gluons.
+Though this model was a breakthrough in the understanding of fundamental particles, it did not comprehensively describe all experimental data. For example, when accounting for the total momentum of a nucleon, it was found that only $\sim50\%$ of the momentum was being carried by the quarks. It was not until the theory of quantum chromodynamics (QCD) came along that this and several other mysteries could be explained. QCD described the mechanism of a 3-fold \emph{color} charge and the gauge bosons, gluons, that intermediate the strong force between quarks (and other gluons). In the particular case of the missing momentum, this was found to reside in the intermediating gluons\cite{PhysRevLett.43.830}, which carry only color charge, to which the electro-weak probes used were insensitive.
+
+Many nuclear probes and methods have been used to characterize the distributions and characteristics of nuclear partons, including the aforementioned DIS process. As I will describe later in this section, much has been learned about parton probability distribution functions with this and other processes, but it is the process of hadron-hadron di-lepton production that is of primary focus in this paper, which allows for an alternative approach to investigate the structure and characteristics of the quarks inside of a nucleon, and perhaps shed some light on some ongoing mysteries in nuclear physics.
 
 \section{Di-lepton production in nucleon-nucleon collisions}
 
-Studying the production of pairs of leptons resulting from hadron-hadron collisions has proven to be a powerful tool in probing nucleon structure and parton distribution functions (PDFs). Figure \ref{fig:DY-spectrum} shows the dimuon mass spectrum in proton-nucleus collisions measured at the E-866/NuSea experiment at Fermilab\cite{PhysRevLett.80.3715}. The resonances of the $J/\Psi$, $\Psi^\prime$, $\Upsilon$, $\Upsilon^\prime$, and $\Upsilon^{\prime\prime}$ can be seen atop a smooth, continuous distribution which decreases with mass. The process responsible with this distribution of $\mu^+\mu^-$ pairs is the Drell-Yan process\cite{PhysRevLett.25.316}, which is illustrated in the Feynman diagram in Fig.~\ref{fig:dy-diagram}. This process is characterized by a quark annihilating with an anti-quark to form a virtual time-like photon which then decays into a pair of leptons. The study of this process can lend some insight into nucleon structure due to the fact that the mass and momentum of the di-lepton pair directly reflects the momentum distributions of the interacting quarks and anti-quarks. Current knowledge and models\CN of these momentum distributions come primarily from deep-inelastic lepton scattering (DIS) and the Drell-Yan (DY) process.
+Studying the production of pairs of leptons resulting from hadron-hadron collisions has proven to be a powerful tool in probing nucleon structure and parton distribution functions (PDFs). Figure \ref{fig:DY-spectrum} shows the mass spectrum of the muon mode of di-lepton production in proton-nucleus collisions measured at the E-866/NuSea experiment at Fermilab\cite{PhysRevLett.80.3715}. The resonances of the $J/\Psi$, $\Psi^\prime$, $\Upsilon$, $\Upsilon^\prime$, and $\Upsilon^{\prime\prime}$ can be seen atop a smooth, continuous distribution which decreases with mass. The process responsible with this distribution of $\mu^+\mu^-$ pairs is the Drell-Yan process\cite{PhysRevLett.25.316}, which is illustrated in the Feynman diagram in Fig.~\ref{fig:dy-diagram}. This process is characterized by a quark annihilating with an anti-quark to form a virtual time-like photon which then decays into a pair of leptons. The study of this process can lend some insight into nucleon structure due to the fact that the mass and momentum of the di-lepton pair directly reflects the momentum distributions of the interacting quarks and anti-quarks. Current knowledge and models\CN of these momentum distributions come primarily from deep-inelastic lepton scattering (DIS) and the Drell-Yan (DY) process.
 
 \begin{figure}
 	\centering
@@ -102,14 +88,20 @@ x = -q^2/2 p \cdot q
 
 The next stage of the process is the virtual photon. This photon' properties are effectively equivalent to the `dimuon' or `dilepton', which are the terms more commonly used in referring to kinematics. The first of its relevant kinematics is its mass $M_{\gamma^*}$, which represents its energy and virtuality. The value $x_F$, or Feynman-x, is the fraction of the maximum possible longitudinal momentum carried by the virtual photon in the beam direction. The transverse momentum, $p_T$, and the azimuthal production angle, $\phi_{\gamma^*}$ are the remaining kinematics associated with the virtual photon.
 
-The third stage regards the pair of leptons produced. In the frame of the virtual photon, there is a polar and azimuthal decay angle, $\theta_\mu$ and $\phi_\mu$, respectively, for each of the decay muons. It becomes impossible, however, to reconstruct these variables, as the individual transverse momenta of the quarks are unknown, and the thus the quark-antiquark annihilation axis is unknown. This is remedied by shifting the process into the Collins-Soper (CS) reference frame\cite{PhysRevD.16.2219} which orients the reference axis to be parallel to the bisector of the angle between the interacting hadrons in the rest frame of the muon pair. In total, this brings a total of eight kinematic variables, summarized in Table~\ref{tab:var}.
+The third stage regards the pair of leptons produced. In the frame of the virtual photon, there is a polar and azimuthal decay angle, $\theta_\mu$ and $\phi_\mu$, respectively, for each of the decay muons. It becomes impossible, however, to reconstruct these variables, as the individual transverse momenta of the quarks are unknown, and the thus the quark-antiquark annihilation axis is unknown. This is remedied by shifting the process into the Collins-Soper (CS) reference frame\cite{PhysRevD.16.2219} which orients the reference axis to be parallel to the bisector of the angle between the interacting hadrons in the rest frame of the muon pair. A depiction of the Collins-Soper frame can be found in Fig.~\ref{fig:collins-soper}. In total, this brings a total of eight kinematic variables, summarized in Table~\ref{tab:var}.
+\begin{figure}
+	\centering
+	\includegraphics[width=4.50in]{figures/background/collins-soper.png}
+	\caption{A depiction of the Collins-Soper reference frame. The green plane along $\hat{h}$ is the plane shared by the two hadrons.}
+	\label{fig:collins-soper}
+\end{figure}
 
-Experimentally, six independent variables are measured, which form a basis by which all eight can be known. This is due to the fact that two pairs of variables, ($M_{\gamma^*}$, $x_F$) and ($x_1$, $x_2$) are correlated by the following, ignoring quark masses and considering $p_\perp << p_{||}$:
+Experimentally, six independent variables are measured, which form a basis by which all eight can be known. This is due to the fact that two pairs of variables, ($M_{\gamma^*}$, $x_F$) and ($x_1$, $x_2$) are correlated by the following, ignoring quark masses and considering $p_\perp << p_{\ell}$:
 \begin{eqnarray}
-x_F & \equiv & \frac{p_{||}}{\sqrt{s}/2} \approx x_1 - x_2 \label{eq:xf=x1-x2} \\
-M_{\gamma^*}^2 & \equiv & E^2 - p_{||}^2  = s x_1 x_2 \label{eq:m=sx1x2} \\
-E & = & \frac{(x_1 + x_2) \sqrt{s}}{2} \\
-p_{||} & = & \frac{(x_1 - x_2)\sqrt{s}}{2}
+x_F & \equiv & \frac{p_{\ell}}{\sqrt{s}/2} \approx x_1 - x_2 \label{eq:xf=x1-x2} \\
+M_{\gamma^*}^2 & \equiv & E^2 - p_{\ell}^2  = s x_1 x_2 \label{eq:m=sx1x2} \\
+E & = & \frac{1}{2}(x_1 + x_2) \sqrt{s} \\
+p_{\ell} & = & \frac{1}{2}(x_1 - x_2)\sqrt{s}
 \end{eqnarray}
 In this frame, the longitudinal momenta of the quarks are $x_1 \sqrt{s}/2$ and $- x_2 \sqrt{s}/2$, with $\sqrt{s}$ being the center of mass energy of the hadronic collision. So, by measuring the 3-momenta of the $\mu^+$ and $\mu^-$, the quantities ($M_{\gamma^*}$, $x_F$, $p_T$, $\phi_{\gamma^*}$, $\theta_\mu$, $\phi_\mu$), which is sufficient to calculate the remaining ($x_1, x_2$) in our approximation.
 
@@ -119,7 +111,7 @@ In this frame, the longitudinal momenta of the quarks are $x_1 \sqrt{s}/2$ and $
 		Variable&Description\\ \hline \hline
 		$x_{1/2}$ & Momentum fraction of the beam/target quark\\
 		$M_{\gamma^*}$ & Mass of the virtual photon (dimuon)\\
-		$x_F$ & Fraction of the max. possible $p_{||}$ carried by virt. photon\\
+		$x_F$ & Fraction of the max. possible $p_{\ell}$ carried by virt. photon\\
 		$p_T$ & Transverse momentum carried by the virt. photon\\
 		$\theta_{\mu}, \phi_{\mu}$ & Polar and azimuthal decay angle\\ & of one of the muons, in the CS ref. frame\\ \hline
 		$\alpha$ & The fine structure constant \\
@@ -166,16 +158,6 @@ x_1 = \frac{1}{2}\left[\sqrt{x_F^2 + 4\tau} + x_F\right],\ \
 x_2 = \frac{1}{2}\left[\sqrt{x_F^2 + 4\tau} - x_F\right],\ \ 
 \tau = \frac{M_{\gamma^*}^2}{s}
 \end{eqnarray}
-
-This process, as you see in Figure \ref{fig:dis-dy}, is the \emph{s}-channel counterpart to DIS's \emph{t}-channel process.  Similarly Drell-Yan can give a complementary view of the nucleon's parton distribution. The differential cross section that we will be using is in terms of the fractional momentum variables, $x_1$ and $x_2$, which represent the fraction of the respective hadron's momentum carried by the beam quark and target anti-quark, respectively.
-
-To begin, we start with the annihilation cross section for $e^+e^- \rightarrow \mu^+\mu^-$ and simply add a color factor of $\frac{1}{3}$ since only like flavor-antiflavor quarks will annihilate, and use the charge $e_i^2$ for quark flavor $i$ \cite{duan-2007-50}. Other variables referred to in Eq \ref{eq:DY-cross1} and \ref{eq:DY-cross2} and more are defined in Table \ref{tab:var}.
-
-
-
-The hadronic Drell-Yan differential cross section can be obtained from this by the convolution of the above cross section with the quark distributions in the beam and target.
-
-
 
 In addition to the leading-order DY term, there are high-order QCD corrections to consider. These have been studied and accounted for up to $O(\alpha_s)$ and $O(\alpha_s^2)$. These include contributions from high-order $q\bar{q}$ annihilation $(q \bar{q} \rightarrow \gamma * + g)$ and gluon Compton scattering $(q + g \rightarrow \gamma * + q)$ as seen in Figure \ref{fig:nlo-dy} \cite{duan-2007-50}. The cumulative effect is denoted in the cross section as the $K(x_1,x_2)$ factor, which can vary between 1.6 and 2.8.  For our $x_1$ and $x_2$ range, $K \sim 1.6$.
 
