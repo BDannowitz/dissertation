@@ -1,5 +1,7 @@
 \chapter{Photomultiplier Tube Base Upgrade}
 
+\red{CHAPTER STATUS: FIRST DRAFT COMPLETE}
+
 \begin{figure}
 	\centerline{
 		\mbox{\includegraphics[width=0.5\textwidth]{figures/pmtupgrade/nosag.jpg} \includegraphics[width=0.5\textwidth]{figures/pmtupgrade/sag.jpg}}
@@ -127,17 +129,17 @@ It is also notable that there are banks of capacitors in parallel across the hig
 
 The first modification made to the prototype board was to keep everything identical except for the total resistance of the circuit. This was accomplished by halving the resistance of each of the first six stages (R6-R13 on Fig.~\ref{fig:v1-board}) from to increase the bleeder current. The resulting current of the base at \unit[-1500]{V} is at around \unit[2.2]{mA}. The voltage division retained the same values as described in Fig.~\ref{fig:v123-volt}.
 
-\subsection{Prototype Base v3}
-
-In the case that destabilization was occurring prior to the dynode stages with the added capacitors and transistors, the third prototype was decided to take the Prototype v1 design and add more ``transistorized'' stages earlier on. This entailed extending the parallel configuration of capacitors, transistor, diode, and \unit[1]{$M\Omega$} to the D5-D6 and D6-D7 stages. This prototype configuration can be seen in Fig.~\ref{fig:v3-board}). The voltage division was not significantly altered by this change and remained relatively the same as what is described in Fig.~\ref{fig:v123-volt}.
-
-\begin{figure}
+\begin{figure}[h]
 	\centerline{
 		\mbox{\includegraphics[width=0.7\textwidth]{figures/pmtupgrade/newbase_6mosfet.png}}
 	}
 	\caption{The Prototype v3 board: 3 more transistorized stages than the Prototype v1 design.}
 	\label{fig:v3-board}
 \end{figure}
+
+\subsection{Prototype Base v3}
+
+In the case that destabilization was occurring prior to the dynode stages with the added capacitors and transistors, the third prototype was decided to take the Prototype v1 design and add more ``transistorized'' stages earlier on. This entailed extending the parallel configuration of capacitors, transistor, diode, and \unit[1]{$M\Omega$} to the D5-D6 and D6-D7 stages. This prototype configuration can be seen in Fig.~\ref{fig:v3-board}). The voltage division was not significantly altered by this change and remained relatively the same as what is described in Fig.~\ref{fig:v123-volt}.
 
 \subsection{Prototype Base v4}
 
@@ -320,7 +322,7 @@ Once installed onto a scintillator paddle, the reference PMT was powered to nomi
 
 \begin{figure}
 	\centerline{
-		\mbox{\includegraphics[width=0.55\textwidth]{figures/pmtupgrade/cs-137.pdf}}
+		\mbox{\includegraphics[width=0.75\textwidth]{figures/pmtupgrade/cs-137.pdf}}
 	}
 	\caption{The $\gamma$-decay energy spectrum of Cs-137 as seen through a scintillator-PMT-qVt setup \cite{Webb_Williams_1963}. Here, the Compton edge can be seen at channel 110.}
 	\label{fig:cs-137}

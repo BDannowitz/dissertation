@@ -1,26 +1,14 @@
 \chapter{Apparatus}
 
-SeaQuest is the operational name of Fermilab Experiment \#906 (\emph{E-906}) performed at its Neutrino-Muon (\emph{NM})
-experimental area. The experiment was designed
-to take \emph{high-intensity beam} at relatively \emph{low center-of-mass energy}, provide
-\emph{good mass resolution}, and allow for \emph{accurate target-to-target systematic normalization}.
-The apparatus consists of a moving target table, two dipole magnets, 8 hodoscope planes, 24 drift 
-chamber planes, and 4 proportional tube planes. Upstream of the target table (towards the beam source),
-there is also a \v{C}erenkov counter for beam intensity monitoring and there are
-several segmented wire ionization chambers (SWIC's) for beam profiling.
+\red{CHAPTER STATUS: FIRST DRAFT COMPLETE}
+
+SeaQuest is the operational name of Fermilab Experiment \#906 (\emph{E-906}) performed at its Neutrino-Muon (\emph{NM}) experimental area. The experiment was designed to take \emph{high-intensity beam} at relatively \emph{low center-of-mass energy}, provide \emph{good mass resolution}, and allow for \emph{accurate target-to-target systematic normalization}. The apparatus consists of a moving target table, two dipole magnets, 8 hodoscope planes, 24 drift chamber planes, and 4 proportional tube planes. Upstream of the target table (towards the beam source), there is also a \v{C}erenkov counter for beam intensity monitoring and there are several segmented wire ionization chambers (SWIC's) for beam profiling.
 
 \section{Apparatus Overview}
 
-SeaQuest is a fixed-target experiment. In this style of
-experiment, a stationary target is placed in the path of an accelerated beam of particles, as opposed to \emph{collider} 
-experiments where two accelerated beams are directed against each other, in opposite directions. The proton beam
-interacts with the target material and produces a variety of daughter particles. These daughter particles are 
-tracked through a forward spectrometer and selectively filtered dependent on the purpose of the study.
+SeaQuest is a fixed-target experiment. In this style of experiment, a stationary target is placed in the path of an accelerated beam of particles, as opposed to \emph{collider} experiments where two accelerated beams are directed against each other, in opposite directions. The proton beam interacts with the target material and produces a variety of daughter particles. These daughter particles are tracked through a forward spectrometer and selectively filtered dependent on the purpose of the study.
 
-The tuned and monitored 120 GeV proton beam is sent from the Fermilab Main Injector (MI) where the beam
-protons strike one of the 7 targets. The high-momentum charged particles that are produced are focused
-onto the various detectors with the solid iron dipole magnet, FMAG, or NM3S. 
-This solid focusing magnet also sweeps away low-momentum particles and acts as a beam dump / absorber.
+The tuned and monitored 120 GeV proton beam is sent from the Fermilab Main Injector (MI) where the beam protons strike one of 7 targets. The high-momentum charged particles that are produced are focused into the acceptance of the experiment's detectors with the solid iron dipole magnet, FMAG, or NM3S. This solid focusing magnet also sweeps away low-momentum particles and acts as a beam dump / absorber.
 
 \begin{figure}
 	\begin{center}
@@ -30,46 +18,18 @@ This solid focusing magnet also sweeps away low-momentum particles and acts as a
 	\end{center}
 \end{figure}
 
+The SeaQuest Spectrometer (Fig. \ref{fig:spectrometer-perspective}) consists of the aforementioned focusing magnet, several tracking chambers that record the positions of charged particles through the length of the spectrometer, and an analyzer magnet to bend the particles between tracking stations. The spectrometer measures particle momenta by recording the bend of each charged particle as it passed through the analyzer magnet, where the magnetic field is known. This is performed by reconstructing the trajectory of a particle in one-half of the spectrometer (before the analyzer magnet) and then similarly reconstructing the trajectory of particles in the other half. If two trajectories can be matched up, then the particle momentum can be extracted by taking the ratio of the magnet's $p_T$-kick to the change in the track's direction.
 
-The SeaQuest Spectrometer (Fig. \ref{fig:spectrometer-perspective}) consists of a focusing magnet to bend charged particles into the experiment's acceptance,
-several tracking chambers that record the positions of charged particles through the length of the spectrometer, and
-an analyzer magnet to bend the particles between tracking stations. The spectrometer measures particle momenta by
-recording the bend of each charged particle as it passed through the analyzer magnet, where the magnetic field is known.
-This is performed by reconstructing the trajectory of a particle in one-half of the spectrometer (before the
-analyzer magnet) and then similarly reconstructing the trajectory of particles in the other half. If two 
-trajectories can be matched up, then the particle momentum can be extracted by taking the ratio of the 
-magnet's $p_T$-kick to the change in the track's direction.
+The spectrometer's geometric design and event triggering selection is optimized to detect oppositely-charged pairs of muons while minimizing the sensitivity to various sources of unwanted backgrounds. Positive identification of muons is achieved by requiring signals in the hodoscopes for known muon \emph{``roads''} along with requiring signals in the proportional tubes located at the farthest end of the experiment, past an iron wall. Electrons and any hadrons are stopped by the solid iron focusing magnet an iron wall farther down while muons will pass through them unencumbered.
 
-The spectrometer geometric design and event
-triggering selection is optimized to detect oppositely-charged pairs of muons while minimizing the sensitivity
-to various sources of unwanted backgrounds. Positive identification of muons is achieved by requiring signals
-in the hodoscopes for known muon \emph{``roads''} along with requiring signals in the proportional tubes located at
-the farthest end of the experiment, past an iron wall. Electrons and any hadrons are stopped by the solid iron
-focusing magnet an iron wall further down while muons will pass through them unencumbered.
-
-The coordinate system is defined as the following: the \emph{z}-axis points along the beam direction, the
-\emph{y}-axis points upwards vertically, and the \emph{x}-axis lies along the horizontal direction
-in such a way that a right-handed coordinate system is formed. The terms \emph{upstream} and 
-\emph{downstream} are often used when referring directions or regions in the experimental hall.
-\emph{Upstream} often refers to the region of the experiment towards the beam source, while
-\emph{downstream} refers to everything towards the $+z$ direction. 
-The origin of the coordinate system was chosen to be the point where the proton beam meets 
-the \emph{upstream}-facing surface of FMAG, the solid focusing magnet.
-
+The coordinate system is defined as the following: the \emph{z}-axis points along the beam direction, the \emph{y}-axis points upwards vertically, and the \emph{x}-axis lies along the horizontal direction in such a way that a right-handed coordinate system is formed. The terms \emph{upstream} and \emph{downstream} are often used when referring directions or regions in the experimental hall. \emph{Upstream} often refers to the direction towards the beam source ($-z$ direction), while \emph{downstream} refers to the $+z$ direction of the beam trajectory. The origin of the coordinate system was chosen to be the point where the proton beam meets the \emph{upstream}-facing surface of FMAG, the solid focusing magnet.
 
 \section{Main Injector Proton Beam}
 
-%% January 7th begin
+\red{Maybe a graphic of FNAL accelerator?}
 
-The Fermilab Main Injector (MI) receives protons that have been accelerated by the Radio Frequency Quadrupoles (RFQ), 
-the Linear Accelerator (LINAC), and the Booster, and it continues to accelerate them from 8 GeV up to the nominal energy
-of 120 GeV. Along the way, the radio-frequency cavity (RFC) accelerators in the LINAC and the MI ``bunches'' up the
-protons such that the beam has its characteristic 53.1 MHz structure. After the period of acceleration, the protons
-are then 'scraped off' slowly with each passing \emph{turn} of the collected proton beam and sent down the
-Neutrino-Muon (NM) beam delivery line for approximately five seconds of every minute, called a ``slow spill'', or just
-``spill''. Beam is extracted using a resonant process, and the extracted beam retains the 53.1 MHz structure of the
-Main Injector RFC. Each bunch, or ``bucket'', of protons is less than 2 ns long and the time between bunches is approximately
-18.8ns. The spill structure of the beam is depicted in greater detail in Figure \ref{fig:SpillStructure}.
+%% January 7th begin
+The Fermilab Main Injector (MI) receives protons that have been accelerated by the Radio Frequency Quadrupoles (RFQ), the Linear Accelerator (LINAC), and the Booster, and it continues to accelerate them from 8 GeV up to the nominal energy of 120 GeV. Along the way, radio-frequency cavity (RFC) accelerators in the LINAC and the MI ``bunches'' up the protons such that the beam has its characteristic 53.1 MHz structure. After the period of acceleration, the protons are then `scraped off' slowly with each passing \emph{turn} of the collected proton beam and sent down the Neutrino-Muon (NM) beam delivery line for approximately five seconds of every minute, called a ``slow spill'' or just ``spill''. Beam is extracted using a resonant process, and the extracted beam retains the 53.1 MHz structure of the Main Injector RFC. Each bunch, or ``bucket'', of protons is less than 2 ns long and the time between bunches is approximately 18.8ns. The spill structure of the beam is depicted in greater detail in Figure \ref{fig:SpillStructure}.
 
 \begin{figure}
 	\begin{center}
@@ -79,22 +39,9 @@ Main Injector RFC. Each bunch, or ``bucket'', of protons is less than 2 ns long 
 	\end{center}
 \end{figure}
 
-The beam sent to SeaQuest is not uniform in time throughout the spill (in more ways than one).  There are beam bunches in the
-MI that are intentionally left empty so that the abort kickers can ramp to a full field during a gap in the beam. There are also
-bunches left empty to allow the injection kickers to inject 8 GeV protons from the Booster without disturbing bunches of protons
-already in the Main Injector.  Typically, 498 of the 588 ``RF buckets'' in the Main Injector contain protons during the SeaQuest
-slow spill cycle.  It is the case, however, for SeaQuest, that the intensity of the bunches corresponding to these 498 full
-buckets varies greatly throughout the slow spill. On \emph{average}, each bucket will have \emph{O}($10^4$) protons and the spill
-has an intensity of approximately $2\times 10^{12}$ protons per second and therefore about $1\times 10^{13}$ protons delivered per spill.
+The beam sent to SeaQuest is not uniform in time throughout the spill.  There are beam bunches in the MI that are intentionally left empty so that the abort kickers can ramp to a full field during a gap in the beam. There are also bunches left empty to allow the injection kickers to inject 8 GeV protons from the Booster without disturbing bunches of protons already in the Main Injector.  Typically, 498 of the 588 ``RF buckets'' in the Main Injector contain protons during the SeaQuest slow spill cycle.  It is the case, however, for SeaQuest, that the intensity of the bunches corresponding to these 498 full buckets varies greatly throughout the slow spill. On \emph{average}, each bucket will have \emph{$\bigoh$}($10^4$) protons and the spill has an intensity of approximately $2\times 10^{12}$ protons per second and therefore about $1\times 10^{13}$ protons delivered per spill.
 
-Several guiding and focusing magnets bend and deliver beam to the NM beamline which serves both the test beam facility and SeaQuest at NM4.
-The beam is focused to a width of 250$\mu$m. The profile, position, and intensity are measured along the NM beamline by several detectors.
-The intensity of the beam is monitored by an ion chamber (IC) and a secondary emission monitor (SEM) in the NM3 sector. The beam profile
-and position are monitored by SWICs and beam-position monitors (BPMs), respectively. The Accelerator Control Network
-(ACNET) display of the SWIC readout can be seen in Figure \ref{fig:Profile}. The closest BPMs and SWICs to the spectrometer were
-located in NM2 enclosure. The beam profile does not maintain its 250$\mu$m shape and spreads slightly as it moves towards the
-spectrometer. The final beam profile is measured by inspecting the upstream-facing side of the solid targets, and it was found
-to be approximately 6mm wide by 1mm high.
+Several guiding and focusing magnets bend and deliver beam to the NM beamline which serves both the test beam facility and SeaQuest at NM4. The beam is focused to a width of 250$\mu$m. The profile, position, and intensity are measured along the NM beamline by several detectors. The intensity of the beam is monitored by an ion chamber (IC) and a secondary emission monitor (SEM) in the NM3 sector of the beamline. The beam profile and position are monitored by SWICs and beam-position monitors (BPMs), respectively. The Accelerator Control Network (ACNET) display of the SWIC readout can be seen in Figure \ref{fig:Profile}. The closest BPMs and SWICs to the spectrometer were located in NM2 enclosure. The beam profile does not maintain its 250$\mu$m shape and spreads slightly as it moves towards the spectrometer. The final beam profile is measured by inspecting the upstream-facing side of the solid targets, and it was found to be approximately 6mm wide by 1mm high.
 
 \begin{figure}
 	\begin{center}
@@ -106,17 +53,9 @@ to be approximately 6mm wide by 1mm high.
 
 \section{Beam Intensity Monitor}
 
-SeaQuest's trigger system (described in detail later) mostly fires on fake dimuons caused by two low $p_T$ muons from
-unrelated pion decays. The hits in downstream hodoscopes from the pions combined with hits in the upstream
-hodoscope from two other unrelated particles frequently add up to a false dimuon signal. Since this type of fake
-trigger involves four unrelated particles, the probability that a trigger will occur increases with $I^4$, where
-$I$ is the intensity of the beam bucket; the number of protons in the triggered beam bunch.
+SeaQuest's trigger system (described in detail later) mostly fires on fake dimuons caused by two low $p_T$ muons from unrelated pion decays. The hits in downstream hodoscopes from the pions combined with hits in the upstream hodoscope from two other unrelated particles frequently add up to a false dimuon signal. Since this type of fake trigger involves four unrelated particles, the probability that a trigger will occur increases with $I^4$, where $I$ is the intensity of the beam bucket; the number of protons in the triggered beam bunch.
 
-The SeaQuest data acquisition system (also described later in detail) can read out approximately 3000 events per
-second without significant dead time.  During the commissioning run of SeaQuest, the trigger rate was very high and the
-trigger dead time was close to 100\%.  These triggers were taken at such high beam intensities that the occupancy
-of all SeaQuest detector elements was more than 50$\%$, making pattern recognition essentially impossible
-(see Figure. \ref{fig:splat}). The Beam Intensity Monitor (BIM) was designed to solve this problem.
+The SeaQuest data acquisition system (also described later in detail) can read out approximately 3000 events per second without significant dead time.  During the commissioning run of SeaQuest, the trigger rate was very high and the trigger dead time was close to 100\%.  These triggers were taken at such high beam intensities that the occupancy of all SeaQuest detector elements was more than 50$\%$, making pattern recognition essentially impossible (see Figure. \ref{fig:splat}). The Beam Intensity Monitor (BIM) was designed to solve this problem.
 
 \begin{figure}
 	\begin{center}
@@ -126,15 +65,9 @@ of all SeaQuest detector elements was more than 50$\%$, making pattern recogniti
 	\end{center}
 \end{figure}
 
-The SeaQuest Beam Intensity Monitor (BIM) senses when the beam intensity is above a programmable threshold.
-If an RF bucket with an intensity above this threshold is detected, the BIM sends a signal to inhibit
-certain triggers until the intensity once more falls below the threshold. The inhibit threshold is tuned
-frequently as trigger and beam conditions change, but the inhibit threshold is typically set at approximately
-95,000 protons per RF bunch. For reference, a full RF bucket at an intensity of $2\times 10^{12}$ protons per
-spill is $\approx$10,000 protons.
+The SeaQuest Beam Intensity Monitor (BIM) senses when the beam intensity is above a programmable threshold. If an RF bucket with an intensity above this threshold is detected, the BIM sends a signal to inhibit certain triggers until the intensity once more falls below the threshold. The inhibit threshold is tuned frequently as trigger and beam conditions change, but it is typically set at $\sim95,000$ protons per RF bunch. For reference, a full RF bucket at an intensity of $2\times 10^{12}$ protons per spill is $\approx$10,000 protons.
 
-The beam intensity is measured using an atmospheric pressure gas \v{C}erenkov counter. A gas mixture of 80$\%$ Argon and 20$\%$ CO$_2$ is used as the \v{C}erenkov radiator. The counter and readout electronics were designed to have $O(ns)$ time resolution, and a linear response over a large dynamic range.  A diagram of the counter is shown in Figure~\ref{fig:BIMCerenkov}.  A 45 degree aluminized Kapton mirror directs light to a single photomultiplier tube.  A \emph{baffle} of black construction paper held parallel to the mirror ensures that the proton path length through the light-radiating gas with respect to the mirror is independent of beam position. A two-inch diameter 8-stage photomultiplier tube (PMT) is positioned close to the mirror so that all \v{C}erenkov light created between the baffle and the mirror falls directly on the aperture of the PMT. It was observed during the commissioning run
-that after exposure to $\approx 3 \times 10^{17}$ protons (~3 weeks of uninterrupted usage), the mirror reflectivity is significantly reduced in the beam spot, and the mirror then needs to be replaced.
+The beam intensity is measured using an atmospheric pressure gas \v{C}erenkov counter. A gas mixture of 80$\%$ Argon and 20$\%$ CO$_2$ is used as the \v{C}erenkov radiator. The counter and readout electronics were designed to have $O(ns)$ time resolution, and a linear response over a large dynamic range.  A diagram of the counter is shown in Figure~\ref{fig:BIMCerenkov}.  A 45 degree aluminized Kapton mirror directs light to a single photomultiplier tube.  A \emph{baffle} of black construction paper held parallel to the mirror ensures that the proton path length through the light-radiating gas with respect to the mirror is independent of beam position. A two-inch diameter 8-stage photomultiplier tube (PMT) is positioned close to the mirror so that all \v{C}erenkov light created between the baffle and the mirror falls directly on the aperture of the PMT. It was observed during the commissioning run that after exposure to $\approx 3 \times 10^{17}$ protons (~3 weeks of uninterrupted usage), the mirror reflectivity is significantly reduced in the beam spot, and the mirror then needs to be replaced.
 
 \begin{figure}
 	\begin{center}
@@ -144,13 +77,9 @@ that after exposure to $\approx 3 \times 10^{17}$ protons (~3 weeks of uninterru
 	\end{center}
 \end{figure}
 
-The signal from the BIM is integrated and digitized using a custom charge (Q) integrator and encoder (\emph{QIE}) integrated circuit board, which comes from a family of circuits used first by the KTeV experiment at Fermilab\cite{QIE}. The chip is clocked with the Main Injector RF clock and provides an ADC (analog-digital conversion) every 18.8ns clock cycle. The light incident on
-the photomultiplier tube is attenuated using neutral density filters (NDF's) so that the QIE least count corresponds to
-$\sim$30 protons per beam bunch.
+The signal from the BIM is integrated and digitized using a custom charge (Q) integrator and encoder (\emph{QIE}) integrated circuit board, which comes from a family of circuits used first by the KTeV experiment at Fermilab\cite{QIE}. The chip is clocked with the Main Injector RF clock and provides an ADC (analog-digital conversion) every 18.8ns clock cycle. The light incident on the photomultiplier tube is attenuated using neutral density filters (NDF's) so that the QIE least count corresponds to $\sim$30 protons per beam bunch.
 
-In addition to inhibiting triggers during high-intensity periods of beam, the BIM readout module also provides critical
-information used to calculate the number of protons incident on the SeaQuest targets while the experiment is ready
-and able to trigger. This value is needed to normalize SeaQuest cross section measurements. The BIM readout module provides the following:
+In addition to inhibiting triggers during high-intensity periods of beam, the BIM readout module also provides critical information used to calculate the number of protons incident on the SeaQuest targets while the experiment is ready and able to trigger. This value is needed to normalize SeaQuest cross section measurements. The BIM readout module provides the following:
 \begin{itemize}
 	\item Sum of all ADC signals for the entire spill (QIESum).
 	\item Sum while inhibit is asserted at trigger logic.
@@ -160,8 +89,8 @@ and able to trigger. This value is needed to normalize SeaQuest cross section me
 
 These are used to calculate a ratio of protons that were `live' (the experiment can trigger) via the following:
 \begin{eqnarray}
-liveRatio & = & \frac{QIESum - (inhibit\ sum + dead\ time\ sum)}{QIESum} \\
-liveProton & = & totalProton \cdot liveRatio
+\%live & = & \frac{QIESum - (inhibit\ sum + dead\ time\ sum)}{QIESum} \\
+liveProton & = & totalProton \cdot \%live
 \label{eqn:liveproton}
 \end{eqnarray}
 where ``totalProton'' is the intensity value recorded from the SEM detector located just upstream of the BIM \v{C}erenkov counter. The SEM itself is calibrated by foil activation. The snapshot of the triggered RF bucket intensity along with the 32 surrounding RF bucket intensities is used for studies and corrections of the rate-dependent effects on detector efficiencies and reconstructed measurements.
@@ -195,34 +124,15 @@ where ``totalProton'' is the intensity value recorded from the SEM detector loca
 \end{figure}
 
 
-A wide range of atomic weights (from 2 to 184) is required to do an A-dependence study of the Drell-Yan process.
-At SeaQuest, the targets used are $^1H (\ell),\ ^2H (\ell),\ C,\ Fe,\ $and$\ W$. In addition to the two liquid targets
-and the three solid targets, two positions on the target table were used for measuring background signal rates:
-an empty flask, identical to the flasks used for the $^1H$ and $^2H$ targets, and a single empty solid target holder.
-Colloquially speaking: the $^1H$ target is interchangeably referred to as the liquid hydrogen target, $\ell H_2$,
-\emph{LH2}, or $H_2$; $^2H$ is likewise referred to as the liquid deuterium target, $\ell D_2$, \emph{LD2}, or $D_2$;
-the empty flask is referred to as the ``Empty'' target; the empty solid target holder is referred to as the ``None'' target.
+A wide range of atomic weights (from 2 to 184) is required to do an A-dependence study of the Drell-Yan process. At SeaQuest, the targets used are $^1H (\ell),\ ^2H (\ell),\ C,\ Fe,\ $and$\ W$. In addition to the two liquid targets and the three solid targets, two positions on the target table were used for measuring background signal rates: an empty flask, identical to the flasks used for the $^1H$ and $^2H$ targets, and a single empty solid target holder. Colloquially speaking: the $^1H$ target is interchangeably referred to as the liquid hydrogen target, $\ell H_2$, \emph{LH2}, or $H_2$; $^2H$ is likewise referred to as the liquid deuterium target, $\ell D_2$, \emph{LD2}, or $D_2$; the empty flask is referred to as the ``Empty'' target; the empty solid target holder is referred to as the ``None'' target.
 
-These are all mounted on a laterally-moving, remotely positionable table (in the $\pm x$ direction), able to move
-over a range of 91.4cm. The table's center is located at $(0, 0, -1.25)$ meters, directly in front of the upstream face
-of FMAG, the solid iron focusing magnet. Because of the $\sim$5.0cm diameter of the targets and the 6x1mm dimensions of the beam, the targeting efficiency was 100\%. The details of the target materials are summarized in Table \ref{tab:target-materials}, and the layout of the target table can be seen in \ref{fig:table-layout}.
+These are all mounted on a laterally-moving, remotely positionable table (in the $\pm x$ direction), able to move over a range of 91.4cm. The table's center is located at $(0, 0, -1.25)$ meters, directly in front of the upstream face of FMAG, the solid iron focusing magnet. Because of the $\sim$5.0cm diameter of the targets and the 6x1mm dimensions of the beam, the targeting efficiency was 100\%. The details of the target materials are summarized in Table \ref{tab:target-materials}, and the layout of the target table can be seen in \ref{fig:table-layout}.
 
-The $H_2$ gas used is ``Ultra High Purity 5.0 Grade'' or 99.999\% pure.  The deuterium has come from two different
-sources.  The first of these is a Fermilab-provided supply of gas left over from previous bubble chamber experiments.
-This gas was known to have a small hydrogen contamination and was measured by mass spectroscopy to have a composition
-of 85.2\% D$_2$, 12.7\% HD, 1.2\% $^4$He, and 0.8\% H$_2$ by mole. As the analysis of experimental data commenced, 
-handling the ramifications of the D$_2$ impurity came under focus. Unexpected bottle-to-bottle variation in contamination
-became evident, and the sample-taking methodology itself for spectroscopy became suspect of introducing contamination.
-In order to no simplify analysis and reduce the substantial complexity and cost of further gas analysis, SeaQuest switched
-to commercially available ``Research Grade'' D$_2$, which is better than 99.6\% pure with virtually all HD to balance.
-The data analyzed in this paper deals with the impure D$_2$ target material before this switch. Further information on
-the D$_2$ composition and how it is handled in the context of analysis will be covered in Chapter 4.
+The $H_2$ gas used is ``Ultra High Purity 5.0 Grade'' or 99.999\% pure.  The deuterium has come from two different sources.  The first of these is a Fermilab-provided supply of gas left over from previous bubble chamber experiments. This gas was known to have a small hydrogen contamination and was measured by mass spectroscopy to have a composition of 85.2\% D$_2$, 12.7\% HD, 1.2\% $^4$He, and 0.8\% H$_2$ by mole. As the analysis of experimental data commenced, handling the ramifications of the D$_2$ impurity came under focus. Unexpected bottle-to-bottle variation in contamination became evident, and the sample-taking methodology itself for spectroscopy became suspect of introducing contamination. In order to no simplify analysis and reduce the substantial complexity and cost of further gas analysis, SeaQuest switched to commercially available ``Research Grade'' D$_2$, which is better than 99.6\% pure with virtually all HD to balance. The data analyzed in this paper deals with the impure D$_2$ target material before this switch. Further information on the D$_2$ composition and how it is handled in the context of analysis will be covered in Chapter 5.
 
 %10'' apart to approximate the 20'' 
 %  more closely spaced (6.73'').
-
-Each of the three solid target positions is divided into three disks of 1/3 the total thickness provided in Table \ref{tab:target-materials}. These disks are spaced 25.4cm apart to approximate the distribution of the liquid target, thereby minimizing target-dependent variation in spectrometer acceptance. The one exception to this is that during the Run II period the iron plugs were more closely spaced (17.1cm). The decision to place these
-iron disks closer together than the rest during Run II is still unclear.
+Each of the three solid target positions is divided into three disks of 1/3 the total thickness provided in Table \ref{tab:target-materials}. These disks are spaced 25.4cm apart to approximate the distribution of the liquid target, thereby minimizing target-dependent variation in spectrometer acceptance. The one exception to this is that during the Run II period the iron disks were more closely spaced (17.1cm). The decision to place these iron disks closer together than the rest during Run II is still unclear.
 
 The target table is able to move between two different targets in about 30 seconds. This allows a change between targets in the 55 seconds between successive spills. With this frequent target interchange, the systematic uncertainties associated with drifts in beam characteristics, monitor gains, and detector efficiencies are reduced to a minimum when investigating A-dependent ratios. How much beam time each target received is determined by interaction lengths of the targets along with the amount of statistics desired for certain targets. As the flagship measurement of SeaQuest is the $\bar{d}/\bar{u}$ asymmetry, more emphasis was placed on the hydrogen and deuterium than the nuclear targets. The spills per cycle and beam time allocation can be found in Table \ref{tab:target-materials}.
 
@@ -237,18 +147,19 @@ Two large dipole magnets are used in the experiment to be select forward going (
 	\label{fig:FMag}
 \end{figure}
 
-The downstream magnet, denoted ``KMAG'', is a 300cm long iron rectangular magnet with a 289cm wide by 203cm high central air gap.  It was originally constructed by the KTeV collaboration~\cite{PhysRevD.67.012005} at Fermilab.  It is excited to a central field of 0.4 Tesla (0.402 GeV/c magnetic deflection) by 1600 Amps at 270 Volts (430kW).  The spatial distribution of the magnetic field in KMAG was measured by the KTeV group and re-verified by SeaQuest.  In normal running conditions, both FMag and KMAG bend muons horizontally in the same direction. This two-magnet configuration is often referred to as a focusing spectrometer.
+The downstream magnet, denoted ``KMAG'', is a 300cm long iron rectangular magnet with a 289cm wide by 203cm high central air gap.  It was originally constructed by the KTeV collaboration\cite{PhysRevD.67.012005} at Fermilab.  It is excited to a central field of 0.4 Tesla (0.402 GeV/c magnetic deflection) by 1600 Amps at 270 Volts (430kW).  The spatial distribution of the magnetic field in KMAG was measured by the KTeV group and re-verified by SeaQuest.  In normal running conditions, both FMag and KMAG bend muons horizontally in the same direction. This two-magnet configuration is often referred to as a focusing spectrometer.
 
 The 2.91 GeV/c and 0.402 GeV/c magnetic deflections deliver a transverse-momentum ($p_T$) kick along the to charged particles passing through the spectrometer. The magnets bend the paths of the muon in the $\pm x$ direction, with the sign depending on the orientation of the magnetic fields and the particles' charges. Between Run II and Run III of data taking, the current direction was reversed, thereby reversing the direction of the magnetic fields. During Run II, the magnetic fields were pointing in the $-y$ direction, and in Run III, the magnetic fields were flipped to point in the $+y$ direction. This was done for two reasons: (1) to identify any left-right asymmetries in the experiment, and (2) to limit the amount of radiation on the electronics in the experimental hall, as a large number of positive particles were being swept directly towards the electronics racks during Run II.
 
+\red{Note: Maybe add something track resolution effects due to multiple scattering in FMAG? Or save for Analysis chapter?}
+
 \section{Beam Dump, Shields, and Absorbers}
 
-In order to prevent damage to the downstream detectors from the beam and reduce signals from incidental radiation, the spectrometer is designed with a beam dump and two hadron absorber walls. Approximately 125cm downstream of the target table
-is the water-cooled beam dump whose upstream face is located at $(0.0, 0.0, 0.0)$ m. The beam dump is one of the many solid iron 5m blocks that fill and surround the FMAG coils. The whole length of the beam dump along the beam axis is equivalent to $\approx 35$ nuclear interaction lengths of iron. 
+In order to prevent damage to the downstream detectors from the beam and reduce signals from incidental radiation, the spectrometer is designed with a beam dump and two hadron absorber walls. Approximately 125cm downstream of the target table is the water-cooled beam dump whose upstream face is located at $(0.0, 0.0, 0.0)$ m. The beam dump is one of the many solid iron 5m blocks that fill and surround the FMAG coils. The whole length of the beam dump along the beam axis is equivalent to $\approx 35$ nuclear interaction lengths of iron. 
 
 Between the downstream face of FMAG and Station 1, there is a 2 cm thick wall of borated polyethylene which is put in place as a fast neutron shield. This material is 5\% boron by weight, with the rest being polyethylene. The polyethylene contains high hydrogen content, making it an effective fast neutron radiation shield, slowing down the fast neutrons down to thermal speeds. The boron in the material provides attenuation of thermal neutrons, thus reducing the levels of capture-gamma radiation elsewhere in the experiment. Borated polyethylene at this thickness is a common and optimal neutron shielding material for areas of low to intermediate neutron flux where the temperature is below $82^\circ$C \CN. These conditions make the downstream side of FMAG ideal for its placement.
 
-Farther downstream, there is another hadron absorber wall located between Station 3 and Station 4. The absorber wall consists of a stack of 98cm thick iron blocks. This is an equivalent of $\approx 6$ nuclear interaction lengths. The purpose of this wall is to identify muons at the rear of the apparatus by effectively blocking all other types of particles. The only charged particles which can penetrate this absorber wall are muons.
+Farther downstream, there is another hadron absorber wall located between Station 3 and Station 4. The absorber wall consists of a stack of 98cm thick iron blocks. This is an equivalent of $\approx 6$ nuclear interaction lengths. The purpose of this wall is to identify muons at the rear of the apparatus by effectively blocking all other types of particles. The only charged particles which can penetrate this absorber wall that weren't swept away by either magnet are muons.
 
 \section{Tracking Detectors}
 
@@ -392,14 +303,7 @@ A typical desired high-energy muon within spectrometer acceptance will traverse 
 	\label{table:prop:param}
 \end{table}
 
-\subsection{Mass Resolution from Chamber Resolutions}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.75\textwidth]{figures/apparatus/momentum-resolution.pdf}
-	\caption{A simplistic depiction of a track passing through from Station 1, through KMAG where its path is bent by the magnetic field, and then straight on through Stations 2 and 3.}
-	\label{fig:mom-res}
-\end{figure}
+\subsection{Mass Resolution from Chamber Resolution}
 
 The mass resolution of the spectrometer is, in part, limited by the resolution of the tracking chambers and the distances between them. For an arbitrary set of hit positions in Stations 1, 2, and 3 ($r_1, r_2, r_3$) which are separated from each other in $z$ by distances $z_{12}$ and $z_{23}$, with KMAG in between Stations 1 and 2 supplying a $P_{kick}$, one can derive $\Delta P / P$. A line, or track segment, is first reconstructed between $r_2$ and $r_3$. The slope (and its uncertainty) of this track segment in the $z-x$ plane is:
 \begin{equation}
@@ -414,6 +318,12 @@ The expected sagitta point ($r_s$) is located at:
 r_s & = & s_{23} z_{12} + r_2 \\
 \Delta r_s = \sqrt{\Delta s_{23}^2 z_{12}^2 + \Delta r_2^2} & = & \sqrt{ \Delta r_3^2 \left(\frac{z_{12}}{z_{23}}\right)^2 + (1+\left(\frac{z_{12}}{z_{23}}\right)^2) \Delta r_2^2}
 \end{eqnarray}
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/apparatus/momentum-resolution.pdf}
+	\caption{A simplistic depiction of a track passing through from Station 1, through KMAG where its path is bent by the magnetic field, and then straight on through Stations 2 and 3.}
+	\label{fig:mom-res}
+\end{figure}
 And the distance, $d$ follows as:
 \begin{eqnarray}
 d & = & r_s - r_1 \\
@@ -434,16 +344,7 @@ The factor of two arises from the fact that the Drell-Yan dilepton mass comes fr
 \frac{\Delta x_2}{x_2} \approx 0.57 \Delta x_F + 0.012 M^2 \frac{\Delta M}{M}
 \end{equation}
 
-
-
 \section{Trigger}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.75\textwidth]{figures/apparatus/v1495-trigger.pdf}
-	\caption{The trigger system at SeaQuest is composed of 9 CAEN v1495 FPGA modules. These modules output a trigger signal to the Trigger Supervisor, which tells the DAQ when to record data.}
-	\label{fig:1495-trigger}
-\end{figure}
 
 The SeaQuest Trigger System is designed to quickly select candidate dimuon events from the high-rate, high-background environment using discriminated hodoscope signals.
 
@@ -454,6 +355,13 @@ The trigger must select events of interest to the main physics goals with good e
 
 %% Flexibility
 The hardware, firmware, and design should be sufficiently flexible to quickly accommodate changes in the spectrometer, beam conditions, and physics goals. Any changes to the geometric acceptance of the spectrometer, such as new/moved detectors or changes in the magnetic fields must be immediately reflected in the trigger selection in order to maintain high signal efficiency and good background rejection power. Similarly, a change in the beam duty factor or intensity should be accompanied by a change in the event selection, ensuring trigger rate optimization and zero internal deadtime. Finally, the trigger should be capable of specific modifications to facilitate special runs for other physics goals. For these reasons, the design of the trigger system underscores a significant need for flexibility in its hardware and design.
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/apparatus/v1495-trigger.pdf}
+	\caption{The trigger system at SeaQuest is composed of 9 CAEN v1495 FPGA modules. These modules output a trigger signal to the Trigger Supervisor, which tells the DAQ when to record data.}
+	\label{fig:1495-trigger}
+\end{figure}
 
 %% Self-monitoring, transparent
 Lastly, the design of the trigger system should include self-diagnostic capabilities, allowing for constant monitoring of the trigger system's performance. Internal pulser-testing is employed to test the function of each compiled firmware every time the trigger logic changes. For added transparency, data from the internal TDC's is used by online and offline software to monitor the self-consistency of the trigger for each recorded physics event.
