@@ -33,12 +33,6 @@ E~Ames, C~Seshagiri, M~Griswold, V~Simaitis, J~La~Due, F~Cogswell, S~Errede,
   tilecal module-0.
 \newblock Technical report, CERN-ATL-TILECAL-98-156, 1998.
 
-\bibitem{Aubert:1983xm}
-J.J. Aubert et~al.
-\newblock {The ratio of the nucleon structure functions $F2_n$ for iron and
-  deuterium}.
-\newblock {\em Phys.Lett.}, B123:275, 1983.
-
 \bibitem{PhysRevLett.43.830}
 D.~P. Barber, U.~Becker, H.~Benda, A.~Boehm, J.~G. Branson, J.~Bron,
   D.~Buikman, J.~Burger, C.~C. Chang, H.~S. Chen, M.~Chen, C.~P. Cheng, Y.~S.
@@ -101,21 +95,17 @@ Sidney~D. Drell and Tung-Mow Yan.
   energies.
 \newblock {\em Phys. Rev. Lett.}, 25:316--320, Aug 1970.
 
-\bibitem{duan-2007-50}
-Chun-Gui Duan, Na~Liu, and Zhan-Yuan Yan.
-\newblock The extraction of nuclear sea quark distribution and energy loss
-  effect in drell-yan experiment.
-\newblock {\em EUR.PHYS.J.C}, 50:585, 2007.
+\bibitem{Dulat:2015mca}
+Sayipjamal Dulat, Tie-Jiun Hou, Jun Gao, Marco Guzzi, Joey Huston, Pavel
+  Nadolsky, Jon Pumplin, Carl Schmidt, Daniel Stump, and C.~P. Yuan.
+\newblock {New parton distribution functions from a global analysis of quantum
+  chromodynamics}.
+\newblock {\em Phys. Rev.}, D93(3):033006, 2016.
 
 \bibitem{Estermann:169E}
 I.~Estermann, R.~Frisch, and O.~Stern.
 \newblock {Magnetic Moment of the Proton}.
 \newblock {\em Nature}, 132:169--170, jul 1933.
-
-\bibitem{Geesaman:1995yd}
-Donald~F. Geesaman, K.~Saito, and Anthony~William Thomas.
-\newblock {The nuclear EMC effect}.
-\newblock {\em Ann.Rev.Nucl.Part.Sci.}, 45:337--390, 1995.
 
 \bibitem{Halzen:1984mc}
 F.~Halzen and Alan~D. Martin.
@@ -146,6 +136,11 @@ LeCroy.
   \url{http://ikpe1101.ikp.kfa-juelich.de/manuals/LeCroy_1440/operation_manual/operation_manual.htm}.
 \newblock Accessed: 2016-02-03.
 
+\bibitem{blist:binomial}
+Benno List.
+\newblock Statistical error of efficiency determination from weighted events.
+\newblock Accessed: 2016-03-16.
+
 \bibitem{PhysRevD.43.2815}
 G.~Moreno, C.~N. Brown, W.~E. Cooper, D.~Finley, Y.~B. Hsiung, A.~M.
   Jonckheere, H.~Jostlein, D.~M. Kaplan, L.~M. Lederman, Y.~Hemmi, K.~Imai,
@@ -173,17 +168,6 @@ HCZ Photonics.
 \newblock Xp2072: High energy resolution , 10-stage, 39mm (1.5") tube.
 \newblock \url{http://hzcphotonics.com/products/XP2072.PDF}.
 \newblock Accessed: 2016-01-29.
-
-\bibitem{Pumplin:2002vw}
-J.~Pumplin et~al.
-\newblock {New generation of parton distributions with uncertainties from
-  global QCD analysis}.
-\newblock {\em JHEP}, 07:012, 2002.
-
-\bibitem{Seely:2009gt}
-J.~Seely et~al.
-\newblock {New measurements of the EMC effect in very light nuclei}.
-\newblock {\em Phys. Rev. Lett.}, 103:202301, 2009.
 
 \bibitem{Shiu:2015ura}
 Shiuan-Hal Shiu, Jinyuan Wu, Randall~Evan McClellan, Ting-Hua Chang, Wen-Chen

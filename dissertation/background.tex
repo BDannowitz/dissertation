@@ -180,28 +180,36 @@ x_2  = \sqrt{\tau} e^{-y}
 \end{equation}
 It should be noted that with collider experiments, it is conventional to refer to the hadrons A and B in terms of the beam and target hadrons, respectively, and as such, $x_1$ refers to the the quark in the beam hadron and $x_2$ refers to the quark in the target hadron.
 
-In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x) and \bar{q}(x)$) are independent of the process by which they are probed. At this point, let's look a bit more deeply into these PDFs, how they're measured, and their behavior.
+In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x)$ and $\bar{q}(x)$) are independent of the process by which they are probed. At this point, let's look a bit more deeply into these PDFs, how they're measured, and their behavior.
 
 \subsection{The Quark Parton Model and PDFs}
 
-%Let's say that we have two hadrons A and B colliding; a parton of type \emph{a} ($u, d, s, g$, etc.) comes from A and carries with it a fraction of A's momentum ($x_A$).  The same goes for hadron B; a parton of type \emph{b} comes from B and carries momentum fraction $x_B$. Now, the probability of finding the discussed parton from A is given by $f_{a/A}(x_A)dx_A$. Likewise, the probability of finding the discussed parton from B is $f_{b/B}(x_B)dx_B$.  
+The parton distribution $q_f(x)$ and $\bar{q}_f(x)$ within the nucleus have been measured primarily with deep inelastic scattering (DIS) experiments, examining the inclusive jet production in order to get a clearer picture of nucleon structure. It should be noted, however, that there have been some Drell-Yan experiments (E605 and E866) that have contributed to these models. The current status of the experimental determination of these PDFs is led by CTEQ (Coordinated Theoretical-Experimental Project on QCD) and TEA (\red{which stands for???}), and are illustrated in Figures~\ref{fig:pdf-q2}~and~\ref{fig:pdf-q100}.
+
+\red{Add DIS diagram here?}
+
+Since the photon mediating the DIS interaction is only interacting with one quark (and not two, from two nucleons as in the case of DY), analysis of the scattering allows for a determination of the momentum fraction distribution of the quarks. These distributions, however, are not directly measured. What is actually measured if the $F_2$ structure function, which is a summation over quark flavors. This structure function can be expressed in terms of the quark PDFs as
+\begin{equation}
+\end{equation}
+
+Consider two hadrons A and B colliding; a parton of type \emph{a} ($u, d, s, g$, etc.) comes from A and carries with it a fraction of A's momentum ($x_A$).  The same goes for hadron B; a parton of type \emph{b} comes from B and carries momentum fraction $x_B$. Now, the probability of finding the discussed parton from A is given by $f_{a/A}(x_A)dx_A$. Likewise, the probability of finding the discussed parton from B is $f_{b/B}(x_B)dx_B$.
 %
 %These \emph{structure functions}, $f_{a/A}(x)$ are called the \emph{parton distribution functions} (PDF's), and they have been the focus of a great deal of experiments over the years by several collaborations. Due to the complex nature of lattice QCD, these PDF's are determined empirically, with only a few rules based in theory. It is important to note that there is normally a $Q^2$ dependence of these PDF's. At high enough $Q^2$, as it is in the case of our experiment, the PDF's no longer scale with $Q^2$ \cite{Seely:2009gt}.  That is, for a given \emph{x}, the PDF is independent of $Q^2$.
 %
 %An important metric to observe is the probability that a parton \emph{a} carries a momentum fraction $x_A$ in its hadron $A$.  This can be represented by the following expression: $x_A f_{a/A}(x_A)dx_A$. For Drell-Yan interactions in the study proposed here, we are interested in the momentum distribution amongst the quarks in the proton.  The CTEQ collaboration has collected data from many experiments, yielding the model represented in Figure \ref{fig:pdf} \cite{Pumplin:2002vw}.
 %
-%\begin{figure}
-%	\centering
-%	\subfloat[][The parton distribution function describing the momentum carried by different types of quark in the proton.]{%
-%		\label{fig:pdf}%
-%		\includegraphics[width=0.40\linewidth]{figures/background/parton-dist.jpg}}%
-%	\hspace{8pt}%
-%	\subfloat[][The ratio of cross sections (per nucleon) as a function of the target's fractional momentum, $x_2$.  The EMC Effect region, $0.3<x_2<0.6$ is the phenomenon discussed here.]{%
-%		\label{fig:emc}%
-%		\includegraphics[width=0.53\linewidth]{figures/background/EMC_EMC.jpeg}}
-%	\caption{The proton's momentum distribution and the EMC Effect, with key regions highlighted.}
-%	\label{fig:pdf_emc}
-%\end{figure}
+\begin{figure}
+	\centering
+	\subfloat[][PDFs $x f_q(x, Q)$ for Q=2 GeV.]{%
+		\label{fig:pdf-q2}%
+		\includegraphics[width=0.45\linewidth]{figures/background/parton-dist-q2.png}}
+	\hspace{8pt}%
+	\subfloat[][PDFs of $x f_q(x, Q)$ for Q=100 GeV.]{%
+		\label{fig:pdf-q100}%
+		\includegraphics[width=0.45\linewidth]{figures/background/parton-dist-q100.png}}
+	\caption{Parton distribution functions for quarks and gluons and their \emph{x} and \emph{Q} dependence as calculated to NNLO by the CTEQ-TEA (CT) global analysis group\cite{Dulat:2015mca}.}
+	\label{fig:pdf-q2-q100}
+\end{figure}
 %
 %Looking to Figure \ref{fig:pdf} we see that at $x>0.1$, $u$ and $d$ quarks dominate $\bar{u}$ and $\bar{d}$ quarks.  This is key, because this means that, for SeaQuest where we have high $x_1$ and lower $x_2$, the Drell-Yan process is probabilistically dominated by a quark from the beam annihilating with an antiquark from the target. All antiquarks that exist in the target nucleons must come from what are called the \emph{sea quarks}, or the virtual $q\bar{q}$ pairs that pop in and out of existence amongst the gluons and valence quarks. 
 %
