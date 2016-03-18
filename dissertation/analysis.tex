@@ -137,8 +137,48 @@ where
 \sum\limits_{i\in-} w_i^2 & = & \sum\limits_{i\in+}w_i^2 - \sum\limits_{i\in+}w_i^2 
 \end{eqnarray}
 
+For a set of efficiencies, a linear function is fit to the efficiencies. This fit function would then be used to calculate the efficiency for any given dimuon that occurs at any given intensity. The linear parameters are fitted to the data (which is weighted by its statistical uncertainties) by a $\chi^2$-minimization procedure to render a line of best fit along with a confidence interval (Fig.~\ref{fig:keff-all})
 
-The matter becomes even more complicated when considering weights.
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{figures/analysis/all-keff-int.png}
+	\caption{The ratio of ``messy'' to ``clean'' dimuon samples from the Deuterium target in Roadset 67 data. This shows the linear relationship of the tracking efficiency to the intensity of the events. The shaded band indicates the 95\% confidence band of the fit.}
+	\label{fig:keff-all}
+\end{figure}
+
+Further, these fits have a statistically significant kinematic dependence, so it becomes important to unfold the kinematic space and perform this procedure for several kinematic bins in one or more dimensions to assure an accurate efficiency calculation. Of the six defining kinematics of the dimuon, we examine the dependence of the fit on five of them: ($x_1, x_2, p_T, \theta, \phi$), neglecting the azimuthal production angle $\phi_{\gamma^*}$. Each of these five kinematics is divided into three bins (low, medium, high) values to observe on which kinematics the linear fit depends. The results are shown in Figure~\ref{fig:keff-all-kin}.
+\begin{figure}
+\centering
+\includegraphics[width=0.49\textwidth]{figures/analysis/x1-keff-int.png}
+\includegraphics[width=0.49\textwidth]{figures/analysis/x2-keff-int.png} \\
+\includegraphics[width=0.49\textwidth]{figures/analysis/theta-keff-int.png}
+\includegraphics[width=0.49\textwidth]{figures/analysis/phi-keff-int.png} \\
+\includegraphics[width=0.49\textwidth]{figures/analysis/pt-keff-int.png}
+\caption{Tracking efficiency with the data broken into three statistically equivalent bins in the five primary kinematics, ($x_1, x_2, \theta_\mu, \phi_\mu, p_T$). There appears to be a significant kinematic dependence on $x_1$ and $x_2$.}
+\label{fig:keff-all-kin}
+\end{figure}
+The curves produced seem to indicate that there only exists a kinematic dependence on the $x_1$ and $x_2$ kinematics. If this is the case, then the clean and messy samples can be split two-dimensionally in these two kinematics, and a fit can be made to both variables. When analyzing dimuons, its kinematics can indicate which fit to use to calculate the tracking efficiency based on the intensity of the event, and a weight can be calculated.
+
+But before we come to any clear conclusions, let us investigate two more kinematic phase spaces. We know from the discussion in Chapter 1 that \{$x_1, x_2$\} can be used almost interchangeably with \{$x_F, M_{\gamma^*}$\}, and each of $x_1$ and $x_2$ depend on both $x_F$ and $M_{\gamma^*}$. As such, if only one and not the other shows to influence the tracking efficiency curves, then only that one would be needed for the tracking efficiency correction. We see the behavior of the efficiency curves as a function of $x_F$ and $M_{\gamma^*}$ in Figure~\ref{fig:keff-mass-xf}. It can be concluded that since there is no substantial mass dependence observed, the tracking efficiency has a kinematic dependence solely on $x_F$.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.49\textwidth]{figures/analysis/xF-keff-int.png}
+	\includegraphics[width=0.49\textwidth]{figures/analysis/mass-keff-int.png}
+	\caption{The kinematics $x_F$ and $M_{\gamma^*}$ are investigated. A clear kinematic dependence exists in $x_F$ while $M_{\gamma^*}$ is largely consistent.}
+	\label{fig:keff-mass-xf}
+\end{figure}
+
+Another consideration is with respect to whether or not there is a target dependence to factor into the correction. For all of the above ``kEfficiency'' plots, only deuterium data is used. The kEfficiency curves for deuterium, hydrogen, carbon, iron, and tungsten can be found on Figure~\ref{fig:keff-target-roadset}. It can be concluded that there is enough of a difference between deuterium, iron, and the rest to justify calculating and applying this correction on a target-by-target basis.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.49\textwidth]{figures/analysis/target-keff-int.png}
+	\includegraphics[width=0.49\textwidth]{figures/analysis/roadset-keff-int.png}
+	\caption{.}
+	\label{fig:keff-target-roadset}
+\end{figure}
+
+Also, as a sanity check, there should be no time-dependence of this function. A quick check comparing different sets of data from two different roadsets quickly confirm that there is no such time dependence (Fig.~\ref{fig:keff-target-roadset}).
 
 Depending on the binning of kinematic variables, the result will be intensity-dependent \emph{kEff}$_{t,\bar{x}}(I)$, a set of linear fit functions: one for each target (\emph{t}) and for each kinematic bin ($\bar{x}$), which may be binned in any number of kinematic dimensions.
 
