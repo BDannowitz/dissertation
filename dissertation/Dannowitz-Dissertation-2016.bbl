@@ -33,6 +33,12 @@ E~Ames, C~Seshagiri, M~Griswold, V~Simaitis, J~La~Due, F~Cogswell, S~Errede,
   tilecal module-0.
 \newblock Technical report, CERN-ATL-TILECAL-98-156, 1998.
 
+\bibitem{Aubert:1983xm}
+J.J. Aubert et~al.
+\newblock {The ratio of the nucleon structure functions $F2_n$ for iron and
+  deuterium}.
+\newblock {\em Phys.Lett.}, B123:275, 1983.
+
 \bibitem{PhysRevLett.43.830}
 D.~P. Barber, U.~Becker, H.~Benda, A.~Boehm, J.~G. Branson, J.~Bron,
   D.~Buikman, J.~Burger, C.~C. Chang, H.~S. Chen, M.~Chen, C.~P. Cheng, Y.~S.
@@ -106,6 +112,11 @@ Sayipjamal Dulat, Tie-Jiun Hou, Jun Gao, Marco Guzzi, Joey Huston, Pavel
 I.~Estermann, R.~Frisch, and O.~Stern.
 \newblock {Magnetic Moment of the Proton}.
 \newblock {\em Nature}, 132:169--170, jul 1933.
+
+\bibitem{Geesaman:1995yd}
+Donald~F. Geesaman, K.~Saito, and Anthony~William Thomas.
+\newblock {The nuclear EMC effect}.
+\newblock {\em Ann.Rev.Nucl.Part.Sci.}, 45:337--390, 1995.
 
 \bibitem{Halzen:1984mc}
 F.~Halzen and Alan~D. Martin.

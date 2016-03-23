@@ -66,7 +66,7 @@ In 1970, S. Drell and T.M. Yan were the first to suggest that, at high $Q^2 (=M^
 q_A + \bar{q}_B \rightarrow \gamma^* \rightarrow l^+ l^-
 \label{eq:dy-process}
 \end{equation} 
-as an electromagnetic annihilation process. In this high-$Q^2$ kinematic space, the final state of the hadrons that contain these quarks becomes more or less irrelevant. By the energy-time uncertainty principle\CN of $\Delta E \Delta t \sim \hbar$, the timescales under consideration are $<10^{-25}s$, and the corresponding distances are $<10^{-17}m$, where the size of a nucleon is $\sim 10^{-15}m$\CN. At these short space-time scales, electromagnetic annihilation dominates this quark-quark interaction.
+as an electromagnetic annihilation process. In this high-$Q^2$ kinematic space, the final state of the hadrons that contain these quarks becomes irrelevant. By the energy-time uncertainty principle\CN of $\Delta E \Delta t \sim \hbar$, the timescales under consideration are $<10^{-25}s$, and the corresponding distances are $<10^{-17}m$, where the size of a nucleon is $\sim 10^{-15}m$\CN. At these short space-time scales, electromagnetic annihilation dominates this quark-quark interaction.
 
 This is further reinforced by the widely accepted non-Abelian gauge field theory of Quantum Chromodynamics (QCD) which describes the interactions between quarks and gluons. QCD provides a theoretical justification for treating Drell-Yan processes as events isolated from the rest of the hadron states, and it does so through the concept of the running of the coupling constant, or \emph{asymptotic freedom}\cite{Bethke:2006ac}. This characteristic feature of QCD is described by the decrease of the strength of the strong force coupling constant as the space-time scale of the interaction approaches zero (i.e. as $Q^2 \rightarrow \infty$). The strong coupling constant can be expressed as a function of $Q^2$:
 \begin{equation}
@@ -180,24 +180,33 @@ x_2  = \sqrt{\tau} e^{-y}
 \end{equation}
 It should be noted that with collider experiments, it is conventional to refer to the hadrons A and B in terms of the beam and target hadrons, respectively, and as such, $x_1$ refers to the the quark in the beam hadron and $x_2$ refers to the quark in the target hadron.
 
-In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x)$ and $\bar{q}(x)$) are independent of the process by which they are probed. At this point, let's look a bit more deeply into these PDFs, how they're measured, and their behavior.
+In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x)$ and $\bar{q}(x)$) are independent of the process by which they are probed.
 
 \subsection{The Quark Parton Model and PDFs}
 
-The parton distribution $q_f(x)$ and $\bar{q}_f(x)$ within the nucleus have been measured primarily with deep inelastic scattering (DIS) experiments, examining the inclusive jet production in order to get a clearer picture of nucleon structure. It should be noted, however, that there have been some Drell-Yan experiments (E605 and E866) that have contributed to these models. The current status of the experimental determination of these PDFs is led by CTEQ (Coordinated Theoretical-Experimental Project on QCD) and TEA (\red{which stands for???}), and are illustrated in Figures~\ref{fig:pdf-q2}~and~\ref{fig:pdf-q100}.
+In the context of hadron-hadron collisions, one can interpret the PDFs as follows: consider two hadrons A and B colliding; a parton of type \emph{a} ($a\in \{u, d, s, g, ...\}$) comes from A and carries with it a fraction of A's momentum ($x_A$).  The same goes for hadron B; a parton of type \emph{b} comes from B and carries momentum fraction $x_B$. Now, the probability of finding the discussed parton from A is given by $q_{a/A}(x_A)dx_A$. Likewise, the probability of finding the discussed parton from B is $q_{b/B}(x_B)dx_B$.
 
-\red{Add DIS diagram here?}
+Due to the complex nature of lattice QCD simulations, the parton distributions $q_f(x)$ and $\bar{q}_f(x)$ within the nucleus are determined empirically, with only a few rules based in theory. The primary probe used to measure them has been deep inelastic scattering (DIS), examining the inclusive jet production in order to get a clearer picture of nucleon structure. It should be noted, however, that there have been some Drell-Yan experiments (E605 and E866) that have contributed to these models. The current status of the experimental determination of these PDFs is led by CTEQ (Coordinated Theoretical-Experimental Project on QCD) and TEA (\red{which stands for???}), and are illustrated in Figures~\ref{fig:pdf-q2}~and~\ref{fig:pdf-q100}.
 
-Since the photon mediating the DIS interaction is only interacting with one quark (and not two, from two nucleons as in the case of DY), analysis of the scattering allows for a determination of the momentum fraction distribution of the quarks. These distributions, however, are not directly measured. What is actually measured if the $F_2$ structure function, which is a summation over quark flavors. This structure function can be expressed in terms of the quark PDFs as
+\red{Add DIS diagram and DIS breakdown here?}
+
+Since the photon mediating the DIS interaction is only interacting with one quark (and not two, from two nucleons as in the case of DY), analysis of the scattering allows for a determination of the momentum fraction distribution of the quarks. These distributions, however, are not directly measured. What is actually measured is the $F_2$ structure function, which is a summation over quark flavors. This structure function can be expressed in terms of the quark PDFs as
 \begin{equation}
+F_2(x) = \nu W_2(x) = \sum_f e_f^2 x [q_f(x) + \bar{q}_f(x)]
+\end{equation}
+However, due to the universality and process-independence of the PDFs, the distributions measured by DIS must also stand for DY processes.
+
+The CTEQ-TEA calculated these PDFs from data on inclusive, high-momentum transfer processes, for which perturbative QCD is expected to be reliable. In the case of deep inelastic lepton scattering, only data with Q > 2 GeV is used. Data in this region are expected to be relatively free of non-perturbative effects, such as higher twists or nuclear corrections. Thus, there is no need to introduce phenomenological models for nonperturbative corrections beyond the leading-twist perturbative contributions\cite{Dulat:2015mca}.
+
+In general, experimental data measuring $F_2$ is used in conjunction with some general constraints in order to arrive at the calculated PDFs. One constraint is to consider the known number of valence quarks in a nucleon. Since the function $q_f(x)$ is the number density of quark flavor $f$ as a function of momentum fraction $x$, the value $q_f(x)dx$ represents the number of quarks with flavor $f$ with fractional momentum in the range of $[x,x+dx]$. Therefore, the known number of valence quarks of flavor $f$ ($N_f$) provides the following condition.
+\begin{equation}
+\int_0^1 dx [q_f(x) - \bar{q}_f(x)] = N_{f}
+\end{equation}
+Another condition considers the value $x q(x) dx$, which is the total momentum fraction of the hadron of the number of quarks $q(x)dx$. This provides a logical constraint is the summation of the momentum fractions of all partons must add up to the full nucleon momentum:
+\begin{equation}
+\sum_{q,\bar{q},g} \int_0^1 dx x q(x) = 1
 \end{equation}
 
-Consider two hadrons A and B colliding; a parton of type \emph{a} ($u, d, s, g$, etc.) comes from A and carries with it a fraction of A's momentum ($x_A$).  The same goes for hadron B; a parton of type \emph{b} comes from B and carries momentum fraction $x_B$. Now, the probability of finding the discussed parton from A is given by $f_{a/A}(x_A)dx_A$. Likewise, the probability of finding the discussed parton from B is $f_{b/B}(x_B)dx_B$.
-%
-%These \emph{structure functions}, $f_{a/A}(x)$ are called the \emph{parton distribution functions} (PDF's), and they have been the focus of a great deal of experiments over the years by several collaborations. Due to the complex nature of lattice QCD, these PDF's are determined empirically, with only a few rules based in theory. It is important to note that there is normally a $Q^2$ dependence of these PDF's. At high enough $Q^2$, as it is in the case of our experiment, the PDF's no longer scale with $Q^2$ \cite{Seely:2009gt}.  That is, for a given \emph{x}, the PDF is independent of $Q^2$.
-%
-%An important metric to observe is the probability that a parton \emph{a} carries a momentum fraction $x_A$ in its hadron $A$.  This can be represented by the following expression: $x_A f_{a/A}(x_A)dx_A$. For Drell-Yan interactions in the study proposed here, we are interested in the momentum distribution amongst the quarks in the proton.  The CTEQ collaboration has collected data from many experiments, yielding the model represented in Figure \ref{fig:pdf} \cite{Pumplin:2002vw}.
-%
 \begin{figure}
 	\centering
 	\subfloat[][PDFs $x f_q(x, Q)$ for Q=2 GeV.]{%
@@ -210,8 +219,8 @@ Consider two hadrons A and B colliding; a parton of type \emph{a} ($u, d, s, g$,
 	\caption{Parton distribution functions for quarks and gluons and their \emph{x} and \emph{Q} dependence as calculated to NNLO by the CTEQ-TEA (CT) global analysis group\cite{Dulat:2015mca}.}
 	\label{fig:pdf-q2-q100}
 \end{figure}
-%
-%Looking to Figure \ref{fig:pdf} we see that at $x>0.1$, $u$ and $d$ quarks dominate $\bar{u}$ and $\bar{d}$ quarks.  This is key, because this means that, for SeaQuest where we have high $x_1$ and lower $x_2$, the Drell-Yan process is probabilistically dominated by a quark from the beam annihilating with an antiquark from the target. All antiquarks that exist in the target nucleons must come from what are called the \emph{sea quarks}, or the virtual $q\bar{q}$ pairs that pop in and out of existence amongst the gluons and valence quarks. 
+
+Looking to Figure~\ref{fig:pdf-q2-q100} we see that at $x>0.1$, $u$ and $d$ quarks dominate $\bar{u}$ and $\bar{d}$ quarks. This is key for the SeaQuest DY measurements due to the kinematic space explored where there is predominantly high $x_1$ and lower $x_2$ observed. In this regime, the Drell-Yan process is probabilistically dominated by a quark from the beam annihilating with an anti-quark from the target. All anti-quarks that exist in the target nucleons must come from what are called the \emph{sea quarks}, or the virtual $q\bar{q}$ pairs 
 %
 %As we will discuss in the next section, partons in a bound nucleon behave differently than partons in a free nucleon. By studying Drell-Yan in nuclear targets, we can investigate the degree to which this modification is the result of a modification to the quark sea.
 %
@@ -228,13 +237,19 @@ Consider two hadrons A and B colliding; a parton of type \emph{a} ($u, d, s, g$,
 	\label{fig:nlo-dy}
 \end{figure}
 
-\section{Drell-Yan in Nuclei}
+\section{Drell-Yan and Sea Quark Phenomenology}
+
+\subsection{$\bar{d}/\bar{u}$ Asymmetry}
+
+\red{Give rough derivation, previous results, a model, and what SeaQuest proposes to provide, stats-wise.}
 
 \subsection{The EMC Effect}
 
-%The European Muon Collaboration, in 1983, measured the DIS cross section per nucleon ratios of $Fe$ to $D$ over a large kinematic range.  The result, as seen in the top right of Figure \ref{fig:emc} came as quite a surprise.  It was revealed that the structure function of a nucleon bound in a nucleus differs fundamentally from that of a free nucleon  \cite{Aubert:1983xm}.  This difference was not a simple or small effect either; the cross section per nucleon of a nucleus showed to be smaller than that of deuterium at very low $x_2$, greater than deuterium at $0.1<x_2<0.2$, and then steadily less than deuterium for $0.2<x_2<0.6$. 
+\red{Start from the very beginning with EMC in 1983, discuss current understanding. Draw from review paper and the SeaQuest Academy talks by Don and Arrington.}
+
+The European Muon Collaboration, in 1983, measured the DIS cross section per nucleon ratios of $Fe$ to $D$ over a large kinematic range.  The result, as seen in the top right of Figure \ref{fig:emc} came as quite a surprise.  It was revealed that the structure function of a nucleon bound in a nucleus differs fundamentally from that of a free nucleon  \cite{Aubert:1983xm}.  This difference was not a simple or small effect either; the cross section per nucleon of a nucleus showed to be smaller than that of deuterium at very low $x_2$, greater than deuterium at $0.1<x_2<0.2$, and then steadily less than deuterium for $0.2<x_2<0.6$. 
 %
-%This complex, unexplained behavior opened up a new field of research and theoretical work. Following suit, the different aspects of this nuclear modification garnered some common nicknames.  The region where $x_2<0.1$ became known as \emph{``Nuclear Shadowing''}, the transition region of $0.1<x_2<0.2$ is known as \emph{"Anti-shadowing"}, and the linear decline in the ratio of cross sections between $0.2<x_2<0.6$ is generally referred to as the \emph{"EMC Effect"} \cite{Geesaman:1995yd}.
+This complex, unexplained behavior opened up a new field of research and theoretical work. Following suit, the different aspects of this nuclear modification garnered some common nicknames.  The region where $x_2<0.1$ became known as \emph{``Nuclear Shadowing''}, the transition region of $0.1<x_2<0.2$ is known as \emph{``Anti-shadowing''}, and the linear decline in the ratio of cross sections between $0.2<x_2<0.6$ is generally referred to as the \emph{``EMC Effect''} \cite{Geesaman:1995yd}.
 %
 %The phenomenon was simple -- DIS off of a bound nucleon was not the same as off of a free nucleon -- but hundreds of theoretical papers were written attempting to explain it away, from multiquark ($6q$) clusters to the exchange of virtual pions in the nucleus. Some have joked that EMC should stand for \emph{"Every Model is Cool"}. The focus of recent work (and this paper) is on the ``EMC Effect'' region, characterized by the distinctly linear downward slope.
 %
