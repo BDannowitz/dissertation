@@ -180,32 +180,41 @@ x_2  = \sqrt{\tau} e^{-y}
 \end{equation}
 It should be noted that with collider experiments, it is conventional to refer to the hadrons A and B in terms of the beam and target hadrons, respectively, and as such, $x_1$ refers to the the quark in the beam hadron and $x_2$ refers to the quark in the target hadron.
 
-In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x)$ and $\bar{q}(x)$) are independent of the process by which they are probed.
+In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x)$ and $\bar{q}(x)$) are independent of the process by which they are probed. This universality of the PDFs is one of the foundations of the the Quark Parton Model (QPM).
 
-\subsection{The Quark Parton Model and PDFs}
+\subsection{PDFs, Structure Functions, and the Quark Parton Model}
 
-In the context of hadron-hadron collisions, one can interpret the PDFs as follows: consider two hadrons A and B colliding; a parton of type \emph{a} ($a\in \{u, d, s, g, ...\}$) comes from A and carries with it a fraction of A's momentum ($x_A$).  The same goes for hadron B; a parton of type \emph{b} comes from B and carries momentum fraction $x_B$. Now, the probability of finding the discussed parton from A is given by $q_{a/A}(x_A)dx_A$. Likewise, the probability of finding the discussed parton from B is $q_{b/B}(x_B)dx_B$.
+In the context of hadron-hadron collisions, one can interpret the PDFs as follows: consider two hadrons A and B colliding; a parton of type \emph{a} ($a\in \{u, d, s, g, ...\}$) comes from A and carries with it a fraction of A's momentum ($x_A$).  The same goes for hadron B; a parton of type \emph{b} comes from B and carries momentum fraction $x_B$. Now, the probability of finding the discussed parton from A at momentum fraction $x_A$ is given by $q_{a/A}(x_A)$. Likewise, the probability of finding the discussed parton from B at $x_B$ is $q_{b/B}(x_B)$.
 
-Due to the complex nature of lattice QCD simulations, the parton distributions $q_f(x)$ and $\bar{q}_f(x)$ within the nucleus are determined empirically, with only a few rules based in theory. The primary probe used to measure them has been deep inelastic scattering (DIS), examining the inclusive jet production in order to get a clearer picture of nucleon structure. It should be noted, however, that there have been some Drell-Yan experiments (E605 and E866) that have contributed to these models. The current status of the experimental determination of these PDFs is led by CTEQ (Coordinated Theoretical-Experimental Project on QCD) and TEA (\red{which stands for???}), and are illustrated in Figures~\ref{fig:pdf-q2}~and~\ref{fig:pdf-q100}.
-
-\red{Add DIS diagram and DIS breakdown here?}
-
-Since the photon mediating the DIS interaction is only interacting with one quark (and not two, from two nucleons as in the case of DY), analysis of the scattering allows for a determination of the momentum fraction distribution of the quarks. These distributions, however, are not directly measured. What is actually measured is the $F_2$ structure function, which is a summation over quark flavors. This structure function can be expressed in terms of the quark PDFs as
-\begin{equation}
-F_2(x) = \nu W_2(x) = \sum_f e_f^2 x [q_f(x) + \bar{q}_f(x)]
-\end{equation}
-However, due to the universality and process-independence of the PDFs, the distributions measured by DIS must also stand for DY processes.
-
-The CTEQ-TEA calculated these PDFs from data on inclusive, high-momentum transfer processes, for which perturbative QCD is expected to be reliable. In the case of deep inelastic lepton scattering, only data with Q > 2 GeV is used. Data in this region are expected to be relatively free of non-perturbative effects, such as higher twists or nuclear corrections. Thus, there is no need to introduce phenomenological models for nonperturbative corrections beyond the leading-twist perturbative contributions\cite{Dulat:2015mca}.
-
-In general, experimental data measuring $F_2$ is used in conjunction with some general constraints in order to arrive at the calculated PDFs. One constraint is to consider the known number of valence quarks in a nucleon. Since the function $q_f(x)$ is the number density of quark flavor $f$ as a function of momentum fraction $x$, the value $q_f(x)dx$ represents the number of quarks with flavor $f$ with fractional momentum in the range of $[x,x+dx]$. Therefore, the known number of valence quarks of flavor $f$ ($N_f$) provides the following condition.
+In general, experimental data measuring $F_2$ is used in conjunction with some general constraints in order to arrive at the calculated PDFs. One constraint is to consider the known number of valence quarks in a nucleon. Since the function $q_f(x)$ can be interpreted to be the number density of quark flavor $f$ as a function of momentum fraction $x$, the value $q_f(x)dx$ represents the number of quarks with flavor $f$ with fractional momentum in the range of $[x,x+dx]$. Therefore, the known number of valence quarks of flavor $f$ ($N_f$) provides the following condition.
 \begin{equation}
 \int_0^1 dx [q_f(x) - \bar{q}_f(x)] = N_{f}
 \end{equation}
 Another condition considers the value $x q(x) dx$, which is the total momentum fraction of the hadron of the number of quarks $q(x)dx$. This provides a logical constraint is the summation of the momentum fractions of all partons must add up to the full nucleon momentum:
 \begin{equation}
-\sum_{q,\bar{q},g} \int_0^1 dx x q(x) = 1
+\sum_{q,\bar{q},g} \int_0^1 dx [x q(x)] = 1
 \end{equation}
+It should also be noted that the quark PDFs can be split with respect to their spin alignment ($+$) or anti-alignment ($-$) with the nucleon's spin
+\begin{equation}
+q(x) = q^+(x) + q^-(x)
+\end{equation}
+and the polarized helicity PDF can be defined as
+\begin{equation}
+\Delta q(x) = q^+(x) - q^-(x)
+\end{equation}
+though, due to the fact that SeaQuest uses neither a polarized $\Delta q(x)$. There is a standing proposal, however, to extend the SeaQuest spectrometer for an additional period of data taking, augmenting it with a polarized proton beam and/or a polarized target\CN.
+
+The structure functions $F_1, F_2,$ and $g_1$ of the nucleon are interpreted in the QPM as the charge-weighted sums over the quark flavors of the corresponding PDFs:
+\begin{eqnarray}
+F_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x) \\
+F_2(x) = \sum\limits_f e_f^2 x q_f(x) \label{eq:callan-gross} \\
+g_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x) \\
+\end{eqnarray}
+where here $f$ represents all flavors of of quarks and anti-quarks. We see above the relation between $F_1(x)$ and $F_2(x)$ known as the Callan-Gross relation, which stems from 
+
+Due to the complex nature of lattice QCD\footnote{An approach to solving quantum chromodynamics situations by simulating quarks and gluons on a set of lattice points in spacetime and modeling their well-defined interactions.} simulations, the parton distributions $q_f(x)$ and $\bar{q}_f(x)$ within the nucleus are determined empirically, with only a few rules based in theory. The primary probe used to measure them has been deep inelastic scattering (DIS), examining the inclusive jet production in order to get a clearer picture of nucleon structure. Data from many different experiments are combined  to extract the unpolarized PDFs. The earlier parametrizations of the PDFs first relied on fits to the measured structure functions solely from DIS experiments which are primarily sensitive to the light quark distributions and are unable to disinguish between quarks and antiquarks of the same flavor. More modern parametrizations use many different processes to extract supplementary and complementary information that can be incorporated. Lepton-charge asymmetry observed in $W^\pm$ production provides additional light quark distribution information. Jet production and photon measurements are also used to set constraints on gluon distributions. It should be noted that Drell-Yan dilepton production from such experiments as E605 and E866 that have contributed constraints on the light anti-quark distributions from the nucleon sea.
+
+The current status of the experimental determination of these PDFs is led by CTEQ (Coordinated Theoretical-Experimental Project on QCD) and TEA (\red{which stands for???}), and are illustrated in Figures~\ref{fig:pdf-q2}~and~\ref{fig:pdf-q100}. The CTEQ-TEA calculated these PDFs from data on inclusive, high-momentum transfer processes, for which perturbative QCD is expected to be reliable. In the case of deep inelastic lepton scattering, only data with $Q > 2$ GeV is used. Data in this region are expected to be relatively free of non-perturbative effects, such as higher twists or nuclear corrections. Thus, there is no need to introduce phenomenological models for nonperturbative corrections beyond the leading-twist perturbative contributions\cite{Dulat:2015mca}.
 
 \begin{figure}
 	\centering
@@ -220,7 +229,31 @@ Another condition considers the value $x q(x) dx$, which is the total momentum f
 	\label{fig:pdf-q2-q100}
 \end{figure}
 
-Looking to Figure~\ref{fig:pdf-q2-q100} we see that at $x>0.1$, $u$ and $d$ quarks dominate $\bar{u}$ and $\bar{d}$ quarks. This is key for the SeaQuest DY measurements due to the kinematic space explored where there is predominantly high $x_1$ and lower $x_2$ observed. In this regime, the Drell-Yan process is probabilistically dominated by a quark from the beam annihilating with an anti-quark from the target. All anti-quarks that exist in the target nucleons must come from what are called the \emph{sea quarks}, or the virtual $q\bar{q}$ pairs 
+Looking to Figure~\ref{fig:pdf-q2-q100} we see that at $x>0.1$, $u$ and $d$ quarks dominate $\bar{u}$ and $\bar{d}$ quarks. The SeaQuest spectrometer (described in detail in the next chapter) is a ``forward spectrometer'', which means that, for PDF-relevant purposes, the high-$x_F$ ($x_F>0$) kinematic phase space is explored, which translates to high $x_1$ and low $x_2$. With this consideration, the Drell-Yan process measured at SeaQuest is probabilistically dominated by a quark from the beam annihilating with an anti-quark from the target. Further, all anti-quarks that exist in the target nucleons must come from what are called the \emph{sea quarks}, or the virtual $q\bar{q}$ pairs 
+that arise from gluons splitting. 
+
+Other interesting observations and measurements that have gone into these distributions are the observations of momentum contributions from all quarks and antiquarks and the momentum fraction from just antiquarks. The momentum sum
+\begin{equation}
+x_{tot} = \int_0^1 dx [F_2(x)] \cong \int_0^1 dx [x(q(x) + \bar{q}(x))] \label{eq:mom-sum}
+\end{equation}
+showed that $x_{tot}$ for quarks is $0.512 \pm 0.018$\CN. The rest was found to be attributed to the gluons, though they could not be detected directly by an electron beam in DIS since they carry no electric charge. The momentum fraction from just anti-quarks comes from clever use of another structure function, $F_3$.
+\begin{eqnarray}
+F_3^{\nu N}(x) & = & q(x) - \bar{q}(x) - 2s(x) + 2c(x) \\
+F_3^{\bar{\nu} N}(x) & = & q(x) - \bar{q}(x) + 2s(x) - 2c(x) \\
+F_3(x) & = & \frac{1}{2} [F_3^{\nu N}(x) + F_3^{\bar{\nu} N}(x)] = q(x) - \bar{q}(x) = u_v(x) + d_v(x)
+\end{eqnarray}
+Here, the $v$ subscript denotes valence quark distributions, $q/\bar{q}(x)$ are
+\begin{eqnarray}
+q(x) & = & u(x) + d(x) + s(x) + c(x) \\
+\bar{q}(x) & = & \bar{u}(x) + \bar{d}(x) + \bar{s}(x) + \bar{c}(x)
+\end{eqnarray}
+and the individual $F_3^{\nu/\bar{\nu}N}$ structure functions are measured from $\nu N$ and $\bar{\nu} N$ scattering and then combined\CN. With $F_3$, there is the Gross-Llewellyn Smith (GSL) sum rule\cite{Gross:1969jf}
+\begin{equation}
+\int_0^1 F_3(x) = 3
+\end{equation}
+which is to say that there are three valence quarks. The new information gained here with $F_3$ though is the measurement of $\int dx [xF_3(x)] = 0.341 \pm 0.036$, which gives the momentum fraction carried by the valence quarks. Put this together with the results of Eq.~\ref{eq:mom-sum} and one can derive the conclusion that the anti-quarks in the nucleon possess between 13\% and 17\% of the nucleon's momentum\cite{Fisk:1982pn}.
+
+The last interesting sum rule to discuss is the Gottfried sum rule.
 %
 %As we will discuss in the next section, partons in a bound nucleon behave differently than partons in a free nucleon. By studying Drell-Yan in nuclear targets, we can investigate the degree to which this modification is the result of a modification to the quark sea.
 %
