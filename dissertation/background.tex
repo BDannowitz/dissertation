@@ -180,15 +180,16 @@ x_2  = \sqrt{\tau} e^{-y}
 \end{equation}
 It should be noted that with collider experiments, it is conventional to refer to the hadrons A and B in terms of the beam and target hadrons, respectively, and as such, $x_1$ refers to the the quark in the beam hadron and $x_2$ refers to the quark in the target hadron.
 
-In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x)$ and $\bar{q}(x)$) are independent of the process by which they are probed. This universality of the PDFs is one of the foundations of the the Quark Parton Model (QPM).
+In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x)$ and $\bar{q}(x)$) are independent of the process by which they are probed. This feature is commonly referred to as the ``universality'' of the PDFs.
 
-\subsection{PDFs, Structure Functions, and the Quark Parton Model}
+\section{PDFs, Structure Functions, and the Quark Parton Model}
 
 In the context of hadron-hadron collisions, one can interpret the PDFs as follows: consider two hadrons A and B colliding; a parton of type \emph{a} ($a\in \{u, d, s, g, ...\}$) comes from A and carries with it a fraction of A's momentum ($x_A$).  The same goes for hadron B; a parton of type \emph{b} comes from B and carries momentum fraction $x_B$. Now, the probability of finding the discussed parton from A at momentum fraction $x_A$ is given by $q_{a/A}(x_A)$. Likewise, the probability of finding the discussed parton from B at $x_B$ is $q_{b/B}(x_B)$.
 
 In general, experimental data measuring $F_2$ is used in conjunction with some general constraints in order to arrive at the calculated PDFs. One constraint is to consider the known number of valence quarks in a nucleon. Since the function $q_f(x)$ can be interpreted to be the number density of quark flavor $f$ as a function of momentum fraction $x$, the value $q_f(x)dx$ represents the number of quarks with flavor $f$ with fractional momentum in the range of $[x,x+dx]$. Therefore, the known number of valence quarks of flavor $f$ ($N_f$) provides the following condition.
 \begin{equation}
 \int_0^1 dx [q_f(x) - \bar{q}_f(x)] = N_{f}
+\label{eq:vsr}
 \end{equation}
 Another condition considers the value $x q(x) dx$, which is the total momentum fraction of the hadron of the number of quarks $q(x)dx$. This provides a logical constraint is the summation of the momentum fractions of all partons must add up to the full nucleon momentum:
 \begin{equation}
@@ -198,7 +199,7 @@ It should also be noted that the quark PDFs can be split with respect to their s
 \begin{equation}
 q(x) = q^+(x) + q^-(x)
 \end{equation}
-and the polarized helicity PDF can be defined as
+and the polarized (or helicity) PDF can be defined as
 \begin{equation}
 \Delta q(x) = q^+(x) - q^-(x)
 \end{equation}
@@ -208,9 +209,9 @@ The structure functions $F_1, F_2,$ and $g_1$ of the nucleon are interpreted in 
 \begin{eqnarray}
 F_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x) \\
 F_2(x) = \sum\limits_f e_f^2 x q_f(x) \label{eq:callan-gross} \\
-g_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x) \\
+g_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x)
 \end{eqnarray}
-where here $f$ represents all flavors of of quarks and anti-quarks. We see above the relation between $F_1(x)$ and $F_2(x)$ known as the Callan-Gross relation, which stems from 
+where here $f$ represents all flavors of of quarks and anti-quarks. We see above the relation between $F_1(x)$ and $F_2(x)$ known as the Callan-Gross relation ($F_2 = 2xF_1$).
 
 Due to the complex nature of lattice QCD\footnote{An approach to solving quantum chromodynamics situations by simulating quarks and gluons on a set of lattice points in spacetime and modeling their well-defined interactions.} simulations, the parton distributions $q_f(x)$ and $\bar{q}_f(x)$ within the nucleus are determined empirically, with only a few rules based in theory. The primary probe used to measure them has been deep inelastic scattering (DIS), examining the inclusive jet production in order to get a clearer picture of nucleon structure. Data from many different experiments are combined  to extract the unpolarized PDFs. The earlier parametrizations of the PDFs first relied on fits to the measured structure functions solely from DIS experiments which are primarily sensitive to the light quark distributions and are unable to disinguish between quarks and antiquarks of the same flavor. More modern parametrizations use many different processes to extract supplementary and complementary information that can be incorporated. Lepton-charge asymmetry observed in $W^\pm$ production provides additional light quark distribution information. Jet production and photon measurements are also used to set constraints on gluon distributions. It should be noted that Drell-Yan dilepton production from such experiments as E605 and E866 that have contributed constraints on the light anti-quark distributions from the nucleon sea.
 
@@ -234,7 +235,7 @@ that arise from gluons splitting.
 
 Other interesting observations and measurements that have gone into these distributions are the observations of momentum contributions from all quarks and antiquarks and the momentum fraction from just antiquarks. The momentum sum
 \begin{equation}
-x_{tot} = \int_0^1 dx [F_2(x)] \cong \int_0^1 dx [x(q(x) + \bar{q}(x))] \label{eq:mom-sum}
+x_{tot} = \int_0^1 dx [F_2(x)] \simeq \int_0^1 dx [x(q(x) + \bar{q}(x))] \label{eq:mom-sum}
 \end{equation}
 showed that $x_{tot}$ for quarks is $0.512 \pm 0.018$\CN. The rest was found to be attributed to the gluons, though they could not be detected directly by an electron beam in DIS since they carry no electric charge. The momentum fraction from just anti-quarks comes from clever use of another structure function, $F_3$.
 \begin{eqnarray}
@@ -253,20 +254,61 @@ and the individual $F_3^{\nu/\bar{\nu}N}$ structure functions are measured from 
 \end{equation}
 which is to say that there are three valence quarks. The new information gained here with $F_3$ though is the measurement of $\int dx [xF_3(x)] = 0.341 \pm 0.036$, which gives the momentum fraction carried by the valence quarks. Put this together with the results of Eq.~\ref{eq:mom-sum} and one can derive the conclusion that the anti-quarks in the nucleon possess between 13\% and 17\% of the nucleon's momentum\cite{Fisk:1982pn}.
 
-The last interesting sum rule to discuss is the Gottfried sum rule.
+The last interesting sum rule to discuss is the Gottfried sum rule which is focused on flavor asymmetries between the proton and its isospin partner, the neutron.
+\begin{eqnarray}
+  S_G & = & \int_0^1 dx \left[\frac{F_2^p - F_2^n}{x}\right] \\
+  & = & \int_0^1 dx \left[ \sum\limits_f e_f^2 [q_f^p(x) + \bar{q}_f^p(x) - q_f^n(x) - \bar{q}_f^n(x)] \right]
+\end{eqnarray}
+We assume charge symmetry insofar as $u^p(x) = d^n(x)$ and $\bar{u}^n (x) = \bar{d}^p(x)$, yielding
+\begin{equation}
+S_G = \int_0^1 dx \left[ \frac{1}{3} (u(x) + \bar{u}(x) - d(x) - \bar{d}(x)) \right]
+\end{equation}
+where these PDFs refer to the distributions in the proton. By some reorganization and grouping, this can be re-expressed in a more familiar way.
+\begin{equation}
+S_G = \int_0^1 dx \left[\frac{1}{3} [u(x) - \bar{u}(x)] \right] - 
+      \int_0^1 dx \left[\frac{1}{3} [d(x) - \bar{d}(x)] \right] -
+      \int_0^1 dx \left[\frac{2}{3} [\bar{d}(x) - \bar{u}(x)] \right]
+\end{equation}
+The first two integrals here are the definitions of the valence quark sum rule mentioned in Eq.~\ref{eq:vsr}, and this is known to be 2 and 1 for the $u$ and $d$ valence quarks of the proton, respectively. As a result, we arrive at the common representation of the Gottfried Sum Rule (GSR).
+\begin{equation}
+	  S_G = \frac{1}{3} - \int_0^1 dx \left[ \frac{2}{3} [\bar{d}(x) - \bar{u}(x)] \right]
+      \label{eq:gsr}
+\end{equation}
+If one were to assume that, within a proton, $\int dx [\bar{u}(x)] = \int dx[\bar{d}(x)]$, then this sum reduces to $\frac{1}{3}$. More on this sum and its measured violation in a later section.
+
 %
 %As we will discuss in the next section, partons in a bound nucleon behave differently than partons in a free nucleon. By studying Drell-Yan in nuclear targets, we can investigate the degree to which this modification is the result of a modification to the quark sea.
 %
 
-\subsection{QCD-Improved Drell-Yan and the K-Factor}
+\subsection{Drell-Yan Tests of the QPM}
 
+The Drell-Yan process can be described within the frameworks of QPM and QCD, so it provides a good testing ground for these models. The testing process begins with establishing the validity of the na\"{\i}ve Drell-Yan  quark-parton model. Once this is done, detailed studies of how 
+
+\red{\begin{itemize}
+		\item Point-like quarks
+		\item quark charge
+		\item quark spin
+		\item end with departure of Drell-Yan from QPM with scaling violation and the magnitude of DY over prediction (K-Factor), and pT
+	\end{itemize}}
+
+\section{QCD-Improved Drell-Yan}
+
+\red{\begin{itemize}
+		\item Gluon interactions complicate the na\"{i}ve DY picture,
+		\item Describe QCD corrective processes
+		\item Maybe move $\alpha_s$ and running of coupling constant to here
+		\item Introduce Q-dependence of PDFs
+		\item QCD calculation of K-factor
+		\item Transverse momentum in QCD picture
+	\end{itemize}
+}
 %In addition to the leading-order DY term, there are high-order QCD corrections to consider. These have been studied and accounted for up to $\bigoh(\alpha_s)$ and $\bigoh(\alpha_s^2)$. These include contributions from high-order $q\bar{q}$ annihilation $(q \bar{q} \rightarrow \gamma * + g)$ and gluon Compton scattering $(q + g \rightarrow \gamma * + q)$ as seen in Figure \ref{fig:nlo-dy} \cite{duan-2007-50}. The cumulative effect is denoted in the cross section as the $K(x_1,x_2)$ factor, which can vary between 1.6 and 2.8.  For our $x_1$ and $x_2$ range, $K \sim 1.6$.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=5.00in]{figures/background/DY.jpeg}
+	\includegraphics[width=\textwidth]{figures/background/DY.jpeg}
 	\caption{The Drell-Yan process has a large range of higher-order QCD corrections that need to be accounted for. 
-		(A) and (B) are high order $q\bar{q}$ annihilations, and (C) and (D) are gluon ``Compton scattering'' terms.}
+		(a) and (b) are high order $q\bar{q}$ annihilations, and (c) and (d) are gluon ``Compton scattering'' terms.}
 	\label{fig:nlo-dy}
 \end{figure}
 
@@ -274,7 +316,7 @@ The last interesting sum rule to discuss is the Gottfried sum rule.
 
 \subsection{$\bar{d}/\bar{u}$ Asymmetry}
 
-\red{Give rough derivation, previous results, a model, and what SeaQuest proposes to provide, stats-wise.}
+\red{Start with Gottfried sum violation, give rough derivation of dbar/ubar, previous results, a model, and what SeaQuest proposes to provide, stats-wise.}
 
 \subsection{The EMC Effect}
 
@@ -283,20 +325,18 @@ The last interesting sum rule to discuss is the Gottfried sum rule.
 The European Muon Collaboration, in 1983, measured the DIS cross section per nucleon ratios of $Fe$ to $D$ over a large kinematic range.  The result, as seen in the top right of Figure \ref{fig:emc} came as quite a surprise.  It was revealed that the structure function of a nucleon bound in a nucleus differs fundamentally from that of a free nucleon  \cite{Aubert:1983xm}.  This difference was not a simple or small effect either; the cross section per nucleon of a nucleus showed to be smaller than that of deuterium at very low $x_2$, greater than deuterium at $0.1<x_2<0.2$, and then steadily less than deuterium for $0.2<x_2<0.6$. 
 %
 This complex, unexplained behavior opened up a new field of research and theoretical work. Following suit, the different aspects of this nuclear modification garnered some common nicknames.  The region where $x_2<0.1$ became known as \emph{``Nuclear Shadowing''}, the transition region of $0.1<x_2<0.2$ is known as \emph{``Anti-shadowing''}, and the linear decline in the ratio of cross sections between $0.2<x_2<0.6$ is generally referred to as the \emph{``EMC Effect''} \cite{Geesaman:1995yd}.
-%
-%The phenomenon was simple -- DIS off of a bound nucleon was not the same as off of a free nucleon -- but hundreds of theoretical papers were written attempting to explain it away, from multiquark ($6q$) clusters to the exchange of virtual pions in the nucleus. Some have joked that EMC should stand for \emph{"Every Model is Cool"}. The focus of recent work (and this paper) is on the ``EMC Effect'' region, characterized by the distinctly linear downward slope.
-%
-%Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
-%\begin{itemize}
-%	\item
-%	It is $Q^2$-independent
-%	\item
-%	It's x-dependent shape is universal (across various nuclei)
-%	\item
-%	The magnitude (slope) of the effect varies with A
-%	\item
-%	It thereby might be related to nuclear density
-%\end{itemize}
+
+Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
+\begin{itemize}
+	\item
+	It is $Q^2$-independent
+	\item
+	It's x-dependent shape is universal (across various nuclei)
+	\item
+	The magnitude (slope) of the effect varies with A
+	\item
+	It thereby might be related to nuclear density
+\end{itemize}
 %
 %In parallel to this effort, many researchers were working on high-momentum nucleons and short range correlations (SRC's), neither aware yet of their common ground.
 
@@ -307,3 +347,20 @@ This complex, unexplained behavior opened up a new field of research and theoret
 \subsubsection{Nuclei-Nuclei Short Range Correlations}
 
 \subsection{E-772 at Fermilab}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/background/dyfig9.png}
+	\caption{E-772 Drell-Yan $\frac{A}{^2H}$ ratios for several nuclear targets as a function of $x_2$ ($x_t$)\cite{Alde:1990im}.}
+	\label{fig:772-dy}
+\end{figure}
+
+\subsection{Nuclear Dependence of Drell-Yan at SeaQuest}
+
+\red{\begin{itemize}
+		\item Talk about what will be measured
+		\item Which targets will be used
+		\item What kinematic phase space in \{x1, x2\} will be explored
+		\item What the statistics will be, approximately
+		\item What, if anything, will be compared to models
+	\end{itemize}}
