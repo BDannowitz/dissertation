@@ -13,7 +13,7 @@ The first indication that the proton may have some internal structure was in a 1
 Around the same time, Hideku Yukawa is credited for establishing the first theory of a \emph{strong force}, a force binding together nucleons in a nuclei against the sizable \emph{Coulomb} repulsion of protons against each other. The force was theorized to be mediated by the exchange of particles called \emph{mesons}, and its range was limited to nuclei-scale distances, seeing as it's not observed at larger distances. Based upon the size of the nucleus, Yukawa estimated the mass of the intermediating particles to be approximately $2 \times 10^2 m_e \approx 100 MeV$, where $m_e$ is the electron mass. The following year, Anderson et al. discovered the muon ($\mu$) at around this mass\CN, which confused many as it did not seem to partake in strong interactions. Eventually, by 1947, the meson theory was validated by the discovery of the \emph{pion} by Powell \emph{et al.}\CN, and Yukawa was awarded a Nobel Prize for his theory in 1949. While the pion turned out to be just another composite particle, its discovery was a watershed moment in particle physics that led to a cascading series of discoveries. 
 \begin{figure}
 	\centering
-	\includegraphics[width=4.5in]{figures/background/mesons_baryons.pdf}
+	\includegraphics[width=5in]{figures/background/mesons_baryons.pdf}
 	\caption{The octets and decuplet of Gell-Mann's ``Eightfold Way''. Top left: the eight particles of the meson octet; top right: the spin-$\frac{1}{2}$ baryon octet; bottom: the spin-$\frac{3}{2}$ baryon decuplet.}
 	\label{fig:mesons-baryons}
 \end{figure}
@@ -30,7 +30,7 @@ Studying the production of pairs of leptons resulting from hadron-hadron collisi
 
 \begin{figure}
 	\centering
-	\includegraphics[width=4in]{figures/background/DY-spectrum-e866.png}
+	\includegraphics[width=3in]{figures/background/DY-spectrum-e866.png}
 	\caption{Dimuon mass spectrum from E-866 $p+h$ collisions at \unit[800]{GeV/c}\cite{PhysRevLett.80.3715}.}
 	\label{fig:DY-spectrum}
 \end{figure}
@@ -46,7 +46,7 @@ In cases where a Drell-Yan process occurs, it can often be the case that the inc
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=5.0in]{figures/background/Drell-Yan.png}
+	\includegraphics[width=4.5in]{figures/background/Drell-Yan.png}
 	\caption{The Drell-Yan process, an $s$ channel interaction consisting of the annihilation of a quark with an anti-quark.}
 	\label{fig:dy-diagram}
 \end{figure}
@@ -79,9 +79,20 @@ where
 Here, $\Lambda$ is the QCD scale parameter that depends on the number of quark flavors, $n_f$, and the renormalization scheme, measured to be around $\sim$ \unit[217]{MeV}. Experimental measurements of the running of the coupling constant as measured by many different processes can be seen in Figure~\ref{fig:asymptotic-freedom}.
 \begin{figure}
 	\centering
-	\includegraphics[height=2.5in]{figures/background/asymptotic-freedom.jpg}
-	\caption{A compilation of measurements of the running of the strong coupling constant, $\alpha_s(Q^2)$.}
+	\includegraphics[height=3in]{figures/background/running-strong-coupling.png}
+	\caption{A compilation of measurements of the running of the strong coupling constant, $\alpha_s(Q^2)$\cite{CMS:2014mna}.}
 	\label{fig:asymptotic-freedom}
+\end{figure}
+
+It is useful to have some intuition as to the reason for these ``running'' of the coupling constants. The phenomenons responsible are termed ``screening'' and ``anti-screening'' (or ``camouflaging'')\cite{Quigg:1985ai}. This straightforward in the case of the electromagnetic force which can be seen depicted in the left pane of Figure~\ref{fig:screening-camo}. Whether it is in some kind of dielectric medium or in an isolated vacuum (where quantum fluctuations lead to virtual $e^+e^-$ pairs), the charges surrounding an individual charged particle are oriented in such a way as to decrease the overall observed charge. In the realm of QED, the higher energies you use to probe a particle, the closer you actually get to seeing the ``actual'' charge of the particle, and as such, the EM coupling constant increases at higher energies.
+
+The same is seen in the case of QCD with its non-binary charge scheme. It's more difficult to conceptualize, but the same screening effect exists in the case of a particle with color charge. The middle pane of Fig.~\ref{fig:screening-camo} is a depiction of screening analogous to the familiar EM screening. The difference between QCD and QED with the behavior of the coupling constants is attributable to the fact that the force-carrying boson of QCD, the gluon, carries with it its own color charge. In the QED picture, the charge at the center is continuously emitting and absorbing photons as it interacts with the surrounding charges, but its charge does not change. With the color-charged particle, gluons are also being continuously emitted and absorbed, but an effect of that is a change in color charge. The result ends up being the phenomenon of camouflaging where, the closer you are to a color-charged particle, the less that you can ``see'' the \emph{net} charge, and the actual charge of the particle is obfuscated. The net charge of the particle, statistically, becomes neutral, causing the strong force to become increasingly feeble at smaller scales (compared to the strength of QED interactions). This effect competes with and surpasses the color screening that occurs and is the root cause of the asymptotic freedom in QCD. On the flip side, the farther you get from the color charge, the more you are exposed to the full true net charge, and the stronger the coupling becomes. This increase in the coupling is the QCD confinement that is observed. An example if in the right pane of Fig.~\ref{fig:screening-camo} where the quark emits many gluons, thus changing its color from Blue to Green, but when summing over all colors emitted and absorbed, the net color is still Blue.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/background/screening-camo.png}
+	\caption{(Left) classic electromagnetic screening of a free charge in a dielectric or even a vacuum. (Center) The analogous screening in the three-charge QCD regime. (Right) The color camouflaging due to the constant absorption/emission of colored gluons\cite{Quigg:1985ai}.}
+	\label{fig:screening-camo}
 \end{figure}
 
 \subsection{Drell-Yan Kinematics}
@@ -89,7 +100,7 @@ Here, $\Lambda$ is the QCD scale parameter that depends on the number of quark f
 In the center-of-mass frame, the Drell-Yan process can be broken down into three stages with three sets of kinematics (refer to Fig.~\ref{fig:dy-diagram}). Beginning with the quarks, \emph{x} is defined as the fraction of the hadron's momentum carried by the interacting quark or antiquark. Conventionally in fixed-target experiments, subscripts are assigned as $x_1$ and $x_2$, which refer to the quark/antiquark from the beam and the antiquark/quark from the target, respectively. This \emph{x} is called the Bjorken \emph{x}, and is well-known in DIS processes to have a value of
 \begin{equation}
 x = -q^2/2 p \cdot q
-\end{equation} where \emph{p} and \emph{q} are the 4-momenta of the hadron and the photon.
+\end{equation} where \emph{p} and \emph{q} are the 4-momenta of the hadron and the photon. In DY, the same momentum fraction $x$ is used to describe part of the fundamental basis of the interaction. In this case, $q$ is the 4-momentum of the virtual photon and $p$ is the 4-momentum of the hadron that contains the quark in question.
 
 The next stage of the process is the virtual photon. This photon' properties are effectively equivalent to the `dimuon' or `dilepton', which are the terms more commonly used in referring to kinematics. The first of its relevant kinematics is its mass $M_{\gamma^*}$, which represents its energy and virtuality. The value $x_F$, or Feynman-x, is the fraction of the maximum possible longitudinal momentum carried by the virtual photon in the beam direction. The transverse momentum, $p_T$, and the azimuthal production angle, $\phi_{\gamma^*}$ are the remaining kinematics associated with the virtual photon.
 
@@ -203,7 +214,7 @@ and the polarized (or helicity) PDF can be defined as
 \begin{equation}
 \Delta q(x) = q^+(x) - q^-(x)
 \end{equation}
-though, due to the fact that SeaQuest uses neither a polarized $\Delta q(x)$. There is a standing proposal, however, to extend the SeaQuest spectrometer for an additional period of data taking, augmenting it with a polarized proton beam and/or a polarized target\CN.
+though, due to the fact that SeaQuest uses neither a polarized $\Delta q(x)$. There are two standing proposals, however, to extend the SeaQuest spectrometer for an additional period of data taking, augmenting it with a polarized proton beam (FNAL E-1027) and/or a polarized target (FNAL E-1039). The polarized beam proposal adds two beam-polarizing apparatuses named \emph{Siberian Snakes} to provide sufficiently polarized protons. The polarized target modification calls for the construction and installation of a new cryogenic liquid target system. Both proposals have been approved by the FNAL review committee and are likely to be acted upon near the end of the E-906 contract.
 
 The structure functions $F_1, F_2,$ and $g_1$ of the nucleon are interpreted in the QPM as the charge-weighted sums over the quark flavors of the corresponding PDFs:
 \begin{eqnarray}

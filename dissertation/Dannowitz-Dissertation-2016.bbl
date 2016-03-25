@@ -157,6 +157,13 @@ C.~R. Kerns.
 \newblock {A High Rate Phototube Base}.
 \newblock {\em IEEE Trans. Nucl. Sci.}, 24:353--355, 1977.
 
+\bibitem{CMS:2014mna}
+Vardan Khachatryan et~al.
+\newblock {Measurement of the inclusive 3-jet production differential cross
+  section in proton–proton collisions at 7 TeV and determination of the
+  strong coupling constant in the TeV range}.
+\newblock {\em Eur. Phys. J.}, C75(5):186, 2015.
+
 \bibitem{lecroy:1440}
 LeCroy.
 \newblock Lecroy 1440 high voltage power supply manual.
@@ -196,6 +203,11 @@ HCZ Photonics.
 \newblock Xp2072: High energy resolution , 10-stage, 39mm (1.5") tube.
 \newblock \url{http://hzcphotonics.com/products/XP2072.PDF}.
 \newblock Accessed: 2016-01-29.
+
+\bibitem{Quigg:1985ai}
+C.~Quigg.
+\newblock {ELEMENTARY PARTICLES AND FORCES}.
+\newblock {\em Sci. Am.}, 252N4:64--75, 1985.
 
 \bibitem{Seely:2009gt}
 J.~Seely et~al.
