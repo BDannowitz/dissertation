@@ -193,7 +193,9 @@ It should be noted that with collider experiments, it is conventional to refer t
 
 In each of these equations~\ref{eq:DY-cross}, \ref{eq:dy-cs-observe}, and \ref{eq:dy-cs-dimensionless}, the cross sections can be factored into two parts: one subprocess cross section and one part that has only a dependence on the parton distribution functions. They are independent of each other, because one of the staples of the quark parton model is that the PDFs ($q(x)$ and $\bar{q}(x)$) are independent of the process by which they are probed. This feature is commonly referred to as the ``universality'' of the PDFs.
 
-\section{PDFs, Structure Functions, and the Quark Parton Model}
+\section{Nucleon Structure}
+
+\subsection{PDFs, Structure Functions, and the Quark Parton Model}
 
 In the context of hadron-hadron collisions, one can interpret the PDFs as follows: consider two hadrons A and B colliding; a parton of type \emph{a} ($a\in \{u, d, s, g, ...\}$) comes from A and carries with it a fraction of A's momentum ($x_A$).  The same goes for hadron B; a parton of type \emph{b} comes from B and carries momentum fraction $x_B$. Now, the probability of finding the discussed parton from A at momentum fraction $x_A$ is given by $q_{a/A}(x_A)$. Likewise, the probability of finding the discussed parton from B at $x_B$ is $q_{b/B}(x_B)$.
 
@@ -220,9 +222,13 @@ The structure functions $F_1, F_2,$ and $g_1$ of the nucleon are interpreted in 
 \begin{eqnarray}
 F_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x) \\
 F_2(x) = \sum\limits_f e_f^2 x q_f(x) \label{eq:callan-gross} \\
-g_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x)
+g_1(x) = \frac{1}{2} \sum\limits_f e_f^2 \Delta q_f(x)
 \end{eqnarray}
-where here $f$ represents all flavors of of quarks and anti-quarks. We see above the relation between $F_1(x)$ and $F_2(x)$ known as the Callan-Gross relation ($F_2 = 2xF_1$).
+where here $f$ represents all flavors of of quarks and anti-quarks. We see above the relation between $F_1(x)$ and $F_2(x)$ known as the Callan-Gross relation ($F_2 = 2xF_1$). This relation relies on the partons having spin-$\frac{1}{2}$ and no transverse momentum in the infinite momentum frame. The full expression is
+\begin{equation}
+F_2 = 2xF_1 \frac{1 + R}{1 + 2 M_N x/\nu}
+\end{equation}
+where $M_N$ is the nucleon mass and $R=\sigma_L/\sigma_T$ is the ratio of cross sections for absorbing a longitudinal to that for a transverse photon. Experimentally, R is small\cite{PhysRevLett.61.1061} ($\lesssim0.1$) for $x\gtrsim0.1$ and for $Q^2\gtrsim$\unit[5]{GeV$^2$}. Also, when assuming the infinite momentum frame, $\nu$, the energy transferred by the photon is assumed to trend towards infinity. As a result, this relation reduces to the commonly-used Callan-Gross relation.
 
 Due to the complex nature of lattice QCD\footnote{An approach to solving quantum chromodynamics situations by simulating quarks and gluons on a set of lattice points in spacetime and modeling their well-defined interactions.} simulations, the parton distributions $q_f(x)$ and $\bar{q}_f(x)$ within the nucleus are determined empirically, with only a few rules based in theory. The primary probe used to measure them has been deep inelastic scattering (DIS), examining the inclusive jet production in order to get a clearer picture of nucleon structure. Data from many different experiments are combined  to extract the unpolarized PDFs. The earlier parametrizations of the PDFs first relied on fits to the measured structure functions solely from DIS experiments which are primarily sensitive to the light quark distributions and are unable to disinguish between quarks and antiquarks of the same flavor. More modern parametrizations use many different processes to extract supplementary and complementary information that can be incorporated. Lepton-charge asymmetry observed in $W^\pm$ production provides additional light quark distribution information. Jet production and photon measurements are also used to set constraints on gluon distributions. It should be noted that Drell-Yan dilepton production from such experiments as E605 and E866 that have contributed constraints on the light anti-quark distributions from the nucleon sea.
 
@@ -287,13 +293,23 @@ The first two integrals here are the definitions of the valence quark sum rule m
 \end{equation}
 If one were to assume that, within a proton, $\int dx [\bar{u}(x)] = \int dx[\bar{d}(x)]$, then this sum reduces to $\frac{1}{3}$. More on this sum and its measured violation in a later section.
 
-%
-%As we will discuss in the next section, partons in a bound nucleon behave differently than partons in a free nucleon. By studying Drell-Yan in nuclear targets, we can investigate the degree to which this modification is the result of a modification to the quark sea.
-%
-
 \subsection{Drell-Yan Tests of the QPM}
 
-The Drell-Yan process can be described within the frameworks of QPM and QCD, so it provides a good testing ground for these models. The testing process begins with establishing the validity of the na\"{\i}ve Drell-Yan  quark-parton model. Once this is done, detailed studies of how 
+The Drell-Yan process can be described within the frameworks of QPM and QCD, so it provides a good testing ground for these models. Even further, the very clean leptonic DY signature offers a good vantage point by which to confirm the parton picture experimentally. The testing process begins with establishing the validity of the quark-parton model via Drell-Yan. Once this is done, the following step would be to study the deviation between measurements and what is expected.
+
+\subsubsection{Quark charge}
+
+
+
+\subsubsection{Spin-1/2 quarks and the Lam-Tung Relation}
+
+
+\subsubsection{Transverse momentum}
+
+
+\subsubsection{Point-like quarks}
+
+If the quarks in the QPM are point-like and without any substructure, then the DY cross section (expressed in Eq.~\ref{eq:dy-cs-dimensionless}) across $Q^2$ ($\sqrt{s}$) should exhibit scaling behavior 
 
 \red{\begin{itemize}
 		\item Point-like quarks
@@ -302,7 +318,18 @@ The Drell-Yan process can be described within the frameworks of QPM and QCD, so 
 		\item end with departure of Drell-Yan from QPM with scaling violation and the magnitude of DY over prediction (K-Factor), and pT
 	\end{itemize}}
 
-\section{QCD-Improved Drell-Yan}
+\subsection{QCD-Improved Drell-Yan}
+
+Quantum chromodynamics was introduced in in this chapter in Main problem: What is the
+charge the gluons couple to (like electrical charge for the photons
+and weak isospin for the W bosons)?
+It is colour. Quarks come in three colours. This becomes apparent,
+when considering, e.g, the ∆++ particle. Since it is a fermion its
+wave function must be antisymmetric. But it consists of three u
+quarks (symmetric only), its spin-3/2 state has all spins aligned (also
+symmetric). Therefore: A new quantum number, in which the
+quarks are completely antisymmetric, i.e. ∝ ǫijk .
+Construction principle as before: Gauge theory
 
 \red{\begin{itemize}
 		\item Gluon interactions complicate the na\"{i}ve DY picture,
@@ -329,12 +356,83 @@ The Drell-Yan process can be described within the frameworks of QPM and QCD, so 
 
 \red{Start with Gottfried sum violation, give rough derivation of dbar/ubar, previous results, a model, and what SeaQuest proposes to provide, stats-wise.}
 
-\subsection{The EMC Effect}
+The Gottfried Sum Rule (Eq.~\ref{eq:gsr}) can be seen as a measure of flavor symmetry (or asymmetry) in the nucleon. If flavor symmetry were to be upheld, then the sum would strictly be $S_G = \frac{1}{3}$. The New Muon Collaboration (NMC) at CERN sought to test this by measuring the cross section ratio for DIS of muons on hydrogen to muons on deuterium\cite{Amaudruz:1991nw,Arneodo:1994sh}. This cross section ratio allowed for the measurement of $F_2^n/F_2^p$ over a Bjorken-$x$ range of $0.004 < x < 0.8$.  Incident muon energies of \unit[90]{Gev} and \unit[280]{GeV} were used to measure the $F_2$ ratio at $Q^2$ of \unit[4]{GeV$^2$}. The full results of the NMC experiment can be seen to be in clear disagreement with flavor symmetry in Figure~\ref{fig:nmc}. The extrapolated result of the NMC measurements over all $x$ yielded
+\begin{equation}
+S_G = \int_0^1 dx \left[ \frac{F_2^p - F_2^n}{x} \right] = 0.235 \pm 0.026.
+\end{equation}
 
-\red{Start from the very beginning with EMC in 1983, discuss current understanding. Draw from review paper and the SeaQuest Academy talks by Don and Arrington.}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/background/NMC-All.pdf}
+	\caption{The NMC experimental measurements of (left) $F_2^n/F_2^p$ and (right) the Gottfried Sum ($S_G$) with $\frac{1}{3}$ denoted by ``QPM''.}
+	\label{fig:nmc}
+\end{figure}
 
-The European Muon Collaboration, in 1983, measured the DIS cross section per nucleon ratios of $Fe$ to $D$ over a large kinematic range.  The result, as seen in the top right of Figure \ref{fig:emc} came as quite a surprise.  It was revealed that the structure function of a nucleon bound in a nucleus differs fundamentally from that of a free nucleon  \cite{Aubert:1983xm}.  This difference was not a simple or small effect either; the cross section per nucleon of a nucleus showed to be smaller than that of deuterium at very low $x_2$, greater than deuterium at $0.1<x_2<0.2$, and then steadily less than deuterium for $0.2<x_2<0.6$. 
-%
+To reconcile this result with the QPM expectation, certain assumptions need to be reevaluated. The first assumption is that the extrapolation of the NMC result to low $x$ is correct. The second is that charge symmetry is valid. The final assumption is the flavor symmetry of the quark sea, or, $\int dx [\bar{d}(x)] = \int dx [\bar{u}(x)]$. The E-665 experiment at FNAL sought to extend the NMC low-$x$ coverage ($10^-6 < x < 0.3$) despite the difficulties of DIS in the extremely low-$x$ range. The results were consistent with NMC's extrapolation\CN, and so the faulty assumption must lie elsewhere. Charge symmetry violation would lead to such a discrepancy, but to date, charge symmetry has been upheld in the relevant energy regime\cite{Abegg:1998sg}. This leaves only $\int dx [\bar{d}(x)] = \int dx [\bar{u}(x)]$ being violated to account for the difference, and if it were to be the root cause, the contribution to the violation would be
+\begin{equation}
+\int_0^1 dx[\bar{d}(x) - \bar{u}(x)] = 0.148 \pm 0.039.
+\end{equation}
+As such, this conclusion was the first indicator pointing to an the existence of more anti-down than anti-up quarks in the quark sea. This prompted further investigation of nucleon sea anti-quark asymmetry.
+
+Following the NMC results, it was suggested\CN to exploit features of the Drell-Yan process as a direct probe of nucleon sea distributions. The most direct method of doing so is to measure the Drell-Yan cross-sections for both hydrogen and deuterium and take the ratio of the two. The proton-deuterium cross section can be seen as a convolution of cross sections of proton-proton and a proton-neutron
+\begin{equation}
+\sigma^{pd} \approx \sigma^{pp} + \sigma^{pn}
+\end{equation}
+ignoring any small nuclear effects or phenomenon that may exist in the deuteron. In this picture, the deuterium-to-hydrogen DY ratio yields can be used to determine $\dbar/\ubar$.
+
+The NA51 experiment at CERN\cite{Baldit:1994jk} used a \unit[450]{GeV/c} primary proton beam ($\sqrt{s}=$\unit[29]{GeV}) from CERN-SPS on deuterium and hydrogen targets to measure $\sim$6000 Drell-Yan dimuon events, cutting on $M_{\gamma^*}>$\unit[4.3]{GeV}. The reason for the mass cut is to investigate the Drell-Yan continuum as depicted in Figure~\ref{fig:DY-spectrum} and exclude any possible signal contamination from heavy quarkonia. The NA51 experiment looked to measure what it called the ``p$-$n cross section asymmetry'' of the Drell-Yan process:
+\begin{eqnarray}
+A_{DY} & = & \frac{\sigma_{pd}-\sigma_{pp}}{\sigma_{pd}+\sigma_{pp}} \\
+& = & 2\frac{\sigma_{pp}}{\sigma_{pd}} - 1 \\
+A_{DY} & = &  -0.09 \pm 0.02 (\text{stat}) \pm 0.025 (\text{sys})
+\end{eqnarray}
+which was used to obtain a value for $\dbar/\ubar$. However, due to the NA51 spectrometer being designed to select rapidity about $y=0$ along with having low statistics, NA51 only provided a single value for this measurement centered at $x_F=0$ and $x=0.18$.
+\begin{equation}
+	\frac{\dbar}{\ubar} \Bigr|_{\langle x \rangle = 0.18} = 1.96 \pm 0.15\text{(stat)} \pm 0.19\text{(sys)}
+\end{equation}
+This provided strong evidence in confirmation that there was indeed a $\dbar$ excess in the nucleon. Unfortunately, without more statistics, no $x$-dependent behavior of this asymmetry could be determined. This NA51 result coupled with that of NMC prompted several groups to perform global fits from DIS and DY data with the consideration that $\dbar\neq\ubar$, though no $x$-dependent constraints could be imposed on the $\dbar(x)/\ubar(x)$.
+
+An improved experimental design of a ``forward'' muon spectrometer ($x_F>0$) was devised and implemented by the E-866/NuSea experiment to make a more effective measurement of $\dbar/\ubar$. In this kinematic phase space, one can factor in what we know about the PDFs and the DY cross section to consider the measurement as being dominated by the beam quark annihilating with the target's sea anti-quark. Considering  $x_1 \gg x_2$,
+\begin{eqnarray}
+\sigma^{pp} & \propto & \frac{4}{9} u(x_1)\bar{u}(x_2) + \frac{1}{9}d(x_1)\bar{d}(x_2) \\
+\sigma^{pn} & \propto & \frac{4}{9} u(x_1)\bar{d}(x_2) + \frac{1}{9}d(x_1)\bar{u}(x_2) \\
+\frac{\sigma^{pd}}{2\sigma^{pp}} & \approx & \frac{1}{2} \frac{\left[1 + \frac{1}{4} \frac{d(x_1)}{u(x_1)}\right]}{\left[1 + \frac{1}{4} \frac{d(x_1)}{u(x_1)}\frac{\bar{d}(x_2)}{\bar{u}(x_2)}\right]} \left[1 + \frac{\bar{d}(x_2)}{\bar{u}(x_2)}\right]
+\end{eqnarray}
+One can approximate even further that since $d(x) \ll 4 u(x)$, then the relation simplifies to
+\begin{equation}
+\frac{\sigma^{pd}}{2\sigma^{pp}}\Bigr|_{x_1\gg x_2} \approx
+\frac{1}{2} \left[1 + \frac{\bar{d}(x_2)}{\bar{u}(x_2)}\right]
+\label{eq:866-dbar-ubar}
+\end{equation}
+
+The results of the E-866/NuSea measurement\cite{PhysRevLett.80.3715}, along with the NA51 data, can be seen on Figure~\ref{fig:dbar-ubar}. A clear $x$-dependence can be seen as the $\dbar/\ubar$ ratio significantly exceeds unity up to $x_2=0.25$, after which the ratio drops below unity, though not at the same statistical significance. This complex $x$-dependent behavior was not expected by global fits, and many models have been proposed to address it: meson-cloud model, chiral-quark model, Pauli-blocking model, instanton model, chiral-quark soliton model, and more. These are not discussed here, but an in-depth look into each of these can be found in some review articled\cite{Kumano:1997cy, Garvey:2001yq}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/background/dbar-ubar.png}
+	\caption{The measurements and models for the $\dbar/\ubar$ measurement, including the NA51\cite{Baldit:1994jk}, E-866/NuSea\cite{PhysRevLett.80.3715}, and (preliminary) SeaQuest\CN experiments, along with the BS15, CT14, and MMHT models.}
+	\label{fig:dbar-ubar}
+\end{figure}
+
+In order to study $\dbar(x)/\ubar(x)$ at larger $x$ the SeaQuest collaboration at Fermilab is designed to make precise measurements of proton-induced Drell-Yan cross sections on hydrogen and deuterium targets using the Fermilab Main Injector as a proton source. The relatively lower beam momentum of the Main Injector (\unit[120]{GeV}) provides an opportunity to study parton distributions at larger $x$. This is due to the fact that, as seen in Eq.~\ref{eq:DY-cross}, for fixed x, the Drell-Yan cross section is inversely proportional to the square of the center-of-mass energy, $s$. Another benefit of utilizing a lower-energy beam is that the primary background, $\Jpsi$ production, which limited the instantaneous luminosity in E-866/NuSea, scales with s, and is thereby reduced, allowing the usage of a more intense proton beam.
+
+Given these factors above and anticipated run time of the SeaQuest experiment, the range of $0.1<x_2<0.45$ is expected to be covered. In the run time since commissioning in 2012, enough data has been analyzed to yield a preliminary $\dbar(x)/\ubar(x)$ result, which can be seen in Figure~\ref{fig:dbar-ubar}. This measurement and its analysis is being led by Bryan Kerns from the University of Illinois at Urbana-Champaign. Further details regarding this topic can be found in his dissertation and forthcoming publication(s).
+
+\subsection{Meson Cloud Model}
+
+\red{???}
+
+\section{The Nuclear EMC Effect}
+
+Approximately ten years before the NMC experiment's discovery of the $\dbar(x)\neq\ubar(x)$ discovery, the European Muon Collaboration (EMC) at CERN, in 1983, measured the ratios of the structure functions of iron and deuterium over a large kinematic range using the DIS of muons\cite{Aubert:1983xm}. The result has been scrutinized, studied, and confirmed.   It was revealed that the structure function of a nucleon bound in a nucleus differs fundamentally from that of a free nucleon.  This difference was not a simple or small effect either; the cross section per nucleon of a nucleus showed to be smaller than that of deuterium at very low $x_2$, greater than deuterium at $0.1<x_2<0.2$, and then steadily less than deuterium for $0.2<x_2<0.6$. 
+
+\begin{figure}
+	\centering
+	\includegraphics[height=0.9\textheight]{figures/background/emc-all-targ.eps}
+	\caption{A compilation of data regarding the measurement of $F^A_2/F_2^D$ for nine different heavy targets with an overlaid fit by Chen et al.\cite{Chen:2013oga}.}
+	\label{fig:emc-all-targ}
+\end{figure}
+
 This complex, unexplained behavior opened up a new field of research and theoretical work. Following suit, the different aspects of this nuclear modification garnered some common nicknames.  The region where $x_2<0.1$ became known as \emph{``Nuclear Shadowing''}, the transition region of $0.1<x_2<0.2$ is known as \emph{``Anti-shadowing''}, and the linear decline in the ratio of cross sections between $0.2<x_2<0.6$ is generally referred to as the \emph{``EMC Effect''} \cite{Geesaman:1995yd}.
 
 Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
