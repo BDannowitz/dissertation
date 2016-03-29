@@ -392,7 +392,7 @@ which was used to obtain a value for $\dbar/\ubar$. However, due to the NA51 spe
 \end{equation}
 This provided strong evidence in confirmation that there was indeed a $\dbar$ excess in the nucleon. Unfortunately, without more statistics, no $x$-dependent behavior of this asymmetry could be determined. This NA51 result coupled with that of NMC prompted several groups to perform global fits from DIS and DY data with the consideration that $\dbar\neq\ubar$, though no $x$-dependent constraints could be imposed on the $\dbar(x)/\ubar(x)$.
 
-An improved experimental design of a ``forward'' muon spectrometer ($x_F>0$) was devised and implemented by the E-866/NuSea experiment to make a more effective measurement of $\dbar/\ubar$. In this kinematic phase space, one can factor in what we know about the PDFs and the DY cross section to consider the measurement as being dominated by the beam quark annihilating with the target's sea anti-quark. Considering  $x_1 \gg x_2$,
+An improved experimental design of a ``forward'' muon spectrometer ($x_F>0$) was devised and implemented by the E-866/NuSea experiment to make a more effective measurement of $\dbar/\ubar$. In this kinematic phase space, one can factor in what we know about the PDFs and the DY cross section to consider the measurement as being dominated by the beam quark annihilating with the target's sea anti-quark. If we consider only the regime of $x_1 \gg x_2$,
 \begin{eqnarray}
 \sigma^{pp} & \propto & \frac{4}{9} u(x_1)\bar{u}(x_2) + \frac{1}{9}d(x_1)\bar{d}(x_2) \\
 \sigma^{pn} & \propto & \frac{4}{9} u(x_1)\bar{d}(x_2) + \frac{1}{9}d(x_1)\bar{u}(x_2) \\
@@ -409,7 +409,7 @@ The results of the E-866/NuSea measurement\cite{PhysRevLett.80.3715}, along with
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/background/dbar-ubar.png}
+	\includegraphics[width=0.75\textwidth]{figures/background/dbar_ubar.png}
 	\caption{The measurements and models for the $\dbar/\ubar$ measurement, including the NA51\cite{Baldit:1994jk}, E-866/NuSea\cite{PhysRevLett.80.3715}, and (preliminary) SeaQuest\CN experiments, along with the BS15, CT14, and MMHT models.}
 	\label{fig:dbar-ubar}
 \end{figure}
@@ -424,7 +424,16 @@ Given these factors above and anticipated run time of the SeaQuest experiment, t
 
 \section{The Nuclear EMC Effect}
 
-Approximately ten years before the NMC experiment's discovery of the $\dbar(x)\neq\ubar(x)$ discovery, the European Muon Collaboration (EMC) at CERN, in 1983, measured the ratios of the structure functions of iron and deuterium over a large kinematic range using the DIS of muons\cite{Aubert:1983xm}. The result has been scrutinized, studied, and confirmed.   It was revealed that the structure function of a nucleon bound in a nucleus differs fundamentally from that of a free nucleon.  This difference was not a simple or small effect either; the cross section per nucleon of a nucleus showed to be smaller than that of deuterium at very low $x_2$, greater than deuterium at $0.1<x_2<0.2$, and then steadily less than deuterium for $0.2<x_2<0.6$. 
+Approximately ten years before the NMC experiment's discovery of the $\dbar(x)\neq\ubar(x)$ discovery, the European Muon Collaboration (EMC) at CERN, in 1983, measured the ratios of the structure functions of iron and deuterium over a large kinematic range using the DIS of muons\cite{Aubert:1983xm}. The result has been repeatedly scrutinized, studied, and confirmed. It was discovered that the structure function of a nucleon bound in a nucleus is fundamentally modified from that of a free nucleon. The na\:{i}ve understanding of the nucleus is that it is simply a convolution of many nucleons, and that the binding energy that holds them together as a nucleus has a negligible effect on the individual structure functions. As such, the per-nucleon ratio of structure functions should lie at unity up until the high-$x$ regime in which Fermi motion dominates. As is shown in Figure~\ref{fig:emc-one-naive} which compares the na\:{i}ve model versus actual measurement, this is not the case. The qualitative behavior is similar across many heavy nuclei: the $F_2(x)$ per nucleon ratio appears suppressed at low $x$, then rises towards unity at $0.1<x_2<0.2$, and then steadily declines for $0.2<x_2<0.6$ before Fermi motion sharply increases the ratio. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/background/emc-naive.eps}
+	\caption{The DIS per-nucleon cross section ratio of gold to deuterium at SLAC\cite{Hen:2013oha}. Overlaid is the na\:{i}ve, expected ratio taking into account only the Fermi motion of the nucleons in the gold nucleus.}
+	\label{fig:emc-one-naive}
+\end{figure}
+
+In this section, we will review this collective behavior known as ``The EMC Effect'', describe it as some function of A (mass number), discuss models that attempt to explain the phenomenon, and then review how the Drell-Yan process can contribute to the study of the EMC Effect.
 
 \begin{figure}
 	\centering
@@ -433,7 +442,8 @@ Approximately ten years before the NMC experiment's discovery of the $\dbar(x)\n
 	\label{fig:emc-all-targ}
 \end{figure}
 
-This complex, unexplained behavior opened up a new field of research and theoretical work. Following suit, the different aspects of this nuclear modification garnered some common nicknames.  The region where $x_2<0.1$ became known as \emph{``Nuclear Shadowing''}, the transition region of $0.1<x_2<0.2$ is known as \emph{``Anti-shadowing''}, and the linear decline in the ratio of cross sections between $0.2<x_2<0.6$ is generally referred to as the \emph{``EMC Effect''} \cite{Geesaman:1995yd}.
+
+The phenomenon can be described by a finite set of characteristics. The key feature is the significant reduction in the ratio from unity for $0.3<x<0.6$, which is generally referred to as the \emph{``EMC Effect''}\cite{Geesaman:1995yd} as it is the only part of the phenomenon that is not fully understood. The ratio reduction for $x<0.1$ is called ``shadowing'', and is understood to be due to the reduction in cross sections observed in real-photon reactions. At very low-$x$, one can see from the PDFs in the sections above that a nucleon is inundated with gluons and virtual particles, and as such, an incident probe is likely to see as many low-$x$ partons in light nuclei as in heavy nuclei. The result when looking at the \emph{per nucleon} cross section ratio is this ratio suppression. The rise of the ratio to or above unity for $x$ around $0.1<x<0.2$ represents a transition region between these models.
 
 Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
 \begin{itemize}
