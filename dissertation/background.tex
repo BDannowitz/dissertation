@@ -220,9 +220,9 @@ though, due to the fact that SeaQuest uses neither a polarized $\Delta q(x)$. Th
 
 The structure functions $F_1, F_2,$ and $g_1$ of the nucleon are interpreted in the QPM as the charge-weighted sums over the quark flavors of the corresponding PDFs:
 \begin{eqnarray}
-F_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x) \\
-F_2(x) = \sum\limits_f e_f^2 x q_f(x) \label{eq:callan-gross} \\
-g_1(x) = \frac{1}{2} \sum\limits_f e_f^2 \Delta q_f(x)
+F_1(x) = \frac{1}{2} \sum\limits_f e_f^2 q_f(x) \label{eq:f1} \\
+F_2(x) = \sum\limits_f e_f^2 x q_f(x) \label{eq:callan-gross} \label{eq:f2} \\
+g_1(x) = \frac{1}{2} \sum\limits_f e_f^2 \Delta q_f(x) \label{eq:g1}
 \end{eqnarray}
 where here $f$ represents all flavors of of quarks and anti-quarks. We see above the relation between $F_1(x)$ and $F_2(x)$ known as the Callan-Gross relation ($F_2 = 2xF_1$). This relation relies on the partons having spin-$\frac{1}{2}$ and no transverse momentum in the infinite momentum frame. The full expression is
 \begin{equation}
@@ -299,8 +299,6 @@ The Drell-Yan process can be described within the frameworks of QPM and QCD, so 
 
 \subsubsection{Quark charge}
 
-
-
 \subsubsection{Spin-1/2 quarks and the Lam-Tung Relation}
 
 
@@ -354,7 +352,7 @@ Construction principle as before: Gauge theory
 
 \subsection{$\bar{d}/\bar{u}$ Asymmetry}
 
-\red{Start with Gottfried sum violation, give rough derivation of dbar/ubar, previous results, a model, and what SeaQuest proposes to provide, stats-wise.}
+Even though the quark sea flavor asymmetry is not the main focus of this paper, it is the flagship measurement of the SeaQuest experiment. As such, much of the work that will be explained in later chapters is common to the $\dbar/\ubar$ analysis, and so it is worth touching on its importance here.
 
 The Gottfried Sum Rule (Eq.~\ref{eq:gsr}) can be seen as a measure of flavor symmetry (or asymmetry) in the nucleon. If flavor symmetry were to be upheld, then the sum would strictly be $S_G = \frac{1}{3}$. The New Muon Collaboration (NMC) at CERN sought to test this by measuring the cross section ratio for DIS of muons on hydrogen to muons on deuterium\cite{Amaudruz:1991nw,Arneodo:1994sh}. This cross section ratio allowed for the measurement of $F_2^n/F_2^p$ over a Bjorken-$x$ range of $0.004 < x < 0.8$.  Incident muon energies of \unit[90]{Gev} and \unit[280]{GeV} were used to measure the $F_2$ ratio at $Q^2$ of \unit[4]{GeV$^2$}. The full results of the NMC experiment can be seen to be in clear disagreement with flavor symmetry in Figure~\ref{fig:nmc}. The extrapolated result of the NMC measurements over all $x$ yielded
 \begin{equation}
@@ -424,16 +422,26 @@ Given these factors above and anticipated run time of the SeaQuest experiment, t
 
 \section{The Nuclear EMC Effect}
 
-Approximately ten years before the NMC experiment's discovery of the $\dbar(x)\neq\ubar(x)$ discovery, the European Muon Collaboration (EMC) at CERN, in 1983, measured the ratios of the structure functions of iron and deuterium over a large kinematic range using the DIS of muons\cite{Aubert:1983xm}. The result has been repeatedly scrutinized, studied, and confirmed. It was discovered that the structure function of a nucleon bound in a nucleus is fundamentally modified from that of a free nucleon. The na\:{i}ve understanding of the nucleus is that it is simply a convolution of many nucleons, and that the binding energy that holds them together as a nucleus has a negligible effect on the individual structure functions. As such, the per-nucleon ratio of structure functions should lie at unity up until the high-$x$ regime in which Fermi motion dominates. As is shown in Figure~\ref{fig:emc-one-naive} which compares the na\:{i}ve model versus actual measurement, this is not the case. The qualitative behavior is similar across many heavy nuclei: the $F_2(x)$ per nucleon ratio appears suppressed at low $x$, then rises towards unity at $0.1<x_2<0.2$, and then steadily declines for $0.2<x_2<0.6$ before Fermi motion sharply increases the ratio. 
+Approximately ten years before the NMC experiment's discovery of the $\dbar(x)\neq\ubar(x)$ discovery, the European Muon Collaboration (EMC) at CERN, in 1983, measured the ratios of the structure functions of iron and deuterium over a large kinematic range using the DIS of muons\cite{Aubert:1983xm}. The result has been repeatedly scrutinized, studied, and confirmed. It was discovered that the structure function of a nucleon bound in a nucleus is fundamentally modified from that of a free nucleon. The na\:{i}ve understanding of the nucleus is that it is simply a convolution of many nucleons, and that the partonic structure functions of bound and free nucleons should be identical. As such, the ratio of structure functions should lie at unity up until the high-$x$ regime in which Fermi motion dominates. The use of DIS experiments, which are sensitive to the nucleon structure functions, should show the same results for all nuclei.
 
+As is shown in Figure~\ref{fig:emc-one-naive} which compares the na\:{i}ve model versus an actual measurement, this is not the case, and the observed behavior holds true across all heavy nuclei. The behavior can be summarized as the $F_2(x)$ ratio appears suppressed at low $x$ ($<0.1$), then rises towards unity at $0.1<x_2<0.3$, and then steadily declines for $0.3<x_2<0.6$ before Fermi motion sharply increases the ratio. In this section, we will review this collective behavior known as ``The EMC Effect'', describe it as some function of A (mass number), discuss models that attempt to explain the phenomenon, and then review how the Drell-Yan process can contribute to the study of the EMC Effect.
+
+\subsection{Historical Overview}
+
+Unpolarized inclusive lepton scattering is a process that uses an energized lepton to investigate nucleon structure, and it specifically depends on two independent variables: $Q^2$ and $x_B$.
+\begin{equation}
+	Q^2 = -q^2\ \ ;\ \ x_B = \frac{Q^2}{2 m_p \omega}
+\end{equation}
+where $q$ is the transferred four-momentum, $x_B$ is the same Bjorken-x scaling variable as is in the PDF section mentioned above, $m_p$ is the proton mass, and $\omega$ is the transferred energy in the proton rest frame. At energies of $Q^2>$\unit[2]{(GeV/c)$^2$}, the inelastic structure function, $F_2$ is able to be measured.
+ 
+
+ 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/background/emc-naive.eps}
 	\caption{The DIS per-nucleon cross section ratio of gold to deuterium at SLAC\cite{Hen:2013oha}. Overlaid is the na\:{i}ve, expected ratio taking into account only the Fermi motion of the nucleons in the gold nucleus.}
 	\label{fig:emc-one-naive}
 \end{figure}
-
-In this section, we will review this collective behavior known as ``The EMC Effect'', describe it as some function of A (mass number), discuss models that attempt to explain the phenomenon, and then review how the Drell-Yan process can contribute to the study of the EMC Effect.
 
 \begin{figure}
 	\centering
@@ -442,8 +450,7 @@ In this section, we will review this collective behavior known as ``The EMC Effe
 	\label{fig:emc-all-targ}
 \end{figure}
 
-
-The phenomenon can be described by a finite set of characteristics. The key feature is the significant reduction in the ratio from unity for $0.3<x<0.6$, which is generally referred to as the \emph{``EMC Effect''}\cite{Geesaman:1995yd} as it is the only part of the phenomenon that is not fully understood. The ratio reduction for $x<0.1$ is called ``shadowing'', and is understood to be due to the reduction in cross sections observed in real-photon reactions. At very low-$x$, one can see from the PDFs in the sections above that a nucleon is inundated with gluons and virtual particles, and as such, an incident probe is likely to see as many low-$x$ partons in light nuclei as in heavy nuclei. The result when looking at the \emph{per nucleon} cross section ratio is this ratio suppression. The rise of the ratio to or above unity for $x$ around $0.1<x<0.2$ represents a transition region between these models.
+The phenomenon can be described by a finite set of characteristics. The key feature is the significant reduction in the ratio from unity for $0.3<x<0.6$, which is generally referred to as the \emph{``EMC Effect''}\cite{Geesaman:1995yd} as it is the only part of the phenomenon that is not fully understood. The ratio reduction for $x<0.1$ is called ``shadowing'', and is understood to be due to the reduction in cross sections observed in real-photon reactions. At very low-$x$, one can see from the PDFs in the sections above that a nucleon is inundated with gluons and virtual particles, and as such, an incident probe is likely to see as many low-$x$ partons in light nuclei as in heavy nuclei. The result when looking at the \emph{per nucleon} cross section ratio is this ratio suppression. The rise of the ratio to or above unity for $x$ around $0.1<x<0.2$ represents a transition region between these effects.
 
 Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
 \begin{itemize}
