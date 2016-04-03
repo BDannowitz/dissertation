@@ -20,8 +20,18 @@
 \usepackage{longtable}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{xcolor}
 \usepackage{units}      %to get proper nobreak spaces for units
 \usepackage{hyperref}   %clickable links in pdfs
+
+\newcolumntype{L}{>{\hspace*{-\tabcolsep}}c}
+\newcolumntype{R}{c<{\hspace*{-\tabcolsep}}}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\colorlet{tableheadcolor}{gray!25} % Table header colour = 25% gray
+\newcommand{\headcol}{\rowcolor{tableheadcolor}} %
+\colorlet{tablerowcolor}{gray!10} % Table row separator colour = 10% gray
+\newcommand{\rowcol}{\rowcolor{tablerowcolor}}
 
 \newcommand{\CN}{\textcolor{red}{$^{[citation\ needed]}$}}
 \newcommand{\Jpsi}{J/\Psi}

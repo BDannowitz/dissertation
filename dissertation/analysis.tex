@@ -17,21 +17,131 @@
 
 \subsection{Monte Carlo Validation}
 
-\section{Data Selection}
-
-\red{Talk about roadset characteristics, amount of data}
-
 \section{Analysis Cuts}
 
-\red{Here give summary of all levels of implemented cuts.}
+The tracking software is concerned only with reconstructing possible tracks of relativistic charged particles through the SeaQuest spectrometer. It is, however, completely agnostic as to whether or not the charged particle was a muon that originated from a Drell-Yan interaction between the beam and the target. Though the tracker is agnostic as such, it should be noted that certain measures are in place in the design of the experiment that serve to increase the chances that a reconstructed track is a true DY muon track. Such examples are the choice of trigger matrix and the construction of an absorber wall before Station 4. Despite these measures, there are many cases in which we would wish to discard some signals, events, or whole spills in order to keep the data from becoming contaminated by anything but true $p-A$ Drell-Yan target dimuons.
+
+As such, a set of cuts must be imposed to the tracked set of dimuon yields
+\begin{itemize}
+	\item Drell-Yan Selection Cuts: Exclude kinematic regions where the the signal is dominated by background
+	\item Target Selection Cuts: Dimuons can be created in our beam dump. These cuts seek to remove the signals that likely originate from the dump.
+	\item Trigger Selection Cuts: Many triggers were used to take data, and we only wish to analyze data triggered by a certain trigger configuration.
+	\item Intensity Cuts: Data taken at unusually high intensities where components of the experiment can perform abnormally should be excluded.
+	\item Quality Cuts: Most cuts fall under this umbrella. These include, but are not limited to: hardware settings, DAQ quirks, dimuon/track goodness-of-fits, etc.
+\end{itemize}
+
+In this section, these cuts are discussed in the order of tiers of data taking: Run, Spill, Event, Dimuon, Track. The intent with all of these cuts is to be as conservative as possible to ensure that all possible contamination is removed from the data despite the inevitable reduction in statistics.
+
+\subsection{Data Selection}
+
+The first cut on analyzable data is the choice of dataset to use. This document presents and discusses the EMC ratio results for SeaQuest roadsets \#57, \#62, and \#67. Each of these roadset settings were in place for the span of months and contain varying amounts of statistics. In total, many millions of tracks and dimuons of varying quality are found through the track reconstruction and vertex fitting procedure discussed in the previous section. Several cuts regarding quality of track/dimuon fit and experimental conditions are discussed below and applied to these datasets in order to isolate signal dimuons from the \emph{target}.
+
+The names of the SeaQuest MySQL merged productions along with their date range, magnet polarity, respective statistics, and notes regarding roadset differences are presented in Table~\ref{tab:roadset-stats}.
+
+\begin{table}
+	\centering
+	\caption{The experiment-specific data sources and their details.}
+	\label{tab:roadset-stats}
+	\begin{tabular}{c|rrr}
+		Schema & Date Range & \# Dimuons & Roadset Notes\\	
+		\hline
+		merged\_roadset57\_R005\_V001 & dummy & dummy & dummydummydummy \\
+		merged\_roadset62\_R005\_V001 & dummy & dummy & dummydummydummy \\
+		merged\_roadset67\_R005\_V001 & dummy & dummy & dummydummydummy
+	\end{tabular}
+\end{table}
 
 \subsection{Run Level Cuts}
 
 \red{Give ranges of runs that are excluded. Maybe add a subsection about the manual target position study.}
+It is an outspoken goal of the SeaQuest collaboration to absolutely keep as much data as possible. This means, in general, that the largest chunk of data that we want to allow to be thrown away is on a spill-level. That withstanding, there are a certain set of factors that could lead an entire run's ($\sim$\unit[1]{hr}'s) worth of data to be excluded.
+
+One factor is the amperage settings of the focusing and spectrometer magnets. If these are not set nominally (\unit[2000]{A} and \unit[1600]{A}, respectively), the tracking will improperly reconstruct tracks, as it depends on a specific $p_T\text{-kick}$ value from each magnet in order to discern sensible tracks from the data. For this reason, if the averaged magnet currents are below 50\% of their nominal values, the run is excluded from analysis.
+
+Another crucial characteristic for a run is if it contains Spill values. This can be attributable to a malfunction in the Beginning of Spill / End of Spill triggers or a malfunction in the Spill Counter function. Regardless of cause, without this spill label, it becomes impossible to relate data taken to any other critical values such as target position or beam intensity.
+
+The rest of the run-level cuts can be summarized by the umbrella term of ``DAQ issues''. If the Slow Control failed to be recorded for any reason and there are zero Beam, Target, or Environment table values in a run, it is excluded. The same goes for the BeamDAQ and Scaler readouts. Perhaps most prevalent of the DAQ issues is the case of a run that failed upon starting. These resulted in empty \unit[32]{kB} files with no usable data.
+
+Beyond these issues, there are also ranges of runs for which there was some larger issue at hand. The best example of this is the period of data taking during Roadset 62 where the automatic target control was malfunctioning. The shift crew controlled the target position manually, but the actual target that was in the path of the beam during the spill could not be verified. As such, these runs were excluded. There is very little indication from the data itself that would incriminate itself as being untrustworthy, and so these are specifically excluded by analyzers. In practice, the runs are removed from the data set via an excluded range of spillID's.
 
 \subsection{Spill Level Cuts}
 
-\red{Dump out Kenichi's data quality slides here, with some plots showing visualizations of good and bad value ranges for some interesting fields.}
+\begin{table}
+	\centering
+	\ra{1.3}
+	\setlength{\tabcolsep}{2em}
+	\label{tab:spill-cuts}
+	\begin{tabular}{@{}llll@{}} 
+\textbf{Table} & \textbf{Value} & \textbf{Roadsets}  & \textbf{Good range} \\ \toprule
+Spill & dataQuality & all & 0 \\ \cmidrule(l){2-4}
+ & targetPos & all & $\in\{1,2,3,4,5,6,7\}$ \\ \midrule
+Target & TARGPOS\_CONTROL & all &  = Spill table `targetPos' value \\ \midrule
+Scaler & TSgo & 57, 59 & [1e3, 8e3] \\
+	   & & 61 & [1e3, 1.2e4] \\
+	   & & 62, 67, 70 & [1e2, 6e3] \\ \cmidrule(l){2-4}
+	   & acceptedMatrix1 & 57, 59 & [1e3, 8e3] \\
+	   &  & 61 & [1e3, 1.2e4] \\
+	   &  & 62, 67, 70 & [1e2, 6e3] \\ \cmidrule(l){2-4}
+	   & afterInhMatrix1 & 57, 59 & [1e3, 3e4] \\
+	   &  & 61 & [1e3, 1e5] \\
+	   &  & 62, 67, 70 & [1e2, 1e4] \\ \cmidrule(l){2-4}
+	   & $\frac{\text{acceptedMatrix1}}{\text{afterInhMatrix1}}$ & 57, 59 & [0.2, 0.9] \\
+       &  & 61 & [0.0, 0.9] \\
+	   &  & 62, 67, 70 & [0.2, 1.05] \\ \midrule
+Beam & S:G2SEM & all & [2e12, 1e13] \\ \cmidrule(l){2-4}
+	 & F:NM3S (FMAG Current) & 57, 59, 62, 67, 70 & $>1000$ \\ 
+ 	 & & 61 & [200, 500] \\ \cmidrule(l){2-4}
+ 	 & F:NM4AN (KMAG Current) & all & $>1000$ \\ \midrule
+BeamDAQ & QIESum & all & [4e10, 1e12] \\ \cmidrule(l){2-4}
+	    & trigger\_sum\_no\_inhibit & all & [4e9, 1e11] \\ \cmidrule(l){2-4}
+	    & inhibit\_block\_sum & 57, 59, 61 & [4e9, 1e11] \\
+	    &  & 62, 67, 70 & [4e9, 2e11] \\ \cmidrule(l){2-4}
+	    & dutyfactor53MHz & 57, 59, 61 & [15, 60] \\
+	    &  & 62, 67, 70 & [10, 60] \\ \midrule
+kTrack & \#Tracks/Spill & all & $>0$ \\
+\bottomrule
+\end{tabular}
+\caption{The experiment-specific data sources and their details.}
+\end{table}
+
+Seeing as most of the experimental readouts pertaining to the condition of the experiment are read out only once per spill, it is a natural result that a large variety of quality cuts that are applied are evaluated at the spill level. A summar of all such cuts are summarized in Table~\ref{tab:spill-cuts}, but I will discuss a few key conditions here briefly.
+
+One feature of a spill is the ``dutyfactor53MHz'', which is the aggregated duty factor ($\frac{\langle I\rangle^{2}}{\langle I^{2}\rangle}$) measurement over the whole spill as calculated by the Beam Intensity Monitor discussed in an earlier chapter. This an important measure that directly describes the quality of the beam provided to the experiment. A value that is too low corresponds to a spill that had the majority of its protons in just a small number of RF buckets. A duty factor value that is too high exceeds the capability of the main injector, and must therefore be erroneous. A visualization of good and bad duty factor values over a certain range of spills can be seen in Figure~\ref{fig:dutyfactor}.
+
+\red{add scatterplot of dutyfactor with good values in black and bad values in red to show how much they're outliers.}
+
+The ratio of ``acceptedMatrix1'' to ``afterInhMatrix1'' is another quality factor that may not be intuitively obvious. The acceptedMatrix1 value is the number of accepted triggers recorded by the DAQ, and the the afterInhMatrix1 value is the total number of FPGA1-triggered events that were not inhibited by the BIM. Putting bounds on the ratio of these two allows the exclusion of two things: (1) spills with high DAQ dead time and (2) spills where, for whatever reason, only part of the spill was recorded. The latter of these could be the case if a spill was being partially recorded after data taking for a run had just begun\red{how??}.
+
+\red{add line of 3 scatterplots of accepted, afterInh, and ratio with good values in black and bad values in red to show how much they're outliers.}
+
+Other bounds such as the ``S:G2SEM'' and ``QIESum'' are measures of total delivered beam in units of protons and QIE, respectively. By putting bounds on these values, we avoid spills that are empty (no beam delivered) and spills that have far too much beam delivered. The lower bounds are non-zero due to a pedestal in each measurement.
+
+\red{add both on same plot, but with a scale to bring them near each other. g2sem: good=blue, bad=violet, qiesum: good=orange, bad=reddish}
+
+Other sweeping criteria for qualifying a spill as good are that spillID$\neq$0 and that there must be no duplicates of any of the values listed in Table~\ref{tab:spill-cuts}. It is necessary due to the relational nature of the data that there must be a real spillID by which one can determine all other spill-relevant values; cases where spillID=0 are cases in which no Spill Counter event was available, and these should be excluded. Regarding duplicate values, if such exist for one spillID, it is almost impossible which is the correct one, so the spill should not be considered.
+
+Finally, certain periods of data taking are known by the collaboration to be problematic and analyzable. These are defined as a series of ``bad spill ranges'' and can be found summarized in Table~\ref{tab:spill-ranges}.
+
+\begin{table}
+	\centering
+	\ra{1.2}
+	\setlength{\tabcolsep}{2em}
+	\label{tab:spill-ranges}
+	\begin{tabular}{LLl} 
+		\textbf{Min SpillID} & \textbf{Max SpillID} & \textbf{Details} \\ \toprule
+\rowcol 371870 & 376533 & Trigger timing shift \\
+378366 & 379333 & Trigger timing shift \\
+\rowcol 394287 & 409540 & Run 3 commissioning period \\
+394287 & 414555 & LD2 flask filled with LH2 \\
+\rowcol 416207 & 424180 & Manual target control \\
+482574 & 484924 & Magnet flipped before roaset changed \\
+\rowcol 526201 & 526364 & Improper QIE inhibit setting \\
+581369 & 582460 & KMag off \\
+\rowcol 675814 & 684041 & Drift Chamber 1 gas flow problem \\
+684663 & 689443 & Incorrect D3p in-time window \\ \bottomrule
+\end{tabular}
+\caption{Specific spill ranges of excluded data for all roadsets.}
+\end{table}
 
 \subsection{Event Level Cuts}
 
@@ -44,6 +154,44 @@
 \subsection{Track Level Cuts}
 
 \red{Talk about target-dump separation along with the rest of the other cuts.}
+
+\begin{table}
+	\centering
+	\ra{1.1}
+	\label{tab:all-other-cuts}
+	\begin{tabular}{@{}llll@{}} \midrule
+		\textbf{Table} & \textbf{Value}  & \textbf{Good range} & \textbf{Type} \\ \toprule
+kTrack & numHits & $>14$ & Quality \\
+ & roadID & $\neq0$ & Quality \\
+ & z0  & (-400, 200)  & Quality \\
+ & chisq/(numHits - 5) & $<5$ & Quality \\
+ & pz1 (Where numHits $\neq$ 18) & $>18$ & Quality \\
+ & chisq\_dump - chisq\_target & $>10$ & Target \\ \midrule
+kDimuon & dx & (-2, 2)  & Quality \\
+ & dy & (-2, 2)  & Quality \\
+ & dz & (-300, 200)  & Quality \\
+ & dpx & (-3, 3)  & Quality \\
+ & dpy & (-3, 3)  & Quality \\
+ & dpz & (30, 120)  & Quality \\
+ & xB & (0, 1)  & Quality \\
+ & xT & (0, 1)  & Quality \\
+ & xF & (-1, 1)  & Quality \\
+ & trackSeparation & (-250, 2500)  & Quality \\
+ & chisq\_dimuon & $<15$ & Quality \\
+ & px1 & $>0$ & Quality \\
+ & px2 & $<0$ & Quality \\
+ & dz & (-300, -60)  & Target \\
+ & mass & $>4.2$ & Drell-Yan \\ \midrule
+Event & MATRIX1 & 1 & Trigger \\ \midrule
+kEvent & status & 0 & Quality \\ \midrule
+QIE & $\forall$(RF+08, RF+07, \ldots RF-08) & $<$ Beam.Inh\_thres & Quality \\
+ & $\forall$(RF+$XY$) & $>0$ & Quality \\
+ & triggerCount & $\geq0$ & Quality \\
+ & intensity\_p & $<60000$ & Quality \\
+\bottomrule
+\end{tabular}
+\caption{A list of all quality and kinematic cuts for selecting good quality dimuons from the target.}
+\end{table}
 
 \section{Dimuon Yields}
 
