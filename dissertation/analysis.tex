@@ -1,6 +1,6 @@
 \chapter{Analysis}
 
-\red{CHAPTER STATUS: PLANNING/OUTLINE}
+\red{CHAPTER STATUS: IN PROGRESS}
 
 
 \section{Reconstruction and Tracking of SeaQuest Dimuons}
@@ -53,7 +53,6 @@ The names of the SeaQuest MySQL merged productions along with their date range, 
 
 \subsection{Run Level Cuts}
 
-\red{Give ranges of runs that are excluded. Maybe add a subsection about the manual target position study.}
 It is an outspoken goal of the SeaQuest collaboration to absolutely keep as much data as possible. This means, in general, that the largest chunk of data that we want to allow to be thrown away is on a spill-level. That withstanding, there are a certain set of factors that could lead an entire run's ($\sim$\unit[1]{hr}'s) worth of data to be excluded.
 
 One factor is the amperage settings of the focusing and spectrometer magnets. If these are not set nominally (\unit[2000]{A} and \unit[1600]{A}, respectively), the tracking will improperly reconstruct tracks, as it depends on a specific $p_T\text{-kick}$ value from each magnet in order to discern sensible tracks from the data. For this reason, if the averaged magnet currents are below 50\% of their nominal values, the run is excluded from analysis.
@@ -70,7 +69,6 @@ Beyond these issues, there are also ranges of runs for which there was some larg
 	\centering
 	\ra{1.3}
 	\setlength{\tabcolsep}{2em}
-	\label{tab:spill-cuts}
 	\begin{tabular}{@{}llll@{}} 
 \textbf{Table} & \textbf{Value} & \textbf{Roadsets}  & \textbf{Good range} \\ \toprule
 Spill & dataQuality & all & 0 \\ \cmidrule(l){2-4}
@@ -102,11 +100,12 @@ kTrack & \#Tracks/Spill & all & $>0$ \\
 \bottomrule
 \end{tabular}
 \caption{The experiment-specific data sources and their details.}
+\label{tab:spill-cuts}
 \end{table}
 
 Seeing as most of the experimental readouts pertaining to the condition of the experiment are read out only once per spill, it is a natural result that a large variety of quality cuts that are applied are evaluated at the spill level. A summar of all such cuts are summarized in Table~\ref{tab:spill-cuts}, but I will discuss a few key conditions here briefly.
 
-One feature of a spill is the ``dutyfactor53MHz'', which is the aggregated duty factor ($\frac{\langle I\rangle^{2}}{\langle I^{2}\rangle}$) measurement over the whole spill as calculated by the Beam Intensity Monitor discussed in an earlier chapter. This an important measure that directly describes the quality of the beam provided to the experiment. A value that is too low corresponds to a spill that had the majority of its protons in just a small number of RF buckets. A duty factor value that is too high exceeds the capability of the main injector, and must therefore be erroneous. A visualization of good and bad duty factor values over a certain range of spills can be seen in Figure~\ref{fig:dutyfactor}.
+One feature of a spill is the ``dutyfactor53MHz'', which is the aggregated duty factor ($\frac{\langle I\rangle^{2}}{\langle I^{2}\rangle}$) measurement over the whole spill as calculated by the Beam Intensity Monitor discussed in an earlier chapter. This an important measure that directly describes the quality of the beam provided to the experiment. A value that is too low corresponds to a spill that had the majority of its protons in just a small number of RF buckets. A duty factor value that is too high exceeds the capability of the main injector, and must therefore be erroneous. A visualization of good and bad duty factor values over a certain range of spills can be seen in Figure%~\ref{fig:dutyfactor}.
 
 \red{add scatterplot of dutyfactor with good values in black and bad values in red to show how much they're outliers.}
 
@@ -120,13 +119,14 @@ Other bounds such as the ``S:G2SEM'' and ``QIESum'' are measures of total delive
 
 Other sweeping criteria for qualifying a spill as good are that spillID$\neq$0 and that there must be no duplicates of any of the values listed in Table~\ref{tab:spill-cuts}. It is necessary due to the relational nature of the data that there must be a real spillID by which one can determine all other spill-relevant values; cases where spillID=0 are cases in which no Spill Counter event was available, and these should be excluded. Regarding duplicate values, if such exist for one spillID, it is almost impossible which is the correct one, so the spill should not be considered.
 
-Finally, certain periods of data taking are known by the collaboration to be problematic and analyzable. These are defined as a series of ``bad spill ranges'' and can be found summarized in Table~\ref{tab:spill-ranges}.
+Finally, certain periods of data taking are known by the collaboration to be problematic and not suitable for analysis. There exist periods of time where the trigger timing was off by a certain margin and degraded the efficacy of the trigger's ability to trigger on dimuon events. There's also a range of spills for which the magnets were flipped before a new trigger roadset could be devised for such a configuration. These are defined as a series of ``bad spill ranges'' and can be found summarized in Table~\ref{tab:spill-ranges}.
+
+As briefly described in the chapter on database design, the addition of a ``dataQuality'' field was touched on. Here, this field is used as a bitmask in order to identify whether or not a spill passes or fails a given cut by flagging a bit as 0 (pass) or 1 (fail). This allows for analyzers to easily select only spills that pass all criteria by simply requiring \emph{dataQuality = 0}.
 
 \begin{table}
 	\centering
 	\ra{1.2}
 	\setlength{\tabcolsep}{2em}
-	\label{tab:spill-ranges}
 	\begin{tabular}{LLl} 
 		\textbf{Min SpillID} & \textbf{Max SpillID} & \textbf{Details} \\ \toprule
 \rowcol 371870 & 376533 & Trigger timing shift \\
@@ -134,31 +134,60 @@ Finally, certain periods of data taking are known by the collaboration to be pro
 \rowcol 394287 & 409540 & Run 3 commissioning period \\
 394287 & 414555 & LD2 flask filled with LH2 \\
 \rowcol 416207 & 424180 & Manual target control \\
-482574 & 484924 & Magnet flipped before roaset changed \\
+482574 & 484924 & Magnet flipped before roadset changed \\
 \rowcol 526201 & 526364 & Improper QIE inhibit setting \\
 581369 & 582460 & KMag off \\
 \rowcol 675814 & 684041 & Drift Chamber 1 gas flow problem \\
 684663 & 689443 & Incorrect D3p in-time window \\ \bottomrule
 \end{tabular}
 \caption{Specific spill ranges of excluded data for all roadsets.}
+\label{tab:spill-ranges}
 \end{table}
 
 \subsection{Event Level Cuts}
 
-\red{FPGA1 cut and maybe nonsense RF+00 cuts? Should be a brief section.}
+The bare minimum requirement for the Event level data is that it must have an entry in all event-level tables: Event, kEvent (the kTracker's event meta-data), and QIE. If any of these is missing, then the event is discarded. More specific criteria can be imposed to consider an entry to be ``missing,'' such as when a row in the QIE table reports all ``-1'' values for the BIM RF readouts. In these instances, there was a malfunction in the BIM, and the ``-1'' acts as a \emph{sentinel value} to indicate that the information does not exist for that event.
 
-\subsection{Dimuon Level Cuts}
+In addition to missing data, certain criteria can be placed on the Event data in order to exclude poor-quality or unwanted events. The simplest cut that is imposed is the requirement that the event that was triggered must have satisfied the FPGA-1 trigger. The different trigger configurations are are designed on optimized for different purposes; the FPGA-1 trigger is designed to select high-signal, low-background Drell-Yan (opposite sign muon pair) events, and by removing other types of triggers such as the NIM-3 (random RF) and FPGA-4 (singles) that exist in the data, it is ensured that there will be no effect due to different triggering systems when performing analysis.
 
-\red{x1, x2, xF, mass, trackSeparation, etc.}
+The cut on beam intensity is another that ensures that we exclude data that would introduce undue volatility and uncertainty into the measurements. Due to the varying beam intensity at SeaQuest, there are inefficiencies which are corrected via weighting of events (this process is described in great detail later). Cutting on very high intensities removes the region where uncertainties in the rate dependence fits can cause large uncertainties in correction weights. 
 
-\subsection{Track Level Cuts}
+These cuts described here and more are summarized in Table~\ref{tab:all-other-cuts}.
 
-\red{Talk about target-dump separation along with the rest of the other cuts.}
+\subsection{Dimuon Cuts}
+
+Dimuons are selected based on many criteria: the known acceptance of the spectrometer, physical contraints, goodness of vertex fits, and more. The precise description can be summarized by the following: we are looking for two tracks of particles with opposite signs that can be \emph{well-fit} to originating from the target table. Stepping through the cuts and their justifications:
+
+\begin{itemize}
+	\item \textbf{dx, dy, dz}: These define the fitted point of origin (``dimuon (x, y, z)'') for the dimuon pair. If the vertex was outside the (dx, dy) region about the beam path, then this is probably not a real dimuon. If it it outside the desired dz range, then it probably did not come from the target.
+	\item \textbf{dpx, dpy, dpz}: These define the total momentum of the dimuon (``dimuon momentum ($p_x, p_y, p_z$)). If $|p_{x/y}|>$\unit[2]{GeV}, then one or both muons would pass outside of the acceptance of the experiment. Likewise, if $|p_{z}|<$\unit[30]{GeV}, one or both of the muons would have such low momentum as to end up bent out of acceptance of the spectrometer by the magnets. Finally, since a \unit[120]{GeV} proton beam is used for SeaQuest $p_{z}>$\unit[120]{GeV} must only come from unrelated muons that are reconstructed to this high momentum value.
+	\item \textbf{sgn(px1), sgn(px2)}: These are terms for the momentum of the positive and negative track, respectively. Requiring a specific sign for the $x$-momentum for each track acts as a safety check that the tracking identified the charge of the particle correctly.
+	\item \textbf{sgn(roadID1), sgn(roadID2)}: This is another check that ensures that the muons came from opposite sides of the experiment (top-bottom). Such should be the case when triggered by a FPGA-1 event, but this enforces it.
+	\item \textbf{trackSeparation, chisq\_dimuon}: These are measures of the goodness of fit that two tracks came together to form at a single vertex. The track separation is the distance between the points of closest approach from each track to the beam axis (z-axis). The $\chi^2_{\text{dimuon}}$ is a measure of the quality of tracks combined with how well the two tracks converge to a single point.
+	\item \textbf{mass}: There is a di-lepton range of invariant masses that are book-ended by the $\Jpsi$ and the $\Upsilon$ in which Drell-Yan should be the only source. A cut on this range excludes any background that would be introduced by real $\Jpsi$s and $\Upsilon$s.
+\end{itemize}
+
+\subsection{Track Cuts}
+
+Going even deeper to remove signal contamination, if one of the two tracks for even a \emph{good} dimuon is found to fail certain checks, the entire event is excluded from analysis. Again, stepping through each cut:
+\begin{itemize}
+	\item \textbf{numHits}: A track passes through 18 drift chamber planes. Even if the chambers are somewhat inefficient, it is unlikely that the number of hits corresponding to a single track would be less than 15.
+	\item \textbf{roadID$\neq$0}: It is possible that a reconstructed track passes from the top half of the experiment to the bottom (and perhaps bends back up to the top). By the roadID naming convention, these are assigned a roadID of 0, and since we are looking to only analyze cases where there is one ``top'' track and one ``bottom'' track, these should be excluded. By imposing this requirement, such tracks are removed.
+	\item \textbf{chisq/(numHits-5)}: Each track is described as a muon with five physical parameters ($x_1, x_2, p_T, \theta, \phi$). This expression described the $\chi^2$ per degree of freedom, and can be cut on to select only good quality tracks that fit the hit pattern well.
+	\item \textbf{pz1}: This is the momentum of the track at Station 1. In studies of signal background sources, one of the primary contributors is combinatorial background, which can be analyzed by looking to like-sign triggered events and studying their kinematics. As can be seen in Figure~\ref{fig:likesign-pz-cut}, depending on the number of hits, applying a cut on pz1 can remove the strong peak of combinatoric background from unrelated muons.
+	\item \textbf{chisq\_dump-chisq\_target}: These are the $\chi^2$s of a track when forced to go through the beam dump and the target, respectively. By requiring this quantity to be above a certain value means, roughly speaking, that the track is very likely to have come from the target and not the beam dump. 
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/analysis/likesign-pz-cut.png}
+	\caption{The $p_z$ distribution of muons that form like-sign dimuon pairs, which is a source of background for DY signal events. In cases where $14\leq\text{numHits}<18$, imposing a cut on $p_z>$\unit[18]{GeV} removes a majority of this background.}
+	\label{fig:likesign-pz-cut}
+\end{figure}
 
 \begin{table}
 	\centering
 	\ra{1.1}
-	\label{tab:all-other-cuts}
 	\begin{tabular}{@{}llll@{}} \midrule
 		\textbf{Table} & \textbf{Value}  & \textbf{Good range} & \textbf{Type} \\ \toprule
 kTrack & numHits & $>14$ & Quality \\
@@ -176,7 +205,7 @@ kDimuon & dx & (-2, 2)  & Quality \\
  & xB & (0, 1)  & Quality \\
  & xT & (0, 1)  & Quality \\
  & xF & (-1, 1)  & Quality \\
- & trackSeparation & (-250, 2500)  & Quality \\
+ & trackSeparation & (-250, 250)  & Quality \\
  & chisq\_dimuon & $<15$ & Quality \\
  & px1 & $>0$ & Quality \\
  & px2 & $<0$ & Quality \\
@@ -185,15 +214,28 @@ kDimuon & dx & (-2, 2)  & Quality \\
 Event & MATRIX1 & 1 & Trigger \\ \midrule
 kEvent & status & 0 & Quality \\ \midrule
 QIE & $\forall$(RF+08, RF+07, \ldots RF-08) & $<$ Beam.Inh\_thres & Quality \\
- & $\forall$(RF+$XY$) & $>0$ & Quality \\
+ & $\forall$(RF$\pm XY$) & $>0$ & Quality \\
  & triggerCount & $\geq0$ & Quality \\
  & intensity\_p & $<60000$ & Quality \\
 \bottomrule
 \end{tabular}
 \caption{A list of all quality and kinematic cuts for selecting good quality dimuons from the target.}
+\label{tab:all-other-cuts}
 \end{table}
 
 \section{Dimuon Yields}
+
+The base measurement for the studies presented in this paper is, fundamentally, the number of dimuon events per incident proton on target. From there, these yields are binned in one or more kinematics in order to observe interesting behaviors and compare them against previous measurements and various models. Once The cuts described in the previous section are applied, the surviving dimuons are all considered to be \emph{good quality target Drell-Yan dimuons}, and all analyses and corrections described from here on refer to them only.
+
+In this section, the process of arriving at a value of yields per proton is discussed, with special emphasis on the studies and measures taken in order to correct for various known effects, such as rate dependence, combinatoric background, and target contamination. Beyond that, systematic uncertainties are estimated, arriving at a final set of corrections, systematics, and yields with which we can derive our experimental results.
+%The total numbers of live protons on each target are located in tables 15 through 17. To
+%get these numbers I sum over liveProton in the Spill table where targetPos is the appropriate
+%value, 1 for LH2, 3 for LD2, 2 for empty. liveProton is derived from entries in the
+%BeamDAQ and the S:G2SEM value in the Beam table, given in equation 1. S : G2SEM
+%is the number of protons during the Spill. QIEsum is the sum of the QIE readout during
+%the spill. inhibit block sum is the sum of the QIE values while the trigger was inhibited.
+%trigger sum no inhibit is the sum of the QIE values during DAQ readout dead time while
+%the trigger was not inhibited.
 
 \subsection{Binning of Data}
 
@@ -215,7 +257,7 @@ certain continuity among analyses. The $x_2$ binning chosen can be found in Tabl
 		\toprule
 		Bin\# & $x_2$ Range\\
 		\midrule
-		0 & (0.08, 0.14] \\
+		0 & [0.08, 0.14] \\
 		1 & (0.14, 0.16] \\
 		2 & (0.16, 0.18] \\
 		3 & (0.18, 0.21] \\
