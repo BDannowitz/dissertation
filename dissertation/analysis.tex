@@ -223,19 +223,69 @@ QIE & $\forall$(RF+08, RF+07, \ldots RF-08) & $<$ Beam.Inh\_thres & Quality \\
 \label{tab:all-other-cuts}
 \end{table}
 
-\section{Dimuon Yields}
+\section{Normalization of Relative Yields}
 
-The base measurement for the studies presented in this paper is, fundamentally, the number of dimuon events per incident proton on target. From there, these yields are binned in one or more kinematics in order to observe interesting behaviors and compare them against previous measurements and various models. Once The cuts described in the previous section are applied, the surviving dimuons are all considered to be \emph{good quality target Drell-Yan dimuons}, and all analyses and corrections described from here on refer to them only.
+The base measurement for the studies presented in this paper is, fundamentally, the number of dimuon events on a given target. This is known as the \emph{raw yield} (Y). The ratio of these yields for a given target is used to study the kinematic dependence of the \emph{per nucleon cross section ratio} that defines these phenomenon, but there must be a target-to-target normalization for such measurements.
+\begin{equation}
+R \equiv \frac{F_2^A}{F_2^D} \approx \frac{\sigma_{\mu\mu}^A}{\sigma_{\mu\mu}^D} \frac{2}{A} = N_{A/D} \frac{Y^A}{Y^D}
+\end{equation}
+Here, $A$ is the mass number of the target nucleus, and $N_{A/D}$ is the normalization factor, which can be expressed as:
+\begin{equation}
+	N_{A/D} =
+		\frac{ N_0^D \cdot \text{lt}^D \cdot T^D(\xi)}{N_0^A \cdot \text{lt}^A \cdot T^A(\xi) } \cdot 
+		\frac{ 2 \cdot n_D \cdot L^D }{ A \cdot n_A \cdot L^A } \cdot 
+		\frac{ \varepsilon^D }{ \varepsilon^A } \cdot 
+		\frac{ \bar{\Omega}^D }{\bar{ \Omega}^A }\cdot 
+		\frac{ \epsilon^D }{ \epsilon^A }
+\end{equation}
+where $N_0$ is the number of incident protons, \emph{lt}$^A$ is the \% live time on the target, $T^A$ is the target transmission (or beam attenuation) factor, $n_A$ is the number of nuclei per unit volume, $L^A$ is the target thickness, $\varepsilon^A$ is the detector efficiency, $\bar{\Omega}^A$ is the spectrometer acceptance, and $\epsilon^A$ is the tracking reconstruction efficiency. One of the key benefits of performing a ratio measurement is that, to good approximation, the terms regarding chamber efficiency, tracking efficiency, and acceptance should be equal across targets and should therefore cancel each other out. How well this assumption holds up will be assessed and evaluated.
 
-In this section, the process of arriving at a value of yields per proton is discussed, with special emphasis on the studies and measures taken in order to correct for various known effects, such as rate dependence, combinatoric background, and target contamination. Beyond that, systematic uncertainties are estimated, arriving at a final set of corrections, systematics, and yields with which we can derive our experimental results.
-%The total numbers of live protons on each target are located in tables 15 through 17. To
-%get these numbers I sum over liveProton in the Spill table where targetPos is the appropriate
-%value, 1 for LH2, 3 for LD2, 2 for empty. liveProton is derived from entries in the
-%BeamDAQ and the S:G2SEM value in the Beam table, given in equation 1. S : G2SEM
-%is the number of protons during the Spill. QIEsum is the sum of the QIE readout during
-%the spill. inhibit block sum is the sum of the QIE values while the trigger was inhibited.
-%trigger sum no inhibit is the sum of the QIE values during DAQ readout dead time while
-%the trigger was not inhibited.
+With the normalization applied, this ratio $R$ can be accurately studied by being binned in one or more kinematics in order to observe interesting behaviors and compare them against previous measurements and various models. Once The cuts described in the previous section are applied, the surviving dimuons are all considered to be \emph{good quality target Drell-Yan dimuons}, and all analyses and corrections described from here on refer to them only.
+
+This section will discuss the target-to-target relative normalization from the determination of beam intensity, target thickness, live time, tracking efficiency, chamber efficiency, and acceptance. Beam intensity and live time information was obtained from the BIM and scaler data. Tracking efficiencies were extracted from a study combining clean Monte Carlo with actual data noise from the experiment. Acceptance was calculated with Monte Carlo simulation. An isoscalar correction factor is described for cases of asymmetric ($A\neq Z$) nuclei. Sources of combinatorial $\mu^+ \mu^-$ backgrounds from unrelated single muons is studied and subtracted from the data. Finally, a discussion of the effects of deuterium target contamination is and its correction described.
+
+\subsection{Live Proton Count and Beam Attenuation}
+
+The measurements of the number of incident protons, live time, and beam attenuation combine to give a figure for the total number of protons on target for which data was recorded. The important sources to consider here are the upstream SEM detectors that record the number of incident protons, the QIE recorded sums of protons (in QIE units), the number of QIE units for which there was either a trigger inhibit or DAQ deadtime. In practice, SeaQuest calculates a value called ``live protons'' \emph{for each spill}:
+\begin{equation}
+ N_0^A = \text{G2SEM}\ \ \ ;\ \ \ \text{lt}_A = 
+ \frac{\text{QIESum} - \text{inhibit} - \text{deadtime}}{\text{QIESum}}\ \ \ ;\ \ \ 
+ liveProton = N_0^A \text{lt}_A
+\end{equation}
+this \emph{liveProton} value is integrated, good spill by good spill, for every target in each data set.
+
+It is also important to factor in the effects of inelastic scattering of the beam within the target, causing the effective amount of beam-on-target to decrease with every step $dz$ through the target. This is different for each target based on target nuclear densities and cross sections. With this, the liveProton value can be corrected. Consider incident proton number $N_0$, where $dN$ is the number of protons attenuated when passing through target slice $dz$, and $L$ is the total length of the target. The function for the number of protons remaining at a given position $z$ is
+\begin{equation}
+ N(z) = N_0 e^{-\frac{\rho_A}{\text{NIL}_A} z} = N_0 e^{-z/\lambda}
+\end{equation}
+where $\rho_A$ is the density of the material, $\text{NIL}_A$ is the nuclear interaction length of the target, and $\lambda = \frac{\text{NIL}_A}{\rho_A}$. When integrating over the length of the target, one arrives at the \emph{effective} number of protons incident on the target
+\begin{equation}
+N_{\text{eff}} = N_0 \left[\frac{1 - e^{-\xi}}{\xi}\right] = N_0 T(\xi)\ \ \ ;\ \ \ 
+\xi = L/\lambda.
+\end{equation}
+The normalization of the transmission or beam attenuation factor $T^D/T^A$ is therefore only a function of the length of the target, its density, and its nuclear interaction length. In total, the product of $N_0 \cdot \text{lt} \cdot T(\xi)$ represents the effective protons on target which was recorded by the data acquisition systems. Values of $\xi$ and $T(\xi)$ can be found in Table~\ref{tab:targ-details}.
+
+\subsection{Target Density Ratios}
+
+The number of nucleons that the effective protons will interactive should be considered when performing the target-to-target normalization. Aside from the background ``targets'' and liquid hydrogen, there are four nuclear targets in this A-dependence study. The nucleons in liquid deuterium are viewed as essentially free particles, and therefore proved an isoscalar reference by which the heavier targets are compared to. In all, the nuclear targets used are $D_2$, C, Fe, and W.
+
+\begin{table}
+\begin{tabular}{lrrrrrrrr}
+	\toprule
+	{} &  Target Position &  Length[cm] &  $\rho$ [g/cm$^3$] &  NIL [g/cm$^2$] &   $\lambda$ [cm] &  & $\xi$ & T($\xi$) \\
+	Target &            &             &                  &              &             &         & &         \\
+	\midrule
+	$D_2$       &          3 &    50.80 &           0.163 &         71.8 &  439.412485 &        47.973498 \\
+	Fe        &          5 &     1.91 &           7.874 &        132.1 &   16.776734 &         1.800824 \\
+	C         &          6 &     3.32 &           1.802 &         85.8 &   47.613762 &         3.209060 \\
+	W         &          7 &     0.95 &          19.300 &        191.9 &    9.943005 &         0.908300 \\
+	\bottomrule
+\end{tabular}
+\caption{Details pertaining to the measurables and physical properties individual nuclear targets.}
+\label{tab:targ-details}
+\end{table}
+
+
 
 \subsection{Binning of Data}
 
@@ -248,55 +298,9 @@ identical source of signal across these studies (good Drell-Yan target
 dimuons), a consistent selection of kinematic binning maintains a 
 certain continuity among analyses. The $x_2$ binning chosen can be found in Table \ref{tab:x2bins}
 
-\begin{table}
-	\centering
-	\setlength\tabcolsep{4pt}
-\begin{minipage}{0.48\textwidth}
-	\centering
-	\begin{tabular}{ll}
-		\toprule
-		Bin\# & $x_2$ Range\\
-		\midrule
-		0 & [0.08, 0.14] \\
-		1 & (0.14, 0.16] \\
-		2 & (0.16, 0.18] \\
-		3 & (0.18, 0.21] \\
-		4 & (0.21, 0.25] \\
-		5 & (0.25, 0.31] \\
-		6 & (0.31, 0.53] \\
-		\bottomrule
-	\end{tabular}
-	\caption{$x_2$ bin ranges}
-	\label{tab:x2bins} 
-\end{minipage}%
-\hfill
-\begin{minipage}{0.48\textwidth}
-	\centering
-	\begin{tabular}{ll}
-		\toprule
-		target & yield \\ 
-		\midrule
-		None   &  104 \\
-		Empty  &  84 \\
-		LH2    &  3138 \\
-		LD2    &  3472 \\
-		C      &  1721 \\ 
-		Fe     &  1370 \\
-		W      &  1553 \\
-		\bottomrule
-	\end{tabular}
-	\caption{Raw dimuon yields for Roadset 57} 
-	\label{tab:targyields} 
-\end{minipage}
-\end{table}
-
 \subsection{Raw Yields}
 
 \red{Summarize the raw, unweighted and uncorrected yields here.}
-
-\subsection{Live Proton Calculation and Integration}
-
-\red{Summarize the reasoning for the live proton value and define its calculation. Finish with the number of live protons per roadset per target, and then the yields per live proton values.}
 
 \section{Dimuon Weights and Corrections}
 
