@@ -61,7 +61,7 @@ Another crucial characteristic for a run is if it contains Spill values. This ca
 
 The rest of the run-level cuts can be summarized by the umbrella term of ``DAQ issues''. If the Slow Control failed to be recorded for any reason and there are zero Beam, Target, or Environment table values in a run, it is excluded. The same goes for the BeamDAQ and Scaler readouts. Perhaps most prevalent of the DAQ issues is the case of a run that failed upon starting. These resulted in empty \unit[32]{kB} files with no usable data.
 
-Beyond these issues, there are also ranges of runs for which there was some larger issue at hand. The best example of this is the period of data taking during Roadset 62 where the automatic target control was malfunctioning. The shift crew controlled the target position manually, but the actual target that was in the path of the beam during the spill could not be verified. As such, these runs were excluded. There is very little indication from the data itself that would incriminate itself as being untrustworthy, and so these are specifically excluded by analyzers. In practice, the runs are removed from the data set via an excluded range of spillID's.
+Beyond these issues, there are also ranges of runs for which there was some larger issue at hand. The best example of this is the period of data taking during Roadset 62 where the automatic target control was malfunctioning. The shift crew controlled the target position manually, but the actual target that was in the path of the beam during the spill could not be verified. As such, these runs were excluded. There is very little indication from the data itself that would incriminate itself as being untrustworthy, and so these are specifically excluded by analyzers. In practice, the runs are removed from the data set via an excluded range of spillIDs.
 
 \subsection{Spill Level Cuts}
 
@@ -232,17 +232,17 @@ R \equiv \frac{F_2^A}{F_2^D} \approx \frac{\sigma_{\mu\mu}^A}{\sigma_{\mu\mu}^D}
 Here, $A$ is the mass number of the target nucleus, and $N_{A/D}$ is the normalization factor, which can be expressed as:
 \begin{equation}
 	N_{A/D} =
-		\frac{ N_0^D \cdot \text{lt}^D \cdot T^D(\xi)}{N_0^A \cdot \text{lt}^A \cdot T^A(\xi) } \cdot 
-		\frac{ 2 \cdot n_D \cdot L^D }{ A \cdot n_A \cdot L^A } \cdot 
-		\frac{ \varepsilon^D }{ \varepsilon^A } \cdot 
-		\frac{ \bar{\Omega}^D }{\bar{ \Omega}^A }\cdot 
+		\left(\frac{ N_0^D \cdot \text{lt}^D \cdot T^D(\xi)}{N_0^A \cdot \text{lt}^A \cdot T^A(\xi) } \right) \cdot 
+		\left( \frac{ 2 \cdot n_D \cdot L^D }{ A \cdot n_A \cdot L^A } \right) \cdot 
+		\frac{ \varepsilon^D }{ \varepsilon^A }  \cdot 
+		\frac{ \bar{\Omega}^D }{\bar{ \Omega}^A } \cdot 
 		\frac{ \epsilon^D }{ \epsilon^A }
 \end{equation}
 where $N_0$ is the number of incident protons, \emph{lt}$^A$ is the \% live time on the target, $T^A$ is the target transmission (or beam attenuation) factor, $n_A$ is the number of nuclei per unit volume, $L^A$ is the target thickness, $\varepsilon^A$ is the detector efficiency, $\bar{\Omega}^A$ is the spectrometer acceptance, and $\epsilon^A$ is the tracking reconstruction efficiency. One of the key benefits of performing a ratio measurement is that, to good approximation, the terms regarding chamber efficiency, tracking efficiency, and acceptance should be equal across targets and should therefore cancel each other out. How well this assumption holds up will be assessed and evaluated.
 
 With the normalization applied, this ratio $R$ can be accurately studied by being binned in one or more kinematics in order to observe interesting behaviors and compare them against previous measurements and various models. Once The cuts described in the previous section are applied, the surviving dimuons are all considered to be \emph{good quality target Drell-Yan dimuons}, and all analyses and corrections described from here on refer to them only.
 
-This section will discuss the target-to-target relative normalization from the determination of beam intensity, target thickness, live time, tracking efficiency, chamber efficiency, and acceptance. Beam intensity and live time information was obtained from the BIM and scaler data. Tracking efficiencies were extracted from a study combining clean Monte Carlo with actual data noise from the experiment. Acceptance was calculated with Monte Carlo simulation. An isoscalar correction factor is described for cases of asymmetric ($A\neq Z$) nuclei. Sources of combinatorial $\mu^+ \mu^-$ backgrounds from unrelated single muons is studied and subtracted from the data. Finally, a discussion of the effects of deuterium target contamination is and its correction described.
+This section will discuss the several components of the target-to-target relative normalization from the determination of beam intensity, target thickness, live time, chamber efficiency, and acceptance. Beam intensity and live time information was obtained from the BIM and scaler data. Acceptance was calculated with Monte Carlo simulation. Finally, chamber efficiencies and their ratios per target were studied with NIM3 random trigger data embedded onto clean MC. The tracking efficiencies are highly rate-dependent, and will be discussed at length in another section.
 
 \subsection{Live Proton Count and Beam Attenuation}
 
@@ -250,57 +250,91 @@ The measurements of the number of incident protons, live time, and beam attenuat
 \begin{equation}
  N_0^A = \text{G2SEM}\ \ \ ;\ \ \ \text{lt}_A = 
  \frac{\text{QIESum} - \text{inhibit} - \text{deadtime}}{\text{QIESum}}\ \ \ ;\ \ \ 
- liveProton = N_0^A \text{lt}_A
+ liveProton = N_0^A \cdot \text{lt}_A
 \end{equation}
 this \emph{liveProton} value is integrated, good spill by good spill, for every target in each data set.
+
+\red{What are average livetimes for the experiment? Deviations?}
 
 It is also important to factor in the effects of inelastic scattering of the beam within the target, causing the effective amount of beam-on-target to decrease with every step $dz$ through the target. This is different for each target based on target nuclear densities and cross sections. With this, the liveProton value can be corrected. Consider incident proton number $N_0$, where $dN$ is the number of protons attenuated when passing through target slice $dz$, and $L$ is the total length of the target. The function for the number of protons remaining at a given position $z$ is
 \begin{equation}
  N(z) = N_0 e^{-\frac{\rho_A}{\text{NIL}_A} z} = N_0 e^{-z/\lambda}
 \end{equation}
-where $\rho_A$ is the density of the material, $\text{NIL}_A$ is the nuclear interaction length of the target, and $\lambda = \frac{\text{NIL}_A}{\rho_A}$. When integrating over the length of the target, one arrives at the \emph{effective} number of protons incident on the target
+where $\rho_A$ is the density of the material, $\text{NIL}_A$ is the nuclear interaction length of the target, and $\lambda = \frac{\text{NIL}_A}{\rho_A}$. When integrating over the length of the target, one arrives at the total [$\text{protons}\cdot \text{cm}$] exposed to the target. Assuming that each proton interacts independently, one can divide this integral by the length of the target to arrive at \emph{effective} number of protons incident on the target
 \begin{equation}
-N_{\text{eff}} = N_0 \left[\frac{1 - e^{-\xi}}{\xi}\right] = N_0 T(\xi)\ \ \ ;\ \ \ 
+N_{\text{eff}} = \frac{1}{L} \left[ N_0 \lambda (1 - e^{-\frac{L}{\lambda}})\right] = N_0 \left[\frac{1 - e^{-\xi}}{\xi}\right] =  N_0 T(\xi)\ \ \ ;\ \ \ 
 \xi = L/\lambda.
 \end{equation}
 The normalization of the transmission or beam attenuation factor $T^D/T^A$ is therefore only a function of the length of the target, its density, and its nuclear interaction length. In total, the product of $N_0 \cdot \text{lt} \cdot T(\xi)$ represents the effective protons on target which was recorded by the data acquisition systems. Values of $\xi$ and $T(\xi)$ can be found in Table~\ref{tab:targ-details}.
 
 \subsection{Target Density Ratios}
 
-The number of nucleons that the effective protons will interactive should be considered when performing the target-to-target normalization. Aside from the background ``targets'' and liquid hydrogen, there are four nuclear targets in this A-dependence study. The nucleons in liquid deuterium are viewed as essentially free particles, and therefore proved an isoscalar reference by which the heavier targets are compared to. In all, the nuclear targets used are $D_2$, C, Fe, and W.
+The number of nucleons that the effective protons will interactive should be considered when performing the target-to-target normalization. Aside from the background ``targets'' and liquid hydrogen, there are four nuclear targets in this A-dependence study. The nucleons in liquid deuterium are viewed as essentially free particles, and therefore proved an isoscalar reference by which the heavier targets are compared to. In all, the nuclear targets used are $D_2$, C, Fe, and W, and their attributes pertinent to target density ratios can be found in Table~\ref{tab:targ-details}. The yield ratios are normalized to the number of nucleons in each target by the normalization component $(2 \cdot n_D \cdot L^D) / (A \cdot n_A \cdot L^A)$. 
 
 \begin{table}
+	\centering
 \begin{tabular}{lrrrrrrrr}
 	\toprule
-	{} &  Target Position &  Length[cm] &  $\rho$ [g/cm$^3$] &  NIL [g/cm$^2$] &   $\lambda$ [cm] &  & $\xi$ & T($\xi$) \\
-	Target &            &             &                  &              &             &         & &         \\
+	{} &  Target &  Length[cm] & $n_A$ [mol/cm$^3$] & $\rho$ [g/cm$^3$] &  NIL [g/cm$^2$] &   $\lambda$ [cm] & $\xi$ & T($\xi$) \\
+	Target & Position & & & & & & & \\
 	\midrule
-	$D_2$       &          3 &    50.80 &           0.163 &         71.8 &  439.412485 &        47.973498 \\
-	Fe        &          5 &     1.91 &           7.874 &        132.1 &   16.776734 &         1.800824 \\
-	C         &          6 &     3.32 &           1.802 &         85.8 &   47.613762 &         3.209060 \\
-	W         &          7 &     0.95 &          19.300 &        191.9 &    9.943005 &         0.908300 \\
+	$D_2$ & 3 & 50.80 & 0.081 & 0.163 & 71.8 & 439.41 & 0.1156 & 0.944 \\
+	Fe & 5 & 1.91 &	0.141 & 7.874 & 132.1 & 16.78 & 0.1136 & 0.945 \\
+	C & 6 & 3.32 & 0.150 & 1.802 & 85.8 & 47.61 & 0.0698 & 0.966 \\
+	W & 7 & 0.95 & 0.105 & 19.300 & 191.9 & 9.94 & 0.0958 & 0.954 \\
 	\bottomrule
 \end{tabular}
 \caption{Details pertaining to the measurables and physical properties individual nuclear targets.}
 \label{tab:targ-details}
 \end{table}
 
+\red{Uncertainties in densities, target lengths? Find solid target with largest uncertainty, estimate LD2 uncertainty the best we can, get \% systematic from the ratio of them.}
 
+\subsection{Detection Efficiency}
 
-\subsection{Binning of Data}
+The key cause of detector inefficiency is high occupancies from high intensity events. Also, the total number of tracks that fired off elements of the many detectors is dominated by events generated from the \unit[503]{cm} iron beam dump. The difference in interaction lengths of the targets should have only a small effect on the absolute chamber and hodoscope efficiencies. Further, any longer term time-dependent drifts in detector efficiencies will largely cancel out due to the frequent minute-by-minute interchange of targets. It is therefore justifiable to assume that there is no target-to-target chamber efficiency dependence to normalize to. The overall ratio of detector efficiencies between targets is therefore taken to be $\varepsilon^D/\varepsilon^A=1$. 
 
-The $x_2$ bins for this EMC ratio measurement were chosen such that each
-bin in $x_2$ has similar levels of statistics. 
+It is however possible that pions created in the targets have more of a chance to decay into muons that proceed to add to the background hit rates of the experiment; pions created in the beam dump are much more likely to get re-absorbed before they decay. To investigate the possible magnitude of this contribution to occupancy, detector occupancies were studied for the different targets in unbiased NIM3 random events as a function of chamber intensity. We see in Figure~\ref{fig:occ-int-targ} that they are not significantly different from each other, though there is a slight difference in occupancies between the deuterium target and the rest. However, since the occupancy distributions at a given intensity bin do not change much for a given intensity, it is safe to assume that the efficiencies likewise do not change by much from target-to-target.
+\begin{figure}
+	\centering
+	\includegraphics[width=5in]{figures/analysis/targ-occupancy.png}
+	\caption{The Station 2 drift chamber occupancy for the four targets as a function of intensity. The error bars show a systematic deviation of occupancies from the mean for a given intensity bin. The inset plot shows the distributions for the intensity bin in which the values differ the most. The triangle markers represent the modes of the distributions.}
+	\label{fig:occ-int-targ}
+\end{figure}
 
-Concurrent with this analysis, studies of $\bar{d}(x_2)/\bar{u}(x_2)$ and 
-parton energy loss are conducted. Due to the nearly
-identical source of signal across these studies (good Drell-Yan target
-dimuons), a consistent selection of kinematic binning maintains a 
-certain continuity among analyses. The $x_2$ binning chosen can be found in Table \ref{tab:x2bins}
+To override any concern of chamber efficiencies having an effect on any absolute or ratio measurements, a study was performed to measure the effect of chamber efficiencies on the track reconstruction algorithm. This was done by embedding clean Monte Carlo-generated Drell-Yan dimuons into real NIM3 random event hit data. Then, a constant 94\% chamber efficiency was applied by removing a random 6\% of the chamber hits, and tracking was performed on this sample. The 94\% figure reflects the best estimate of overall chamber efficiencies at SeaQuest. Following that, a rate-dependent chamber efficiency was imposed of the form
+\begin{equation}
+\varepsilon(I) = 0.95 - a \cdot I
+\end{equation}
+where $a$ was set to \unit[2e-6]{protons$^{-1}$}. This resulted in a linear drop in efficiency with it dropping to as low as 75\% at the highest intensity regions considered (\unit[100000]{protons}). The tracking algorithm was then run on this data sample.
+	
+For even the constant 94\% efficiency case, the tracking is expected to decrease in \emph{tracking efficiency} (a very different topic to tackle, as we will approach later in this chapter) as intensity increases and pattern recognition becomes more difficult as overall occupancies increase. The important to observation to make is how this intensity-dependent tracking efficiency compares to the case of decreasing efficiency. For both cases, the ratio of successful reconstructions to all thrown dimuons (before even the trigger acceptance is imposed) can be seen in Figure~\ref{fig:ktrack-eff-int}. It is perhaps surprising to see that even at high intensities, the linear drop in tracking efficiencies does not change between the two cases. The reason for this is due to the fact that the tracking algorithm is very \emph{robust} in the way it is able to handle missing hits, as it only requires a few hits in each station (3 out of 6) to successfully find a track.
+\begin{figure}
+	\centering
+	\includegraphics[width=4in]{figures/analysis/ktrack-eff-int.png}
+	\caption{The ratio of successful reconstruction to all thrown by MC for two chamber efficiency models. The linear decreases in efficiency are not significantly different from each other.}
+	\label{fig:ktrack-eff-int}
+\end{figure}
 
-\subsection{Raw Yields}
+Putting this together:
+\begin{itemize}
+	\item Differences in chamber efficiency between targets could only come from different resultant chamber occupancies as a result of that target being in the beam's path.
+	\item Chamber occupancies are only slightly different for deuterium when compared to the other nuclear targets, and so if efficiencies are different between targets, the modification will likely be very small.
+	\item Even in the case of vastly different efficiencies, the tracking efficiency is unchanged.
+	\item As a result, effect of chamber efficiency on the yields will be the same for all targets.
+	\item Therefore, $\varepsilon^D/\varepsilon^A$, a measure of how the chamber efficiency effects the deuterium target yields as compared to a nuclear targets, can be considered to be 1.
+\end{itemize}
 
-\red{Summarize the raw, unweighted and uncorrected yields here.}
+\subsection{Relative Acceptance Correction}
+
+The target dependence of the acceptance was studied via Monte Carlo of yield ratios of heavy targets to that of deuterium for the valid kinematic regions of the experiment. These regions are \unit[4.2]{GeV}$<M_{\gamma^*}<$\unit[10]{GeV}, $0.08<x_2<0.5$, $XX<x_F<YY$, and $XX<p_T<YY$. Since no nuclear effects are simulated by the Monte Carlo generator, this ratio should lie at 1; any deviation of this must be purely from the acceptance effects due to the slight differences in the geometries of the targets. The results can be seen in Figure~\ref{fig:targ-acceptance}.
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=5in]{figures/analysis/targ-acceptance.png}
+%	\caption{Ratios of accepted dimuons from heavy targets to deuterium for all kinematic regions of interest.}
+%	\label{fig:targ-acceptance}
+%\end{figure}
+The acceptances of solid targets were calculated by MC to be Z.ZZZ larger than that of the liquid deuterium target. As such, a correction factor of $\bar{\Omega}^A/\bar{\Omega}^D = Z.ZZZ$ is included in the target-to-target normalization.
 
 \section{Dimuon Weights and Corrections}
 
