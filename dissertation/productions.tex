@@ -2,6 +2,8 @@
 
 \red{CHAPTER STATUS: IN PROGRESS}
 
+\red{Start with overview: define scope, production, monitoring, merging, analysis. Then talk philosophy.}
+
 During my tenure at SeaQuest, I was primarily in charge of the effort to decode the raw, serialized data from the data acquisition systems and store it in a manner in which it could be readily accessible by collaborators worldwide. Beyond that, emphasis was placed on curating the tracked physics data and preparing it in such a way that facilitates quick and simple analysis from many different analytical software packages.
 
 The technologies used to perform this were a combination of compiled C/C++ codes, MySQL, ROOT, and the Fermilab Computing Division's primary computing grid. The end product provided to all collaborators was in the form of unified MySQL database ``schemas'' (or, groups of tables) possessing all of the combined run, spill, event, slow control, and tracked information, along with specific data quality flags in place to assist in the selection of good analysis data.
@@ -106,6 +108,8 @@ Upon the completion of decoding and tracking of a specified range of runs, all o
 
 \section{RDBMS Data Structure}
 
+\red{Add pros/cons. Discuss motivation.}
+
 The processed data is primarily stored in MySQL Server 5.1 databases. MySQL is an open-source \textbf{R}elational \textbf{D}ata\textbf{b}ase \textbf{M}anagement \textbf{S}ystem (RDBMS) developed by Oracle that is well-suited for the storage and responsive querying of hierarchical data.
 
 Each run is decoded into its own schema, and contains its own instances of all tables of a specified design. The tables are all \emph{join}-able to each other by sharing \emph{foreign keys} with each other in the form of the \emph{runID}'s, \emph{spillID}'s, and \emph{eventID}'s. The contents of the tables are \emph{indexed} in such a way that \emph{joins} and queries gain a speed performance boost, but this comes at the cost of disk space.
@@ -116,8 +120,16 @@ The data on the server is world-wide accessible and can be queried using the sta
 
 \subsection{Schema Table Organization}
 
-\subsection{Future Technologies}
-
 \section{Data Quality}
 
 \red{Talk about dataQuality bits, the levels they're used at, and how to use them in selecting data.}
+
+\section{Discussion}
+
+\subsection{Retrospective on Scalability}
+
+\subsection{Key Practices for Success}
+
+\subsection{Future Technologies}
+
+

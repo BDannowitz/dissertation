@@ -298,7 +298,7 @@ It is however possible that pions created in the targets have more of a chance t
 \begin{figure}
 	\centering
 	\includegraphics[width=5in]{figures/analysis/targ-occupancy.png}
-	\caption{The Station 2 drift chamber occupancy for the four targets as a function of intensity. The error bars show a systematic deviation of occupancies from the mean for a given intensity bin. The inset plot shows the distributions for the intensity bin in which the values differ the most. The triangle markers represent the modes of the distributions.}
+	\caption{The Station 2 drift chamber occupancy for the four targets as a function of intensity. The error bars show a systematic deviation of occupancies from the mean for a given intensity bin. The inset plot shows a KDE plot of distributions for the intensity bin in which the values differ the most. The triangle markers represent the modes of the distributions.}
 	\label{fig:occ-int-targ}
 \end{figure}
 
@@ -322,12 +322,23 @@ Putting this together:
 	\item Chamber occupancies are only slightly different for deuterium when compared to the other nuclear targets, and so if efficiencies are different between targets, the modification will likely be very small.
 	\item Even in the case of vastly different efficiencies, the tracking efficiency is unchanged.
 	\item As a result, effect of chamber efficiency on the yields will be the same for all targets.
-	\item Therefore, $\varepsilon^D/\varepsilon^A$, a measure of how the chamber efficiency effects the deuterium target yields as compared to a nuclear targets, can be considered to be 1.
+	\item $\varepsilon^D/\varepsilon^A$, a measure of how the chamber efficiency effects the deuterium target yields as compared to a nuclear targets, can therefore be considered to be 1.
 \end{itemize}
 
 \subsection{Relative Acceptance Correction}
 
-The target dependence of the acceptance was studied via Monte Carlo of yield ratios of heavy targets to that of deuterium for the valid kinematic regions of the experiment. These regions are \unit[4.2]{GeV}$<M_{\gamma^*}<$\unit[10]{GeV}, $0.08<x_2<0.5$, $XX<x_F<YY$, and $XX<p_T<YY$. Since no nuclear effects are simulated by the Monte Carlo generator, this ratio should lie at 1; any deviation of this must be purely from the acceptance effects due to the slight differences in the geometries of the targets. The results can be seen in Figure~\ref{fig:targ-acceptance}.
+The \emph{true} acceptance as a function of any set of kinematic variables $\bar{x}$ can be expressed as:
+\begin{equation}
+A(x) = \lim\limits_{N\rightarrow \infty} \frac{Y_{accepted}(\bar{x})}{Y_{thrown} (\bar{x})}\ \ ;\ \ 
+N \equiv \int Y_{thrown}(\bar{x}) dx
+\end{equation}
+where \emph{thrown} denotes Drell-Yan simulated events from Monte Carlo which generates every kinematic value by sampling over the distributions of that variable with a random number generator. The simulation includes such processes as multiple scattering and energy loss that occur due to particle passage through materials (such as our targets and beam dumps). Survey numbers of the experimental hall are used to build an accurate representation of the apparatus and its sensitive detector regions. Muon pairs over much of the kinematic phase space and was weighted according to the known Drell-Yan cross section. This does not factor in any higher order nuclear effects or anything like $\dbar/\ubar$ asymmetries. 
+
+The pairs that qualify as \emph{accepted} are those that satisfy the following two criteria: (1) were able to trace their way through the spectrometer without leaving the sensitive range of the detectors at all stations, and (2) they followed paths that would have satisfied the un-like-sign dimuon trigger (FPGA1). Such data was written to file in a format that matches real experimental data and is then ready for analysis. These events are weighted according to the kinematics and DY cross-section as mentioned above, but for analysis, these weights when analyzed were divided by $N$, the number of thrown events.
+
+Approximately \unit[800,000]{dimuons} were thrown for each target to have the acceptances analyzed. For an absolute acceptance, a study of a full $4\pi$ (or $2\pi$) simulation is required, where $4\pi$ is the solid angle of an entire (semi-)sphere. In such simulations dimuons are thrown in every physically possible direction, and then one can derive the absolute acceptance of the target and/or spectrometer when taking into account this source of \emph{thrown} events. However, for the purposes of these studies, we are only concerned about $\bar{Omega}^D/\bar{Omega}^A$, or the relative acceptance correction. As we see in Fig.~\ref{fig:table-layout}, we see that though the spatial distribution of the liquid deuterium flask and the solid targets are similar, they are fundamentally differently distributed. The density of the deuterium in the flask is constant throughout the length of the flask while the disks are discrete and separated. As a result, it perhaps may be the case that due to beam attenuation, there is a spatial difference between where most dimuons are generated between the different targets. The cause of any acceptance difference, however, is moot; the goal here is to estimate the relative acceptance correction factor between deuterium and the nuclear targets.
+
+The target dependence of the acceptance was studied via yield ratios of heavy targets to that of deuterium for the valid kinematic regions of the experiment. These regions are \unit[4.2]{GeV}$<M_{\gamma^*}<$\unit[10]{GeV}, $0.1<x_2<0.5$, $0.35<x_1<0.9$, $0.0<x_F<0.9$, and \unit[0.0]{GeV}$<p_T<$\unit[3.0]{GeV}. Since no nuclear effects are simulated by the Monte Carlo generator, this ratio should lie at 1; any deviation of this must be purely from the acceptance effects due to the slight differences in the geometries and densities of the targets. The results can be seen in Figure~\ref{fig:targ-acceptance}.
 %\begin{figure}
 %	\centering
 %	\includegraphics[width=5in]{figures/analysis/targ-acceptance.png}
@@ -488,3 +499,4 @@ The new intensity-dependent efficiency can now be defined as
 
 \red{Give brief correction in approximating n==p conversion. Be sure to show results for both iso-corrected and not!}
 
+\section{Systematic Uncertainties}

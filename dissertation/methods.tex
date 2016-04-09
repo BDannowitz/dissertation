@@ -335,6 +335,8 @@ The momentum resolution due to chamber resolution can therefore be described as:
 \end{equation}
 The dependence of the resolution on $P/P_{kick}$ works such that the larger the $P_{kick}$ is (w.r.t. particle momentum $P$), the more the track is bent, and the more precisely the original momentum is defined. Besides chamber resolution, other contributions to this momentum resolution are from multiple scattering through FMAG's iron beam dump and from the spectrometer's angular resolution. These will be discussed elsewhere in this paper.
 
+\red{Show resolution in x2, mass via tracked MC vs truth residuals.}
+
 The mass resolution is linked to momentum resolution via the following relation
 \begin{equation}
 \frac{\Delta M}{M} = \frac{\Delta P}{2 P}
@@ -418,6 +420,8 @@ The third NIM trigger mode is of particular importance, as it is used for estima
 
 \section{Data Acquisition Systems}
 
+\red{Create flowchart!}
+
 The whole of the SeaQuest experiment spans two sectors of the NM beamline (NM3 and NM4) and records not only detector data but also accelerator and atmospheric conditions. Designing a data acquisition (DAQ) for this experiment, therefore, requires a bandwidth and timing which cannot be provided by a single central computer system. SeaQuest has therefore employed four separate DAQ subsystems called ``Main DAQ'', ``Scaler DAQ'', ``Beam DAQ'' and ``Slow Control''. The Main DAQ records the main detector information and the trigger timing. Scaler DAQ records various scaler readouts once per spill to reduce bias from the dead time of Main DAQ. Beam DAQ records information from a beamline \v{C}erenkov detector read out by its QIE board. The Slow Control is a catch-all for everything else, from magnet current to radiation monitors that are read out once per spill.
 
 \subsection{Main DAQ}
@@ -491,3 +495,5 @@ With all of this going on to aggregate data from several sources, there is one f
 \end{itemize}
 
 Once all of this is written to a file, this is sent to the Main DAQ and Scaler DAQ to be integrated into the full CODA file as a plain text event with a simple, tab-delimited format.
+
+\red{Segueway to decoding in Chapter so and so where all of these data files are handled.}
