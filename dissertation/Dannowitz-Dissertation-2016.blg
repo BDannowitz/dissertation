@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Dannowitz-Dissertation-2016.aux
 A level-1 auxiliary file: background.aux
@@ -12,44 +12,44 @@ A level-1 auxiliary file: conclusions.aux
 A level-1 auxiliary file: Appendix.aux
 The style file: plain.bst
 Database file #1: thesisbib.bib
-You've used 45 entries,
+You've used 47 entries,
             2118 wiz_defined-function locations,
-            817 strings with 14556 characters,
-and the built_in function-call counts, 19729 in all, are:
-= -- 1734
-> -- 1614
+            831 strings with 14895 characters,
+and the built_in function-call counts, 20068 in all, are:
+= -- 1771
+> -- 1613
 < -- 0
-+ -- 644
-- -- 598
-* -- 1701
-:= -- 3546
-add.period$ -- 144
-call.type$ -- 45
-change.case$ -- 423
++ -- 645
+- -- 596
+* -- 1707
+:= -- 3606
+add.period$ -- 150
+call.type$ -- 47
+change.case$ -- 426
 chr.to.int$ -- 0
-cite$ -- 45
-duplicate$ -- 451
-empty$ -- 1089
-format.name$ -- 598
-if$ -- 3799
+cite$ -- 47
+duplicate$ -- 474
+empty$ -- 1130
+format.name$ -- 596
+if$ -- 3873
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 35
-newline$ -- 237
-num.names$ -- 90
-pop$ -- 409
+int.to.str$ -- 47
+missing$ -- 36
+newline$ -- 247
+num.names$ -- 94
+pop$ -- 416
 preamble$ -- 1
-purify$ -- 379
+purify$ -- 381
 quote$ -- 0
-skip$ -- 321
+skip$ -- 336
 stack$ -- 0
-substring$ -- 889
-swap$ -- 43
+substring$ -- 898
+swap$ -- 46
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 178
+type$ -- 186
 warning$ -- 0
-while$ -- 128
-width$ -- 47
-write$ -- 496
+while$ -- 133
+width$ -- 49
+write$ -- 517

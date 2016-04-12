@@ -162,6 +162,12 @@ Donald~F. Geesaman, K.~Saito, and Anthony~William Thomas.
 \newblock {The nuclear EMC effect}.
 \newblock {\em Ann.Rev.Nucl.Part.Sci.}, 45:337--390, 1995.
 
+\bibitem{Gorbunov:2010yda}
+S.~Gorbunov et~al.
+\newblock {ALICE HLT high speed tracking and vertexing}.
+\newblock In {\em {Proceedings, 17th Conference on Computing Applications in
+  Nuclear and Plasma Sciences on Real Time (RT2010)}}, 2010.
+
 \bibitem{Gross:1969jf}
 David~J. Gross and Chris~H. Llewellyn~Smith.
 \newblock {High-energy neutrino - nucleon scattering, current algebra and
@@ -185,11 +191,11 @@ E.~A. et~al. Hawker.
   sea.
 \newblock {\em Phys. Rev. Lett.}, 80:3715--3718, Apr 1998.
 
-\bibitem{Hen:2013oha}
-Or~Hen, D.~W. Higinbotham, Gerald~A. Miller, Eli Piasetzky, and Lawrence~B.
-  Weinstein.
-\newblock {The EMC Effect and High Momentum Nucleons in Nuclei}.
-\newblock {\em Int. J. Mod. Phys.}, E22:1330017, 2013.
+\bibitem{kalman:1960}
+Rudolph~Emil Kalman.
+\newblock A new approach to linear filtering and prediction problems.
+\newblock {\em Transactions of the ASME--Journal of Basic Engineering},
+  82(Series D):35--45, 1960.
 
 \bibitem{Kerns:1977qr}
 C.~R. Kerns.
@@ -276,6 +282,11 @@ R.~S. Towell et~al.
 \newblock Improved measurement of the anti-d/anti-u asymmetry in the nucleon
   sea.
 \newblock {\em Phys. Rev.}, D64:052002, 2001.
+
+\bibitem{vanderEijk:2002sp}
+Rutger~M. van~der Eijk.
+\newblock {\em {Track reconstruction in the LHCb experiment}}.
+\newblock PhD thesis, Amsterdam U., 2002.
 
 \bibitem{Webb_Williams_1963}
 P.P. Webb and R.L. Williams.
