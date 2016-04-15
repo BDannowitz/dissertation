@@ -92,6 +92,13 @@ Siegfried Bethke.
 \newblock {Experimental tests of asymptotic freedom}.
 \newblock {\em Prog. Part. Nucl. Phys.}, 58:351--386, 2007.
 
+\bibitem{PhysRevLett.50.1431}
+A.~Bodek, N.~Giokaris, W.~B. Atwood, D.~H. Coward, D.~J. Sherden, D.~L. Dubin,
+  J.~E. Elias, J.~I. Friedman, H.~W. Kendall, J.~S. Poucher, and E.~M. Riordan.
+\newblock Electron scattering from nuclear targets and quark distributions in
+  nuclei.
+\newblock {\em Phys. Rev. Lett.}, 50:1431--1434, May 1983.
+
 \bibitem{caen:v1495}
 CAEN.
 \newblock v1495 general purpose vme board.
@@ -152,6 +159,11 @@ H.~Eugene Fisk and Frank Sciulli.
 \newblock {CHARGED CURRENT NEUTRINO INTERACTIONS}.
 \newblock {\em Ann. Rev. Nucl. Part. Sci.}, 32:499--573, 1982.
 
+\bibitem{Frankfurt:2012qs}
+Leonid Frankfurt and Mark Strikman.
+\newblock {QCD and QED dynamics in the EMC effect}.
+\newblock {\em Int. J. Mod. Phys.}, E21:1230002, 2012.
+
 \bibitem{Garvey:2001yq}
 Gerald~T. Garvey and Jen-Chieh Peng.
 \newblock {Flavor asymmetry of light quarks in the nucleon sea}.
@@ -190,6 +202,12 @@ E.~A. et~al. Hawker.
 \newblock Measurement of the light antiquark flavor asymmetry in the nucleon
   sea.
 \newblock {\em Phys. Rev. Lett.}, 80:3715--3718, Apr 1998.
+
+\bibitem{Hen:2013oha}
+Or~Hen, D.~W. Higinbotham, Gerald~A. Miller, Eli Piasetzky, and Lawrence~B.
+  Weinstein.
+\newblock {The EMC Effect and High Momentum Nucleons in Nuclei}.
+\newblock {\em Int. J. Mod. Phys.}, E22:1330017, 2013.
 
 \bibitem{kalman:1960}
 Rudolph~Emil Kalman.

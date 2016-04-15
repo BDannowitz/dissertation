@@ -606,16 +606,138 @@ The new intensity-dependent efficiency can now be defined as
 (\epsilon_b^\prime)_i = 1 - D \cdot C(I_i)
 \end{equation}
 
-\section{Combinatorial Background Correction}
+\section{Combinatorial Background}
 
 \red{Discuss analysis investigating results for the like-sign reconstruction to estimate the combinatorial background. Hopefully it will be intensity-dependent.}
 
-\section{$ld_2$ Contamination Correction}
+\section{$ld_2$ Contamination}
 
-\red{Discuss contamination backstory, composition breakdown, the fluctuation from bottle-to-bottle, the correction procedure, and the proposed systematic uncertainty in that procedure.}
+\red{Cite Paul's summary of the contamination correction}
 
-\section{Isoscalar Corrections for $^{183}W$ and $^{56}Fe$}
+\subsection{Contamination Measurements}
+
+The SeaQuest deuterium target was emptied and filled several times during data taking. At each of these times, a sample was taken from either the target or from the deuterium gas cylinder used to fill the target. These samples were sent to Los Alamos for isotopic analysis where each sample was analyzed twice. The results of these analyses are shown in Table~\ref{tab:deut-contam}. In each case of parallel analyses on a single gas sample, the two results were in agreement. Upon examination of the deuterium compositions, some problems are immediately clear. Specifically, the ratios of $H_2$, $HD$, and $D_2$ are different between the three samples, but the bottles were supposed to have been filled from the same source many years ago. Second, the some of samples had a significant contribution of other gases, including $N_2$ and $O_2$. This indicates an additional contamination of air. A sample of the first $H_2$ target was analyzed and found to be $\sim98\%$ pure with negligible contributions from other species.
+
+\begin{table}
+	\centering
+	\begin{tabular}{@{}rrrrrrrrrr@{}}
+		\toprule
+		{} & \textbf{Runs:} & \multicolumn{2}{c}{3230-11143} & \phantom{abc} & \multicolumn{2}{c}{11144-11477} & \phantom{abc} & \multicolumn{2}{c}{11478-14652} \\ \cmidrule{3-4} \cmidrule{6-7} \cmidrule{9-10}
+		\textbf{Species:} & \textbf{Test:} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} \\ \midrule
+		$H_2$	& & 1.23 & 1.225 					& & 0.25 & 0.25 				& & 4.603 & 4.591 \\
+		$HD$		  & & 16.187 & 16.171 						& & 8.393 & 8.391 			   & & 6.983 & 6.982 \\
+		$D_2$ 	& & 79.78 & 79.729 			 	  & & 90.871 & 90.808 			& & 80.504 & 80.443 \\
+		$He$ 		   & & 2.20 & 2.188 		 		 	   & & 0.018 & 0.014 				& & $<$0.01 & $<$0.01 \\
+		$CH_4$ & & $<$0.009 & $<$0.009 	   & & $<$0.007 & $<$0.007 	 & & $<$0.008 & $<$0.008 \\
+		$H_2O$ 	& & $<$0.009 & 0.073   			& & 0.038 & 0.099 			   & & 0.033 & 0.061 \\
+		$HDO$ 	 & & 0.015 & 0.026 					& & 0.024 & 0.033 				& & 0.021 & 0.04 \\
+		$D_2O$ & & $<$0.007 & $<$0.009      & & $<$0.007 & $<$0.008   & & $<$0.009 & $<$0.012 \\
+		$Ne$ 		   & & 0.007 & 0.065 		   		  & & $<$0.027 & $<$0.027 	& & $<$0.03 & $<$0.03 \\
+		$N_2$ 	& & 0.428 & 0.419 				    & & 0.323 & 0.323 			   & & 6.395 & 6.382 \\
+		$C_2H_6$ & & $<$0.006 & $<$0.006   & & $<$0.005 & $<$0.005   & & $<$0.006 & $<$0.006 \\
+		$O_2$ 	& & 0.085 & 0.098 			 	  		   & & 0.068 & 0.068 			   & & 1.389 & 1.416 \\
+		$Ar$ 			& & 0.005 & 0.006 				 		  & & 0.004 & 0.003 			  & & 0.063 & 0.064 \\
+		$CO_2$ & & $<$0.002 & $<$0.002	    & & 0.011 & 0.009 				 & & 0.01 & 0.01 \\
+		$C_3H_8$ & & $<$0.006 & $<$0.006  & & $<$0.005 & $<$0.005   & & $<$0.006 & $<$0.006 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Results of the isotropic analyses of the liquid deuterium samples. Two tests are applied to each sample, and all numbers are in percentages.}
+	\label{tab:deut-contam}
+\end{table}
+
+The source of the deuterium used at SeaQuest is from a bubble chamber experiment at Fermilab. At some undocumented point in the past, the contents of the bubble chamber were transferred into a tube trailer for storage. At a later time, the $D_2$ was transferred into cylinders for storage. Discussions with gas storage experts indicate that there was likely no special treatment of the cylinders other than being evacuated when they were filled with $D_2$, with the desired special treatment being to ``bake'' the cylinders, or heat them up to release residual hydrogen that tends to diffuse into the metal surface of their inner walls. In addition to that, the containers used to take samples from the target or cylinders were also not ``baked,'' so existing estimates of the contamination may \emph{only} be from the sampling containers -- or the contamination could be doubly worsened by contamination in the sampling containers. As such, effects of this contamination are treated as a systematic error with asymmetric uncertainties. After run 14652, a commercial deuterium gas has been used which has an analyzed purity of $>99.9999\%$, and no systematic uncertainty will need be applied.
+
+Contamination from air in the sample gases is unlikely to have come from the targets. Prior to filling, the targets undergo several cycles of evacuation and refilling with deuterium before the final fill is done. This cycle should flush out all residual air from the target flask. Further, if there was air supply being fed into the target, all but the lowest temperature gases should have been removed by the liquid nitrogen ``cold trap.'' Aside from hydrogen isotopes, helium is the only other component found in the samples. Since the target temperature were approximately \unit[23]{K}, any helium would have been in a gas state and not in the bulk liquid in the flask. Thus, the gases from the analysis shown in Table~\ref{tab:deut-contam} can be renormalized to consider only the hydrogen isotopes, which can be seen in Table~\ref{tab:deut-contam-renorm}.
+
+\begin{table}
+	\centering
+	\begin{tabular}{@{}rlrrr@{}}
+		\toprule
+		{} & \textbf{Run} & \multicolumn{1}{c}{3230-} & \multicolumn{1}{c}{11144-} &  \multicolumn{1}{c}{11478} \\ 
+		{} & \textbf{Range:} & \multicolumn{1}{c}{11143} & \multicolumn{1}{c}{11477} &  \multicolumn{1}{c}{14652} \\ 
+		\textbf{Species:} & & & & \\ \midrule
+		$H_2$	& & 1.26   & 0.25  & 4.99 \\
+		$HD$    & & 16.65 & 8.44  &	 7.59 \\
+		$D_2$ 	& & 82.08 & 91.31 &  87.42 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Renormalized compositions (in percentages) when considering only the hydrogen isotopes.}
+	\label{tab:deut-contam-renorm}
+\end{table}
+
+Until the true compositions can be ascertained, it has been recommend that analyses use the atomic percentages provided by the Los Alamos analysis as shown in Table~\ref{tab:deut-atomic-perc}, which represents the best understanding of the deuterium at this point. To assign a systematic uncertainty to these numbers, the recommended approach is to use asymmetric uncertainties, assuming that one the extreme values for H and D. Due to the fact that there is a complete inverse correlation between hydrogen and deuterium an uncertainty is assigned to the deuteron percentage only.
+
+\begin{table}
+	\centering
+	\begin{tabular}{@{}rlrrr@{}}
+		\toprule
+		{} & \textbf{Run} & \multicolumn{1}{c}{3230-} & \multicolumn{1}{c}{11144-} &  \multicolumn{1}{c}{11478} \\ 
+		{} & \textbf{Range:} & \multicolumn{1}{c}{11143} & \multicolumn{1}{c}{11477} &  \multicolumn{1}{c}{14652} \\ 
+		\textbf{Atom:} & & & & \\ \midrule
+		$H$	& & 9.6   & 4.5  & 8.8 \\
+		$D$    & & $90.4^{+5}_{-0}$ & $95.5^{+0}_{-5}$  & $91.2^{+4}_{-1}$ \\
+		\bottomrule
+	\end{tabular}
+	\caption{Atomic percentages of the deuterium targets with asymmetric uncertainties in the $d$ percentage.}
+	\label{tab:deut-atomic-perc}
+\end{table}
+
+\subsection{Contamination Correction}
+
+With the assumption that the heavier atoms are caught in the cold trap and the gaseous helium stays at the top of the flask and away from the path of the proton beam, a contamination correction is implemented based on the atomic percentage composition detailed in Table~\ref{tab:deut-atomic-perc}. The nuclear interaction length, density, and atomic mass of the liquid deuterium target is corrected based on the cotamination. With $A$ as the atomic mass, $\lambda$ as the nuclear interaction length, $\rho$ as the density, and $F_{H/D}$ as the proportion of $H$ or $D$ in the target, the following are assumed to be approximately true:
+
+\noindent\begin{minipage}{.5\linewidth}
+	\begin{eqnarray}
+	A & = & A_H\cdot F_H + A_D \cdot F_D \\
+	\rho & = & \rho_H\cdot F_H + \rho_D \cdot F_D
+	\end{eqnarray}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\begin{eqnarray}
+	\frac{1}{\lambda } & = & \frac{F_H}{\lambda_H} + \frac{F_D}{\lambda_D} \\
+	\lambda & = & \frac{\lambda_H \cdot \lambda_D}{F_H \cdot \lambda_D + F_D \cdot \lambda_H}	
+	\end{eqnarray}
+\end{minipage}
+\newline
+
+Due to the contamination, some of the signal events with the liquid deuterium target in place will actually come from hydrogen instead of a deuteron. With $\hat{\sigma}_{pH}$ and $\hat{\sigma}_{pD}$ representing the \emph{measured} target cross section, and $\sigma_{pp}$ and $\sigma_{pn}$ representing the proton-proton and proton-neutron cross section, 
+
+\noindent\begin{minipage}{.5\linewidth}
+	\begin{eqnarray}
+	\hat{\sigma}_{pH} & = & a \cdot \sigma_{pp} + b \cdot \sigma_{pn} \\
+	\hat{\sigma}_{pD} & = & c \cdot \sigma_{pp} + d \cdot \sigma_{pn}
+	\end{eqnarray}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+	\begin{eqnarray}
+	\sigma_{pp} & = & \frac{b \cdot \hat{\sigma}_{pD} - d \cdot \hat{\sigma}_{pH}}{b \cdot c - a \cdot d} \\
+	\sigma_{pn} & = & \frac{a \cdot \hat{\sigma}_{pD} - c \cdot \hat{\sigma}_{pH}}{a \cdot d - b \cdot c}
+	\end{eqnarray}
+\end{minipage}
+\newline
+
+\noindent Here, the coefficients $a, b, c,$ and $d$ denote the number of protons and neutrons per atom for the different targets. We know that $a=c=1$, and since the hydrogen target is considered to be pure, $b=0$. The remaining value, $d$, is the fraction of deuteron atoms in the sample ($F_D$ above). With this, we can arrive at an expression for $\sigma_{pD}^{\text{pure}}$.
+\begin{eqnarray}
+\sigma_{pH}^{\text{pure}} & = & p = \hat{\sigma}_{pH} \\
+n & = & \frac{\hat{\sigma}_{pD} - \hat{\sigma}_{pH}}{d} \\
+\sigma_{pD}^{\text{pure}} & = & p + n \\
+\sigma_{pD}^{\text{pure}} & = & \frac{\hat{\sigma}_{pD} - \hat{\sigma}_{pH}\cdot (1-d)}{d}
+\end{eqnarray}
+
+In practice, this correction is applied bin by bin, utilizing the weighted dimuon yield for each target in place of $\hat{\sigma}$. The $d$ used depends on the run ranges applicable to the roadset being analyzed, and the values are derived from those in Table~\ref{tab:deut-atomic-perc}.
+
+\section{\texorpdfstring{$x_A$ Nuclear Scaling Variable}{xA Nuclear Scaling Variable}}
+
+When discussing heavy nuclei and, a certain shift in definition of scaling variables should be considered. The use of the Bjorken-$x$ scaling variable up until now should actually be relabeled as the scaling variable \emph{for a proton} $x_p = Q^2/(2 m_p \omega)$. It has been recently discussed by Frankfurt \& Strikman\cite{Frankfurt:2012qs} and implemented by Hen \emph{et al.}\cite{Hen:2013oha} that the structure functions of nucleons bound in nuclei should be extracted in the reference frame of the nucleus. This is done by using the $x_A$ scaling variable, defined as:
+\begin{equation}
+x_A = \frac{Q^2}{2q\cdot P_A/A} = \frac{AQ^2}{2\omega m_A} = x_p \cdot \frac{A m_p}{m_A}
+\end{equation}
+where $q$ and $P_A$ are the 4-momentum vectors of the virtual photon and target nucleus respectively, and $m_A$ is the mass of the target nucleus. For the same values of $Q^2$ and $\omega$, $x_A$ differs from $x_p$ by the ratio of the bound nucleon mass to the free mass. Therefore, a cross section measured at $Q^2$ and $\omega$ on a nucleus $A$ will depend on the nucleon structure function evaluated at $x_A$ rather than $x_p$.
+
+\section{\texorpdfstring{Isoscalar Corrections for $^{183}W$ and $^{56}Fe$}{Isoscalar Corrections for W-183 and Fe-56 }}
 
 \red{Give brief correction in approximating n==p conversion. Be sure to show results for both iso-corrected and not!}
+
+For asymmetric nuclei ($N\neq Z$), following Aubert \emph{et al.} and Bodek \emph{et al.}~\cite{Aubert:1983xm, PhysRevLett.50.1431}, an additional isoscalar correction factor ($R_{ISO}$) is applied to the yield ratio, approximating the ratio to a hypothetical nucleus with equal numbers of protons and neutrons ($N=Z=A/2$):
 
 \section{Systematic Uncertainties}
