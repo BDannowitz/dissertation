@@ -2,15 +2,6 @@
 
 \red{CHAPTER STATUS: IN PROGRESS}
 
-\red{Summarize the main points
-	\begin{itemize}
-		\item Tracking algorithm to provide tracks and dimuons from hit data
-		\item Data selection and cuts to isolate the DY signal
-		\item Target-to-target normalization for DY yield ratio
-		\item Corrections for rate-dependent kTracker efficiency and empty target background correction
-		\item Lastly, all the rest of the corrections, including LD2 contamination, combinatoric BG
-	\end{itemize}}
-
 \section{Reconstruction of SeaQuest Dimuons}
 
 Once the raw hit and timing information has been gathered and processed by the production level software, the reconstruction software is run on it in order to find tracks that pass through the spectrometer. The ultimate purpose of the detectors in the spectrometer is to identify the 4-momenta of particles that occur as a result of high energy collisions and particle decays. Individual particle tracks and their 3-momenta are identified by tracking their paths through the known magnetic fields.  These tracks are then matched up to find possible dimuon vertices. Reconstructed tracks, dimuons, and their constituent hits along with their full defining set of kinematics are provided as output for analysts to use in their studies. This tracking software, known as ``kTracker'', was developed and is maintained by Kun Liu of Los Alamos National Laboratory.  In this section, an overview of the tracking algorithm will be given in how the kTracker steps through the mass quantities of raw data in order to provide the reconstructed set of data used for SeaQuest's analyses. Details of data reduction, track finding, track fitting, and vertex fitting will be discussed broadly. 
@@ -45,9 +36,6 @@ Attached to the drift chambers, there are electronics boards (ASDQ) that relay t
 
 The next type of clusters to classify is ``cell-edge'' clusters, which is defined as cases where there are two adjacent hits in a single plane where both of them have a drift distance that is greater than 90\% than the half of the cell width. In these cases, it is very likely the case that an energetic muon passed right between two sense wires, and the hit was registered by both wires. In these cases, it is advantageous to reduce the number of hits and thereby reduce the combinatoric complexity for the tracker to simply reduce the number of hits here from two down to one. The hit that is retained is the one with the smaller drift distance.
 
-The final known type of clusters that can occur are from \emph{delta-rays}, which are (relatively) low-energy knock-on electrons that scatter away along the $x-y-$plane of the detector. While these electrons are lower energy, they can still ionize the gas and incur hits in the detector. These clusters differ qualitatively from the electronic noise clusters in that, due to the speed of the traversing delta rays and the drift speed of the chamber gas, their timing difference will be $>$\unit[10]{ns} and will be missed by the electronic noise cluster removal. If a such a cluster is found, it is desired to keep the original muon hit and remove the rest of the hits incurred by the delta ray. In order to do so, the two hits on the edges of the cluster are kept while the rest are discarded.
-
-\subsubsection{Event Removal}
 \setlength{\columnsep}{28pt}
 \begin{wraptable}{r}{4cm}
 	\centering
@@ -67,6 +55,11 @@ The final known type of clusters that can occur are from \emph{delta-rays}, whic
 	\label{tab:mult-limits}
 \end{wraptable}
 %------------------------------------------
+
+The final known type of clusters that can occur are from \emph{delta-rays}, which are (relatively) low-energy knock-on electrons that scatter away along the $x-y-$plane of the detector. While these electrons are lower energy, they can still ionize the gas and incur hits in the detector. These clusters differ qualitatively from the electronic noise clusters in that, due to the speed of the traversing delta rays and the drift speed of the chamber gas, their timing difference will be $>$\unit[10]{ns} and will be missed by the electronic noise cluster removal. If a such a cluster is found, it is desired to keep the original muon hit and remove the rest of the hits incurred by the delta ray. In order to do so, the two hits on the edges of the cluster are kept while the rest are discarded.
+
+\subsubsection{Event Removal}
+
 \emph{After} imposing all of these data reduction methods, there is still a chance that the event's contents would make it prohibitive for tracking. The primary criteria for such classification is the \emph{multiplicity cut}. If there is an extremely large number of hits within one of the detector groups, the tracking algorithm will end up spending a very long time working through all possible combinations of hits in order to find good tracks -- too long to be considered reasonable. As such, certain multiplicity limits (shown in Table~\ref{tab:mult-limits}) are imposed on the data to abort tracking on certain events. If the occupancy of any of the detector groups exceeds the limit imposed on it, the event tracking will be aborted regardless of the occupancy of the rest of the detector groups. 
 
 Finally, there is an additional multiplicity cut on the number of reconstructed possible \emph{trigger roads} for an event. If the in-time hodoscope hits can match five or more trigger roads of a single sign (positive or negative muon roads denoted with positive or negative roadID, respectively), then event reconstruction is aborted. In these cases, most, if not all, chamber hits in that detector half will be masked by the road masking, and it's likely the combinatorics will be too much for the tracking to reasonably handle.
@@ -271,7 +264,7 @@ In addition to missing data, certain criteria can be placed on the Event data in
 
 The cut on beam intensity is another that ensures that we exclude data that would introduce undue volatility and uncertainty into the measurements. Due to the varying beam intensity at SeaQuest, there are inefficiencies which are corrected via weighting of events (this process is described in great detail later). Cutting on very high intensities removes the region where uncertainties in the rate dependence fits can cause large uncertainties in correction weights. 
 
-These cuts described here and more are summarized in Table~\ref{tab:all-other-cuts}.
+The cuts described here and more are summarized in Table~\ref{tab:all-other-cuts}.
 
 \subsection{Dimuon Cuts}
 
@@ -584,27 +577,36 @@ The yield efficiency when factoring in background then becomes
 \epsilon^\prime_b = 1 - \left(\frac{p_t}{p_b}\right) \left( \frac{Y^\prime_b}{Y^\prime_t} \right)
 \end{equation}
 
-\subsection{The Empty/None vs. Intensity Curve}
+\subsection{Rate Dependent Empty Correction}
 
-
-\subsection{Improved Background Correction}
-
-With the Empty/None vs. Intensity Curve \emph{C(I)}, we can apply a more sophisticated correction. With C(I), we can make an expression for the background contribution to the yields of a given target:
-
-\begin{equation}
-p_t \left( \frac{Y^\prime_b}{p_b} \right) = \sum_{i:i_t=t} \frac{D\cdot C(I_i)}{kEff_{t_i, x_i}(I_i)}
-\end{equation}
-where D is a normalization constant defined in such a way that $D \cdot C(I)$ is the \% chance that a given dimuon from a target actually came from the Empty/None background. D can be calculated as
+Upon inspection, the Empty/None target data has shown to exhibit a rate dependence, with many more events per proton being found at higher intensities. This can be corrected for, but the events should first be weighted by their tracking efficiencies. Unfortunately since there are no \emph{messy/clean} embedded data sets for the empty flask, the ``kEfficiency'' fit must be extrapolated from the fits for the deuterium and hydrogen targets. If we are to assume that the difference in fits is a function of the beam's interaction with the target, then we can arrive at the \emph{kEff} exponential fit constants for the empty/none targets ($A_E$) for each kinematic bin from the exponential fit constants from the hydrogen and deuterium targets ($A_{D/H}$). Here, we only additionally need the percentage of beam that interacts with the target ($X_t$), along with a few other values characteristic to the targets found in Table~\ref{tab:targ-details}.
 \begin{eqnarray}
-D & = & \frac{1}{F} Y^\prime_b \left( \frac{p_t}{p_b} \right) \\
-F & = &\sum_{i: i_t=t} \frac{C(I_i)}{kEff_{t_i, x_i}(I_i)}
+X_t & = & 1 - e^{-\frac{L_t}{\lambda_t}} \\
+A_E & = & A_H - X_H \cdot \frac{\Delta A}{\Delta X} \\
+	   & = & A_H - X_H \cdot \frac{A_D - A_H}{X_D - X_H}
 \end{eqnarray}
 
-The new intensity-dependent efficiency can now be defined as
-
+With this fit constant in hand and the kEfficiency correction applied, one can plot the yields of empty flask and none events as a function of chamber intensity. This plot and its shape can be found in Figure~\red{MAKE FIGURE FOR THIS}. Due to the low-statistics nature of the empty and none events, they are combined across all roadsets and kinematics instead of being broken down. As such, this correction is applied solely based on chamber intensity with no other consideration for roadset or kinematics. The fit that is applied is of the form: $f(I) = p_0 \cdot (1 + p_1 \cdot I_c)$. This form is chosen because the the scale of the final function will be a calculated from the data used, and as such, $p_1$ is the only parameter that is needed. The value calculated was:
 \begin{equation}
-(\epsilon_b^\prime)_i = 1 - D \cdot C(I_i)
+p_1 = (6.576 \pm 1.566) \times 10^{-5}
 \end{equation}
+The fit function used, $C_{norm}(I_c) = B \cdot C(I_c) = B \cdot (1 + p_1 \cdot I_c)$  can be interpreted as the probability that a given target dimuon actually arose from something other than a target interaction (beam dump, upstream interactions, flask container). Here, $B$ is the normalization factor, where the condition should stand that the sum of $C_{norm}(I_c)$ over all target dimuons should be equal to the number of events from the empty and none targets. Both sums need to be corrected for kEffeciency and scaled by the number of live protons.
+\begin{equation}
+\sum\limits_T \frac{B \cdot C(I_c)}{P_T \cdot K_T(I_c)} = \sum\limits_E \frac{1}{P_E \cdot K_E(I_c)}
+\end{equation}
+\begin{eqnarray}
+B & = & \frac{P_T}{P_E} \cdot \frac{\sum\limits_E \frac{1}{K_E(I_c)}}{\sum\limits_T \frac{C(I_c)}{K_T(I_c)}} \\
+\delta B & = & \frac{P_T}{P_E} \cdot \frac{\sqrt{\sum\limits_E \frac{1}{K_E(I_c)^2}}}{\sum\limits_T \frac{C(I_c)}{K_T(I_c)}}
+\end{eqnarray}
+
+This normalization constant is calculated for each target and each roadset. With this in hand, a weight for correcting for the empty target correction can be applied as $(1 - C_{norm}(I_c))$. One can then combine this with the weighting for the kEffeciency correction (as the weighting should combine multiplicatively):
+\begin{equation}
+\epsilon_{\text{tot}} = \epsilon_{\text{kEff}} \cdot \epsilon_{\text{empty}} = \frac{1 - C_{norm}(I_c)}{K_T(I_c)}
+\end{equation}
+
+It is worth noting that this model does not take into account the attenuation of beam throughout the different target materials, which could alter the scale of the correction slightly. However, without having a figure as to how much of the empty target signal comes from the beam dump and how much of it comes from upstream of the target area, it is currently infeasible to appropriately account for the degree to which a beam attenuation factor should be worked in.
+
+Uncertainties that arise as a result of the uncertainties in the $C(I_x)$ fit and the calculation of $B$ are difficult to propagate analytically. What is performed instead is a an independent variation of $p_1$ and $B$ by $-1\sigma$, 0, and $+1\sigma$ and observing the magnitude of which the per nucleon cross section ratio changes as a result. This systematic uncertainty due to this correction is calculated in the Systematic Uncertainties section of this chapter.
 
 \section{Combinatorial Background}
 
@@ -613,6 +615,7 @@ The new intensity-dependent efficiency can now be defined as
 \section{$ld_2$ Contamination}
 
 \red{Cite Paul's summary of the contamination correction}
+During Run III of the SeaQuest experiment, analysis of the deuterium source used indicated that it was impure to a significant degree. This calls for a significant correction since most measurements, yields, ratios, and analyses assume that the targets are pure. An impure deuterium target changes many factors including the averaged mass number of the fluid and its overall density. In this section, the contamination measurements and the correction procedure is discussed.
 
 \subsection{Contamination Measurements}
 
@@ -728,16 +731,76 @@ In practice, this correction is applied bin by bin, utilizing the weighted dimuo
 
 \section{\texorpdfstring{$x_A$ Nuclear Scaling Variable}{xA Nuclear Scaling Variable}}
 
-When discussing heavy nuclei and, a certain shift in definition of scaling variables should be considered. The use of the Bjorken-$x$ scaling variable up until now should actually be relabeled as the scaling variable \emph{for a proton} $x_p = Q^2/(2 m_p \omega)$. It has been recently discussed by Frankfurt \& Strikman\cite{Frankfurt:2012qs} and implemented by Hen \emph{et al.}\cite{Hen:2013oha} that the structure functions of nucleons bound in nuclei should be extracted in the reference frame of the nucleus. This is done by using the $x_A$ scaling variable, defined as:
+When discussing heavy nuclei and, a certain shift in understanding of scaling variables should be considered. The use of the Bjorken-$x$ scaling variable up until now should be noted to be the parton momentum fraction \emph{of the proton} $x_p = Q^2/(2 m_p \omega)$. It has been recently discussed by Frankfurt \& Strikman\cite{Frankfurt:2012qs} and implemented by Hen \emph{et al.}\cite{Hen:2013oha} that the \emph{structure functions of nucleons bound in nuclei should be extracted in the reference frame of the nucleus}. This is done by considering to the $x_A$ scaling variable, defined as:
 \begin{equation}
-x_A = \frac{Q^2}{2q\cdot P_A/A} = \frac{AQ^2}{2\omega m_A} = x_p \cdot \frac{A m_p}{m_A}
+\frac{x_A}{A} = \frac{Q^2}{2q\cdot P_A} \ \ \ ;\ \ \ x_A = \frac{Q^2}{2q\cdot P_A/A} = \frac{AQ^2}{2\omega m_A} = x_p \cdot \frac{A m_p}{m_A}
 \end{equation}
-where $q$ and $P_A$ are the 4-momentum vectors of the virtual photon and target nucleus respectively, and $m_A$ is the mass of the target nucleus. For the same values of $Q^2$ and $\omega$, $x_A$ differs from $x_p$ by the ratio of the bound nucleon mass to the free mass. Therefore, a cross section measured at $Q^2$ and $\omega$ on a nucleus $A$ will depend on the nucleon structure function evaluated at $x_A$ rather than $x_p$.
+where $q$ and $P_A$ are the 4-momentum vectors of the virtual photon and target nucleus respectively, and $m_A$ is the mass of the target nucleus. For the same values of $Q^2$ and $\omega$, $x_A$ differs from $x_p$ by the ratio of the bound nucleon mass to the free mass. Therefore, a cross section measured at $Q^2$ and $\omega$ on a nucleus $A$ will depend on the nucleon structure function evaluated at $x_A$ rather than $x_p$\footnote{This parlance is in terms of DIS and not Drell-Yan, but the final correction factor still stands for Drell-Yan cross-section ratio measurements with $Q^2\rightarrow M_{\gamma^*}^2$ and $\omega \rightarrow$\red{???}}. For converting from the commonly used $x_p$ over to $x_A$ for the different targets, we apply a factor of $\frac{A m_p}{m_A}$, which for deuterium, carbon, iron, and tungsten are \red{AAAAA, BBBBB, CCCCC, and DDDDD, respectively.} 
+
+As a result, this means that the standard EMC cross section ratio is actually proportional to the nucleon structure function in nucleus $A$ evaluated at parton momentum $x_A$ divided by the nucleon structure function in deuterium evaluated at parton momentum fraction $x_d$ ($x_d = 2Q^2/2m_d\omega = x_p \cdot 2m_p/m_d$)\cite{Hen:2013oha}. For a symmetric nuclei, this can be written as:
+\begin{equation}
+\frac{2}{A} \cdot \frac{\sigma^A_{DY}(x_p, Q^2)}{\sigma^d_{DY}(x_p, Q^2)} = \frac{F_2^A(x_A, Q^2)}{F_2^d(x_d, Q^2)}
+\end{equation}
+where $\frac{F_2^A(x_A, Q^2)}{F_2^d(x_d, Q^2)}$ is the ratio of structure functions at the same $Q^2$, but at different $x$. Since we want to compare the structure functions at the same parton momentum fractions, we correct this by using
+\begin{eqnarray}
+\frac{F_2^A(x_A, Q^2)}{F_2^d(x_d, Q^2)} & = & \frac{F_2^A(x_A, Q^2)}{F_2^d(x_A, Q^2)} \cdot \frac{F_2^d(x_A, Q^2)}{F_2^d(x_d, Q^2)} \\
+& & \nonumber \\
+\frac{F_2^A(x_A, Q^2)}{F_2^d(x_A, Q^2)} & = & \frac{2}{A} \cdot \frac{\sigma^A_{DY}(x_p, Q^2)}{\sigma^d_{DY}(x_p, Q^2)} \cdot \frac{F_2^d(x_d, Q^2)}{F_2^d(x_A, Q^2)}
+\label{eq:struc-func-ratio-xA}
+\end{eqnarray}
+where here we have $\frac{F_2^d(x_d, Q^2)}{F_2^d(x_A, Q^2)}$ as a correction factor to arrive at $\frac{F_2^A(x_A, Q^2)}{F_2^d(x_A, Q^2)}$, which is the ratio of structure functions in the different nuclei evaluated at the same parton momentum fraction (which is what we're looking to extract). The correction factor can be evaluated using well-known parameterizations of the the structure function of the deuteron \red{(see L.W. Whitlow, Phys. Lett. B282 1992 and P.E. Bosted, Phys. Rev. C77 2008)}. In \red{Figure~refAAA}, the correction factor $\frac{F_2^d(x_d, Q^2)}{F_2^d(x_A, Q^2)}$ is shown as a function of $x_p$ for different targets.
+
+In summary, the traditional EMC per-nucleon cross section ratio measurement has yielded a ratio for $\frac{F_2^A(x_A)}{F_2^d(x_d)}$, when what is really desired is $\frac{F_2^A(x_A)}{F_2^d(x_A)}$. The addition of this $\frac{F_2^d(x_d)}{F_2^d(x_A)}$ correction factor is all that is needed to convert the measurement to the desired result. This correction factor will be applied to the SeaQuest result.
 
 \section{\texorpdfstring{Isoscalar Corrections for $^{183}W$ and $^{56}Fe$}{Isoscalar Corrections for W-183 and Fe-56 }}
 
 \red{Give brief correction in approximating n==p conversion. Be sure to show results for both iso-corrected and not!}
 
 For asymmetric nuclei ($N\neq Z$), following Aubert \emph{et al.} and Bodek \emph{et al.}~\cite{Aubert:1983xm, PhysRevLett.50.1431}, an additional isoscalar correction factor ($R_{ISO}$) is applied to the yield ratio, approximating the ratio to a hypothetical nucleus with equal numbers of protons and neutrons ($N=Z=A/2$):
+\begin{equation}
+R_{ISO}(x) = \frac{A}{2} \cdot \frac{F_2^p(x, Q^2) + F_2^n(x, Q^2)}{Z\cdot F_2^p(x, Q^2) + N\cdot F_2^n(x,Q^2)} = \frac{A}{2} \cdot \frac{1+R_{np}(x, Q^2)}{Z + N\cdot R_{np}(x, Q^2)}
+\end{equation}
+\begin{equation}
+\frac{\sigma^A_{DY}(x_A, Q^2)_{ISO}}{\sigma^d_{DY}(x_A, Q^2)_{ISO}} = \frac{\sigma^A_{DY}(x_A, Q^2)}{\sigma^d_{DY}(x_A, Q^2)} \cdot R_{ISO}(x_A)
+\end{equation}
+where $F_2^p$ and $F_2^n$ are the free nucleon structure functions and $R_{np}(x,Q^2) = F_2^n(x,Q^2)/F_2^p(x,Q^2)$ ($R_{np}(x)\approx 1 - 0.8 x$). The free nucleon structure functions are extracted from world data on DIS scattering\CN \red{(Bodek Phys Rev D20 1979, Arrington Phys G Nucl Part Phys 36 2009)} off of deuterium and hydrogen with corrections accounting for Fermi motion of nucleons in deuterium.
+
+Applying this correction to the structure function ratio extracted in Equation~\ref{eq:struc-func-ratio-xA}, the same extraction for asymmetric nuclei becomes \red{(add vertical space between equations.)}
+\begin{eqnarray}
+\frac{F_2^A(x_A, Q^2)}{F_2^d(x_A, Q^2)} & = & \frac{2}{A} \cdot \frac{\sigma^A_{DY}(x_p, Q^2)}{\sigma^d_{DY}(x_p, Q^2)} \cdot \frac{F_2^d(x_d, Q^2)}{F_2^d(x_A, Q^2)} \cdot R_{ISO}(x_A) \\ 
+& & \nonumber \\
+\frac{F_2^A(x_A, Q^2)}{F_2^d(x_A, Q^2)} & = & \frac{2}{A} \cdot \frac{\sigma^A_{DY}(x_p, Q^2)_{ISO}}{\sigma^d_{DY}(x_p, Q^2)_{ISO}} \cdot \frac{F_2^d(x_d, Q^2)}{F_2^d(x_A, Q^2)} \cdot \frac{R_{ISO}(x_A) }{R_{ISO}(x_p)}
+\end{eqnarray}
+
+\section{Summary of Analysis Steps}
+
+Due to the dynamic nature of the SeaQuest analysis at the time of the writing of this document, it is imporant to lay out the precise procedure of the application of all of these analysis steps. This ensures an ability to reproduce results, understand differences between methods, and allows those new to analysis to have a roadmap for getting started with analysis. Pragmatically speaking, the process taken in this analysis going from the raw dimuon yields to the final extraction of $F_2^A(x)/F_2^d(x)$ can be outlined in several finite steps:
+\begin{itemize}
+	\item Get raw yields after all analysis cuts (Section X).
+	\item Get live proton count (Section X).
+	\item Calculate the kEfficiency for targets $H_2$, $D_2$, $C$, $Fe$, and $W$ (Section X).
+	\item Extrapolate kEfficiency for Empty/None target.
+	\item Calculate $C(I_c)$ and $B_T$ empty target correction fit and parameters (Section X).
+	\item Calculate weighted yields:
+	\begin{equation}
+	Y_T^\prime = \sum\limits_T \frac{1 - B_T \cdot C(I_c)}{K_T(I_c)} \ \ ; \ \ \delta Y_T^\prime = \sqrt{\sum\limits_T \left(\frac{1 - B_T \cdot C(I_c)}{K_T(I_c)}\right)^2}
+	\end{equation}
+	\item \red{???} Adjust yields by combinatoric background correction factor.
+	\item Adjust the deuterium yields for the hydrogen contamination (Equation X).
+	\item Take ratios of these adjusted yields $Y_A^\prime/Y_d^\prime$
+	\item Apply the target-to-target normalization factor to the ratio:
+	\begin{equation}
+	N_{A/D} =
+	\left(\frac{ N_0^D \cdot \text{lt}^D \cdot T^D(\xi)}{N_0^A \cdot \text{lt}^A \cdot T^A(\xi) } \right) \cdot 
+	\left( \frac{ 2 \cdot n_D \cdot L^D }{ A \cdot n_A \cdot L^A } \right) \cdot 
+	\frac{ \varepsilon^D }{ \varepsilon^A }  \cdot 
+	\frac{ \bar{\Omega}^D }{\bar{ \Omega}^A } \cdot 
+	\frac{ \epsilon^D }{ \epsilon^A }
+	\end{equation}
+	\item Apply the $\frac{F_2^d(x_d, Q^2)}{F_2^d(x_A, Q^2)}$ correction factor to the ratio.
+	\item With asymmetric nuclei ($^{56}Fe, ^{138}W$), apply $\frac{R_{ISO}(x_A) }{R_{ISO}(x_p)}$ isoscalar correction factor.
+\end{itemize}
+It is understood that this procedure is general enough that it can be performed with any kinematic binning. Here, the $x_A$ conversion and the isoscalar correction are applied to the calculated, binned, adjusted yield ratios. It is also perhaps suitable to apply these to each event with precise considerations for each event's invariant mass.
+
 
 \section{Systematic Uncertainties}

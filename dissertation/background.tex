@@ -18,7 +18,7 @@ Around the same time, Hideku Yukawa is credited for establishing the first theor
 	\label{fig:mesons-baryons}
 \end{figure}
 
-Near the end of the 1960's, SLAC began the first set of experiments to use an electron beam to investigate the nucleon in what is now known as Deep Inelastic Scattering (DIS). What they discovered was that the functions used to describe nuclear structure were largely independent of momentum transfer ($Q^2$) above a certain threshold. This so-called ``scaling'' behavior lent credence to the theory that nucleons were composed of a point-like particles. This discovery coupled with the proliferation of new particles (the ``particle zoo'') led Murray Gell-Mann and Yuval Ne'eman to construct a framework that would make some sense of it all. Gell-Mann had organized the host of mesons and baryons discovered into a geometric order named the ``Eightfold Way''\footnote{Gell-Mann here makes a rather poetic allusion to the Buddhist ``Noble Eightfold Path''} as depicted in Figure~\ref{fig:mesons-baryons}. The underlying explanation for all of this, as described independently by Gell-Man and Ne'eman, was to characterize these many particles as the several combinations of three \emph{flavors} of constituent particles, named \emph{quarks}. The flavors, \emph{u}, \emph{d}, and \emph{s} were named \emph{up}, \emph{down}, and \emph{strange}. Here, mesons were predicted to be composite particles of integer spin containing two quarks and baryons be half-integer spin particles composed of three quarks. This model led Gell-Mann to predict the existence of the $\Omega^-$ particle, along with its \emph{strangeness}, charge, and mass. The discovery of this particle\cite{1964PhRvL:12204B} earned Gell-Mann the 1969 Nobel Prize for his work on the quark model.
+Near the end of the 1960's, SLAC began the first set of experiments to use an electron beam to investigate the nucleon in what is now known as Deep Inelastic Scattering (DIS). What they discovered was that the functions used to describe nuclear structure were largely independent of momentum transfer ($Q^2$) above a certain threshold. This so-called ``scaling'' behavior lent credence to the theory that nucleons were composed of a point-like particles. This discovery coupled with the proliferation of new particles (the ``particle zoo'') led Murray Gell-Mann and Yuval Ne'eman to construct a framework that would make some sense of it all. Gell-Mann had organized the host of mesons and baryons discovered into a geometric order named the ``Eightfold Way''\footnote{Gell-Mann here makes a rather poetic allusion to the Buddhist ``Noble Eightfold Path''} as depicted in Figure~\ref{fig:mesons-baryons}. The underlying explanation for all of this, as described independently by Gell-Man and Ne'eman, was to characterize these many particles as the several combinations of three \emph{flavors} of constituent particles, named \emph{quarks}~\cite{joyce1999finnegans}. The flavors, \emph{u}, \emph{d}, and \emph{s} were named \emph{up}, \emph{down}, and \emph{strange}. Here, mesons were predicted to be composite particles of integer spin containing two quarks and baryons be half-integer spin particles composed of three quarks. This model led Gell-Mann to predict the existence of the $\Omega^-$ particle, along with its \emph{strangeness}, charge, and mass. The discovery of this particle\cite{1964PhRvL:12204B} earned Gell-Mann the 1969 Nobel Prize for his work on the quark model.
 
 Though this model was a breakthrough in the understanding of fundamental particles, it did not comprehensively describe all experimental data. For example, when accounting for the total momentum of a nucleon, it was found that only $\sim50\%$ of the momentum was being carried by the quarks. It was not until the theory of quantum chromodynamics (QCD) came along that this and several other mysteries could be explained. QCD described the mechanism of a 3-fold \emph{color} charge and the gauge bosons, gluons, that intermediate the strong force between quarks (and other gluons). In the particular case of the missing momentum, this was found to reside in the intermediating gluons\cite{PhysRevLett.43.830}, which carry only color charge, to which the electro-weak probes used were insensitive.
 
@@ -419,24 +419,34 @@ Given these factors above and anticipated run time of the SeaQuest experiment, t
 
 \red{Mention pT wherever it comes up!}
 
-Approximately ten years before the NMC experiment's discovery of the $\dbar(x)\neq\ubar(x)$ discovery, the European Muon Collaboration (EMC) at CERN, in 1983, measured the ratios of the structure functions of iron and deuterium over a large kinematic range using the DIS of muons\cite{Aubert:1983xm}. The result has been repeatedly scrutinized, studied, and confirmed. It was discovered that the structure function of a nucleon bound in a nucleus is fundamentally modified from that of a free nucleon. The nucleus is na\:{i}vely understood as a simple convolution of many nucleons, and that the partonic structure functions of bound and free nucleons should be identical. As such, the ratio of structure functions should lie at unity up until the high-$x$ regime in which Fermi motion dominates. The use of DIS experiments, which are sensitive to the nucleon structure functions, should show the same results for all nuclei.
+Approximately ten years before the NMC experiment's discovery of the $\dbar(x)\neq\ubar(x)$ discovery, the European Muon Collaboration (EMC) at CERN, in 1983, measured the ratios of the structure functions of iron and deuterium over a large kinematic range using the DIS of muons\cite{Aubert:1983xm}. The result has been repeatedly scrutinized, studied, and confirmed. It was discovered that the structure function of a nucleon bound in a nucleus is fundamentally modified from that of a free nucleon. The nucleus was na\:{i}vely understood as a simple convolution of many nucleons, and that the partonic structure functions of bound and free nucleons should be identical. This assumption was found to not hold against actual measurements, and the observed behavior holds true across all heavy nuclei. This effect can be interpreted as a \emph{modification of quark and gluon distributions in bound nucleons by the nuclear environment}. In this section, the history and collective behavior known as ``The EMC Effect'' will be reviewed, a quantitative A-dependent measure of the effect will be defined, and models that attempt to explain the phenomenon will be discussed. Lastly, the contributions of SeaQuest and previous Drell-Yan experiments to the study of the EMC Effect will be explored.
 
-As is shown in Figure~\ref{fig:emc-one-naive} which compares the na\:{i}ve model versus an actual measurement, this is not the case, and the observed behavior holds true across all heavy nuclei. In this section, we will review the collective behavior known as ``The EMC Effect'', describe a quantitative A-dependent measure of the effect, discuss models that attempt to explain the phenomenon, and then review how the Drell-Yan process can contribute to the study of the EMC Effect.
-
-\subsection{Historical Overview}
-
-Unpolarized inclusive lepton scattering is a process that uses an energized lepton to investigate nucleon structure, and it specifically depends on two independent variables: $Q^2$ and $x_B$.
-\begin{equation}
-	Q^2 = -q^2\ \ ;\ \ x_B = \frac{Q^2}{2 m_p \omega}
-\end{equation}
-where $q$ is the transferred four-momentum, $x_B$ is the same Bjorken-x scaling variable as is in the PDF section mentioned above, $m_p$ is the proton mass, and $\omega$ is the transferred energy in the proton rest frame. At energies of $Q^2>$\unit[2]{(GeV/c)$^2$}, the parton substructure is revealed and the inelastic structure function, $F_2$ is able to be measured. The EMC group observed extracted the ratio of $F_2^{Fe}(x,Q^2)/F_2^{d}(x,Q^2)$, where these are the average bound nucleon structure functions in iron and deuterium. For $x\lesssim0.6$ where nucleon Fermi motion effects can be neglected, the expectation was to measure unity, which would indicate that the structure function of a deeply bound nucleon (Fe, the most tightly bound nucleus with $E_{bind}=$\unit[8.8]{MeV} per nucleon) and loosely bound nucleons (deuterium $E_{bind}=$\unit[2.2]{MeV} per nucleon) are identical.
+\subsection{Historical Overview} \label{ssec:emc-history}
 
 \begin{figure}
 	\centering
-	\includegraphics[height=0.35\textheight]{figures/background/emc_effect_original.jpg}
+	\includegraphics[height=0.35\textheight]{figures/background/emc_effect_original-v2.jpg}
 	\caption{The original EMC ratio measurement by the EMC collaboration\cite{Aubert:1983xm}. Overlaid is the na\:{i}ve, expected ratio taking into account only the Fermi motion of the nucleons in the heavy nucleus.}
 	\label{fig:emc-one-naive}
 \end{figure}
+
+Unpolarized inclusive lepton scattering is a process that uses an energized lepton to investigate nucleon structure, and it specifically depends on two independent variables: $Q^2$ and Bjorken-$x$ (sometimes referred to as $x_B$, but here left as $x$).
+\begin{equation}
+	Q^2 = -q^2\ \ ;\ \ x = \frac{Q^2}{2 m_p \omega}
+\end{equation}
+where $q$ is the transferred four-momentum, $x_B$ is the same Bjorken-x scaling variable as is in the PDF section mentioned above, $m_p$ is the proton mass, and $\omega$ is the transferred energy in the proton rest frame. At energies of $Q^2>$\unit[2]{(GeV/c)$^2$}, the parton substructure is revealed and the inelastic structure function, $F_2$ is able to be measured. The EMC group extracted the ratio $F_2^{Fe}(x,Q^2)/F_2^{d}(x,Q^2)$, where these are the average bound nucleon structure functions in iron and deuterium. This was done by measuring the DIS \emph{per nucleon cross section ratio}, which can be expressed as\cite{Halzen:1984mc}:
+\begin{equation}
+\frac{\sigma^{A_1}/A_1}{\sigma^{A_2}/A_2} = \frac{F_2^{A_1}(x, Q^2)}{F_2^{A_2}(x, Q^2)} \cdot \frac{\left[ 1 + 2\frac{1+\omega^2/Q^2}{R_{A_1}-1}\tan^2\frac{\theta}{2} \right]}{\left[ 1 + 2\frac{1+\omega^2/Q^2}{R_{A_2}-1}\tan^2\frac{\theta}{2} \right]} \approx \frac{F_2^{A_1}(x, Q^2)}{F_2^{A_2}(x, Q^2)}
+\end{equation}
+where $\theta$ is the lepton scattering angle and $R_A=\sigma^A_L/\sigma^A_T$ is the ratio of the longitudinal to transverse cross section for nucleus A. The A-dependence of $R_A$ will be discussed later, but for now, let us assume that $R$ does not exhibit a nuclear dependence, and the per nucleon cross section ratio therefore approximates nicely to the ratio of the structure functions. For $0.4\gtrsim x\lesssim0.6$ where nucleon Fermi motion effects can be neglected, the expectation was to measure unity, which would indicate that the structure function of a deeply bound nucleon and loosely bound nucleons are identical. With this goal in mind, they chose $^{56}Fe$ and deuterium, as iron is the most tightly bound nucleus at $E^{Fe}_{\text{bind}}=$\unit[8.8]{MeV/nucleon} and deuterium is as close to being a free nucleon as possible while still being a symmetric nuclei ($N=Z=A/2$) with a binding energy of only $E^{d}_{\text{bind}}=$\unit[2.2]{MeV/nucleon}. The reason to perform this experiment is that, if this mearuement showed unity in the regions not affected by Fermi motion, then heavy nuclei could be used to gain a luminosity boost when studying the free nucleon structure functions. Instead, they observed the measured cross-section ration being 1 at $x\approx 0.3$ and then steadily declining to a value of about 0.8 at $x\approx0.7$ (Figure~\ref{fig:emc-one-naive})	
+	
+At the time of the measurement was presented, the result astounded the physics community. They could hardly believe that high momentum transfers that were many times larger than the nuclear binding energies that the quark distributions should be altered by the nuclear mean field. This result was confirmed only three months later by the SLAC-MIT-Rochester group that re-examined its data for DIS on steel\cite{PhysRevLett.50.1431} and found the same behavior, as can be seen in Figure~\ref{fig:emc-e87}. This opened the gates to an enormous amount of activity in both experiment and theory to fully characterize the phenomenon, resulting at present more than 1100 citations of the original EMC publication\cite{Aubert:1983xm}. \setlength{\columnsep}{28pt} \begin{wrapfigure}{r}{0pt}
+	\centering
+	\includegraphics[height=0.35\textheight]{figures/background/SLAC-E87.png}
+	\caption{SLAC E-87 was quick to report its own finding months later confirming EMC's observation\cite{PhysRevLett.50.1431}.}
+	\vspace{-20pt}
+	\label{fig:emc-e87}
+\end{wrapfigure} The compendium of experimental data and theory papers have been discussed in great detail in the excellent review papers by Geesaman~\cite{Geesaman:1995yd} in 1995 and Norton~\cite{norton:emc-review} in 2003. As such, I will only summarize the main theoretical ideas and the most prominent interpretation of the effect. A visual summary of EMC data can be found in Figure~\ref{fig:emc-all-targ} where data from EMC~\cite{Aubert:1983xm}, SLAC\cite{Arnold:1983mw, Gomez:1993ri}, BCDMS~\cite{Benvenuti:1987az}, NMC~\cite{Amaudruz:1991nw}, and HERMES~\cite{Ackerstaff:1999ac} is plotted for nine different targets.
 
 \begin{figure}
 	\centering
@@ -445,7 +455,53 @@ where $q$ is the transferred four-momentum, $x_B$ is the same Bjorken-x scaling 
 	\label{fig:emc-all-targ}
 \end{figure}
 
-The phenomenon can be described by a finite set of characteristics. The key feature is the significant reduction in the ratio from unity for $0.3<x<0.6$, which is generally referred to as the \emph{``EMC Effect''}\cite{Geesaman:1995yd} as it is the only part of the phenomenon that is not fully understood. The ratio reduction for $x<0.1$ is called ``shadowing'', and is understood to be due to the reduction in cross sections observed in real-photon reactions. At very low-$x$, one can see from the PDFs in the sections above that a nucleon is inundated with gluons and virtual particles, and as such, an incident probe is likely to see as many low-$x$ partons in light nuclei as in heavy nuclei. The result when looking at the \emph{per nucleon} cross section ratio is this ratio suppression. The rise of the ratio to or above unity for $x$ around $0.1<x<0.2$ represents a transition region between these effects.
+\subsection{\texorpdfstring{Universal $x$-dependence}{Universal x-dependence}}
+
+The SLAC E139 experiment provides very precise information for the high-$x$ range ($x>0.2$) for many nuclei. The high-energy electron DIS data from SLAC E61~\cite{Stein:1975yy} and HERMES~\cite{Ackerstaff:1999ac} experiments along with the muon DIS data from NMC~\cite{Amaudruz:1991nw} supplements this with the very low-$x$ range. Finally, the more recent data from JLAB-E03103~\cite{Seely:2009gt} that uses a relatively low energy beam (\unit[5.8]{GeV}) provides data for the high-$x$ Fermi motion area ($0.85<x<0.95$). These together help to paint a full characteristic picture of the $x-$dependence of this $\sigma^A/\sigma^d$ ratio, which has been found to be universal for all $A>2$. A visualization of some of this data for carbon and nitrogen  the measurement up into four qualitative regions of this ratio can be seen in Figure~\ref{fig:emc-regions}.
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/background/emc-regions.png}
+	\caption{The ratio of $\sigma^{C(N)}/\sigma^d$ covering nearly the entire $x\in[0,1]$ interval~\cite{Rith:2014tma}. The four qualitative regions are denoted by roughly chosen boundaries $x_1, x_2, x_3$ (not to be confused with the beam and target $x_1$ and $x_2$ used in the rest of this paper).}
+	\label{fig:emc-regions}
+\end{figure}
+\begin{itemize}
+	\item $\mathbf{0<x\lesssim0.06:}$ The ``shadowing'' region where the ratio is less than unity and decreasing as $x\rightarrow0$. The dominant contribution to the cross section in this kinematic regime is from sea quarks.
+	\item $\mathbf{0.06\lesssim x \lesssim 0.3:}$ The (perhaps poorly named) ``anti-shadowing'' region exhibits a very slight rise of the ratio above unity. In general, this range of values represent only a transition region between its two bookending effects.
+	\item $\mathbf{0.3\lesssim x \lesssim 0.8:}$ The ratio becomes significantly smaller than unity, decreasing with increasing $x$. This is of key focus for this paper, and this region is what is generally referred to as the \emph{``EMC Effect''}\cite{Geesaman:1995yd} as it is the only part of the phenomenon that is not fully understood.  As far as DIS goes, the sea quark contribution is essentially negligible, given the current understanding of quark PDF's, and the behavior is dominated by valence quark distributions.
+	\item $\mathbf{0.8\lesssim x < 1:}$ The ratio increases rapidly with increasing $x$. This is dominated by a kinematic effect of the free nucleon cross section vanishing as $x\rightarrow1$. It is also due to the effect of Fermi motion of the bound nucleons in the nucleus.
+\end{itemize}
+
+\subsection{Nuclear Dependence of R}
+
+It was stated in section~\ref{ssec:emc-history} that the per nucleon cross section ratio only reduces to the ratio of structure functions in the case that $R=\sigma_L/\sigma_T$ is A-independent. This particular measurement was the focus of experiments SLAC-E140~\cite{PhysRevLett.61.1061, Dasu:1993vk}, NMC~\cite{Arneodo:1996qe}, and HERMES~\cite{Ackerstaff:1999ac}. A re-analysis of all SLAC data with improved corrections~\cite{Dasu:1993vk} showed that the difference in $R$ between iron and deuterium is consistent with zero ($R_{Fe}-R_d = 0.001 \pm 0.018 (\text{stat}) \pm 0.016 (\text{sys.})$), and that there are no significantly different spin-0 constituents or higher twist effects in nuclei as compared to free nucleons. Later on, results from HERMES corroborated these findings. The ratio of $R_A/R_d$ were derived from the NMC and SLAC results for $\Delta R = R_A - R_d$ and reported an averaged value of $R_A/R_d = 0.99 \pm 0.03$, providing further agreement on the A-independence of $R$.
+
+A recent study by Guzey et al.~\cite{Guzey:2012yk} looked to data from SLAC E139, BCDMS, and EMC to examine the impact of $R$ on the extraction of $F_2^A/F_2^d$ and $F_1^A/F_1^d$ from $\sigma^A/\sigma^d$ data. They demonstrate the presence of a small but non-zero difference between $R$ for nuclei and free nucleons. While this does appear to effect the extraction of the nuclear enhancement in the ratio of the $F_1^A/F_1^d$, the extraction of $F_2^A/F_2^d$ appears to remain unaffected. As such, this thesis assumes that it is safe to assume that $\sigma^A/\sigma^d \approx F_2^A/F_2^d$.
+
+\subsection{$Q^2$ Dependence of EMC Effect}
+
+\begin{figure}[!b]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/background/emc-q2-dep.png}
+	\parbox{4.5in}{\caption{Measurements of the change in the $\sigma^{Ca}/\sigma^d$ ratio with respect to $\ln Q^2$  over a broad range of $x$~\cite{Geesaman:1995yd}.}}
+	\label{fig:emc-q2-dep}
+\end{figure}
+It is important when investigating structure functions and quark/gluon distributions to pay attention to the $Q^2$ sensitivity of the measurements. Nuclear structure functions can be directly interpreted as parton distributions only if $Q^2$ is large enough to precisely define the light-cone direction and reduce higher-twist contributions. The first condition places a restriction on $x^2/Q^2$ and is usually well satisfied, even at relatively low values of $x$ and $Q^2$. However, the value of the higher-twist terms is under little theoretical control, and these terms can have specific nuclear dependences. 
+
+Experimentally, the verdict was very clear from the agreement of muon and electron DIS data that any $Q^2$ dependence must be very small since, at the same value of $x$, their average $Q^2$ differs by more than an order of magnitude. The lack of $Q^2$ dependence can be seen in Figure~\ref{fig:emc-q2-dep} which shows the derivative of DIS cross section with respect to $\ln Q^2$ over a broad range of $x$, combining NMC and E665 data for calcium~\cite{Geesaman:1995yd}.  \emph{This absence of any observable dependence of the ratio on $Q^2$ justifies the usual practice of combining all the $Q^2$ data at a fixed $x$-value to display the $x$-dependence of the ratio}. The only measurement that seems to refute this conclusion is a measurement of $\sigma^{Sn}/\sigma^C$ by NMC which observes a statistically significant, yet small $Q^2$ dependence at amall values of $x$ ($x\lesssim 0.06$)~\cite{Arneodo:1996qe}. Due to the large amount of evidence to the contrary along with the fact that SeaQuest is only sensitive to $x\gtrsim0.08$, this paper will move forward with the the understanding that there is no $Q^2$ dependence in this ratio measurement.
+
+\subsection{Shadowing}
+
+Even though the ``shadowing'' region of the EMC effect ($x\lesssim 0.06$) is outside of the kinematic acceptance of the SeaQuest experiment ($x\gtrsim0.08$), it is certainly worth briefly discussing this interpretation. This term ``shadowing'' has been introduced to explain the reduction of the nuclear cross sections in photoproduction, but in this particular case, has also been used in discussing very low-$x$ modifications to the nuclear cross section in DIS. 
+
+The generally accepted explanation for this modification is that the parton distributions in bound nucleons actually \emph{remain unchanged} compared to those in free nucleons. In the rest frame of the \emph{nucleus}, the nuclear effect is attributed to the modification of the interaction of the virtual photon with the atomic nucleus by fluctuations of the virtual photon into quark-antiquark pairs. This pair then interacts with the nucleus via the strong interaction instead of electromagnetically. As a result of this increase in strength, the interaction no longer proceeds incoherently with all the rest of the nucleons, but \emph{preferentially with those at the front surface}. The other nucleons in the ``shadow'' of the nucleons in front are much less likely to interact, and thereby do not (or much less) contribute to the cross section. As a result, when calculating the per nucleon cross section ratio $\frac{\sigma^A/A}{\sigma^d/2}$ and the deuteron essentially has the same cross section as the heavy nucleus (in this specific regard), then the ratio value will be suppressed.  
+
+Quantitatively, this behavior will occur when the $q\bar{q}$ pair fluctuation exists for longer than the mean free path of the pair in a nucleus (distance between nucleons). The fluctuation length behaves as $\Delta d \approx 1/Mx$ where $M$, the effective mass of the $q\bar{q}$ pair is approximately \unit[1.1]{GeV}~\cite{Kopeliovich:2012kw}, yielding a fluctuation distance of $\Delta d \approx \unit[0.2]{fm}/x$. This becomes larger than the mean free path $L\simeq\unit[2.5]{fm}$ when $x\lesssim 0.08$.
+
+\subsection{Fermi Motion}
+
+~\cite{PhysRevD.23.1070}
+
+\subsection{EMC Slope}
 
 Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
 \begin{itemize}
@@ -458,14 +514,16 @@ Recent experiments at Hall C at JLab and SLAC suggest the following regarding th
 	\item
 	It thereby might be related to nuclear density
 \end{itemize}
-%
-%In parallel to this effort, many researchers were working on high-momentum nucleons and short range correlations (SRC's), neither aware yet of their common ground.
+
+\subsection{$x>1$ Plateaus in EMC Ratio}
 
 \subsection{Models For the EMC Effect}
 
 \subsubsection{Pion Cloud Model}
 
 \subsubsection{Nuclei-Nuclei Short Range Correlations}
+
+\subsection{The Role of Drell-Yan in Studying the Quark Sea and EMC }
 
 \subsection{E-772 at Fermilab}
 
