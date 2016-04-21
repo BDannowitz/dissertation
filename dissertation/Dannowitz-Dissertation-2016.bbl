@@ -112,6 +112,11 @@ A.~C. Benvenuti et~al.
   Iron Targets}.
 \newblock {\em Phys. Lett.}, B189:483, 1987.
 
+\bibitem{Berger:1985dr}
+Edmond~L. Berger.
+\newblock {Nuclear Effects in Massive Lepton Pair Production}.
+\newblock {\em Nucl. Phys.}, B267:231, 1986.
+
 \bibitem{Bethke:2006ac}
 Siegfried Bethke.
 \newblock {Experimental tests of asymptotic freedom}.
@@ -186,6 +191,12 @@ Sayipjamal Dulat, Tie-Jiun Hou, Jun Gao, Marco Guzzi, Joey Huston, Pavel
   chromodynamics}.
 \newblock {\em Phys. Rev.}, D93(3):033006, 2016.
 
+\bibitem{PhysRevLett.96.082501}
+K.~S. Egiyan et~al.
+\newblock Measurement of two- and three-nucleon short-range correlation
+  probabilities in nuclei.
+\newblock {\em Phys. Rev. Lett.}, 96:082501, Mar 2006.
+
 \bibitem{Estermann:169E}
 I.~Estermann, R.~Frisch, and O.~Stern.
 \newblock {Magnetic Moment of the Proton}.
@@ -195,6 +206,18 @@ I.~Estermann, R.~Frisch, and O.~Stern.
 H.~Eugene Fisk and Frank Sciulli.
 \newblock {CHARGED CURRENT NEUTRINO INTERACTIONS}.
 \newblock {\em Ann. Rev. Nucl. Part. Sci.}, 32:499--573, 1982.
+
+\bibitem{Fomin:2011ng}
+N.~Fomin et~al.
+\newblock {New measurements of high-momentum nucleons and short-range
+  structures in nuclei}.
+\newblock {\em Phys. Rev. Lett.}, 108:092502, 2012.
+
+\bibitem{Frankfurt:1993sp}
+L.~L. Frankfurt, M.~I. Strikman, D.~B. Day, and M.~Sargsian.
+\newblock {Evidence for short range correlations from high Q**2 (e, e-prime)
+  reactions}.
+\newblock {\em Phys. Rev.}, C48:2451--2461, 1993.
 
 \bibitem{Frankfurt:2012qs}
 Leonid Frankfurt and Mark Strikman.
@@ -222,6 +245,11 @@ S.~Gorbunov et~al.
 \newblock {ALICE HLT high speed tracking and vertexing}.
 \newblock In {\em {Proceedings, 17th Conference on Computing Applications in
   Nuclear and Plasma Sciences on Real Time (RT2010)}}, 2010.
+
+\bibitem{Griffioen:2015hxa}
+K.~A. Griffioen et~al.
+\newblock {Measurement of the EMC Effect in the Deuteron}.
+\newblock {\em Phys. Rev.}, C92(1):015211, 2015.
 
 \bibitem{Gross:1969jf}
 David~J. Gross and Chris~H. Llewellyn~Smith.
@@ -337,6 +365,11 @@ HCZ Photonics.
 \newblock \url{http://hzcphotonics.com/products/XP2072.PDF}.
 \newblock Accessed: 2016-01-29.
 
+\bibitem{Piasetzky:2011zz}
+E.~Piasetzky, L.B. Weinstein, D.W. Higinbotham, J.~Gomez, O.~Hen, et~al.
+\newblock {Short range correlations and the EMC effect}.
+\newblock {\em Nucl.Phys.}, A855:245--248, 2011.
+
 \bibitem{Quigg:1985ai}
 C.~Quigg.
 \newblock {ELEMENTARY PARTICLES AND FORCES}.
@@ -381,6 +414,12 @@ R.~S. Towell et~al.
 Rutger~M. van~der Eijk.
 \newblock {\em {Track reconstruction in the LHCb experiment}}.
 \newblock PhD thesis, Amsterdam U., 2002.
+
+\bibitem{Vasilev:1999fa}
+M.~A. Vasilev et~al.
+\newblock {Parton energy loss limits and shadowing in Drell-Yan dimuon
+  production}.
+\newblock {\em Phys. Rev. Lett.}, 83:2304--2307, 1999.
 
 \bibitem{Webb_Williams_1963}
 P.P. Webb and R.L. Williams.

@@ -446,7 +446,7 @@ At the time of the measurement was presented, the result astounded the physics c
 	\caption{SLAC E-87 was quick to report its own finding months later confirming EMC's observation\cite{PhysRevLett.50.1431}.}
 	\vspace{-20pt}
 	\label{fig:emc-e87}
-\end{wrapfigure} The compendium of experimental data and theory papers have been discussed in great detail in the excellent review papers by Geesaman~\cite{Geesaman:1995yd} in 1995 and Norton~\cite{norton:emc-review} in 2003. As such, I will only summarize the main theoretical ideas and the most prominent interpretation of the effect. A visual summary of EMC data can be found in Figure~\ref{fig:emc-all-targ} where data from EMC~\cite{Aubert:1983xm}, SLAC\cite{Arnold:1983mw, Gomez:1993ri}, BCDMS~\cite{Benvenuti:1987az}, NMC~\cite{Amaudruz:1991nw}, and HERMES~\cite{Ackerstaff:1999ac} is plotted for nine different targets.
+\end{wrapfigure} The compendium of experimental data and theory papers have been discussed in great detail in the excellent review papers by Geesaman~\cite{Geesaman:1995yd} in 1995 and Norton~\cite{norton:emc-review} in 2003. As such, I will only summarize the main theoretical ideas and the most prominent interpretation of the effect. A visual summary of EMC data can be found in Figure~\ref{fig:emc-all-targ} where data from EMC~\cite{Aubert:1983xm}, SLAC~\cite{Arnold:1983mw, Gomez:1993ri}, BCDMS~\cite{Benvenuti:1987az}, NMC~\cite{Amaudruz:1991nw}, and HERMES~\cite{Ackerstaff:1999ac} is plotted for nine different targets.
 
 \begin{figure}
 	\centering
@@ -482,12 +482,16 @@ A recent study by Guzey et al.~\cite{Guzey:2012yk} looked to data from SLAC E139
 \begin{figure}[!b]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/background/emc-q2-dep.png}
-	\parbox{4.5in}{\caption{Measurements of the change in the $\sigma^{Ca}/\sigma^d$ ratio with respect to $\ln Q^2$  over a broad range of $x$~\cite{Geesaman:1995yd}.}}
-	\label{fig:emc-q2-dep}
+	\parbox{4.5in}{\caption{Measurements of the change in the $\sigma^{Ca}/\sigma^d$ ratio with respect to $\ln Q^2$  over a broad range of $x$~\cite{Geesaman:1995yd}.}
+	\label{fig:emc-q2-dep}}
 \end{figure}
 It is important when investigating structure functions and quark/gluon distributions to pay attention to the $Q^2$ sensitivity of the measurements. Nuclear structure functions can be directly interpreted as parton distributions only if $Q^2$ is large enough to precisely define the light-cone direction and reduce higher-twist contributions. The first condition places a restriction on $x^2/Q^2$ and is usually well satisfied, even at relatively low values of $x$ and $Q^2$. However, the value of the higher-twist terms is under little theoretical control, and these terms can have specific nuclear dependences. 
 
-Experimentally, the verdict was very clear from the agreement of muon and electron DIS data that any $Q^2$ dependence must be very small since, at the same value of $x$, their average $Q^2$ differs by more than an order of magnitude. The lack of $Q^2$ dependence can be seen in Figure~\ref{fig:emc-q2-dep} which shows the derivative of DIS cross section with respect to $\ln Q^2$ over a broad range of $x$, combining NMC and E665 data for calcium~\cite{Geesaman:1995yd}.  \emph{This absence of any observable dependence of the ratio on $Q^2$ justifies the usual practice of combining all the $Q^2$ data at a fixed $x$-value to display the $x$-dependence of the ratio}. The only measurement that seems to refute this conclusion is a measurement of $\sigma^{Sn}/\sigma^C$ by NMC which observes a statistically significant, yet small $Q^2$ dependence at amall values of $x$ ($x\lesssim 0.06$)~\cite{Arneodo:1996qe}. Due to the large amount of evidence to the contrary along with the fact that SeaQuest is only sensitive to $x\gtrsim0.08$, this paper will move forward with the the understanding that there is no $Q^2$ dependence in this ratio measurement.
+Experimentally, the verdict was very clear from the agreement of muon and electron DIS data that any $Q^2$ dependence must be very small since, at the same value of $x$, their average $Q^2$ differs by more than an order of magnitude. The lack of $Q^2$ dependence can be seen in Figure~\ref{fig:emc-q2-dep} which shows the derivative of DIS cross section with respect to $\ln Q^2$ over a broad range of $x$, combining NMC and E665 data for calcium~\cite{Geesaman:1995yd}.  \emph{This absence of any observable dependence of the ratio on $Q^2$ justifies the usual practice of combining all the $Q^2$ data at a fixed $x$-value to display the $x$-dependence of the ratio}. The only measurement that seems to refute this conclusion is a measurement of $\sigma^{Sn}/\sigma^C$ by NMC which observes a statistically significant, yet small $Q^2$ dependence at small values of $x$ ($x\lesssim 0.06$)~\cite{Arneodo:1996qe}. Due to the large amount of evidence to the contrary along with the fact that SeaQuest is only sensitive to $x\gtrsim0.08$, this paper will move forward with the the understanding that there is no $Q^2$ dependence in this ratio measurement. As such, this paper will frequently abbreviate such expressions:
+\begin{equation}
+\frac{F_2^A(x, Q^2)}{F_2^d(x, Q^2)} \rightarrow \frac{F_2^A(x)}{F_2^d(x)}\ \ \ ;\ \ \ \frac{2}{A}\frac{\sigma^A(x, Q^2)}{\sigma^d(x, Q^2)} \rightarrow \frac{2}{A} \frac{\sigma^A(x)}{\sigma^d(x)}
+\end{equation}
+when in reality it is only the ratio that is $Q^2$-independent.
 
 \subsection{Shadowing}
 
@@ -499,33 +503,117 @@ Quantitatively, this behavior will occur when the $q\bar{q}$ pair fluctuation ex
 
 \subsection{Fermi Motion}
 
-~\cite{PhysRevD.23.1070}
+\begin{wrapfigure}{r}{0pt}
+	\centering
+	\includegraphics[width=0.45\textwidth]{figures/background/fermi-momentum.png}
+	\caption{The Fermi momenta $K_F$ (in GeV) for various nuclei of atomic weight A~\cite{PhysRevD.23.1070}.}
+	\vspace{-20pt}
+	\label{fig:fermi-momentum}
+\end{wrapfigure}
+One of the more striking features of the $F_2^A(x)/F_2^d(x)$ is the sharp rise in the ratio value at high-$x$ ($0.8\nobreak\lesssim\nobreak x\nobreak\lesssim\nobreak1$). This feature arises as a result of the quantum mechanical principle of Fermi motion, which arises from the confinement of nucleons within the nucleus. If one considers the uncertainty principle inherent in all wave-like systems, $\sigma_x \sigma_p \geq \frac{\hbar}{2}$, there is a direct effect on the momentum distribution of nucleons when one considers the the spatial localization of bound nucleons in a nucleus. For example, the nucleons in a tightly bound nucleus (like iron) must have a more precise spatial localization (smaller $\sigma_x$) than a nucleon in a more loosely bound nucleus (such as the deuteron). As a result, the magnitute of momentum variations will be greater in the case of iron than in the deuteron (an effect sometimes called ``Fermi smearing''). The magnitude of the Fermi momenta of several nuclei can be found in Figure~\ref{fig:fermi-momentum}.
 
-\subsection{EMC Slope}
+In the extreme case of a free nucleon (which deuterium is chosen to approximate as best as possible), there exists no Fermi motion, as the nucleon is unbound. As a result, the $F_2$ structure function must vanish as $x\rightarrow1$ as it becomes very unlikely that a single quark will possess a large fraction of the momentum of the free nucleon without the help of quantum mechanical fluctuations and Fermi smearing. In the case of the deuteron though, there is still some Fermi motion, as it still consists of two bound nucleons. Bodek and Ritchie were among the first to lay out a model for comparing this effect and how it would differ between different nuclei~\cite{PhysRevD.23.1070}.  The model of how this would affect the structure function ratio is seen on the original EMC plot in Figure~\ref{fig:emc-one-naive}, given no other nuclear effects (such as the EMC Effect).
 
-Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
-\begin{itemize}
-	\item
-	It is $Q^2$-independent
-	\item
-	It's x-dependent shape is universal (across various nuclei)
-	\item
-	The magnitude (slope) of the effect varies with A
-	\item
-	It thereby might be related to nuclear density
-\end{itemize}
+As is the case with shadowing, this regime is far beyond the kinematic acceptance of SeaQuest to measure. There is still good reason to believe that, whatever the cause of the EMC effect, it likely overlays the effect of Fermi motion, which, depending on the model, can effect the ratio measurement above $x\approx0.5$. Even with this estimate, there are very few SeaQuest statistics at this $x$-range.
+
+\subsection{A-dependence of EMC Effect Slope}
+
+\begin{table}
+	\centering
+	\ra{1.2}
+	\setlength{\tabcolsep}{2em}
+	\begin{tabular}{@{}lllll@{}}\toprule
+		Nucleon & & $dR_{EMC}/dx$~\cite{Seely:2009gt} & $dR_{EMC}/dx$~\cite{Gomez:1993ri} & $dR_{EMC}/dx$ (comb.) \\ \midrule	
+		$^2H$ & & 									 & 								  & -0.10$\pm$0.05~\cite{Griffioen:2015hxa} \\
+		$^3He$ & & -0.070$\pm$0.029 	& 								& -0.070$\pm$0.029 \\
+		$^4He$ & & -0.199$\pm$0.029		& -0.191$\pm$0.061   & -0.191$\pm$0.026 \\
+		$^9Be$ & & -0.271$\pm$0.029		 & -0.207$\pm$0.037  & -0.243$\pm$0.023 \\
+		$^{12}C$ & & -0.280$\pm$0.029	& -0.318$\pm$0.040  & -0.292$\pm$0.023 \\
+		$^{27}Al$ & & 								& -0.325$\pm$0.034  & -0.325$\pm$0.034 \\
+		$^{40}Ca$ & & 								& -0.350$\pm$0.047 & -0.350$\pm$0.047 \\
+		$^{56}Fe$ & & 								& -0.388$\pm$0.032 & -0.388$\pm$0.032 \\
+		$^{108}Ag$ & & 								& -0.496$\pm$0.051 & -0.496$\pm$0.051 \\
+		$^{197}Au$ & & 								& -0.409$\pm$0.039 & -0.409$\pm$0.039 \\ \bottomrule		
+	\end{tabular}
+	\caption{Measured EMC slopes $dR_{EMC}/dx$ for $0.35\leq x \leq 0.7$~\cite{Piasetzky:2011zz}.}
+	\label{tab:emc-slopes}
+\end{table}
+
+Precise measurements of $R_{EMC}=(F_2^A/A)/(F_2^d/2)$ for various nuclei, from $^3He$ to $^{197}Au$ have been analyzed, and the intermediate-to-high $x$ region ($0.35<x<0.7$) shows a declining behavior that can be fit with a line. The slope of this line has become the focus of study when attempting to interpret the EMC effect, as this slope ($dR_{EMC}/dx$) exhibits a significant A-dependence. The magnitudes of the slopes appear to increase with increasing $A$. The table of values of $dR_{EMC}/dx$ for various nuclei can be found in Table~\ref{tab:emc-slopes}.
+
+The intial attempt at understanding this was to interpret it as some effect of nuclear density. Since the effect of nuclear density on a given nucleus is due to the presence of the other ($A-1$) nucleons, the slope $|dR_{EMC}/dx|$ was plotted against the average nuclear density scaled down by a factor of $(A-1)/A$ in order to remove the struck nucleon’s contribution to the average nuclear density. The result for light nuclei was shown by Seely \emph{et al.} to have interesting result, as is seen in Figure~\ref{fig:emc-slope-vs-density}. The most notable result was a definite overall trend with $^9Be$ representing a significant outlier. It has been theorized that $^9Be$ is an outlier due to its nuclear structure resembling two $\alpha-$particles ($^4He$ nuclei) with an extra nuclei. This would mean that perhaps it is not the average nuclear density, but the \emph{local} nuclear density, or density about the struck nucleon. There is still a missing piece needed to represent this density.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{figures/background/dyfig9.png}
+	\caption{The slopes of the EMC ratio for $0.35<x<0.7$ vs the average nuclear density scaled by $(A-1)/A$~\cite{Seely:2009gt}.}
+	\label{fig:emc-slope-vs-density}
+\end{figure}
 
 \subsection{$x>1$ Plateaus in EMC Ratio}
+
+What has recently spurred renewed interest in the EMC effect and its possible true origin is a series of measurements by JLAB of election DIS cross section ratios where $x>1$. In this kinematic space, the cross section from a free nucleon vanishes, but persists for the deuteron. It may not at first make sense that measurements can be made in this high $x$, but it is accessible. Such a behavior is interpreted as the manifestation of short-range nucleon-nucleon correlations (three-nucleon correlations for $x>2$). These short range correlations happen when two (or three) nucleons happen to get very close to each other and experience a large repulsive Coulomb force, resulting in the nucleons moving apart from each other with high \emph{individual} momentum, but low \emph{combined} momentum.
+
+\begin{figure}[!tbp]
+	\centering
+	\begin{minipage}[b]{.4\textwidth}
+		\centering
+		\includegraphics[height=0.3\textheight]{figures/background/nn-src-plateau.png}
+		\caption{Per nucleon cross section ratios vs $x$ at $0.8<x<2$ as measured by JLAB-E02019 with a line fit to the ``plateau'' regions at $1.5<x<1.9$~\cite{Fomin:2011ng}.}
+		\label{fig:nn-src-plateau}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{.4\textwidth}
+		\centering
+		\includegraphics[height=0.3\textheight]{figures/background/CLAS-nnn-src-ratio.png}
+		\caption{Per nucleon cross section ratios vs $x$ at $0.75<x<3$ as measured by CLAS with a line fit to the ``plateau'' regions  at $2.25<x<2.8$ \cite{PhysRevLett.96.082501}.}
+		\label{fig:nnn-src-plateau}
+	\end{minipage}
+\end{figure}
+
+The JLAB-E02019 experiment~\cite{Fomin:2011ng} measured cross section ratios for $^3He$, $^4He$, $Be$, $C$, $Cu$ and $Au$ to deuterium. One can see in the results shown in Figure~\ref{fig:nn-src-plateau} that the cross section ratios of $^4He/D$, $C/D$ and $Cu/D$ rise with $x$ until the value plateaus at $x \approx 1.4 - 1.5$. The key observation with these plateaus is that the ratio value at this plateau increases with $A$. Such behavior was already observed with less accuracy by an experiment at SLAC~\cite{Frankfurt:1993sp}, and a similar pattern can be seen in the CLAS experiment which compared nuclear cross sections to tritium ($^3He$)~\cite{PhysRevLett.96.082501}. Here the measurements extend up to $x=3$ and an indication of a second plateau is observed for $2.25<x<2.8$ (Fig.~\ref{fig:nnn-src-plateau}). The variable $a_2(A/d)$, also called the Short Range Correlation (SRC) Scale Factor\footnote{More specifically, it is called the 2N-SRC scale factor, as there is a three nucleon scale factor for cross section ratios with respect to tritium.} is introduced here as the ratio plateau values in this first plateau range. The variables $a_2(A/^3He)$ and $a_3(A/^3He)$ is also defined for first and second plateau ranges, respectively, but are not used here.
+
+
+
+%Fig. 9 shows a very interesting observation [36]. In the left panel the E139 cross section ratios 4He/D, C/D and Fe/D are shown for x < 1. The lines correspond to the slopes d(σA/σD)/dx in the region 0.35 ≤ x ≤ 0.7, that characterize the strength of the EMC effect in this region and are unaffected by overall normalization uncertainties. In the middle panel the slopes of the E139 data (tabulated in [36] and corrected by xA = xp · AMp/MA [49]) are plotted against the height of the plateaus [33]. Obviously there is a strong correlation between these quantities as indicated by the straight line. It is rather unlikely that this correlation is purely accidental and one can therefore rather safely assume that a large fraction of the strength of the EMC effect in the valence quark region is due to short-range nucleon-nucleon correlations.
 
 \subsection{Models For the EMC Effect}
 
 \subsubsection{Pion Cloud Model}
 
+\subsubsection{Rescaling}
+
 \subsubsection{Nuclei-Nuclei Short Range Correlations}
 
 \subsection{The Role of Drell-Yan in Studying the Quark Sea and EMC }
 
-\subsection{E-772 at Fermilab}
+There have been many models attempting to explain the $A$-dependence of such phenomena as the EMC effect. Each of these models provide a prediction regarding the individual sea/valence quark/antiquark distribution functions. In order to test these predictions, one can take stock of the many nuclear probes and assess the capabilities of what each can contribute.
+
+In general, since deep inelastic scattering of electrons and muons is an electromagnetic interaction, it is not innately sensitive to the whether or not the struck quark was a valence quark or a sea quark and can only measure the charge-weighted (E\&M+weak) sum of parton distributions. Through neutrino and antineutrino DIS it is possible to discern between valence and sea distributions. It is the case that most models make predictions for valence quark distributions at mid-to-high $x$ that are not in tension with each other. As such, measuring the valence distributions would not help much in discriminating between different models. Models do, however, differ in their predictions on the sea quark distributions at higher x ($x\gtrsim0.2$) - but at high momentum fraction, the distributions of sea quarks diminish very quickly (Fig.~\ref{fig:pdf-q2-q100}). As such, obtaining precision measurements from antineutrino DIS has been unable to deliver precise measurements of sea quark distributions at high-$x$ yet.
+
+The Drell-Yan process, $pA\rightarrow l^+l^-$, uses the $s$-channel version of the same DIS process, but due to the nature of requiring interacting $q\bar{q}$ pairs, it provides a tool that allows one to cleanly and specifically investigate the sea quark distributions. With a forward spectrometer (such as is the case for E-772 and SeaQuest), where one accepts the $x_F>0.1$ one is able to study the Drell-Yan interaction in the specific case of a valence quark from a free proton (the beam) annihilating with an antiquark from the quark sea in the target. As a result, a study of this process for various nuclei can provide a direct, precise measurement of the $\ubar$, and thereby sea quark distributions that can assist in evaluating the plethora of EMC effect models out there, along with refining constraints on global fits of PDFs.
+
+In this paper, the A-dependence of the Drell-Yan cross sections is studied, which directly measures the A-dependence of the antiquark distributions~\cite{Berger:1985dr}. We define this ratio, $R^{DY}$ as the ratio of Drell-Yan differential cross-sections, using Eq.~\ref{eq:DY-cross} to get
+\begin{eqnarray}
+	R^{DY} & \equiv & \frac{d^2\sigma_A}{dx_1 dx_2} \Biggm/ \frac{d^2\sigma_d}{dx_1 dx_2} \\
+	 & \approx & \frac{\sum_f e_f^2 \cdot q_f^{\text{beam}}(x_1) \bar{q}_f^A(x_2)}{\sum_f e_f^2 \cdot q_f^{\text{beam}}(x_1) \bar{q}_f^d(x_2)}.
+\end{eqnarray}
+Assuming that the $\ubar$ distribution is roughly similar to the $\dbar$ distribution in the target, this term is dominated by up-quark contributions by a factor of eight: $e_u^2 = 4 e_d^2$, and there are twice as many up-quarks from the beam proton as down quarks~\cite{Geesaman:1995yd}. As a result, we can approximate
+\begin{eqnarray}
+	R^{DY} & \approx & \frac{e_u^2 \cdot q_u^{\text{beam}}(x_1) \bar{q}^A_u(x_2)}{e_u^2 \cdot q_u^{\text{beam}}(x_1) \bar{q}^d_u(x_2)} \\ 
+	& = & \frac{\bar{q}_u^A(x_2)}{\bar{q}_u^d(x_2)}
+\end{eqnarray}
+meaning that by measuring $R^{DY}$ for $pA$ to $pd$ collisions with a forward spectrometer, a good measure of the nuclear modification of the anti up quark sea distributions can be achieved.
+
+\subsubsection{Previous Measurements}
+
+\begin{wrapfigure}{r}{0pt}
+\centering
+\includegraphics[width=0.35\textwidth]{figures/background/e866-emc-ratio.png}
+\caption{E-866 Drell-Yan $\sigma^A/\sigma^{Be}$ for iron and tungsten as a function of $x_2$~\cite{Vasilev:1999fa}.}
+\label{fig:866-emc}
+\end{wrapfigure}
+Even though Drell-Yan events for $x_1>0.3$ do directly measure the sea quark distribution, there is a limited amount of data available.
 
 \begin{figure}[h]
 	\centering
@@ -543,3 +631,18 @@ Recent experiments at Hall C at JLab and SLAC suggest the following regarding th
 		\item What the statistics will be, approximately
 		\item What, if anything, will be compared to models
 	\end{itemize}}
+
+
+%Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
+%\begin{itemize}
+%	\item
+%	It is $Q^2$-independent.
+%	\item
+%	It's x-dependent shape is universal (across various nuclei).
+%	\item
+%	The magnitude (slope) of the effect varies with A.
+%	\item
+%	There is a ``shadowing'' effect at very low-$x$.
+%	\item
+%	Fermi motion dominates the ratio at high-$x$.
+%\end{itemize}

@@ -12,44 +12,44 @@ A level-1 auxiliary file: conclusions.aux
 A level-1 auxiliary file: Appendix.aux
 The style file: plain.bst
 Database file #1: thesisbib.bib
-You've used 63 entries,
+You've used 70 entries,
             2118 wiz_defined-function locations,
-            935 strings with 17569 characters,
-and the built_in function-call counts, 25698 in all, are:
-= -- 2307
-> -- 1933
+            983 strings with 18615 characters,
+and the built_in function-call counts, 28027 in all, are:
+= -- 2533
+> -- 2048
 < -- 0
-+ -- 772
-- -- 706
-* -- 2139
-:= -- 4592
-add.period$ -- 199
-call.type$ -- 63
-change.case$ -- 522
++ -- 817
+- -- 744
+* -- 2312
+:= -- 4997
+add.period$ -- 220
+call.type$ -- 70
+change.case$ -- 557
 chr.to.int$ -- 0
-cite$ -- 63
-duplicate$ -- 651
-empty$ -- 1533
-format.name$ -- 706
-if$ -- 5009
+cite$ -- 70
+duplicate$ -- 728
+empty$ -- 1713
+format.name$ -- 744
+if$ -- 5488
 int.to.chr$ -- 0
-int.to.str$ -- 63
-missing$ -- 53
-newline$ -- 328
-num.names$ -- 126
-pop$ -- 486
+int.to.str$ -- 70
+missing$ -- 60
+newline$ -- 363
+num.names$ -- 140
+pop$ -- 507
 preamble$ -- 1
-purify$ -- 462
+purify$ -- 490
 quote$ -- 0
-skip$ -- 461
+skip$ -- 519
 stack$ -- 0
-substring$ -- 1272
-swap$ -- 62
+substring$ -- 1445
+swap$ -- 69
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 248
+type$ -- 276
 warning$ -- 0
-while$ -- 182
-width$ -- 65
-write$ -- 694
+while$ -- 203
+width$ -- 72
+write$ -- 771
