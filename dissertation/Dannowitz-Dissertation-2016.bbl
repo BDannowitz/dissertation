@@ -7,14 +7,14 @@ W.~a~Heisenberg.
 \newblock {\em Z. Phys.}, 43:172--198, 1927.
 
 \bibitem{Ackerstaff:1999ac}
-K.~Ackerstaff et~al.
+K.~et~al. Ackerstaff.
 \newblock {Nuclear effects on R = sigma(L) / sigma(T) in deep inelastic
   scattering}.
 \newblock {\em Phys. Lett.}, B475:386--394, 2000.
 \newblock [Erratum: Phys. Lett.B567,339(2003)].
 
 \bibitem{Adams:1995sh}
-M.~R. Adams et~al.
+M.~R. et~al. Adams.
 \newblock {Extraction of the ratio $F2_n / F2_p$ from muon - deuteron and muon
   - proton scattering at small $x$ and Q**2}.
 \newblock {\em Phys. Rev. Lett.}, 75:1466--1470, 1995.
@@ -27,30 +27,13 @@ Agilent.
 \newblock Accessed: 2016-02-03.
 
 \bibitem{PhysRevD.67.012005}
-A.~Alavi-Harati, T.~Alexopoulos, M.~Arenton, K.~Arisaka, S.~Averitte, R.~F.
-  Barbosa, A.~R. Barker, M.~Barrio, L.~Bellantoni, A.~Bellavance, J.~Belz,
-  D.~R. Bergman, E.~Blucher, G.~J. Bock, C.~Bown, S.~Bright, E.~Cheu,
-  S.~Childress, R.~Coleman, M.~D. Corcoran, G.~Corti, B.~Cox, A.~R. Erwin,
-  R.~Ford, A.~Glazov, A.~Golossanov, G.~Graham, J.~Graham, E.~Halkiadakis,
-  J.~Hamm, K.~Hanagaki, Y.~B. Hsiung, V.~Jejer, D.~A. Jensen, R.~Kessler,
-  H.~G.~E. Kobrak, J.~LaDue, A.~Lath, A.~Ledovskoy, P.~L. McBride,
-  P.~Mikelsons, E.~Monnier, T.~Nakaya, K.~S. Nelson, H.~Nguyen, V.~O'Dell,
-  M.~Pang, R.~Pordes, V.~Prasad, X.~R. Qi, B.~Quinn, E.~J. Ramberg, R.~E. Ray,
-  A.~Roodman, S.~Schnetzer, K.~Senyo, P.~Shanahan, P.~S. Shawhan, J.~Shields,
-  W.~Slater, N.~Solomey, S.~V. Somalwar, R.~L. Stone, E.~C. Swallow, S.~A.
-  Taegar, R.~J. Tesarek, G.~B. Thomson, P.~A. Toale, A.~Tripathi,
-  R.~Tschirhart, S.~E. Turner, Y.~W. Wah, J.~Wang, H.~B. White, J.~Whitmore,
-  B.~Winstein, R.~Winston, T.~Yamanaka, and E.~D. Zimmerman.
+A.~et~al. Alavi-Harati.
 \newblock Measurements of direct $\mathrm{CP}$ violation, $\mathrm{CPT}$
   symmetry, and other parameters in the neutral kaon system.
 \newblock {\em Phys. Rev. D}, 67:012005, Jan 2003.
 
 \bibitem{PhysRevLett.64.2479}
-D.~M. Alde, H.~W. Baer, T.~A. Carey, G.~T. Garvey, A.~Klein, C.~Lee, M.~J.
-  Leitch, J.~W. Lillberg, P.~L. McGaughey, C.~S. Mishra, J.~M. Moss, J.~C.
-  Peng, C.~N. Brown, W.~E. Cooper, Y.~B. Hsiung, M.~R. Adams, R.~Guo, D.~M.
-  Kaplan, R.~L. McCarthy, G.~Danner, M.~J. Wang, M.~L. Barlett, and G.~W.
-  Hoffmann.
+D.~M. et~al. Alde.
 \newblock Nuclear dependence of dimuon production at 800 gev.
 \newblock {\em Phys. Rev. Lett.}, 64(21):2479--2482, May 1990.
 
@@ -61,13 +44,12 @@ M.~Alvioli, C.~Ciofi~degli Atti, and H.~Morita.
 \newblock {\em Phys. Rev. Lett.}, 100:162503, Apr 2008.
 
 \bibitem{Amaudruz:1991nw}
-P.~Amaudruz et~al.
+P.~et~al. Amaudruz.
 \newblock {The ratio F2(n) / F2(p) in deep inelastic muon scattering}.
 \newblock {\em Nucl. Phys.}, B371:3--31, 1992.
 
 \bibitem{ames1998measurement}
-E~Ames, C~Seshagiri, M~Griswold, V~Simaitis, J~La~Due, F~Cogswell, S~Errede,
-  J~Thaler, D~Errede, RW~Downing, et~al.
+E.~et~al. Ames.
 \newblock Measurement of 20 hamamatsu r-5900 photomultiplier tubes for atlas
   tilecal module-0.
 \newblock Technical report, CERN-ATL-TILECAL-98-156, 1998.
@@ -79,62 +61,47 @@ Carl~D. Anderson and Seth~H. Neddermeyer.
 \newblock {\em Phys. Rev.}, 50:263--271, 1936.
 
 \bibitem{Arneodo:1994sh}
-M.~Arneodo et~al.
+M.~et~al. Arneodo.
 \newblock {A Reevaluation of the Gottfried sum}.
 \newblock {\em Phys. Rev.}, D50:1--3, 1994.
 
 \bibitem{Arneodo:1996qe}
-M.~Arneodo et~al.
+M.~et~al. Arneodo.
 \newblock {Measurement of the proton and deuteron structure functions, F2(p)
   and F2(d), and of the ratio sigma-L / sigma-T}.
 \newblock {\em Nucl. Phys.}, B483:3--43, 1997.
 
 \bibitem{Arnold:1983mw}
-R.~G. Arnold et~al.
+R.~G. et~al. Arnold.
 \newblock {Measurements of the a-Dependence of Deep Inelastic electron
   Scattering from Nuclei}.
 \newblock {\em Phys. Rev. Lett.}, 52:727, 1984.
 
 \bibitem{Aubert:1983xm}
-J.J. Aubert et~al.
+J.J. et~al. Aubert.
 \newblock {The ratio of the nucleon structure functions $F2_n$ for iron and
   deuterium}.
 \newblock {\em Phys.Lett.}, B123:275, 1983.
 
 \bibitem{Baldit:1994jk}
-A.~Baldit et~al.
+A.~et~al. Baldit.
 \newblock {Study of the isospin symmetry breaking the in the light quark sea of
   the nucleon from the Drell-Yan process}.
 \newblock {\em Phys. Lett.}, B332:244--250, 1994.
 
 \bibitem{PhysRevLett.43.830}
-D.~P. Barber, U.~Becker, H.~Benda, A.~Boehm, J.~G. Branson, J.~Bron,
-  D.~Buikman, J.~Burger, C.~C. Chang, H.~S. Chen, M.~Chen, C.~P. Cheng, Y.~S.
-  Chu, R.~Clare, P.~Duinker, G.~Y. Fang, H.~Fesefeldt, D.~Fong, M.~Fukushima,
-  J.~C. Guo, A.~Hariri, G.~Herten, M.~C. Ho, H.~K. Hsu, T.~T. Hsu, R.~W. Kadel,
-  W.~Krenz, J.~Li, Q.~Z. Li, M.~Lu, D.~Luckey, D.~A. Ma, C.~M. Ma, G.~G.~G.
-  Massaro, T.~Matsuda, H.~Newman, J.~Paradiso, F.~P. Poschmann, J.~P. Revol,
-  M.~Rohde, H.~Rykaczewski, K.~Sinram, H.~W. Tang, L.~G. Tang, Samuel C.~C.
-  Ting, K.~L. Tung, F.~Vannucci, X.~R. Wang, P.~S. Wei, M.~White, G.~H. Wu,
-  T.~W. Wu, J.~P. Xi, P.~C. Yang, X.~H. Yu, N.~L. Zhang, and R.~Y. Zhu.
+D.~P. et~al. Barber.
 \newblock Discovery of three-jet events and a test of quantum chromodynamics at
   petra.
 \newblock {\em Phys. Rev. Lett.}, 43:830--833, Sep 1979.
 
 \bibitem{1964PhRvL:12204B}
-V.~E. {Barnes}, P.~L. {Connolly}, D.~J. {Crennell}, B.~B. {Culwick}, W.~C.
-  {Delaney}, W.~B. {Fowler}, P.~E. {Hagerty}, E.~L. {Hart}, N.~{Horwitz}, P.~V.
-  {Hough}, J.~E. {Jensen}, J.~K. {Kopp}, K.~W. {Lai}, J.~{Leitner}, J.~L.
-  {Lloyd}, G.~W. {London}, T.~W. {Morris}, Y.~{Oren}, R.~B. {Palmer}, A.~G.
-  {Prodell}, D.~{Radoji{\v c}i{\'C}}, D.~C. {Rahm}, C.~R. {Richardson}, N.~P.
-  {Samios}, J.~R. {Sanford}, R.~P. {Shutt}, J.~R. {Smith}, D.~L. {Stonehill},
-  R.~C. {Strand}, A.~M. {Thorndike}, M.~S. {Webster}, W.~J. {Willis}, and S.~S.
-  {Yamamoto}.
+V.~E. et~al. {Barnes}.
 \newblock {Observation of a Hyperon with Strangeness Minus Three}.
 \newblock {\em Physical Review Letters}, 12:204--206, February 1964.
 
 \bibitem{Benvenuti:1987az}
-A.~C. Benvenuti et~al.
+A.~C. et~al. Benvenuti.
 \newblock {Nuclear Effects in Deep Inelastic Muon Scattering on Deuterium and
   Iron Targets}.
 \newblock {\em Phys. Lett.}, B189:483, 1987.
@@ -149,21 +116,20 @@ Siegfried Bethke.
 \newblock {Experimental tests of asymptotic freedom}.
 \newblock {\em Prog. Part. Nucl. Phys.}, 58:351--386, 2007.
 
-\bibitem{PhysRevLett.50.1431}
-A.~Bodek, N.~Giokaris, W.~B. Atwood, D.~H. Coward, D.~J. Sherden, D.~L. Dubin,
-  J.~E. Elias, J.~I. Friedman, H.~W. Kendall, J.~S. Poucher, and E.~M. Riordan.
-\newblock Electron scattering from nuclear targets and quark distributions in
-  nuclei.
-\newblock {\em Phys. Rev. Lett.}, 50:1431--1434, May 1983.
-
 \bibitem{PhysRevD.23.1070}
 A.~Bodek and J.~L. Ritchie.
 \newblock Fermi-motion effects in deep-inelastic lepton scattering from nuclear
   targets.
 \newblock {\em Phys. Rev. D}, 23:1070--1091, Mar 1981.
 
+\bibitem{PhysRevLett.50.1431}
+A.~et~al. Bodek.
+\newblock Electron scattering from nuclear targets and quark distributions in
+  nuclei.
+\newblock {\em Phys. Rev. Lett.}, 50:1431--1434, May 1983.
+
 \bibitem{Brown:1989fj}
-C.~N. Brown et~al.
+C.~N. et~al. Brown.
 \newblock {Dimuon Production in 800-{GeV} Proton Nucleus Collisions}.
 \newblock {\em Phys. Rev. Lett.}, 63:2637--2640, 1989.
 
@@ -200,18 +166,18 @@ Open Science~Grid Consortium.
   \url{http://osg-docdb.opensciencegrid.org/cgi-bin/RetrieveFile?docid=18\&extension=pdf}.
 \newblock Accessed: 2016-02-24.
 
-\bibitem{Dasu:1993vk}
-S.~Dasu et~al.
-\newblock {Measurement of kinematic and nuclear dependence of R = sigma-L /
-  sigma-t in deep inelastic electron scattering}.
-\newblock {\em Phys. Rev.}, D49:5641--5670, 1994.
-
 \bibitem{PhysRevLett.61.1061}
 S.~et~al. Dasu.
 \newblock Precision measurement of
   $r=\frac{{\ensuremath{\sigma}}_{L}}{{\ensuremath{\sigma}}_{T}}$ and ${F}_{2}$
   in deep-inelastic electron scattering.
 \newblock {\em Phys. Rev. Lett.}, 61:1061--1064, Aug 1988.
+
+\bibitem{Dasu:1993vk}
+S.~et~al. Dasu.
+\newblock {Measurement of kinematic and nuclear dependence of R = sigma-L /
+  sigma-t in deep inelastic electron scattering}.
+\newblock {\em Phys. Rev.}, D49:5641--5670, 1994.
 
 \bibitem{Dommelen}
 L.~Dommelen.
@@ -238,20 +204,19 @@ Chun-Gui Duan, Shu-Wen Cui, Zhan-Yuan Yan, and Guang-Lie Li.
 \newblock {\em Commun. Theor. Phys.}, 44:123--127, 2005.
 
 \bibitem{Dulat:2015mca}
-Sayipjamal Dulat, Tie-Jiun Hou, Jun Gao, Marco Guzzi, Joey Huston, Pavel
-  Nadolsky, Jon Pumplin, Carl Schmidt, Daniel Stump, and C.~P. Yuan.
+Sayipjamal et~al. Dulat.
 \newblock {New parton distribution functions from a global analysis of quantum
   chromodynamics}.
 \newblock {\em Phys. Rev.}, D93(3):033006, 2016.
 
 \bibitem{PhysRevLett.96.082501}
-K.~S. Egiyan et~al.
+K.~S. et~al. Egiyan.
 \newblock Measurement of two- and three-nucleon short-range correlation
   probabilities in nuclei.
 \newblock {\em Phys. Rev. Lett.}, 96:082501, Mar 2006.
 
 \bibitem{Egiyan:2005hs}
-K.S. Egiyan et~al.
+K.S. et~al. Egiyan.
 \newblock {Measurement of 2- and 3-nucleon short range correlation
   probabilities in nuclei}.
 \newblock {\em Phys.Rev.Lett.}, 96:082501, 2006.
@@ -275,11 +240,11 @@ I.~Estermann, R.~Frisch, and O.~Stern.
 
 \bibitem{Fisk:1982pn}
 H.~Eugene Fisk and Frank Sciulli.
-\newblock {CHARGED CURRENT NEUTRINO INTERACTIONS}.
+\newblock {Charged Current Neutrino Interactions}.
 \newblock {\em Ann. Rev. Nucl. Part. Sci.}, 32:499--573, 1982.
 
 \bibitem{Fomin:2011ng}
-N.~Fomin et~al.
+N.~et~al. Fomin.
 \newblock {New measurements of high-momentum nucleons and short-range
   structures in nuclei}.
 \newblock {\em Phys. Rev. Lett.}, 108:092502, 2012.
@@ -316,13 +281,13 @@ Donald~F. Geesaman, K.~Saito, and Anthony~William Thomas.
 \newblock {\em Ann.Rev.Nucl.Part.Sci.}, 45:337--390, 1995.
 
 \bibitem{Gomez:1993ri}
-J.~Gomez et~al.
+J.~et~al. Gomez.
 \newblock {Measurement of the A-dependence of deep inelastic electron
   scattering}.
 \newblock {\em Phys. Rev.}, D49:4348--4372, 1994.
 
 \bibitem{Gorbunov:2010yda}
-S.~Gorbunov et~al.
+S.~et~al. Gorbunov.
 \newblock {ALICE HLT high speed tracking and vertexing}.
 \newblock In {\em {Proceedings, 17th Conference on Computing Applications in
   Nuclear and Plasma Sciences on Real Time (RT2010)}}, 2010.
@@ -333,7 +298,7 @@ Kurt Gottfried.
 \newblock {\em Phys. Rev. Lett.}, 18:1174, 1967.
 
 \bibitem{Griffioen:2015hxa}
-K.~A. Griffioen et~al.
+K.~A. et~al. Griffioen.
 \newblock {Measurement of the EMC Effect in the Deuteron}.
 \newblock {\em Phys. Rev.}, C92(1):015211, 2015.
 
@@ -362,8 +327,8 @@ Vadim Guzey, Lingyan Zhu, Cynthia~E. Keppel, M.~Eric Christy, Dave Gaskell,
 
 \bibitem{Halzen:1984mc}
 F.~Halzen and Alan~D. Martin.
-\newblock {\em QUARKS AND LEPTONS: AN INTRODUCTORY COURSE IN MODERN PARTICLE
-  PHYSICS}.
+\newblock {\em Quarks and Leptopns: An Introductory Couse in Modern Particle
+  Physics}.
 \newblock Wiley, 1984.
 \newblock New York, USA ( 1984) 396p.
 
@@ -399,15 +364,13 @@ D.~W. Higinbotham, J.~Gomez, and E.~Piasetzky.
 \newblock {Nuclear Scaling and the EMC Effect}, 2010.
 
 \bibitem{Hogan:1979tu}
-G.~E. Hogan et~al.
+G.~E. et~al. Hogan.
 \newblock {Comparison of Muon Pair Production to the Quark - Anti-quark
   Annihilation Model}.
 \newblock {\em Phys. Rev. Lett.}, 42:948, 1979.
 
 \bibitem{PhysRevD.23.604}
-A.~S. Ito, R.~J. Fisk, H.~J\"ostlein, D.~M. Kaplan, S.~W. Herb, D.~C. Hom,
-  L.~M. Lederman, H.~D. Snyder, J.~K. Yoh, B.~C. Brown, C.~N. Brown, W.~R.
-  Innes, R.~D. Kephart, K.~Ueno, and T.~Yamanouchi.
+A.~S. et~al. Ito.
 \newblock Measurement of the continuum of dimuons produced in high-energy
   proton-nucleus collisions.
 \newblock {\em Phys. Rev. D}, 23:604--633, Feb 1981.
@@ -439,7 +402,7 @@ C.~R. Kerns.
 \newblock {\em IEEE Trans. Nucl. Sci.}, 24:353--355, 1977.
 
 \bibitem{CMS:2014mna}
-Vardan Khachatryan et~al.
+Vardan et~al. Khachatryan.
 \newblock {Measurement of the inclusive 3-jet production differential cross
   section in proton–proton collisions at 7 TeV and determination of the
   strong coupling constant in the TeV range}.
@@ -493,11 +456,7 @@ Gerald~A. Miller.
   Los Alamos, New Mexico, July 18-22, 1988}}, 1988.
 
 \bibitem{PhysRevD.43.2815}
-G.~Moreno, C.~N. Brown, W.~E. Cooper, D.~Finley, Y.~B. Hsiung, A.~M.
-  Jonckheere, H.~Jostlein, D.~M. Kaplan, L.~M. Lederman, Y.~Hemmi, K.~Imai,
-  K.~Miyake, T.~Nakamura, N.~Sasao, N.~Tamura, T.~Yoshida, A.~Maki, Y.~Sakai,
-  R.~Gray, K.~B. Luk, J.~P. Rutherfoord, P.~B. Straub, R.~W. Williams, K.~K.
-  Young, M.~R. Adams, H.~Glass, and D.~Jaffe.
+G.~et~al. Moreno.
 \newblock Dimuon production in proton-copper collisions at $\sqrt{s}=38.8$ gev.
 \newblock {\em Phys. Rev. D}, 43(9):2815--2835, May 1991.
 
@@ -525,7 +484,7 @@ Brews Ohare.
 \newblock Accessed: 2016-02-01.
 
 \bibitem{Peng:1998pa}
-J.~C. Peng et~al.
+J.~C. et~al. Peng.
 \newblock {Anti-d / anti-u asymmetry and the origin of the nucleon sea}.
 \newblock {\em Phys. Rev.}, D58:092004, 1998.
 
@@ -536,7 +495,7 @@ HCZ Photonics.
 \newblock Accessed: 2016-01-29.
 
 \bibitem{Piasetzky:2011zz}
-E.~Piasetzky, L.B. Weinstein, D.W. Higinbotham, J.~Gomez, O.~Hen, et~al.
+E.~Piasetzky, L.B. Weinstein, D.W. Higinbotham, J.~Gomez, and O.~et~al. Hen.
 \newblock {Short range correlations and the EMC effect}.
 \newblock {\em Nucl.Phys.}, A855:245--248, 2011.
 
@@ -574,7 +533,7 @@ Florian Sanftl.
 \newblock PhD thesis, Tokyo Institute of Technology, 2014.
 
 \bibitem{Seely:2009gt}
-J.~Seely et~al.
+J.~et~al. Seely.
 \newblock {New measurements of the EMC effect in very light nuclei}.
 \newblock {\em Phys. Rev. Lett.}, 103:202301, 2009.
 
@@ -584,9 +543,7 @@ Shieldwerx.
 \newblock \url{http://www.shieldwerx.com/assets/swx-201(hd).pdf}, 2015.
 
 \bibitem{Shiu:2015ura}
-Shiuan-Hal Shiu, Jinyuan Wu, Randall~Evan McClellan, Ting-Hua Chang, Wen-Chen
-  Chang, Yen-Chu Chen, Ron Gilman, Kenichi Nakano, Jen-Chieh Peng, and Su-Yin
-  Wang.
+Shiuan-Hal et~al. Shiu.
 \newblock {FPGA-based trigger system for the Fermilab SeaQuest experiment}.
 \newblock {\em Nucl. Instrum. Meth.}, A802:82--88, 2015.
 
@@ -626,7 +583,7 @@ Anthony~William Thomas.
 \newblock {\em Phys. Lett.}, B126:97--100, 1983.
 
 \bibitem{Towell:2001nh}
-R.~S. Towell et~al.
+R.~S. et~al. Towell.
 \newblock Improved measurement of the anti-d/anti-u asymmetry in the nucleon
   sea.
 \newblock {\em Phys. Rev.}, D64:052002, 2001.
@@ -637,7 +594,7 @@ Rutger~M. van~der Eijk.
 \newblock PhD thesis, Amsterdam U., 2002.
 
 \bibitem{Vasilev:1999fa}
-M.~A. Vasilev et~al.
+M.~A. et~al. Vasilev.
 \newblock {Parton energy loss limits and shadowing in Drell-Yan dimuon
   production}.
 \newblock {\em Phys. Rev. Lett.}, 83:2304--2307, 1999.
@@ -654,8 +611,8 @@ L.~B. Weinstein, E.~Piasetzky, D.~W. Higinbotham, J.~Gomez, O.~Hen, and
 \newblock {\em Phys. Rev. Lett.}, 106:052301, Feb 2011.
 
 \bibitem{Abegg:1998sg}
-J.~Zhao et~al.
-\newblock {Precision measurement of charge symmetry breaking in n p elastic
+J.~et~al. Zhao.
+\newblock {Precision measurement of charge symmetry breaking in n-p elastic
   scattering at 347-MeV}.
 \newblock {\em Phys. Rev.}, C57:2126--2141, 1998.
 
