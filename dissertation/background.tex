@@ -1,7 +1,5 @@
 \chapter{Theoretical Background}
 
-\red{CHAPTER STATUS: IN PROGRESS}
-
 The topic of this paper is the exploration of the sub-structure of the \emph{nucleon}, a particle that makes up an atom's nucleus which can be either a proton (\emph{p}) or a neutron (\emph{n}). By sub-structure, I refer to the nucleon's composition and the momentum distributions carried by the nucleon's constituent particles, quarks and gluons.
 
 While a complete review of the history and physics behind nucleon structure and its investigative probes is beyond the scope of this paper, a brief overview of Drell-Yan, parton distribution functions, and nuclear structure phenomenology will help in understanding concepts and terminology relevant to this and later chapters.
@@ -10,7 +8,7 @@ While a complete review of the history and physics behind nucleon structure and 
 
 The first indication that the proton may have some internal structure was in a 1933 experiment by Estermann \emph{et al.} measuring the magnetic moment of the proton \cite{Estermann:169E}. Since the proton was thought to be a point-like Dirac particle, it's magnetic moment ($\mu_p$) was expected to be $\mu_p = \frac{e}{2 m_p} = 1 n.m.$, or one \emph{nuclear magneton}. The experiment resulted in a value of 2.5 n.m., leading many to reconsider the notion that the proton is indeed point-like.
 
-Around the same time, Hideku Yukawa is credited for establishing the first theory of a \emph{strong force}, a force binding together nucleons in a nuclei against the sizable \emph{Coulomb} repulsion of protons against each other. The force was theorized to be mediated by the exchange of particles called \emph{mesons}, and its range was limited to nuclei-scale distances, seeing as it's not observed at larger distances. Based upon the size of the nucleus, Yukawa estimated the mass of the intermediating particles to be approximately $2 \times 10^2 m_e \approx 100 MeV$, where $m_e$ is the electron mass. The following year, Anderson et al. discovered the muon ($\mu$) at around this mass\CN, which confused many as it did not seem to partake in strong interactions. Eventually, by 1947, the meson theory was validated by the discovery of the \emph{pion} by Powell \emph{et al.}\CN, and Yukawa was awarded a Nobel Prize for his theory in 1949. While the pion turned out to be just another composite particle, its discovery was a watershed moment in particle physics that led to a cascading series of discoveries. 
+Around the same time, Hideku Yukawa is credited for establishing the first theory of a \emph{strong force}, a force binding together nucleons in a nuclei against the sizable \emph{Coulomb} repulsion of protons against each other. The force was theorized to be mediated by the exchange of particles called \emph{mesons}, and its range was limited to nuclei-scale distances, seeing as it's not observed at larger distances. Based upon the size of the nucleus, Yukawa estimated the mass of the intermediating particles to be approximately $2 \times 10^2 m_e \approx 100 MeV$, where $m_e$ is the electron mass. The following year, Anderson et al. discovered the muon ($\mu$) at around this mass~\cite{Anderson:1936zz}, which confused many as it did not seem to partake in strong interactions. Eventually, by 1947, the meson theory was validated by the discovery of the \emph{pion} by Powell \emph{et al.}~\cite{Powell:1946pu}, and Yukawa was awarded a Nobel Prize for his theory in 1949. While the pion turned out to be just another composite particle, its discovery was a watershed moment in particle physics that led to a cascading series of discoveries. 
 \begin{figure}
 	\centering
 	\includegraphics[width=5in]{figures/background/mesons_baryons.pdf}
@@ -26,7 +24,7 @@ Many nuclear probes and methods have been used to characterize the distributions
 
 \section{Di-lepton production in nucleon-nucleon collisions}
 
-Studying the production of pairs of leptons resulting from hadron-hadron collisions has proven to be a powerful tool in probing nucleon structure and parton distribution functions (PDFs). Figure \ref{fig:DY-spectrum} shows the mass spectrum of the muon mode of di-lepton production in proton-nucleus collisions measured at the E-866/NuSea experiment at Fermilab\cite{PhysRevLett.80.3715}. The resonances of the $J/\Psi$, $\Psi^\prime$, $\Upsilon$, $\Upsilon^\prime$, and $\Upsilon^{\prime\prime}$ can be seen atop a smooth, continuous distribution which decreases with mass. The process responsible with this distribution of $\mu^+\mu^-$ pairs is the Drell-Yan process\cite{PhysRevLett.25.316}, which is illustrated in the Feynman diagram in Fig.~\ref{fig:dy-diagram}. This process is characterized by a quark annihilating with an anti-quark to form a virtual time-like photon which then decays into a pair of leptons. The study of this process can lend some insight into nucleon structure due to the fact that the mass and momentum of the di-lepton pair directly reflects the momentum distributions of the interacting quarks and anti-quarks. Current knowledge and models\CN of these momentum distributions come primarily from deep-inelastic lepton scattering (DIS) and the Drell-Yan (DY) process.
+Studying the production of pairs of leptons resulting from hadron-hadron collisions has proven to be a powerful tool in probing nucleon structure and parton distribution functions (PDFs). Figure \ref{fig:DY-spectrum} shows the mass spectrum of the muon mode of di-lepton production in proton-nucleus collisions measured at the E-866/NuSea experiment at Fermilab\cite{PhysRevLett.80.3715}. The resonances of the $J/\Psi$, $\Psi^\prime$, $\Upsilon$, $\Upsilon^\prime$, and $\Upsilon^{\prime\prime}$ can be seen atop a smooth, continuous distribution which decreases with mass. The process responsible with this distribution of $\mu^+\mu^-$ pairs is the Drell-Yan process\cite{PhysRevLett.25.316}, which is illustrated in the Feynman diagram in Fig.~\ref{fig:dy-diagram}. This process is characterized by a quark annihilating with an anti-quark to form a virtual time-like photon which then decays into a pair of leptons. The study of this process can lend some insight into nucleon structure due to the fact that the mass and momentum of the di-lepton pair directly reflects the momentum distributions of the interacting quarks and anti-quarks. The most comprehensive and precise knowledge and models of these momentum distributions come primarily from deep-inelastic lepton scattering (DIS) and the Drell-Yan (DY) process.
 
 \begin{figure}
 	\centering
@@ -35,12 +33,7 @@ Studying the production of pairs of leptons resulting from hadron-hadron collisi
 	\label{fig:DY-spectrum}
 \end{figure}
 
-%Di-lepton production has a record of being used as a technique for searching for new particles. 
-One particular focus of study for the Drell-Yan process is its nucleon number-dependent (A-dependent) behavior of its cross sections. This is of particular interest due to a phenomenon known as the EMC effect, in which the European Muon Collaboration (EMC) discovered in 1983 that parton distribution functions become modified when in the presence of the nuclear medium. This A-dependent behavior was not expected for hard scattering processes as the modest (maximum $\unit[8.8]{MeV}$) binding energy of a nucleus on a nucleon was not thought to have a significant effect on quark momentum distributions within a nucleon (\unit[938]{$Mev/c^2$}). Many experiments since\CN have confirmed, extended, and precisely characterized the A-dependent behavior observed. Among the many hard scattering probes for investigating this phenomenon, the Drell-Yan process is uniquely capable of isolating the effect on the anti-quark distributions to a high degree of accuracy. The study of the effects of the nuclear medium on nucleon anti-quark distributions is the secondary research goal of the SeaQuest experiment and is the main focus of this thesis.
-
-Within this thesis, the Drell-Yan process and its properties are discussed in \red{sections so and so} and various A-dependent behaviors seen in Drell-Yan and DIS are discussed in \red{sections so and so}. A few models are discussed in an attempt to theoretically characterize this A-dependent behavior in \red{sections so and so}.
-
-In cases where a Drell-Yan process occurs, it can often be the case that the incident quark must pass through the strongly-interacting nuclear medium prior to its annihilation with the anti-quark in the target. By investigating the momentum distribution of the quark from the beam and it's A-dependence, some insight can be gained regarding the parton energy loss as it moves through a foreign nuclear medium. This topic and its existing data are briefly discussed in \red{section so and so}.
+One particular focus of study for the Drell-Yan process is its nucleon number-dependent (A-dependent) behavior of its cross sections. This is of particular interest due to a phenomenon known as the EMC effect, in which the European Muon Collaboration (EMC) discovered in 1983 that parton distribution functions become modified when in the presence of the nuclear medium. This A-dependent behavior was not expected for hard scattering processes as the modest (maximum $\unit[8.8]{MeV}$) binding energy of a nucleus on a nucleon was not thought to have a significant effect on quark momentum distributions within a nucleon (\unit[938]{$Mev/c^2$}). Many experiments since have confirmed, extended, and precisely characterized the A-dependent behavior observed. Among the many hard scattering probes for investigating this phenomenon, the Drell-Yan process is uniquely capable of isolating the effect on the anti-quark distributions to a high degree of accuracy. The study of the effects of the nuclear medium on nucleon anti-quark distributions is the secondary research goal of the SeaQuest experiment and is the main focus of this thesis.
 
 \subsection{The Drell-Yan Process}
 
@@ -66,7 +59,7 @@ In 1970, S. Drell and T.M. Yan were the first to suggest that, at high $Q^2 (=M^
 q_A + \bar{q}_B \rightarrow \gamma^* \rightarrow l^+ l^-
 \label{eq:dy-process}
 \end{equation} 
-as an electromagnetic annihilation process. In this high-$Q^2$ kinematic space, the final state of the hadrons that contain these quarks becomes irrelevant. By the energy-time uncertainty principle\CN of $\Delta E \Delta t \sim \hbar$, the timescales under consideration are $<10^{-25}s$, and the corresponding distances are $<10^{-17}m$, where the size of a nucleon is $\sim 10^{-15}m$\CN. At these short space-time scales, electromagnetic annihilation dominates this quark-quark interaction.
+as an electromagnetic annihilation process. In this high-$Q^2$ kinematic space, the final state of the hadrons that contain these quarks becomes irrelevant. By the energy-time uncertainty principle~\cite{aHeisenberg:1927zz} of $\Delta E \Delta t \sim \hbar$, the timescales under consideration are $<10^{-25}s$, and the corresponding distances are $<10^{-17}m$, where the size of a nucleon is $\sim 10^{-15}m$~\cite{povh2002particles}. At these short space-time scales, electromagnetic annihilation dominates this quark-quark interaction.
 
 This is further reinforced by the widely accepted non-Abelian gauge field theory of Quantum Chromodynamics (QCD) which describes the interactions between quarks and gluons. QCD provides a theoretical justification for treating Drell-Yan processes as events isolated from the rest of the hadron states, and it does so through the concept of the running of the coupling constant, or \emph{asymptotic freedom}\cite{Bethke:2006ac}. This characteristic feature of QCD is described by the decrease of the strength of the strong force coupling constant as the space-time scale of the interaction approaches zero (i.e. as $Q^2 \rightarrow \infty$). The strong coupling constant can be expressed as a function of $Q^2$:
 \begin{equation}
@@ -103,8 +96,6 @@ x = -q^2/2 p \cdot q
 \end{equation} where \emph{p} and \emph{q} are the 4-momenta of the hadron and the photon. In DY, the same momentum fraction $x$ is used to describe part of the fundamental basis of the interaction. In this case, $q$ is the 4-momentum of the virtual photon and $p$ is the 4-momentum of the hadron that contains the quark in question.
 
 The next stage of the process is the virtual photon. This photon' properties are effectively equivalent to the `dimuon' or `dilepton', which are the terms more commonly used in referring to kinematics. The first of its relevant kinematics is its mass $M_{\gamma^*}$, which represents its energy and virtuality. The value $x_F$, or Feynman-x, is the fraction of the maximum possible longitudinal momentum carried by the virtual photon in the beam direction. The transverse momentum, $p_T$, and the azimuthal production angle, $\phi_{\gamma^*}$ are the remaining kinematics associated with the virtual photon.
-
-\red{Get solid intuition for different CS angles.}
 
 The third stage regards the pair of leptons produced. In the frame of the virtual photon, there is a polar and azimuthal decay angle, $\theta_\mu$ and $\phi_\mu$, respectively, for each of the decay muons. It becomes impossible, however, to reconstruct these variables, as the individual transverse momenta of the quarks are unknown, and the thus the quark-antiquark annihilation axis is unknown. This is remedied by shifting the process into the Collins-Soper (CS) reference frame\cite{PhysRevD.16.2219} which orients the reference axis to be parallel to the bisector of the angle between the interacting hadrons in the rest frame of the muon pair. A depiction of the Collins-Soper frame can be found in Fig.~\ref{fig:collins-soper}. In total, this brings a total of eight kinematic variables, summarized in Table~\ref{tab:var}.
 \begin{figure}
@@ -220,7 +211,7 @@ and the polarized (or helicity) PDF can be defined as
 \begin{equation}
 \Delta q(x) = q^+(x) - q^-(x)
 \end{equation}
-though, due to the fact that SeaQuest uses neither a polarized $\Delta q(x)$. There are two standing proposals, however, to extend the SeaQuest spectrometer for an additional period of data taking, augmenting it with a polarized proton beam (FNAL E-1027) and/or a polarized target (FNAL E-1039). The polarized beam proposal adds two beam-polarizing apparatuses named \emph{Siberian Snakes} to provide sufficiently polarized protons. The polarized target modification calls for the construction and installation of a new cryogenic liquid target system. Both proposals have been approved by the FNAL review committee and are likely to be acted upon near the end of the E-906 contract.
+though, due to the fact that SeaQuest uses neither a polarized $\Delta q(x)$. There are two standing proposals, however, to extend the SeaQuest spectrometer for an additional period of data taking, augmenting it with a polarized proton beam (FNAL E-1027) and/or a polarized target (FNAL E-1039). The polarized beam proposal adds two beam-polarizing apparatuses named \emph{Siberian Snakes} to provide sufficiently polarized protons. The polarized target modification calls for the construction and installation of a new cryogenic liquid target system. Both proposals have been approved by the FNAL review committee and are likely to be acted upon near the end of the SeaQuest contract.
 
 The structure functions $F_1, F_2,$ and $g_1$ of the nucleon are interpreted in the QPM as the charge-weighted sums over the quark flavors of the corresponding PDFs:
 \begin{eqnarray}
@@ -236,7 +227,7 @@ where $M_N$ is the nucleon mass and $R=\sigma_L/\sigma_T$ is the ratio of cross 
 
 Due to the complex nature of lattice QCD\footnote{An approach to solving quantum chromodynamics situations by simulating quarks and gluons on a set of lattice points in spacetime and modeling their well-defined interactions.} simulations, the parton distributions $q_f(x)$ and $\bar{q}_f(x)$ within the nucleus are determined empirically, with only a few rules based in theory. The primary probe used to measure them has been deep inelastic scattering (DIS), examining the inclusive jet production in order to get a clearer picture of nucleon structure. Data from many different experiments are combined  to extract the unpolarized PDFs. The earlier parametrizations of the PDFs first relied on fits to the measured structure functions solely from DIS experiments which are primarily sensitive to the light quark distributions and are unable to disinguish between quarks and antiquarks of the same flavor. More modern parametrizations use many different processes to extract supplementary and complementary information that can be incorporated. Lepton-charge asymmetry observed in $W^\pm$ production provides additional light quark distribution information. Jet production and photon measurements are also used to set constraints on gluon distributions. It should be noted that Drell-Yan dilepton production from such experiments as E605 and E866 that have contributed constraints on the light anti-quark distributions from the nucleon sea.
 
-The current status of the experimental determination of these PDFs is led by CTEQ (Coordinated Theoretical-Experimental Project on QCD) and TEA (\red{which stands for???}), and are illustrated in Figures~\ref{fig:pdf-q2}~and~\ref{fig:pdf-q100}. The CTEQ-TEA calculated these PDFs from data on inclusive, high-momentum transfer processes, for which perturbative QCD is expected to be reliable. In the case of deep inelastic lepton scattering, only data with $Q > 2$ GeV is used. Data in this region are expected to be relatively free of non-perturbative effects, such as higher twists or nuclear corrections. Thus, there is no need to introduce phenomenological models for nonperturbative corrections beyond the leading-twist perturbative contributions\cite{Dulat:2015mca}.
+The current status of the experimental determination of these PDFs is led by CTEQ (Coordinated Theoretical-Experimental Project on QCD) and TEA, and are illustrated in Figures~\ref{fig:pdf-q2}~and~\ref{fig:pdf-q100}. The CTEQ-TEA calculated these PDFs from data on inclusive, high-momentum transfer processes, for which perturbative QCD is expected to be reliable. In the case of deep inelastic lepton scattering, only data with $Q > 2$ GeV is used. Data in this region are expected to be relatively free of non-perturbative effects, such as higher twists or nuclear corrections. Thus, there is no need to introduce phenomenological models for nonperturbative corrections beyond the leading-twist perturbative contributions\cite{Dulat:2015mca}.
 
 \begin{figure}
 	\centering
@@ -258,7 +249,7 @@ Other interesting observations and measurements that have gone into these distri
 \begin{equation}
 x_{tot} = \int_0^1 dx [F_2(x)] \simeq \int_0^1 dx [x(q(x) + \bar{q}(x))] \label{eq:mom-sum}
 \end{equation}
-showed that $x_{tot}$ for quarks is $0.512 \pm 0.018$\CN. The rest was found to be attributed to the gluons, though they could not be detected directly by an electron beam in DIS since they carry no electric charge. The momentum fraction from just anti-quarks comes from clever use of another structure function, $F_3$.
+showed that $x_{tot}$ for quarks is $0.512 \pm 0.018$~\cite{griffiths2008introduction}. The rest was found to be attributed to the gluons, though they could not be detected directly by an electron beam in DIS since they carry no electric charge. The momentum fraction from just anti-quarks comes from clever use of another structure function, $F_3$.
 \begin{eqnarray}
 F_3^{\nu N}(x) & = & q(x) - \bar{q}(x) - 2s(x) + 2c(x) \\
 F_3^{\bar{\nu} N}(x) & = & q(x) - \bar{q}(x) + 2s(x) - 2c(x) \\
@@ -269,7 +260,7 @@ Here, the $v$ subscript denotes valence quark distributions, $q/\bar{q}(x)$ are
 q(x) & = & u(x) + d(x) + s(x) + c(x) \\
 \bar{q}(x) & = & \bar{u}(x) + \bar{d}(x) + \bar{s}(x) + \bar{c}(x)
 \end{eqnarray}
-and the individual $F_3^{\nu/\bar{\nu}N}$ structure functions are measured from $\nu N$ and $\bar{\nu} N$ scattering and then combined\CN. With $F_3$, there is the Gross-Llewellyn Smith (GSL) sum rule\cite{Gross:1969jf}
+and the individual $F_3^{\nu/\bar{\nu}N}$ structure functions are measured from $\nu N$ and $\bar{\nu} N$ scattering and then combined With $F_3$, there is the Gross-Llewellyn Smith (GSL) sum rule\cite{Gross:1969jf}
 \begin{equation}
 \int_0^1 F_3(x) = 3
 \end{equation}
@@ -290,7 +281,7 @@ S_G = \int_0^1 dx \left[\frac{1}{3} [u(x) - \bar{u}(x)] \right] -
       \int_0^1 dx \left[\frac{1}{3} [d(x) - \bar{d}(x)] \right] -
       \int_0^1 dx \left[\frac{2}{3} [\bar{d}(x) - \bar{u}(x)] \right]
 \end{equation}
-The first two integrals here are the definitions of the valence quark sum rule mentioned in Eq.~\ref{eq:vsr}, and this is known to be 2 and 1 for the $u$ and $d$ valence quarks of the proton, respectively. As a result, we arrive at the common representation of the Gottfried Sum Rule (GSR).
+The first two integrals here are the definitions of the valence quark sum rule mentioned in Eq.~\ref{eq:vsr}, and this is known to be 2 and 1 for the $u$ and $d$ valence quarks of the proton, respectively. As a result, we arrive at the common representation of the Gottfried Sum Rule (GSR)~\cite{Gottfried:1967kk}.
 \begin{equation}
 	  S_G = \frac{1}{3} - \int_0^1 dx \left[ \frac{2}{3} [\bar{d}(x) - \bar{u}(x)] \right]
       \label{eq:gsr}
@@ -365,13 +356,13 @@ S_G = \int_0^1 dx \left[ \frac{F_2^p - F_2^n}{x} \right] = 0.235 \pm 0.026.
 	\label{fig:nmc}
 \end{figure}
 
-To reconcile this result with the QPM expectation, certain assumptions need to be reevaluated. The first assumption is that the extrapolation of the NMC result to low $x$ is correct. The second is that charge symmetry is valid. The final assumption is the flavor symmetry of the quark sea, or, $\int dx [\bar{d}(x)] = \int dx [\bar{u}(x)]$. The E-665 experiment at FNAL sought to extend the NMC low-$x$ coverage ($10^-6 < x < 0.3$) despite the difficulties of DIS in the extremely low-$x$ range. The results were consistent with NMC's extrapolation\CN, and so the faulty assumption must lie elsewhere. Charge symmetry violation would lead to such a discrepancy, but to date, charge symmetry has been upheld in the relevant energy regime\cite{Abegg:1998sg}. This leaves only $\int dx [\bar{d}(x)] = \int dx [\bar{u}(x)]$ being violated to account for the difference, and if it were to be the root cause, the contribution to the violation would be
+To reconcile this result with the QPM expectation, certain assumptions need to be reevaluated. The first assumption is that the extrapolation of the NMC result to low $x$ is correct. The second is that charge symmetry is valid. The final assumption is the flavor symmetry of the quark sea, or, $\int dx [\bar{d}(x)] = \int dx [\bar{u}(x)]$. The E-665 experiment at FNAL sought to extend the NMC low-$x$ coverage ($10^-6 < x < 0.3$) despite the difficulties of DIS in the extremely low-$x$ range. The results were consistent with NMC's extrapolation~\cite{Adams:1995sh}, and so the faulty assumption must lie elsewhere. Charge symmetry violation would lead to such a discrepancy, but to date, charge symmetry has been upheld in the relevant energy regime\cite{Abegg:1998sg}. This leaves only $\int dx [\bar{d}(x)] = \int dx [\bar{u}(x)]$ being violated to account for the difference, and if it were to be the root cause, the contribution to the violation would be
 \begin{equation}
 \int_0^1 dx[\bar{d}(x) - \bar{u}(x)] = 0.148 \pm 0.039.
 \end{equation}
 As such, this conclusion was the first indicator pointing to an the existence of more anti-down than anti-up quarks in the quark sea. This prompted further investigation of nucleon sea anti-quark asymmetry.
 
-Following the NMC results, it was suggested\CN to exploit features of the Drell-Yan process as a direct probe of nucleon sea distributions. The most direct method of doing so is to measure the Drell-Yan cross-sections for both hydrogen and deuterium and take the ratio of the two. The proton-deuterium cross section can be seen as a convolution of cross sections of proton-proton and a proton-neutron
+Following the NMC results, it was suggested~\cite{Ellis:1990ti} to exploit features of the Drell-Yan process as a direct probe of nucleon sea distributions. The most direct method of doing so is to measure the Drell-Yan cross-sections for both hydrogen and deuterium and take the ratio of the two. The proton-deuterium cross section can be seen as a convolution of cross sections of proton-proton and a proton-neutron
 \begin{equation}
 \sigma^{pd} \approx \sigma^{pp} + \sigma^{pn}
 \end{equation}
@@ -401,18 +392,16 @@ One can approximate even further that since $d(x) \ll 4 u(x)$, then the relation
 \label{eq:866-dbar-ubar}
 \end{equation}
 
-The results of the E-866/NuSea measurement\cite{PhysRevLett.80.3715}, along with the NA51 data, can be seen on Figure~\ref{fig:dbar-ubar}. A clear $x$-dependence can be seen as the $\dbar/\ubar$ ratio significantly exceeds unity up to $x_2=0.25$, after which the ratio drops below unity, though not at the same statistical significance. This complex $x$-dependent behavior was not expected by global fits, and many models have been proposed to address it: meson-cloud model, chiral-quark model, Pauli-blocking model, instanton model, chiral-quark soliton model, and more. These are not discussed here, but an in-depth look into each of these can be found in some review articled\cite{Kumano:1997cy, Garvey:2001yq}.
+The results of the E-866/NuSea measurement\cite{PhysRevLett.80.3715}, along with the NA51 data, can be seen on Figure~\ref{fig:dbar-ubar}. A clear $x$-dependence can be seen as the $\dbar/\ubar$ ratio significantly exceeds unity up to $x_2=0.25$, after which the ratio drops below unity, though not at the same statistical significance. This complex $x$-dependent behavior was not expected by global fits, and many models have been proposed to address it: meson-cloud model, chiral-quark model, Pauli-blocking model, instanton model, chiral-quark soliton model, and more. These are not discussed here, but an in-depth look into each of these can be found in some review articles by Kumano~\cite{Kumano:1997cy} and Garvey~\cite{Garvey:2001yq}.
 
 \begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=\textwidth]{figures/background/dbar_ubar.png}
-	\caption{The measurements and models for the $\dbar/\ubar$ measurement, including the NA51\cite{Baldit:1994jk}, E-866/NuSea\cite{PhysRevLett.80.3715}, and (preliminary) SeaQuest\CN experiments, along with the BS15, CT14, and MMHT models.}
+	\caption{The measurements and models for the $\dbar/\ubar$ measurement, including the NA51\cite{Baldit:1994jk}, E-866/NuSea\cite{PhysRevLett.80.3715}, and (preliminary) SeaQuest experiments, along with the BS15, CT14, and MMHT models.}
 	\label{fig:dbar-ubar}
 \end{sidewaysfigure}
 
-In order to study $\dbar(x)/\ubar(x)$ at larger $x$ the SeaQuest collaboration at Fermilab is designed to make precise measurements of proton-induced Drell-Yan cross sections on hydrogen and deuterium targets using the Fermilab Main Injector as a proton source. The relatively lower beam momentum of the Main Injector (\unit[120]{GeV}) provides an opportunity to study parton distributions at larger $x$. This is due to the fact that, as seen in Eq.~\ref{eq:DY-cross}, for fixed x, the Drell-Yan cross section is inversely proportional to the square of the center-of-mass energy, $s$. Another benefit of utilizing a lower-energy beam is that the primary background, $\Jpsi$ production, which limited the instantaneous luminosity in E-866/NuSea, scales with s, and is thereby reduced, allowing the usage of a more intense proton beam.
-
-Given these factors above and anticipated run time of the SeaQuest experiment, the range of $0.1<x_2<0.45$ is expected to be covered. In the run time since commissioning in 2012, enough data has been analyzed to yield a preliminary $\dbar(x)/\ubar(x)$ result, which can be seen in Figure~\ref{fig:dbar-ubar}. This measurement and its analysis is being led by Bryan Kerns from the University of Illinois at Urbana-Champaign. Further details regarding this topic can be found in his dissertation and forthcoming publication(s).
+In the SeaQuest experiment, $\dbar(x)/\ubar(x)$ is to be extracted for the range of approximately $0.1<x_2<0.45$. In the run time since commissioning in 2012, enough data has been analyzed to assemble a preliminary $\dbar(x)/\ubar(x)$ result, which can be seen in Figure~\ref{fig:dbar-ubar}. This measurement and its analysis is being led by Bryan Kerns from the University of Illinois at Urbana-Champaign. Further details regarding this topic can be found in his dissertation and forthcoming publication(s).
 
 \subsection{Meson Cloud Model}
 
@@ -626,11 +615,12 @@ There is a future study planned at JLAB to test this 2N-SRC - EMC effect connect
 
 \subsection{Models For the EMC Effect}
 
-The A-dependent modification of the nucleon has been such an intriguing phenomenon that so many models have arisen attempting to reproduce the data, leading those who study it to give it the moniker \emph{``Every Model is Cool''}~\cite{Miller:1988hj}. Here I discuss just a handful of models that 
+The A-dependent modification of the nucleon has been such an intriguing phenomenon that so many models have arisen attempting to reproduce the data, leading those who study it to give it the moniker \emph{``Every Model is Cool''}~\cite{Miller:1988hj}. Two models are discussed here that have potential to be evaluated by the SeaQuest measurements.
 
 \subsubsection{Pion Cloud Model}
 
 % Refer to slides at https://www.jlab.org/intralab/calendar/archive04/pn12/talks/Gaskell.pdf
+A proton is not simply three quarks, and a nucleus is not simply a convolution of nucleons. The nucleons themselves are bound by the exchange of mesons at intermediate and long range. These mesons carry a certain fraction of the momentum of the nucleons, and a modification of the meson exchange field in a nuclear medium was predicted by Coester to lead to an enhancement in the DIS and DY EMC ratio~\cite{Berger:1985dr}. Later in Figure~\ref{fig:772-dy}, E-772's DY nuclear cross section ratio results show strong disagreement with this virtual meson exchange model. Jung and Miller~\cite{Jung:1990pu} have reevaluated the predictions of Berger and Coester~\cite{Berger:1985dr}, which leads to a more flat enhancement to the cross section ratios. SeaQuest will be able to provide data at higher-$x$ where models may be able to be more easily distinguished from each other.
 
 \subsubsection{Rescaling}
 
@@ -694,8 +684,9 @@ Even though Drell-Yan events for $x_F>0.3$ do directly provide a measure the sea
 
 For values above this shadowing region, the ratios appear to be consistent with unity. The range of $x$ covered line up with the \emph{transition region} (sometimes called ``anti-shadowing'') between the shadowing and EMC effect region. In some DIS measurements, this region can be characterized by having a value in excess of unity. A measurement of unity in the Drell-Yan cross section ratio would seem to imply that whatever this effect might be, it is likely not caused by any nuclear modifications to the sea quark distribution.
 
-Regarding the other models, there was great expectation that the Drell-Yan cross section would sizably increase due to virtual pions which mediate the internuclear force. It was surprising that E-866 and E-772 observed no modification of the sea quark distributions in large nuclei, which brings into question the long standing model of mesons being exchanged between nucleons as the mechanism by which nuclei are held together~\cite{Carlson:1997qn}. 
+Regarding the other models, there was great expectation that the Drell-Yan cross section would sizeably increase due to virtual pions which mediate the internuclear force. It was surprising that E-866 and E-772 observed no modification of the sea quark distributions in large nuclei, which brings into question the long standing model of mesons being exchanged between nucleons as the mechanism by which nuclei are held together~\cite{Carlson:1997qn}.
 
+To be able to truly draw any conclusions regarding various models, greater precision is needed, along with data at a higher-$x$ range where models are more greatly differentiated. The SeaQuest experiment will attempt to do just this.
 
 \begin{figure}
 	\centering
@@ -706,27 +697,18 @@ Regarding the other models, there was great expectation that the Drell-Yan cross
 
 \subsection{Nuclear Dependence of Drell-Yan at SeaQuest}
 
-% Don's prposal
+The SeaQuest Experiment was proposed soon after the conclusion of the E-866 experiment. The main motivation was to explore the $\dbar(x)/\ubar(x)$ value observed by E-866 to more precisely ascertain its behavior as a function of $x$. With the ratio value being as large as $\sim$1.7 at its peak and with it having a decreasing value at higher $x$ (though with low statistical certainty), no models are able to accommodate such behavior, and so more data is needed. 
 
-\red{\begin{itemize}
-		\item Talk about what will be measured
-		\item Which targets will be used
-		\item What kinematic phase space in \{x1, x2\} will be explored
-		\item What the statistics will be, approximately
-		\item What, if anything, will be compared to models
-	\end{itemize}}
+Sea quark distrubutions at higher-$x$ the SeaQuest collaboration at Fermilab is designed to detect proton-induced Drell-Yan cross sections on several targets: liquid hydrogen ($^1H$), liquid deuterium ($^2H$), carbon ($^{12}C$), iron ($^{56}Fe$), and tungsten ($^{184}W$. The beam source for the experiment is the Fermilab Main Injector which provides a \unit[120]{GeV} proton source, yielding a $\sqrt{s}$ of \unit[15.1]{GeV}. This relatively lower beam energy as compared to \unit[800]{GeV} ($\sqrt{s}=\unit[38.8]{GeV}$) for E-772/E-886 provides an opportunity to study parton distributions at larger $x$. This is due to the fact that, as seen in Eq.~\ref{eq:DY-cross}, for a fixed value of $x$, the Drell-Yan cross section is inversely proportional to the square of the center-of-mass energy, $s$. Another benefit of utilizing a lower-energy beam is that the primary background, $\Jpsi$ production, which limited the instantaneous luminosity in E-866, scales with s, and is thereby reduced. This allows SeaQuest the usage of a more intense proton beam, which is very useful when it comes to measuring a rare nuclear process like Drell-Yan.
 
+Even though the emphasis of SeaQuest is on the $\dbar/\ubar$ measurement, the periodic data taking on deuterium and the heavy nuclear targets will allow for a measurement of $R^{DY}\approx\ubar^A(x)/\ubar^D(x)$ for a large range of $A$ and $x$, providing a more thorough glimpse into the modification of sea quark PDFs in the presence of a nuclear medium. The normalized $(x_1, x_2)$ and $(x_F, M_{\gamma^*})$ coverages for SeaQuest are shown in Figures~\ref{fig:x1-x2-acceptance}~and~\red{mass vs xF here!}, as generated by Geant Monte Carlo simulation.
 
-%Recent experiments at Hall C at JLab and SLAC suggest the following regarding the EMC Effect \cite{Seely:2009gt}:
-%\begin{itemize}
-%	\item
-%	It is $Q^2$-independent.
-%	\item
-%	It's x-dependent shape is universal (across various nuclei).
-%	\item
-%	The magnitude (slope) of the effect varies with A.
-%	\item
-%	There is a ``shadowing'' effect at very low-$x$.
-%	\item
-%	Fermi motion dominates the ratio at high-$x$.
-%\end{itemize}
+At the time of this writing, SeaQuest is the only fixed target proton-nucleon Drell-Yan experiment currently taking data in the world.
+
+\begin{figure}
+	\centering
+	\includegraphics[height=0.45\textheight]{figures/background/x1-x2-acceptance.png}
+	\caption{The $x_1$ and $x_2$ acceptance of the SeaQuest spectrometer, with curves showing lines of constant mass where there are mass cuts applied at $M_{\Jpsi} < M_{\gamma^*} <M_\Upsilon$~\cite{sanftl:2014}.}
+	\label{fig:x1-x2-acceptance}
+\end{figure}
+

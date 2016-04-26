@@ -1,7 +1,5 @@
 \chapter{Photomultiplier Tube Base Upgrade}
 
-\red{CHAPTER STATUS: FIRST DRAFT COMPLETE}
-
 \begin{figure}
 	\centerline{
 		\mbox{\includegraphics[width=0.5\textwidth]{figures/pmtupgrade/nosag.jpg} \includegraphics[width=0.5\textwidth]{figures/pmtupgrade/sag.jpg}}
@@ -324,9 +322,20 @@ Once installed onto a scintillator paddle, the reference PMT was powered to nomi
 	\centerline{
 		\mbox{\includegraphics[width=0.75\textwidth]{figures/pmtupgrade/cs-137.pdf}}
 	}
-	\caption{The $\gamma$-decay energy spectrum of Cs-137 as seen through a scintillator-PMT-qVt setup \cite{Webb_Williams_1963}. Here, the Compton edge can be seen at channel 110.}
+	\caption{The $\gamma$-decay energy spectrum of Cs-137 as seen through a scintillator-PMT-qVt setup~\cite{Webb_Williams_1963}. Here, the Compton edge can be seen at channel 110.}
 	\label{fig:cs-137}
 \end{figure}
 
+\section{New Base Performance}
 
-\red{Show before and after. Look what we've accomplished!}
+All of this work is all for naught if the new bases do not hold up to even the highest of beam intensities at SeaQuest. After all of the aforementioned testing, installation, and gain matching, data taking resumed. In Figure~\ref{fig:pmt-high-int}, the hit per event distributions are shown for $x-$ and $y-$measuring hodoscopes as for different intensity ranges. It is difficult to compare these plots to those in Fig.~\ref{fig:sag}, as there was no measure of per-event intensity at the time, and the beam back when that measurement was made was less intense (though just as non-uniform). 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/pmtupgrade/final_pmt_dist_vs_int.png}
+	\caption{The number of hits per event for the Station 1 hodoscopes for several intensity ranges. Shown is (left) the top $x-$measuring array and (right) the left $y-$measuring array. $I_p$ is in terms of number of incident protons for the event.}
+	\label{fig:pmt-high-int}
+\end{figure}
+
+Regardless, the new readouts can be interpreted positively. One can see in the $y-$measuring array that the shape does flatten out at the peak for higher intensities. It can be noted that this flattening is much less severe than the ``sag'' that was initially observed. More importantly, when observing the absolute shape of the distribution of the $x-$measuring array, the shape remains intact and uniformly increasing all the way up to the highest intensities. Seeing as the $x-$hodoscopes are the only arrays that are currently being used for triggering and analysis, this is the most important behavior to observe. 
+
+Along with this confirmation, the amplitude output by the PMT signals was above the minimum threshold of the discriminators being used. As a result, the noisy amplifier modules were able to be removed from the signal pipeline, and thereby reduced the amount of false hits due to electronic noise.

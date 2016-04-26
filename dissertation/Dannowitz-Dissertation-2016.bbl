@@ -1,4 +1,10 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
+
+\bibitem{aHeisenberg:1927zz}
+W.~a~Heisenberg.
+\newblock {Uber den anschaulichen Inhalt der quantentheoretischen Kinematik und
+  Mechanik}.
+\newblock {\em Z. Phys.}, 43:172--198, 1927.
 
 \bibitem{Ackerstaff:1999ac}
 K.~Ackerstaff et~al.
@@ -6,6 +12,12 @@ K.~Ackerstaff et~al.
   scattering}.
 \newblock {\em Phys. Lett.}, B475:386--394, 2000.
 \newblock [Erratum: Phys. Lett.B567,339(2003)].
+
+\bibitem{Adams:1995sh}
+M.~R. Adams et~al.
+\newblock {Extraction of the ratio $F2_n / F2_p$ from muon - deuteron and muon
+  - proton scattering at small $x$ and Q**2}.
+\newblock {\em Phys. Rev. Lett.}, 75:1466--1470, 1995.
 
 \bibitem{agilent:33520}
 Agilent.
@@ -59,6 +71,12 @@ E~Ames, C~Seshagiri, M~Griswold, V~Simaitis, J~La~Due, F~Cogswell, S~Errede,
 \newblock Measurement of 20 hamamatsu r-5900 photomultiplier tubes for atlas
   tilecal module-0.
 \newblock Technical report, CERN-ATL-TILECAL-98-156, 1998.
+
+\bibitem{Anderson:1936zz}
+Carl~D. Anderson and Seth~H. Neddermeyer.
+\newblock {Cloud Chamber Observations of Cosmic Rays at 4300 Meters Elevation
+  and Near Sea-Level}.
+\newblock {\em Phys. Rev.}, 50:263--271, 1936.
 
 \bibitem{Arneodo:1994sh}
 M.~Arneodo et~al.
@@ -244,6 +262,12 @@ Albert Einstein.
   transformation of light}.
 \newblock {\em Annalen Phys.}, 17:132--148, 1905.
 
+\bibitem{Ellis:1990ti}
+S.~D. Ellis and W.~James Stirling.
+\newblock {Constraints on isospin breaking in the light quark sea from the
+  Drell-Yan process}.
+\newblock {\em Phys. Lett.}, B256:258--264, 1991.
+
 \bibitem{Estermann:169E}
 I.~Estermann, R.~Frisch, and O.~Stern.
 \newblock {Magnetic Moment of the Proton}.
@@ -303,10 +327,20 @@ S.~Gorbunov et~al.
 \newblock In {\em {Proceedings, 17th Conference on Computing Applications in
   Nuclear and Plasma Sciences on Real Time (RT2010)}}, 2010.
 
+\bibitem{Gottfried:1967kk}
+Kurt Gottfried.
+\newblock {Sum rule for high-energy electron - proton scattering}.
+\newblock {\em Phys. Rev. Lett.}, 18:1174, 1967.
+
 \bibitem{Griffioen:2015hxa}
 K.~A. Griffioen et~al.
 \newblock {Measurement of the EMC Effect in the Deuteron}.
 \newblock {\em Phys. Rev.}, C92(1):015211, 2015.
+
+\bibitem{griffiths2008introduction}
+D.~Griffiths.
+\newblock {\em Introduction to Elementary Particles}.
+\newblock Physics textbook. Wiley, 2008.
 
 \bibitem{Gross:1969jf}
 David~J. Gross and Chris~H. Llewellyn~Smith.
@@ -382,6 +416,11 @@ A.~S. Ito, R.~J. Fisk, H.~J\"ostlein, D.~M. Kaplan, S.~W. Herb, D.~C. Hom,
 J.~Joyce.
 \newblock {\em Finnegan's Wake}.
 \newblock Viking Press, New York, 1939.
+
+\bibitem{Jung:1990pu}
+H.~Jung and G.~A. Miller.
+\newblock {Pionic contributions to deep inelastic nuclear structure functions}.
+\newblock {\em Phys. Rev.}, C41:659--664, 1990.
 
 \bibitem{kalman:1960}
 Rudolph~Emil Kalman.
@@ -501,6 +540,18 @@ E.~Piasetzky, L.B. Weinstein, D.W. Higinbotham, J.~Gomez, O.~Hen, et~al.
 \newblock {Short range correlations and the EMC effect}.
 \newblock {\em Nucl.Phys.}, A855:245--248, 2011.
 
+\bibitem{povh2002particles}
+B.~Povh.
+\newblock {\em Particles and Nuclei: An Introduction to the Physical Concepts}.
+\newblock Physics and astronomy online library. Springer, 2002.
+
+\bibitem{Powell:1946pu}
+C.~F. Powell, G.~P.~S. Occhialini, D.~L. Livesey, and L.~V. Chilton.
+\newblock {A New Photographic Emulsion for the Detection of Fast Charged
+  Particles}.
+\newblock {\em J. Sci. Instrum.}, 23:102--106, 1946.
+\newblock [,581(1946)].
+
 \bibitem{Quigg:1985ai}
 C.~Quigg.
 \newblock {ELEMENTARY PARTICLES AND FORCES}.
@@ -516,10 +567,21 @@ D.~A. Ross and Christopher~T. Sachrajda.
 \newblock {Flavor Symmetry Breaking in anti-Quark Distributions}.
 \newblock {\em Nucl. Phys.}, B149:497--516, 1979.
 
+\bibitem{sanftl:2014}
+Florian Sanftl.
+\newblock {\em {Developments of Tracking Methods of Muon Pairs with SeaQuest
+  Spectrometer}}.
+\newblock PhD thesis, Tokyo Institute of Technology, 2014.
+
 \bibitem{Seely:2009gt}
 J.~Seely et~al.
 \newblock {New measurements of the EMC effect in very light nuclei}.
 \newblock {\em Phys. Rev. Lett.}, 103:202301, 2009.
+
+\bibitem{borated:1}
+Shieldwerx.
+\newblock 5% borated polyethylene neutron shielding.
+\newblock \url{http://www.shieldwerx.com/assets/swx-201(hd).pdf}, 2015.
 
 \bibitem{Shiu:2015ura}
 Shiuan-Hal Shiu, Jinyuan Wu, Randall~Evan McClellan, Ting-Hua Chang, Wen-Chen
