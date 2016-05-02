@@ -464,15 +464,17 @@ O.~S.~G. Consortium, ``Osg blueprint.''
 \newblock Accessed: 2016-02-24.
 
 \bibitem{ww3school}
-W.~Schools, ``Sql tutorial.''
+W.~Schools, ``Sql tutorial.'' \url{http://www.w3schools.com/sql/}.
 \newblock Accessed: 27 April 2016.
 
 \bibitem{oracle:mysql}
 Oracle, ``Mysql 5.7 reference manual.''
+  \url{https://dev.mysql.com/doc/refman/5.7/en/}.
 \newblock Accessed: 27 April 2016.
 
 \bibitem{igor:bigdata}
 I.~Mandrichenko, ``Big data in high energy physics.''
+  \url{http://cd-docdb.fnal.gov/cgi-bin/ShowDocument?docid=5358}.
 \newblock Accessed: 29 April 2016.
 
 \bibitem{Andre:2015jty}

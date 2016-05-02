@@ -3,6 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Dannowitz-Dissertation-2016.aux
 A level-1 auxiliary file: background.aux
 A level-1 auxiliary file: methods.aux
+A level-1 auxiliary file: tracking.aux
 A level-1 auxiliary file: analysis.aux
 A level-1 auxiliary file: results.aux
 A level-1 auxiliary file: conclusions.aux
@@ -11,16 +12,16 @@ The style file: ieeetr.bst
 Database file #1: thesisbib.bib
 You've used 114 entries,
             1876 wiz_defined-function locations,
-            1216 strings with 20432 characters,
-and the built_in function-call counts, 29514 in all, are:
+            1220 strings with 20587 characters,
+and the built_in function-call counts, 29526 in all, are:
 = -- 3151
 > -- 765
 < -- 0
 + -- 317
 - -- 203
-* -- 1735
-:= -- 3921
-add.period$ -- 135
+* -- 1738
+:= -- 3927
+add.period$ -- 138
 call.type$ -- 114
 change.case$ -- 107
 chr.to.int$ -- 0
@@ -34,7 +35,7 @@ int.to.str$ -- 114
 missing$ -- 97
 newline$ -- 367
 num.names$ -- 114
-pop$ -- 335
+pop$ -- 332
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
@@ -49,4 +50,4 @@ type$ -- 0
 warning$ -- 0
 while$ -- 266
 width$ -- 117
-write$ -- 1119
+write$ -- 1122
