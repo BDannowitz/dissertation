@@ -23,15 +23,35 @@ This section will discuss the several components of the target-to-target relativ
 
 \subsection{Live Proton Count and Beam Attenuation}
 
-The measurements of the number of incident protons, live time, and beam attenuation combine to give a figure for the total number of protons on target for which data was recorded. The important sources to consider here are the upstream SEM detectors that record the number of incident protons, the QIE recorded sums of protons (in QIE units), the number of QIE units for which there was either a trigger inhibit or DAQ deadtime. In practice, SeaQuest calculates a value called ``live protons'' \emph{for each spill}:
+\begin{table}
+	\centering
+	\caption*{Live Proton Sums (in $\times 10^{16}$ protons)}
+	\vspace{-10px}
+	\begin{tabular}{lrrr}
+		\toprule
+		Live Proton  &  Roadset 57 &  Roadset 62 &  Roadset 67  \\
+		Target  &                    &                     &                    \\
+		\midrule
+		LH2    &            4.027 &           5.437 &          16.184 \\
+		Empty  &        0.448 &           1.130 &           3.677 \\
+		LD2     &       2.024 &           2.447 &           7.729 \\
+		None   &        0.664 &           1.146 &           3.671 \\
+		C         &      1.292 &           1.085 &           3.521 \\
+		Fe        &      0.417 &           0.535 &           1.723 \\
+		W        &      0.431 &           0.539 &           1.755 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Live proton sums for each target for each roadset.}
+	\label{tab:livep}
+\end{table}
+
+The measurements of the number of incident protons, live time, and beam attenuation combine to give a figure for the total number of protons on target for which data was recorded. The important sources to consider here are the upstream SEM detectors (primarily the ``G2SEM'' readout) that record the number of incident protons, the QIE recorded sums of protons (in QIE units), the number of QIE units for which there was either a trigger inhibit or DAQ deadtime. In practice, SeaQuest calculates a value called ``live protons'' for each spill as:
 \begin{equation}
  N_0^A = \text{G2SEM}\ \ \ ;\ \ \ \text{lt}_A = 
  \frac{\text{QIESum} - \text{inhibit} - \text{deadtime}}{\text{QIESum}}\ \ \ ;\ \ \ 
  liveProton = N_0^A \cdot \text{lt}_A
 \end{equation}
 this \emph{liveProton} value is integrated, good spill by good spill, for every target in each data set.
-
-\red{What are average livetimes for the experiment? Deviations?}
 
 It is also important to factor in the effects of inelastic scattering of the beam within the target, causing the effective amount of beam-on-target to decrease with every step $dz$ through the target. This is different for each target based on target nuclear densities and cross sections. With this, the liveProton value can be corrected. Consider incident proton number $N_0$, where $dN$ is the number of protons attenuated when passing through target slice $dz$, and $L$ is the total length of the target. The function for the number of protons remaining at a given position $z$ is
 \begin{equation}
@@ -44,26 +64,29 @@ N_{\text{eff}} = \frac{1}{L} \left[ N_0 \lambda (1 - e^{-\frac{L}{\lambda}})\rig
 \end{equation}
 The normalization of the transmission or beam attenuation factor $T^D/T^A$ is therefore only a function of the length of the target, its density, and its nuclear interaction length. In total, the product of $N_0 \cdot \text{lt} \cdot T(\xi)$ represents the effective protons on target which was recorded by the data acquisition systems. Values of $\xi$ and $T(\xi)$ can be found in Table~\ref{tab:targ-details}.
 
+\begin{table}
+	\centering
+	\begin{tabular}{lrrrrrrrr}
+		\toprule
+		{} &  Target &  Length[cm] & $n_A$  & $\rho$  &  NIL  &   $\lambda$ [cm] & $\xi$: \#Inter. & T($\xi$) \\
+		Target & Position & & [mol/cm$^3$] & [g/cm$^3$] & [g/cm$^2$] & & Len.'s &  \\
+		\midrule
+		$H_2$ & 1 & 50.80 & 0.0702 & 0.0708 & 52.0 & 734.46 & 0.0691 & 0.966 \\ 
+		$D_2$ & 3 & 50.80 & 0.0811 & 0.163 & 71.8 & 439.41 & 0.1156 & 0.944 \\
+		Fe & 5 & 1.91 &	0.141 & 7.874 & 132.1 & 16.78 & 0.1136 & 0.945 \\
+		C & 6 & 3.32 & 0.150 & 1.802 & 85.8 & 47.61 & 0.0698 & 0.966 \\
+		W & 7 & 0.95 & 0.105 & 19.300 & 191.9 & 9.94 & 0.0958 & 0.954 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Details pertaining to the measurables and physical properties individual nuclear targets.}
+	\label{tab:targ-details}
+\end{table}
+
 \subsection{Target Density Ratios}
 
 The number of nucleons that the effective protons will interactive should be considered when performing the target-to-target normalization. Aside from the background ``targets'' and liquid hydrogen, there are four nuclear targets in this A-dependence study. The nucleons in liquid deuterium are viewed as essentially free particles, and therefore proved an isoscalar reference by which the heavier targets are compared to. In all, the nuclear targets used are $D_2$, C, Fe, and W, and their attributes pertinent to target density ratios can be found in Table~\ref{tab:targ-details}. The yield ratios are normalized to the number of nucleons in each target by the normalization component $(2 \cdot n_D \cdot L^D) / (A \cdot n_A \cdot L^A)$. 
 
-\begin{table}
-	\centering
-\begin{tabular}{lrrrrrrrr}
-	\toprule
-	{} &  Target &  Length[cm] & $n_A$ [mol/cm$^3$] & $\rho$ [g/cm$^3$] &  NIL [g/cm$^2$] &   $\lambda$ [cm] & $\xi$ & T($\xi$) \\
-	Target & Position & & & & & & & \\
-	\midrule
-	$D_2$ & 3 & 50.80 & 0.081 & 0.163 & 71.8 & 439.41 & 0.1156 & 0.944 \\
-	Fe & 5 & 1.91 &	0.141 & 7.874 & 132.1 & 16.78 & 0.1136 & 0.945 \\
-	C & 6 & 3.32 & 0.150 & 1.802 & 85.8 & 47.61 & 0.0698 & 0.966 \\
-	W & 7 & 0.95 & 0.105 & 19.300 & 191.9 & 9.94 & 0.0958 & 0.954 \\
-	\bottomrule
-\end{tabular}
-\caption{Details pertaining to the measurables and physical properties individual nuclear targets.}
-\label{tab:targ-details}
-\end{table}
+An analysis of the pressures and temperatures were performed to conclude that the 
 
 \red{Uncertainties in densities, target lengths? Find solid target with largest uncertainty, estimate LD2 uncertainty the best we can, get \% systematic from the ratio of them.}
 
@@ -113,18 +136,50 @@ where \emph{thrown} denotes Drell-Yan simulated events from Monte Carlo which ge
 
 The pairs that qualify as \emph{accepted} are those that satisfy the following two criteria: (1) were able to trace their way through the spectrometer without leaving the sensitive range of the detectors at all stations, and (2) they followed paths that would have satisfied the un-like-sign dimuon trigger (FPGA1). Such data was written to file in a format that matches real experimental data and is then ready for analysis. These events are weighted according to the kinematics and DY cross-section as mentioned above, but for analysis, these weights when analyzed were divided by $N$, the number of thrown events.
 
-Approximately \unit[800,000]{dimuons} were thrown for each target to have the acceptances analyzed. For an absolute acceptance, a study of a full $4\pi$ (or $2\pi$) simulation is required, where $4\pi$ is the solid angle of an entire (semi-)sphere. In such simulations dimuons are thrown in every physically possible direction, and then one can derive the absolute acceptance of the target and/or spectrometer when taking into account this source of \emph{thrown} events. However, for the purposes of these studies, we are only concerned about $\bar{Omega}^D/\bar{Omega}^A$, or the relative acceptance correction. As we see in Fig.~\ref{fig:table-layout}, we see that though the spatial distribution of the liquid deuterium flask and the solid targets are similar, they are fundamentally differently distributed. The density of the deuterium in the flask is constant throughout the length of the flask while the disks are discrete and separated. As a result, it perhaps may be the case that due to beam attenuation, there is a spatial difference between where most dimuons are generated between the different targets. The cause of any acceptance difference, however, is moot; the goal here is to estimate the relative acceptance correction factor between deuterium and the nuclear targets.
+\begin{figure}
+	\centering
+	\includegraphics[height=0.3\textheight]{figures/analysis/x1-acceptance.png}\hfill
+	\includegraphics[height=0.3\textheight]{figures/analysis/x2-acceptance.png} \\
+	\includegraphics[height=0.3\textheight]{figures/analysis/mass-acceptance.png}\hfill
+	\includegraphics[height=0.3\textheight]{figures/analysis/xf-acceptance.png} \\
+	\includegraphics[height=0.3\textheight]{figures/analysis/pt-acceptance.png}
+	\caption{Ratios of accepted dimuons from heavy targets to deuterium for all kinematic regions of interest.}
+	\label{fig:targ-acceptance}
+\end{figure}
 
-The target dependence of the acceptance was studied via yield ratios of heavy targets to that of deuterium for the valid kinematic regions of the experiment. These regions are \unit[4.2]{GeV}$<M_{\gamma^*}<$\unit[10]{GeV}, $0.1<x_2<0.5$, $0.35<x_1<0.9$, $0.0<x_F<0.9$, and \unit[0.0]{GeV}$<p_T<$\unit[3.0]{GeV}. Since no nuclear effects are simulated by the Monte Carlo generator, this ratio should lie at 1; any deviation of this must be purely from the acceptance effects due to the slight differences in the geometries and densities of the targets. The results can be seen in Figure%~\ref{fig:targ-acceptance}.
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=5in]{figures/analysis/targ-acceptance.png}
-%	\caption{Ratios of accepted dimuons from heavy targets to deuterium for all kinematic regions of interest.}
-%	\label{fig:targ-acceptance}
-%\end{figure}
-The acceptances of solid targets were calculated by MC to be Z.ZZZ larger than that of the liquid deuterium target. As such, a correction factor of $\bar{\Omega}^A/\bar{\Omega}^D = Z.ZZZ$ is included in the target-to-target normalization.
+Approximately \unit[800,000]{dimuons} were thrown for each target to have the acceptances analyzed. For an absolute acceptance, a study of a full $4\pi$ (or $2\pi$) simulation is required, where $4\pi$ is the solid angle of an entire (semi-)sphere. In such simulations dimuons are thrown in every physically possible direction, and then one can derive the absolute acceptance of the target and/or spectrometer when taking into account this source of \emph{thrown} events. However, for the purposes of these studies, we are only concerned about $\bar{\Omega}^D/\bar{\Omega}^A$, or the relative acceptance correction. As we see in Fig.~\ref{fig:table-layout}, we see that though the spatial distribution of the liquid deuterium flask and the solid targets are similar, they are fundamentally differently distributed. The density of the deuterium in the flask is constant throughout the length of the flask while the disks are discrete and separated. As a result, it perhaps may be the case that due to beam attenuation, there is a spatial difference between where most dimuons are generated between the different targets. The cause of any acceptance difference, however, is moot; the goal here is to estimate the relative acceptance correction factor between deuterium and the nuclear targets.
 
-\section{Dimuon Weights and Corrections}
+The target dependence of the acceptance was studied via yield ratios of heavy targets to that of deuterium for the valid kinematic regions of the experiment. These regions are \unit[4.2]{GeV}$<M_{\gamma^*}<$\unit[10]{GeV}, $0.1<x_2<0.58$, $0.35<x_1<0.85$, $0.0<x_F<0.8$, and \unit[0.0]{GeV}$<p_T<$\unit[2.5]{GeV}. Since no nuclear effects are simulated by the Monte Carlo generator, this ratio should lie at 1; any deviation of this must be purely from the acceptance effects due to the slight differences in the geometries and densities of the targets. The results can be seen in Figure~\ref{fig:targ-acceptance}.
+
+In order to determine an acceptance correction, the ratio values shown are compared to the line of unity. The parameter $\alpha$ in the expression $1 - \alpha \cdot R_{DY}(k) = 0$ is optimized and is used as this correction factor in the target-to-target normalization. The acceptances of solid targets were calculated by MC to be $\alpha = 0.9989 \pm 0.0012$ smaller than that of the liquid deuterium target. As such, a correction factor of $$\bar{\Omega}^A/\bar{\Omega}^D = 0.9989$$ is included in the target-to-target normalization. The systematic uncertainty of this correction is approximately 0.1\%.
+
+\section{Rate Dependence}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/analysis/rate-dep.png}
+		\caption{The rate dependence, depicting the decline in yields per triggering proton as a function of the overall environmental chamber intensity.}
+		\label{fig:ratedep}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figures/analysis/rate-dep-x2.png}
+		\caption{The rate dependence has a different behavior for different kinematics. Shown is the same plot as in Fig.~\ref{fig:ratedep}, but in three statistically equal $x_2$ bins.}
+		\label{fig:x2-ratedep}
+	\end{minipage}
+\end{figure}
+
+From the many generations of high energy experiments preceeding SeaQuest, it was known that there might be an issue of \emph{Rate Dependence} in the results of the data. This happens when conditions that lead to good reconstruction of signal events is affected by intensity or fluctuations in intensity of the beam delivered to the experiment. This was the case with E-772~\cite{Wang:1991wa} and E-866~\cite{Towell:2001nh}, and so given the highly erratic nature of the beam from the slow spill extraction, such an effect was anticipated at SeaQuest.
+
+The rate-dependence behavior was uncovered in the data in early 2015 that SeaQuest had a rate dependence problem as well. This was done by investigating the number of reconstructed dimuons per trigger proton and plotting those yields against the chamber intensity (Figure~\ref{fig:ratedep}). Here, we define the terms \textbf{trigger intensity} as referring to the number of protons in the RF bucket that triggered the event, and \textbf{chamber intensity} as a weighted sum of the number of protons $\pm$8 RF buckets about the triggerred RF bucket. The former gives a measure of the number of protons on which the trigger could have fired while the latter gives a measure to the general intensity \emph{environment} of the triggerred event. It was observed that as the chamber intensity increases, the yields per trigger proton would drop precipitously, where the value is desired to remain stable at any intensity. The goal in this section is to apply a series of corrections to bring these plots show a flat series of values vs. chamber intensity.
+
+To complicate the matter further, the rate dependence has a kinematic-dependence -- or perhaps it is more accurate to say that the rate dependence affects some signal events with certain kinematics more severely than others. The kinematic dependence can be seen by simply showing the plot from Figure~\ref{fig:ratedep}, but with the data split up into a few bins. The $x_2$ dependendence of the rate dependence can be seen by observing the shape of the distributions in Figure~\ref{fig:x2-ratedep}. What this implies is that a single intensity-dependent correction factor (as used in the two aforementione experiments) would be inappropriate for correcting the data, and thus the correction becomes rather complicated.
+
+The issue of rate dependence is discussed here, and as the sources of this effect are identified, a correction is proposed, calculated, and applied for each source in the form of an event weight. The two known sources addressed in this paper are the reconstruction efficiencies and empty target background corrections.
+
+\subsection{Weights as Corrections}
 
 Weighting of events is a standard procedure for mapping one distribution onto another. The most common example is with Monte Carlo (MC) simulation weighting. A simple physics event MC meant to simulate a well-defined process will `throw' an event with certain kinematics randomly drawn from known distributions via \emph{inverse transform sampling}. By doing this, the simulation is already close to being physical, but according to the cross section of a given process, a certain combination of kinematics will be decidedly more or less probable. A weighting subroutine calculates this likelihood for each event and assigns a weight with respect to how likely that event is based on the kinematics thrown. When binning this weighted data, the adjusted number of events in a bin is given by
 \begin{equation}
@@ -133,17 +188,15 @@ Weighting of events is a standard procedure for mapping one distribution onto an
 \end{equation}
 which reduces to the Poissonian statistical picture when all weights are 1.
 
-Weighting in this manner can be used in any case where it is desirable to map one distribution to another, as in the case of applying corrections in the case of efficiencies and background subtractions. The most intuitive connection between the use of weights and corrections is in the case of efficiency corrections. Let us say that a dimuon with a certain set of kinematics, for whatever combination of effects, has a reconstruction efficiency of 80\%. This means that four out of five actual dimuons with these kinematics will be reconstructed. If you know this efficiency $\epsilon_{recon}$, you can apply a weight as $w = 1/\epsilon_{recon}$ to each dimuon, as each dimuon represents, in part, a larger population that is not fully represented. In the case of our example, a single dimuon represents $1/0.80 = 1.25$ dimuons in order to make up for the ones that are missed due to that specific inefficiency.
+Weighting in this manner can be used in any case where it is desirable to map one distribution to another, as in the case of applying the corrections discussed in this section. The most intuitive connection between the use of weights and corrections is in the case of efficiency corrections. Let us say that a dimuon with a certain set of kinematics, for whatever combination of effects, has a reconstruction efficiency of 80\%. This means that four out of five actual dimuons with these kinematics will be reconstructed. If you know this efficiency $\epsilon$, you can apply a weight as $w = 1/\epsilon_{recon}$ to each dimuon, as each observed event represents, in part, a larger population that is not fully represented. In the case of our example, a single dimuon represents $1/0.80 = 1.25$ dimuons in order to make up for the ones that are missed due to that specific inefficiency, and so this weight would be applied to the event.
 
-At SeaQuest, there is an issue of rate dependence, and as the sources of this effect is identified, we apply a correction for each source in the form of an applied weight. Here, we discuss the reconstruction efficiency and empty/none target background subtraction corrections.
+\subsection{Tracking Efficiency}
 
-\subsection{``kEfficiency'' Correction Using Messy/Clean Data}
+It is a matter of combinatorics at SeaQuest that, as the intensity increases, the number of background hits on all of the detectors increases. As the number of hits in all the detectors increases, the harder it become for the tracking to perform its pattern recognition to discern the actual dimuon(s) from the whole event. This is regarded to be an intensity-dependent tracking efficiency. Seeing as the primary tracking algorithm for SeaQuest is kTracker, this referred to at SeaQuest as the \textbf{``kEfficiency''}. Its intensity, target, and kinematic dependence makes it a factor to model and correct for.
 
-It is a matter of combinatorics at SeaQuest that, as the intensity increases, the number of background hits on all of the detectors increases. As the number of hits in all the detectors increases, the harder it become for the tracking to identify the actual dimuon(s) from the whole event. This is regarded to be an intensity-dependent tracking efficiency. Seeing as the primary tracking algorithm for SeaQuest is kTracker, this is known as the ``kEfficiency'', and its intensity, target, and kinematic dependency makes it a factor to model and correct for.
+The procedure developed by Evan McClellan of UIUC for calculating this kEfficiency is to compare the performance of the tracking on a clean MC sample of dimuons to an analogous sample that's mixed in with real intensity-dependent background. To do this, a \emph{single} sample of MC-generated dimuons and all of their hits is generated; this sample is denoted as the \emph{``clean''} sample. Then, this \emph{same} sample is mixed with all of the hits from a NIM3 event from the experimental data. The NIM3 trigger, as is discussed in Chapter~2, is the ``random'' trigger, and by using these events we avoid any effects due to trigger selection bias. This mix of MC dimuons and NIM3 triggered data is denoted as the \emph{``messy''} sample. These NIM3 events all have an intensity, and by embedding a clean MC dimuon into a situation typical of an event at a given intensity, we get a basis by which to judge how efficiently the tracking can reconstruct a dimuon in the clean sample versus the messy sample as a function of intensity (and other kinematic variable).
 
-The procedure developed by Evan McClellan of UIUC for calculating this kEfficiency is to take compare the performance of the tracking on a clean MC sample of dimuons to an analogous sample that's mixed in with real intensity-dependent background. To do this, a \emph{single} sample of MC-generated dimuons and all of their hits is generated; this sample is denoted as the \emph{``clean''} sample. Then, this sample is mixed with all of the hits from a NIM3 event from the experimental data. The NIM3 trigger, as is discussed in Chapter~2, is the randoms trigger, and by using these events we avoid any effects due to trigger selection bias. This mix of MC dimuons and NIM3 triggered data is denoted as the \emph{``messy''} sample. These NIM3 events all have an intensity, and by embedding a clean MC dimuon into a situation typical of an event at a given intensity, we get a basis by which to judge how efficiently the tracking can reconstruct a dimuon in the clean sample versus the messy sample as a function of intensity (and other kinematic variable).
-
-It is important to note that the DY cross section is so small that there is a negligible chance that a given randomly-triggered NIM3 event will contain an actual dimuon, nonetheless a dimuon matching the characteristics of the MC dimuon that is embedded. As such, it is assumed that the dimuon embedded in the NIM3 event is the only dimuon to find in the event. It is also justified to assume that the kinematics of a dimuon is in no way correlated to the intensity, and the intensity of an event relates only to the amount of background hits observed. The relation to the intensity and the number of background hits can be observed in Figure~\ref{fig:NIM3-Int-Mult}.
+It is important to note that the DY cross section is so small that there is a negligible chance that a given randomly-triggered NIM3 event will contain an actual dimuon, nonetheless a dimuon matching the characteristics of the embedded MC dimuon. As such, it is assumed that the dimuon embedded in the NIM3 event is the only dimuon to find in the event. It is also justified to assume that the kinematics of a dimuon is in no way correlated to the intensity, and the intensity of an event relates only to the amount of background hits observed. The relation to the intensity and the number of background hits can be observed in Figure~\ref{fig:NIM3-Int-Mult}.
 
 \begin{figure}
 	\centering
@@ -152,27 +205,27 @@ It is important to note that the DY cross section is so small that there is a ne
 	\label{fig:NIM3-Int-Mult}
 \end{figure}
 
-Once the messy and clean samples are prepared, the tracking software is run on them and the two outputs are compared. The first step is to bin the resulting reconstructed dimuons into intensity bins. This binning uses the weights of the dimuons that is assigned by the GMC that created them. The weights are used instead to avoid undue influence on the efficiency from dimuons that are highly unlikely to occur. The value of the bin and its uncertainty are calculated according to Eq.~\ref{eq:gmc-weight}.
+The tracking software is run both clean and messy samples, and the two outputs are compared. The first step is to bin the resulting reconstructed dimuons into intensity bins. This binning uses the weights of the dimuons that is assigned by the GMC that created them. The weights are used instead to avoid undue influence on the efficiency from dimuons that are highly unlikely to occur. The value of the bin and its uncertainty are calculated according to Eq.~\ref{eq:gmc-weight}.
 
 For each matching bin, the ratio of $\frac{\#messy}{\#clean}$ values is used to calculate the efficiency of the tracking for that bin. The uncertainty of that efficiency is more complicated, as the relation between the messy and clean samples is of a \emph{binomial} nature. Each dimuon successfully reconstructed in the messy sample represents a \emph{positive} outcome from the number of possible outcomes which is represented by the clean sample. With this kind of relationship, binomial uncertainty calculations must apply. For large enough N number of trials and efficiency $\epsilon\notin \{0,1\}$,
 \begin{equation}
 \epsilon = \frac{N_+}{N}\ \ ;\ \ \delta\epsilon = \sqrt{\frac{N_+ N_-}{N^3}} = \sqrt{\frac{\epsilon(1-\epsilon)}{N}}
 \label{eq:binomial-naive}
 \end{equation}
-but when weighted trials are involved, things become more complicated in calculating the statistical error. The calculation of this statistical error\cite{blist:binomial} is as follows:
+but when weighted trials are involved, things become more complicated in calculating the statistical error. The calculation of this statistical error~\cite{blist:binomial} is as follows:
 \begin{eqnarray}
 	\epsilon & = & \frac{\sum\limits_{i\in+}w_i}{\sum\limits_i w_i} \\
 	\delta\epsilon & = & \frac{\sqrt{\sum\limits_{i\in+} w_i^2 \left(\sum\limits_{i\in-} w_i \right)^2 + \
 			\sum\limits_{i\in-} w_i^2 \left(\sum\limits_{i\in+} w_i \right)^2}} {\left(\sum\limits_{i}w_i\right)^2}
 	\label{eq:binomial-weighted}
 \end{eqnarray}
-where
+where the sum of the weights (and sum of squares of the weights) for non-positive samples is approximated as
 \begin{eqnarray}
-\sum\limits_{i\in-} w_i & = & \sum\limits_{i\in+}w_i - \sum\limits_{i\in+}w_i \\
-\sum\limits_{i\in-} w_i^2 & = & \sum\limits_{i\in+}w_i^2 - \sum\limits_{i\in+}w_i^2 
+\sum\limits_{i\in-} w_i & = & \sum\limits_{i}w_i - \sum\limits_{i\in+}w_i \\
+\sum\limits_{i\in-} w_i^2 & = & \sum\limits_{i}w_i^2 - \sum\limits_{i\in+}w_i^2 .
 \end{eqnarray}
 
-For a set of efficiencies, a linear function is fit to the efficiencies. This fit function would then be used to calculate the efficiency for any given dimuon that occurs at any given intensity. The linear parameters are fitted to the data (which is weighted by its statistical uncertainties) by a $\chi^2$-minimization procedure to render a line of best fit along with a confidence interval (Fig.~\ref{fig:keff-all})
+For a set of efficiencies, an exponential function is fit to the efficiencies. This fit function would then be used to calculate the efficiency for any given dimuon that occurs at any given intensity. The single-parameter exponential function, $$f(x)=e^{-Ax},$$ is chosen for its behavior at zero and infinity. The function of best fit along with a confidence interval for this can be seen in Figure~\ref{fig:keff-all}.
 
 \begin{figure}
 	\centering
@@ -181,7 +234,7 @@ For a set of efficiencies, a linear function is fit to the efficiencies. This fi
 	\label{fig:keff-all}
 \end{figure}
 
-Further, these fits have a statistically significant kinematic dependence, so it becomes important to unfold the kinematic space and perform this procedure for several kinematic bins in one or more dimensions to assure an accurate efficiency calculation. Of the six defining kinematics of the dimuon, we examine the dependence of the fit on five of them: ($x_1, x_2, p_T, \theta, \phi$), neglecting the azimuthal production angle $\phi_{\gamma^*}$. Each of these five kinematics is divided into three bins (low, medium, high) values to observe on which kinematics the linear fit depends. The results are shown in Figure~\ref{fig:keff-all-kin}.
+Further, these fits have a statistically significant kinematic dependence, so it becomes important to unfold the kinematic space and perform this procedure for several kinematic bins in one or more dimensions to assure a robust efficiency calculation. Of the six defining kinematics of the dimuon, we examine the dependence of the fit on five of them: ($x_1, x_2, p_T, \theta, \phi$), neglecting the azimuthal production angle $\phi_{\gamma^*}$. Each of these five kinematics is divided into three statistically equal bins (low, medium, high) in order to observe the efficiency dependencies. The results are shown in Figure~\ref{fig:keff-all-kin}.
 \begin{figure}
 \centering
 \includegraphics[width=0.49\textwidth]{figures/analysis/x1-keff-int.png}
@@ -189,12 +242,12 @@ Further, these fits have a statistically significant kinematic dependence, so it
 \includegraphics[width=0.49\textwidth]{figures/analysis/theta-keff-int.png}
 \includegraphics[width=0.49\textwidth]{figures/analysis/phi-keff-int.png} \\ \vspace{20px}
 \includegraphics[width=0.49\textwidth]{figures/analysis/pt-keff-int.png} \vspace{10px}
-\caption{Tracking efficiency with the data broken into three statistically equivalent bins in the five primary kinematics, ($x_1, x_2, \theta_\mu, \phi_\mu, p_T$). There appears to be a significant kinematic dependence on $x_1$ and $x_2$.}
+\caption{Tracking efficiency with the data broken into three statistically equivalent bins in the five primary kinematics, ($x_1, x_2, \theta_\mu, \phi_\mu, p_T$). Significant kinematic dependence is seen in $x_1$ and $x_2$.}
 \label{fig:keff-all-kin}
 \end{figure}
-The curves produced seem to indicate that there only exists a kinematic dependence on the $x_1$ and $x_2$ kinematics. If this is the case, then the clean and messy samples can be split two-dimensionally in these two kinematics, and a fit can be made to both variables. When analyzing dimuons, its kinematics can indicate which fit to use to calculate the tracking efficiency based on the intensity of the event, and a weight can be calculated.
+The curves produced seem to indicate that there only exists a strong kinematic dependence on the $x_1$ and $x_2$ kinematics. If this is the case, then the clean and messy samples can be split two-dimensionally in these two kinematics, and a fit can be made to both variables. When analyzing dimuons, its kinematics can indicate which fit to use to calculate the tracking efficiency based on the intensity of the event, and a weight can be calculated.
 
-But before we come to any clear conclusions, let us investigate two more kinematic phase spaces. We know from the discussion in Chapter 1 that \{$x_1, x_2$\} can be used almost interchangeably with \{$x_F, M_{\gamma^*}$\}, and each of $x_1$ and $x_2$ depend on both $x_F$ and $M_{\gamma^*}$. As such, if only one and not the other shows to influence the tracking efficiency curves, then only that one would be needed for the tracking efficiency correction. We see the behavior of the efficiency curves as a function of $x_F$ and $M_{\gamma^*}$ in Figure~\ref{fig:keff-mass-xf}. It can be concluded that since there is no substantial mass dependence observed, the tracking efficiency has a kinematic dependence solely on $x_F$.
+But before we come to any clear conclusions, let us investigate two more kinematic phase spaces. We know from the discussion in Chapter 1 that \{$x_1, x_2$\} can be used almost interchangeably with \{$x_F, M_{\gamma^*}$\} to describe the same process. As such, it's possible that if only one and not the other shows to influence the tracking efficiency curves, then only that one might be needed for the tracking efficiency correction. We see the behavior of the efficiency curves as a function of $x_F$ and $M_{\gamma^*}$ in Figure~\ref{fig:keff-mass-xf}. It can be concluded that since there is no substantial mass dependence observed, the tracking efficiency has a kinematic dependence may be corrected by solely correcting on $x_F$.
 
 \begin{figure}
 	\centering
@@ -203,6 +256,16 @@ But before we come to any clear conclusions, let us investigate two more kinemat
 	\caption{The kinematics $x_F$ and $M_{\gamma^*}$ are investigated. A clear kinematic dependence exists in $x_F$ while $M_{\gamma^*}$ is largely consistent.}
 	\label{fig:keff-mass-xf}
 \end{figure}
+
+In order to evaluate the effectiveness of a correction, the messy sample was reweighted with the kEfficiency factors, with the efficiencies calculated in bins of $x_F$, and then recalculate these efficiency plots. This is shown in Figure~\ref{fig:xf-keff-corrected} for $x_F$ and also $x_2$ to see if by correcting in one, the other is also corrected. It becomes evident that even though the efficiency certainly seems to be fixed in $x_F$, any analysis in $x_2$ may not be properly corrected. One can come to the conclusion from this that \emph{if one performs an analysis on SeaQuest data in certain kinematics, one must correct for kEfficiency based on those kinematics}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.49\textwidth]{figures/analysis/xF-keff-corrected-int.png}
+	\includegraphics[width=0.49\textwidth]{figures/analysis/x2-keff-corrected-int.png}
+	\caption{The efficiencies after re-weighting using kEfficiency values calculated when binned in $x_F$.}
+	\label{fig:xf-keff-corrected}
+\end{figure}
+It should be noted that above approximately \unit[60,000]{protons} of chamber intensity, the tracking efficiency is low, and the weights become quite large. This combined with the fact that there are low statistics at high chamber intensity result in those events possessing a greater influence \emph{and} instability with respect to the yields. It is for this reason that events above this intensity threshold are removed from analysis. This boundary can be seen visually on Figure~\ref{fig:xf-keff-corrected}.
 
 Another consideration is with respect to whether or not there is a target dependence to factor into the correction. For all of the above ``kEfficiency'' plots, only deuterium data is used. The kEfficiency curves for deuterium, hydrogen, carbon, iron, and tungsten can be found on Figure~\ref{fig:keff-target-roadset}. It can be concluded that there is enough of a difference between deuterium, iron, and the rest to justify calculating and applying this correction on a target-by-target basis.
 \begin{figure}
@@ -215,46 +278,114 @@ Another consideration is with respect to whether or not there is a target depend
 
 Also, as a sanity check, there should be no time-dependence of this function. A quick check comparing different sets of data from two different roadsets quickly confirm that there is no such time dependence (Fig.~\ref{fig:keff-target-roadset}).
 
-As a result, the final calculation of an tracking efficiency for a given dimuon event should depend on (1) target, (2) $x_F$, and (3) intensity. In order to apply this as a weight, we first define \emph{kEff}$_{t, \bar{x}}(I)$, a set of linear fit functions: one for each target (\emph{t}) and for each kinematic bin ($\bar{x}$), which may be binned in any number of kinematic dimensions. In the case of this analysis, the kinematic binning will only be in $x_F$. The procedure in weighting each dimuon will then be to take each dimuon event \emph{i} and its chamber intensity $I_i$, originating from target $t_i$ in $x_F$ bin $x_{F_i}$, create a weight as
+As a result, the final calculation of an tracking efficiency for a given dimuon event should depend on (1) target, (2) specific analysis kinematics, and (3) intensity. In order to apply this as a weight, we first define \emph{kEff}$_{t, \bar{x}}(I)$, a set of linear fit functions: one for each target (\emph{t}) and for each kinematic bin ($\bar{x}$), which may be binned in any number of kinematic dimensions. The procedure in weighting each dimuon will then be to take each dimuon event \emph{i} and its chamber intensity $I_i$, originating from target $t_i$ in $\bar{x}_i$ bin $x_{F_i}$, create a weight as
 \begin{equation}
-w_i = \frac{1}{kEff_{t_i, x_{F_i}}(I_i)}
+w_i = \frac{1}{\text{kEff}_{t_i, \bar{x}_i}(I_i)}.
 \end{equation}
+When re-weighted in $x_2$ bins, the set of yields shown in Table~\ref{tab:raw-yields} can be updated to what is seen in Table~\ref{tab:keff-corr-yields}
 
-\subsection{The Naive Empty Target Correction}
+\begin{table}
+	\centering
+	\ra{0.95}
+	\caption{Total weighted dimuon yields after the tracking efficiency correction is applied in $x_2$.}
+	\label{tab:keff-corr-yields}
+\begin{tabular}{llrrr}
+	\toprule
+	&             &  Roadset 57 &  Roadset 62 &  Roadset 67 \\
+	Target & $x_2$ &                &                &                \\
+	\midrule
+	LH2 & (0.1, 0.13] &            363 &            561 &           1239 \\
+	& (0.13, 0.16] &            967 &           1481 &           3412 \\
+	& (0.16, 0.195] &           1137 &           1860 &           4071 \\
+	& (0.195, 0.24] &            908 &           1535 &           3448 \\
+	& (0.24, 0.29] &            524 &            927 &           1907 \\
+	& (0.29, 0.35] &            283 &            465 &           1069 \\
+	& (0.35, 0.45] &            104 &            188 &            478 \\
+	& (0.45, 0.58] &             18 &             35 &            110 \\
+\rowcol LD2 & (0.1, 0.13] &            392 &            562 &           1493 \\
+\rowcol & (0.13, 0.16] &           1095 &           1488 &           4023 \\
+\rowcol & (0.16, 0.195] &           1237 &           1861 &           4995 \\
+\rowcol & (0.195, 0.24] &           1015 &           1470 &           3972 \\
+\rowcol & (0.24, 0.29] &            566 &            791 &           2463 \\
+\rowcol & (0.29, 0.35] &            322 &            494 &           1212 \\
+\rowcol & (0.35, 0.45] &            156 &            219 &            542 \\
+\rowcol & (0.45, 0.58] &             30 &             28 &             90 \\
+	C & (0.1, 0.13] &            203 &            155 &            513 \\
+	& (0.13, 0.16] &            547 &            549 &           1559 \\
+	& (0.16, 0.195] &            653 &            717 &           1779 \\
+	& (0.195, 0.24] &            502 &            583 &           1321 \\
+	& (0.24, 0.29] &            282 &            339 &            822 \\
+	& (0.29, 0.35] &            139 &            167 &            384 \\
+	& (0.35, 0.45] &             72 &             77 &            243 \\
+	& (0.45, 0.58] &              3 &             15 &             25 \\
+\rowcol 	Fe & (0.1, 0.13] &            163 &            221 &            542 \\
+\rowcol 	& (0.13, 0.16] &            416 &            601 &           1671 \\
+\rowcol 	& (0.16, 0.195] &            525 &            788 &           2054 \\
+\rowcol 	& (0.195, 0.24] &            413 &            652 &           1656 \\
+\rowcol 	& (0.24, 0.29] &            201 &            361 &            930 \\
+\rowcol 	& (0.29, 0.35] &            152 &            164 &            493 \\
+\rowcol 	& (0.35, 0.45] &             61 &             80 &            275 \\
+\rowcol 	& (0.45, 0.58] &             13 &             15 &             45 \\
+	W & (0.1, 0.13] &            169 &            255 &            676 \\
+	& (0.13, 0.16] &            469 &            770 &           1935 \\
+	& (0.16, 0.195] &            639 &            959 &           2556 \\
+	& (0.195, 0.24] &            471 &            787 &           2080 \\
+	& (0.24, 0.29] &            250 &            380 &           1123 \\
+	& (0.29, 0.35] &            165 &            247 &            645 \\
+	& (0.35, 0.45] &             61 &            118 &            272 \\
+	& (0.45, 0.58] &             10 &             17 &             52 \\
+	\bottomrule
+\end{tabular}
+\end{table}
 
-First a few values must be defined. An overall efficiency based on 'contributions' from the Empty/None background can be defined as
+\subsection{ Empty Target Background Correction}
 
-\begin{equation}
-\epsilon_b = 1 - \frac{Y_b/p_b}{Y_t/p_t} = 1 - \left(\frac{p_t}{p_b}\right) \left( \frac{Y_b}{Y_t} \right)
-\end{equation}
-
-where Y is the dimuon \emph{yield} from a given target and \emph{p} is the integrated ``live proton'' count for the same given target. Here, $b \in \{Empty,\ None\}$ and $t\in\{H,\ D,\ C,\ Fe,\ W\}$. It is yet to be conclusively decided by the collaboration whether or not the Empty and None targets are to be combined for these calculations.
-
-The next step is to adjust the yields with the \emph{kEff}$_{t,\bar{x}}(I)$:
-
-\begin{equation}
-Y_a \rightarrow Y_a^\prime = \sum_{i:i_t=a} \frac{1}{kEff_{t_i, x_i}(I_i)}
-\end{equation}
-
-The yield efficiency when factoring in background then becomes
-
-\begin{equation}
-\epsilon^\prime_b = 1 - \left(\frac{p_t}{p_b}\right) \left( \frac{Y^\prime_b}{Y^\prime_t} \right)
-\end{equation}
-
-\subsection{Rate Dependent Empty Target Correction}
-
-Upon inspection, the Empty/None target data has shown to exhibit a rate dependence, with many more events per proton being found at higher intensities. This can be corrected for, but the events should first be weighted by their tracking efficiencies. Unfortunately since there are no \emph{messy/clean} embedded data sets for the empty flask, the ``kEfficiency'' fit must be extrapolated from the fits for the deuterium and hydrogen targets. If we are to assume that the difference in fits is a function of the beam's interaction with the target, then we can arrive at the \emph{kEff} exponential fit constants for the empty/none targets ($A_E$) for each kinematic bin from the exponential fit constants from the hydrogen and deuterium targets ($A_{D/H}$). Here, we only additionally need the percentage of beam that interacts with the target ($X_t$), along with a few other values characteristic to the targets found in Table~\ref{tab:targ-details}.
+Upon inspection, the Empty/None target data has shown to exhibit a rate dependence, with many more events per proton being found at higher intensities. This can be corrected for, but the events should first be weighted by their tracking efficiencies. Unfortunately since there are no \emph{messy/clean} embedded data sets for the empty flask, the ``kEfficiency'' fit must be extrapolated from the fits for the deuterium and hydrogen targets. If we are to assume that the difference in fits is a function of the beam's interaction with the target, then we can arrive at the \emph{kEff} exponential fit constants for the empty/none background targets ($A_{bg}$) for each kinematic bin from the exponential fit constants from the hydrogen and deuterium targets ($A_{D/H}$). Here, we only additionally need the number of interaction lenghts in the targets ($\xi$) to find the proportion of the beam that did not interact with the target ($X_t$) The values used can be found in Table~\ref{tab:targ-details}.
 \begin{eqnarray}
-X_t & = & 1 - e^{-\frac{L_t}{\lambda_t}} \\
-A_E & = & A_H - X_H \cdot \frac{\Delta A}{\Delta X} \\
+X_t & = & 1 - e^{-\xi_t} \\
+A_{bg} & = & A_H - X_H \cdot \frac{\Delta A}{\Delta X} \\
 	   & = & A_H - X_H \cdot \frac{A_D - A_H}{X_D - X_H}
 \end{eqnarray}
 
-With this fit constant in hand and the kEfficiency correction applied, one can plot the yields of empty flask and none events as a function of chamber intensity. This plot and its shape can be found in Figure~\red{MAKE FIGURE FOR THIS}. Due to the low-statistics nature of the empty and none events, they are combined across all roadsets and kinematics instead of being broken down. As such, this correction is applied solely based on chamber intensity with no other consideration for roadset or kinematics. The fit that is applied is of the form: $f(I) = p_0 \cdot (1 + p_1 \cdot I_c)$. This form is chosen because the the scale of the final function will be a calculated from the data used, and as such, $p_1$ is the only parameter that is needed. The value calculated was:
-\begin{equation}
-p_1 = (6.576 \pm 1.566) \times 10^{-5}
-\end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/analysis/rate-dep-empty.png}
+	\caption{The intensity-dependence of the Empty target and "None" target, with fit to $p_0 (1+p1\cdot I_c^2)$ for each. 95\% confidence band shown.}
+	\label{fig:empty-rate-dep}
+\end{figure}
+With this fit constant in hand and the kEfficiency correction applied, one can plot the yields of empty flask and none events as a function of chamber intensity. This plot and its shape can be found in Figure~\ref{fig:empty-rate-dep}. Due to the low-statistics nature of the empty and none events, they are combined across all roadsets and kinematics instead of being broken down. As such, this correction is applied solely based on chamber intensity with no other consideration for roadset or kinematics. The fit that is applied is of the form: $f(I) = p_0 \cdot (1 + p_1 \cdot I_c^2)$. This form is chosen because the the scale of the final function will be a calculated from the data used, and as such, $p_1$ is the only parameter that is needed. The fit parameter $p_1$ was found to be:
+\begin{eqnarray}
+p^E_1 & = & (1.03 \pm 0.23) \times 10^{-9} \\
+p^N_1 & = & (1.08 \pm 0.19) \times 10^{-9}.
+\end{eqnarray}
+The difference between the two backgrounds are interpreted to be due to interactions of the beam with the aluminum walls of the empty flask target.
+
+\begin{wraptable}{R}{0pt}
+	\centering
+	\begin{tabular}{llrr}
+		\toprule
+		&             &  B &  $\delta$ B  \\
+		Roadset & Target &                &       \\
+		\midrule
+		57 & LH2 &      0.119 &   0.014  \\
+		&   LD2 &         0.057 &  0.006  \\
+		& C &          0.046  &           0.004 \\
+		& Fe &            0.019 &   0.002 \\
+		& W &            0.017 &        0.002 \\ 
+		\rowcol 62 & LH2 &      0.107 &   0.013  \\
+		\rowcol &   LD2 &         0.051 &  0.006  \\
+		\rowcol & C &          0.042 &           0.004 \\
+		\rowcol & Fe &            0.019 &   0.002 \\
+		\rowcol & W &            0.015 &        0.001 \\ 
+		67 & LH2 &      0.095 &   0.011  \\
+		&   LD2 &         0.039 &  0.005  \\
+		& C &          0.043  &           0.004 \\
+		& Fe &            0.018 &   0.002 \\
+		& W &            0.015 &        0.001 \\ 
+	\end{tabular}
+	\caption{The calculated normalization constants for the background proportion function, C(I).}
+	\label{tab:bg-b-vals}
+\end{wraptable}
 The fit function used, $C_{norm}(I_c) = B \cdot C(I_c) = B \cdot (1 + p_1 \cdot I_c)$  can be interpreted as the probability that a given target dimuon actually arose from something other than a target interaction (beam dump, upstream interactions, flask container). Here, $B$ is the normalization factor, where the condition should stand that the sum of $C_{norm}(I_c)$ over all target dimuons should be equal to the number of events from the empty and none targets. Both sums need to be corrected for kEffeciency and scaled by the number of live protons.
 \begin{equation}
 \sum\limits_T \frac{B \cdot C(I_c)}{P_T \cdot K_T(I_c)} = \sum\limits_E \frac{1}{P_E \cdot K_E(I_c)}
@@ -263,6 +394,7 @@ The fit function used, $C_{norm}(I_c) = B \cdot C(I_c) = B \cdot (1 + p_1 \cdot 
 B & = & \frac{P_T}{P_E} \cdot \frac{\sum\limits_E \frac{1}{K_E(I_c)}}{\sum\limits_T \frac{C(I_c)}{K_T(I_c)}} \\
 \delta B & = & \frac{P_T}{P_E} \cdot \frac{\sqrt{\sum\limits_E \frac{1}{K_E(I_c)^2}}}{\sum\limits_T \frac{C(I_c)}{K_T(I_c)}}
 \end{eqnarray}
+Calculated B-values for all targets and roadsets can be found in Table~\ref{tab:bg-b-vals}.
 
 This normalization constant is calculated for each target and each roadset. With this in hand, a weight for correcting for the empty target correction can be applied as $(1 - C_{norm}(I_c))$. One can then combine this with the weighting for the kEffeciency correction (as the weighting should combine multiplicatively):
 \begin{equation}
@@ -273,13 +405,24 @@ It is worth noting that this model does not take into account the attenuation of
 
 Uncertainties that arise as a result of the uncertainties in the $C(I_x)$ fit and the calculation of $B$ are difficult to propagate analytically. What is performed instead is a an independent variation of $p_1$ and $B$ by $-1\sigma$, 0, and $+1\sigma$ and observing the magnitude of which the per nucleon cross section ratio changes as a result. This systematic uncertainty due to this correction is calculated in the Systematic Uncertainties section of this chapter.
 
-\section{Residual Rate Dependence}
+\subsection{Residual Rate Dependent}
 
-\red{Discuss analysis investigating results for the like-sign reconstruction to estimate the combinatorial background. Hopefully it will be intensity-dependent.}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.48\textwidth]{figures/analysis/rate-dep-after-corr.png}
+	\includegraphics[width=0.48\textwidth]{figures/analysis/remaining-rate-dep.png}
+	\caption{(Left) The remaining rate dependence behavior after corrections are made and (right) the rate dependence of a cross section ratio measurement with the linear fit and the 95\% confidence band shown.}
+	\label{fig:residual-rate-dep}
+\end{figure}
+
+Due to the early nature of this approach to correcting for the rate dependence, there are bound to be factors which have yet to be accounted for, namely combinatoric backgrounds. Plotting the yields per trigger proton again after both corrections, one can see that there is indeed still some rate dependence, but overall, the yields per proton no longer significantly decrease at higher intensities. Now we look to how to handle the residual rate dependence. Should an additional correction be applied, or should a systematic uncertainty be defined.
+
+To decide, the cross section ratio measurement is taken and binned in chamber intensity. If the target-to-target and kinematic-dependent rate dependence is corrected, then this should be a flat line. The results as seen in Figure~\ref{fig:residual-rate-dep} show that the ratio measurement is consistent with being a flat line. That is to say, the uncertainty in the slope is larger than the slope itself. Since this is the case, no further correction at this point will be applied, and a systematic uncertainty will be defined. Assuming that the rate dependence of the ratio measurement is a line, this is done by calculating the uncertainty of the fit $\sigma_f$ over the value of the fit at the mean chamber intensity value. It should be noted that $\sigma_f$ benefits from negative off-diagonal covariance elements for the fit parameters.
+
+The systematic uncertainty here is calculated to be 1.07\% of the cross section ratios.
 
 \section{$LD_2$ Contamination}
 
-\red{Cite Paul's summary of the contamination correction}
 During Run III of the SeaQuest experiment, analysis of the deuterium source used indicated that it was impure to a significant degree. This calls for a significant correction since most measurements, yields, ratios, and analyses assume that the targets are pure. An impure deuterium target changes many factors including the averaged mass number of the fluid and its overall density. In this section, the contamination measurements and the correction procedure is discussed.
 
 \subsection{Contamination Measurements}
@@ -337,13 +480,13 @@ Until the true compositions can be ascertained, it has been recommend that analy
 
 \begin{table}
 	\centering
-	\begin{tabular}{@{}rlrrr@{}}
+	\begin{tabular}{@{}rlrrrr@{}}
 		\toprule
-		{} & \textbf{Run} & \multicolumn{1}{c}{3230-} & \multicolumn{1}{c}{11144-} &  \multicolumn{1}{c}{11478} \\ 
-		{} & \textbf{Range:} & \multicolumn{1}{c}{11143} & \multicolumn{1}{c}{11477} &  \multicolumn{1}{c}{14652} \\ 
-		\textbf{Atom:} & & & & \\ \midrule
-		$H$	& & 9.6   & 4.5  & 8.8 \\
-		$D$    & & $90.4^{+5}_{-0}$ & $95.5^{+0}_{-5}$  & $91.2^{+4}_{-1}$ \\
+		{} & \textbf{Run} & \multicolumn{1}{c}{3230-} & \multicolumn{1}{c}{11144-} &  \multicolumn{1}{c}{11478-} & \multicolumn{1}{c}{14653-}  \\ 
+		{} & \textbf{Range:} & \multicolumn{1}{c}{11143} & \multicolumn{1}{c}{11477} &  \multicolumn{1}{c}{14652} & \multicolumn{1}{c}{Present} \\ 
+		\textbf{Atom:} & & & & & \\ \midrule
+		$H$	& & 9.6   & 4.5  & 8.8 & 0.0 \\
+		$D$    & & $90.4^{+5}_{-0}$ & $95.5^{+0}_{-5}$  & $91.2^{+4}_{-1}$ & 100.0 \\
 		\bottomrule
 	\end{tabular}
 	\caption{Atomic percentages of the deuterium targets with asymmetric uncertainties in the $d$ percentage.}
@@ -386,9 +529,9 @@ Due to the contamination, some of the signal events with the liquid deuterium ta
 
 \noindent Here, the coefficients $a, b, c,$ and $d$ denote the number of protons and neutrons per atom for the different targets. We know that $a=c=1$, and since the hydrogen target is considered to be pure, $b=0$. The remaining value, $d$, is the fraction of deuteron atoms in the sample ($F_D$ above). With this, we can arrive at an expression for $\sigma_{pD}^{\text{pure}}$.
 \begin{eqnarray}
-\sigma_{pH}^{\text{pure}} & = & p = \hat{\sigma}_{pH} \\
-n & = & \frac{\hat{\sigma}_{pD} - \hat{\sigma}_{pH}}{d} \\
-\sigma_{pD}^{\text{pure}} & = & p + n \\
+\sigma_{pH}^{\text{pure}} & = & \sigma_{pp} = \hat{\sigma}_{pH} \\
+\sigma_{pn} & = & \frac{\hat{\sigma}_{pD} - \hat{\sigma}_{pH}}{d} \\
+\sigma_{pD}^{\text{pure}} & = & \sigma_{pp} + \sigma_{pn} \\
 \sigma_{pD}^{\text{pure}} & = & \frac{\hat{\sigma}_{pD} - \hat{\sigma}_{pH}\cdot (1-d)}{d}
 \end{eqnarray}
 

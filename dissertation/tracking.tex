@@ -156,9 +156,9 @@ The names of the SeaQuest MySQL merged productions along with their date range, 
 	\begin{tabular}{c|rrr}
 		Schema & Date Range & \# Dimuons & Roadset Notes\\	
 		\hline
-		merged\_roadset57\_R005\_V001 & dummy & dummy & dummydummydummy \\
-		merged\_roadset62\_R005\_V001 & dummy & dummy & dummydummydummy \\
-		merged\_roadset67\_R005\_V001 & dummy & dummy & dummydummydummy
+		merged\_roadset57\_R005\_V001 & June 25 2014 - Aug. 20 2014 & 10.8 M &  \\
+		merged\_roadset62\_R005\_V001 & Nov. 8 2014 - Jan. 14 2015 & 13.3 M & Some hot roads removed, RF-clocked firmware \\
+		merged\_roadset67\_R005\_V001 & Jan. 25 2015 - June 19 2015 & 40.8 M & Magnet-flipped roads, hot roads re-evaluated
 	\end{tabular}
 \end{table}
 
@@ -232,7 +232,7 @@ Other sweeping criteria for qualifying a spill as good are that spillID$\neq$0 a
 
 Finally, certain periods of data taking are known by the collaboration to be problematic and not suitable for analysis. There exist periods of time where the trigger timing was off by a certain margin and degraded the efficacy of the trigger's ability to trigger on dimuon events. There's also a range of spills for which the magnets were flipped before a new trigger roadset could be devised for such a configuration. These are defined as a series of ``bad spill ranges'' and can be found summarized in Table~\ref{tab:spill-ranges}.
 
-As briefly described in the chapter on database design, the addition of a ``dataQuality'' field was touched on. Here, this field is used as a bitmask in order to identify whether or not a spill passes or fails a given cut by flagging a bit as 0 (pass) or 1 (fail). This allows for analyzers to easily select only spills that pass all criteria by simply requiring \emph{dataQuality = 0}.
+In the Appendix on database design, there is a discussion regarding the use and implementation of the ``dataQuality'' bitpattern field (\ref{sec:dq}). Here, this field is used as a bitmask in order to identify whether or not a spill passes or fails a given cut by flagging a bit as 0 (pass) or 1 (fail). This allows for analyzers to easily select only spills that pass all criteria by simply requiring \emph{dataQuality = 0}.
 
 \begin{table}
 	\centering
@@ -247,9 +247,10 @@ As briefly described in the chapter on database design, the addition of a ``data
 \rowcol 416207 & 424180 & Manual target control \\
 482574 & 484924 & Magnet flipped before roadset changed \\
 \rowcol 526201 & 526364 & Improper QIE inhibit setting \\
-581369 & 582460 & KMag off \\
-\rowcol 675814 & 684041 & Drift Chamber 1 gas flow problem \\
-684663 & 689443 & Incorrect D3p in-time window \\ \bottomrule
+551030 & 610059 & Track reconstructing bug distorting kinematics \\
+\rowcol 581369 & 582460 & KMag off \\
+675814 & 684041 & Drift Chamber 1 gas flow problem \\
+\rowcol 684663 & 689443 & Incorrect D3p in-time window \\ \bottomrule
 \end{tabular}
 \caption{Specific spill ranges of excluded data for all roadsets.}
 \label{tab:spill-ranges}
@@ -278,6 +279,44 @@ Dimuons are selected based on many criteria: the known acceptance of the spectro
 	\item \textbf{mass}: There is a di-lepton range of invariant masses that are book-ended by the $\Jpsi$ and the $\Upsilon$ in which Drell-Yan should be the only source. A cut on this range excludes any background that would be introduced by real $\Jpsi$s and $\Upsilon$s.
 \end{itemize}
 
+\begin{table}
+	\centering
+	\ra{1.1}
+	\begin{tabular}{@{}llll@{}} \midrule
+		\textbf{Table} & \textbf{Value}  & \textbf{Good range} & \textbf{Type} \\ \toprule
+		kTrack & numHits & $>14$ & Quality \\
+		& roadID & $\neq0$ & Quality \\
+		& z0  & (-400, 200)  & Quality \\
+		& chisq/(numHits - 5) & $<5$ & Quality \\
+		& pz1 (Where numHits $\neq$ 18) & $>18$ & Quality \\
+		& chisq\_dump - chisq\_target & $>10$ & Target \\ \midrule
+		kDimuon & dx & (-2, 2)  & Quality \\
+		& dy & (-2, 2)  & Quality \\
+		& dz & (-300, 200)  & Quality \\
+		& dpx & (-3, 3)  & Quality \\
+		& dpy & (-3, 3)  & Quality \\
+		& dpz & (30, 120)  & Quality \\
+		& xB & (0, 1)  & Quality \\
+		& xT & (0, 1)  & Quality \\
+		& xF & (-1, 1)  & Quality \\
+		& trackSeparation & (-250, 250)  & Quality \\
+		& chisq\_dimuon & $<15$ & Quality \\
+		& px1 & $>0$ & Quality \\
+		& px2 & $<0$ & Quality \\
+		& dz & (-300, -60)  & Target \\
+		& mass & $>4.2$ & Drell-Yan \\ \midrule
+		Event & MATRIX1 & 1 & Trigger \\ \midrule
+		kEvent & status & 0 & Quality \\ \midrule
+		QIE & $\forall$(RF+08, RF+07, \ldots RF-08) & $<$ Beam.Inh\_thres & Quality \\
+		& $\forall$(RF$\pm XY$) & $>0$ & Quality \\
+		& triggerCount & $\geq0$ & Quality \\
+		& intensity\_p & $<60000$ & Quality \\
+		\bottomrule
+	\end{tabular}
+	\caption{A list of all quality and kinematic cuts for selecting good quality dimuons from the target.}
+	\label{tab:all-other-cuts}
+\end{table}
+
 \subsection{Track Cuts}
 
 Going even deeper to remove signal contamination, if one of the two tracks for even a \emph{good} dimuon is found to fail certain checks, the entire event is excluded from analysis. Again, stepping through each cut:
@@ -296,40 +335,61 @@ Going even deeper to remove signal contamination, if one of the two tracks for e
 	\label{fig:likesign-pz-cut}
 \end{figure}
 
+\section{Analysis Data Set}
+
+After enforcing all of the aforementione data reduction cuts for both physics and catious quality reasons, the resulting data set is, in total, \unit[61,667]{dimuons} over three run periods (Roadsets 57, 62, and 67). The breakdown of raw statistics can be found in Table~\ref{tab:raw-yields}. This number does not include the empty flask and ``none'' targets, which will be used in correcting for background signals in the next chapter.
+
 \begin{table}
 	\centering
-	\ra{1.1}
-	\begin{tabular}{@{}llll@{}} \midrule
-		\textbf{Table} & \textbf{Value}  & \textbf{Good range} & \textbf{Type} \\ \toprule
-kTrack & numHits & $>14$ & Quality \\
- & roadID & $\neq0$ & Quality \\
- & z0  & (-400, 200)  & Quality \\
- & chisq/(numHits - 5) & $<5$ & Quality \\
- & pz1 (Where numHits $\neq$ 18) & $>18$ & Quality \\
- & chisq\_dump - chisq\_target & $>10$ & Target \\ \midrule
-kDimuon & dx & (-2, 2)  & Quality \\
- & dy & (-2, 2)  & Quality \\
- & dz & (-300, 200)  & Quality \\
- & dpx & (-3, 3)  & Quality \\
- & dpy & (-3, 3)  & Quality \\
- & dpz & (30, 120)  & Quality \\
- & xB & (0, 1)  & Quality \\
- & xT & (0, 1)  & Quality \\
- & xF & (-1, 1)  & Quality \\
- & trackSeparation & (-250, 250)  & Quality \\
- & chisq\_dimuon & $<15$ & Quality \\
- & px1 & $>0$ & Quality \\
- & px2 & $<0$ & Quality \\
- & dz & (-300, -60)  & Target \\
- & mass & $>4.2$ & Drell-Yan \\ \midrule
-Event & MATRIX1 & 1 & Trigger \\ \midrule
-kEvent & status & 0 & Quality \\ \midrule
-QIE & $\forall$(RF+08, RF+07, \ldots RF-08) & $<$ Beam.Inh\_thres & Quality \\
- & $\forall$(RF$\pm XY$) & $>0$ & Quality \\
- & triggerCount & $\geq0$ & Quality \\
- & intensity\_p & $<60000$ & Quality \\
-\bottomrule
+	\ra{0.95}
+	\caption{Total raw dimuon yields after all spill, track, dimuon, target, and quality cuts. Not shown: empty flask target and ``none'' target (for background study).}
+	\label{tab:raw-yields}
+\begin{tabular}{llrrr}
+	\toprule
+	&             &  Roadset 57 &  Roadset 62 &  Roadset 67 \\
+	Target & $x_2$ &             &             &             \\
+	\midrule
+		LH2 & (0.1, 0.13] &         240 &         378 &         813 \\
+		& (0.13, 0.16] &         662 &        1000 &        2274 \\
+		& (0.16, 0.195] &         779 &        1247 &        2710 \\
+		& (0.195, 0.24] &         591 &         987 &        2211 \\
+		& (0.24, 0.29] &         320 &         568 &        1148 \\
+		& (0.29, 0.35] &         171 &         265 &         593 \\
+		& (0.35, 0.45] &          58 &         106 &         246 \\
+		& (0.45, 0.58] &           8 &          18 &          54 \\
+\rowcol LD2 & (0.1, 0.13] &         277 &         384 &        1014 \\
+\rowcol & (0.13, 0.16] &         750 &        1011 &        2672 \\
+\rowcol & (0.16, 0.195] &         870 &        1263 &        3303 \\
+\rowcol & (0.195, 0.24] &         667 &         952 &        2513 \\
+\rowcol & (0.24, 0.29] &         351 &         471 &        1435 \\
+\rowcol & (0.29, 0.35] &         184 &         268 &         682 \\
+\rowcol & (0.35, 0.45] &          87 &         121 &         291 \\
+\rowcol & (0.45, 0.58] &          15 &          14 &          45 \\
+	C & (0.1, 0.13] &         143 &         109 &         357 \\
+	& (0.13, 0.16] &         358 &         349 &         990 \\
+	& (0.16, 0.195] &         439 &         470 &        1147 \\
+	& (0.195, 0.24] &         326 &         374 &         853 \\
+	& (0.24, 0.29] &         167 &         213 &         507 \\
+	& (0.29, 0.35] &          84 &         100 &         219 \\
+	& (0.35, 0.45] &          42 &          41 &         127 \\
+	& (0.45, 0.58] &           2 &           8 &          10 \\
+	\rowcol Fe & (0.1, 0.13] &         112 &         145 &         358 \\
+	\rowcol & (0.13, 0.16] &         279 &         398 &        1075 \\
+	\rowcol & (0.16, 0.195] &         345 &         509 &        1284 \\
+	\rowcol & (0.195, 0.24] &         262 &         411 &        1020 \\
+	\rowcol & (0.24, 0.29] &         125 &         212 &         564 \\
+	\rowcol & (0.29, 0.35] &          90 &          94 &         274 \\
+	\rowcol & (0.35, 0.45] &          32 &          41 &         138 \\
+	\rowcol & (0.45, 0.58] &           5 &           8 &          16 \\
+	W & (0.1, 0.13] &         113 &         169 &         442 \\
+	& (0.13, 0.16] &         309 &         500 &        1239 \\
+	& (0.16, 0.195] &         420 &         609 &        1618 \\
+	& (0.195, 0.24] &         288 &         488 &        1262 \\
+	& (0.24, 0.29] &         153 &         223 &         659 \\
+	& (0.29, 0.35] &          95 &         136 &         346 \\
+	& (0.35, 0.45] &          31 &          67 &         144 \\
+	& (0.45, 0.58] &           5 &           6 &          26 \\ \midrule
+	& Total: & 10255 & 14733 & 36679 \\
+	\bottomrule
 \end{tabular}
-\caption{A list of all quality and kinematic cuts for selecting good quality dimuons from the target.}
-\label{tab:all-other-cuts}
 \end{table}
