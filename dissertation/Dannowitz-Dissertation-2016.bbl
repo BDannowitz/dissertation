@@ -385,11 +385,6 @@ D.~M. e.~a. Alde, ``Nuclear dependence of dimuon production at 800 gev,'' {\em
 J.~Carlson and R.~Schiavilla, ``{Structure and dynamics of few nucleon
   systems},'' {\em Rev. Mod. Phys.}, vol.~70, pp.~743--842, 1998.
 
-\bibitem{sanftl:2014}
-F.~Sanftl, {\em {Developments of Tracking Methods of Muon Pairs with SeaQuest
-  Spectrometer}}.
-\newblock PhD thesis, Tokyo Institute of Technology, 2014.
-
 \bibitem{QIE}
 T.~Zimmerman and J.~Hoff, ``The design of a charge integrating, modified
   floating point {ADC} chip,'' {\em IEEE J. Solid State Circuits}, vol.~39,
@@ -449,6 +444,10 @@ M.-j. Wang, {\em {A precision measurement of the A-dependence of dimuon
 B.~List, ``Statistical error of efficiency determination from weighted
   events.'' Accessed: 2016-03-16.
 
+\bibitem{Arrington:2008zh}
+J.~Arrington, F.~Coester, R.~J. Holt, and T.~S.~H. Lee, ``{Neutron Structure
+  Functions},'' {\em J. Phys.}, vol.~G36, p.~025005, 2009.
+
 \bibitem{Frankfurt:2012qs}
 L.~Frankfurt and M.~Strikman, ``{QCD and QED dynamics in the EMC effect},''
   {\em Int. J. Mod. Phys.}, vol.~E21, p.~1230002, 2012.
@@ -457,6 +456,17 @@ L.~Frankfurt and M.~Strikman, ``{QCD and QED dynamics in the EMC effect},''
 O.~Hen, D.~W. Higinbotham, G.~A. Miller, E.~Piasetzky, and L.~B. Weinstein,
   ``{The EMC Effect and High Momentum Nucleons in Nuclei},'' {\em Int. J. Mod.
   Phys.}, vol.~E22, p.~1330017, 2013.
+
+\bibitem{Whitlow:1991uw}
+L.~W. Whitlow, E.~M. Riordan, S.~Dasu, S.~Rock, and A.~Bodek, ``{Precise
+  measurements of the proton and deuteron structure functions from a global
+  analysis of the SLAC deep inelastic electron scattering cross-sections},''
+  {\em Phys. Lett.}, vol.~B282, pp.~475--482, 1992.
+
+\bibitem{Bosted:2007xd}
+P.~E. Bosted and M.~E. Christy, ``{Empirical fit to inelastic electron-deuteron
+  and electron-neutron resonance region transverse cross-sections},'' {\em
+  Phys. Rev.}, vol.~C77, p.~065206, 2008.
 
 \bibitem{jlab:coda}
 J.~N. A. L. D.~A. Support, ``Coda (cebaf online data acquisition).''
