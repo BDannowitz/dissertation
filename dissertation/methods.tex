@@ -412,8 +412,6 @@ The third NIM trigger mode is of particular importance, as it is used for estima
 
 \section{Data Acquisition Systems}
 
-\red{Create flowchart!}
-
 The whole of the SeaQuest experiment spans two sectors of the NM beamline (NM3 and NM4) and records not only detector data but also accelerator and atmospheric conditions. Designing a data acquisition (DAQ) for this experiment, therefore, requires a bandwidth and timing which cannot be provided by a single central computer system. SeaQuest has therefore employed four separate DAQ subsystems called ``Main DAQ'', ``Scaler DAQ'', ``Beam DAQ'' and ``Slow Control''. The Main DAQ records the main detector information and the trigger timing. Scaler DAQ records various scaler readouts once per spill to reduce bias from the dead time of Main DAQ. Beam DAQ records information from a beamline \v{C}erenkov detector read out by its QIE board. The Slow Control is a catch-all for everything else, from magnet current to radiation monitors that are read out once per spill.
 
 \subsection{Main DAQ}

@@ -1,32 +1,4 @@
-\begin{thebibliography}{100}
-
-\bibitem{Estermann:169E}
-I.~Estermann, R.~Frisch, and O.~Stern, ``{Magnetic Moment of the Proton},''
-  {\em Nature}, vol.~132, pp.~169--170, jul 1933.
-
-\bibitem{Anderson:1936zz}
-C.~D. Anderson and S.~H. Neddermeyer, ``{Cloud Chamber Observations of Cosmic
-  Rays at 4300 Meters Elevation and Near Sea-Level},'' {\em Phys. Rev.},
-  vol.~50, pp.~263--271, 1936.
-
-\bibitem{Powell:1946pu}
-C.~F. Powell, G.~P.~S. Occhialini, D.~L. Livesey, and L.~V. Chilton, ``{A New
-  Photographic Emulsion for the Detection of Fast Charged Particles},'' {\em J.
-  Sci. Instrum.}, vol.~23, pp.~102--106, 1946.
-\newblock [,581(1946)].
-
-\bibitem{joyce1999finnegans}
-J.~Joyce, {\em Finnegan's Wake}.
-\newblock Viking Press, New York, 1939.
-
-\bibitem{1964PhRvL:12204B}
-V.~E. e.~a. {Barnes}, ``{Observation of a Hyperon with Strangeness Minus
-  Three},'' {\em Physical Review Letters}, vol.~12, pp.~204--206, Feb. 1964.
-
-\bibitem{PhysRevLett.43.830}
-D.~P. e.~a. Barber, ``Discovery of three-jet events and a test of quantum
-  chromodynamics at petra,'' {\em Phys. Rev. Lett.}, vol.~43, pp.~830--833, Sep
-  1979.
+\begin{thebibliography}{10}
 
 \bibitem{PhysRevLett.80.3715}
 E.~A. e.~a. Hawker, ``Measurement of the light antiquark flavor asymmetry in
@@ -48,16 +20,6 @@ B.~Povh, {\em Particles and Nuclei: An Introduction to the Physical Concepts}.
 \bibitem{Bethke:2006ac}
 S.~Bethke, ``{Experimental tests of asymptotic freedom},'' {\em Prog. Part.
   Nucl. Phys.}, vol.~58, pp.~351--386, 2007.
-
-\bibitem{CMS:2014mna}
-V.~e.~a. Khachatryan, ``{Measurement of the inclusive 3-jet production
-  differential cross section in proton–proton collisions at 7 TeV and
-  determination of the strong coupling constant in the TeV range},'' {\em Eur.
-  Phys. J.}, vol.~C75, no.~5, p.~186, 2015.
-
-\bibitem{Quigg:1985ai}
-C.~Quigg, ``{ELEMENTARY PARTICLES AND FORCES},'' {\em Sci. Am.}, vol.~252N4,
-  pp.~64--75, 1985.
 
 \bibitem{PhysRevD.16.2219}
 J.~C. Collins and D.~E. Soper, ``Angular distribution of dileptons in
@@ -140,74 +102,6 @@ C.-G. Duan, S.-W. Cui, Z.-Y. Yan, and G.-L. Li, ``{Quark energy loss and
 D.~e.~a. Geesaman. Proposal for Drell-Yan Measurements of Nucleon and Nuclear
   Structure with the FNAL Main Injector, 1999.
 
-\bibitem{Amaudruz:1991nw}
-P.~e.~a. Amaudruz, ``{The ratio F2(n) / F2(p) in deep inelastic muon
-  scattering},'' {\em Nucl. Phys.}, vol.~B371, pp.~3--31, 1992.
-
-\bibitem{Arneodo:1994sh}
-M.~e.~a. Arneodo, ``{A Reevaluation of the Gottfried sum},'' {\em Phys. Rev.},
-  vol.~D50, pp.~1--3, 1994.
-
-\bibitem{Adams:1995sh}
-M.~R. e.~a. Adams, ``{Extraction of the ratio $F2_n / F2_p$ from muon -
-  deuteron and muon - proton scattering at small $x$ and Q**2},'' {\em Phys.
-  Rev. Lett.}, vol.~75, pp.~1466--1470, 1995.
-
-\bibitem{Abegg:1998sg}
-J.~e.~a. Zhao, ``{Precision measurement of charge symmetry breaking in n-p
-  elastic scattering at 347-MeV},'' {\em Phys. Rev.}, vol.~C57, pp.~2126--2141,
-  1998.
-
-\bibitem{Ellis:1990ti}
-S.~D. Ellis and W.~J. Stirling, ``{Constraints on isospin breaking in the light
-  quark sea from the Drell-Yan process},'' {\em Phys. Lett.}, vol.~B256,
-  pp.~258--264, 1991.
-
-\bibitem{Baldit:1994jk}
-A.~e.~a. Baldit, ``{Study of the isospin symmetry breaking the in the light
-  quark sea of the nucleon from the Drell-Yan process},'' {\em Phys. Lett.},
-  vol.~B332, pp.~244--250, 1994.
-
-\bibitem{Kumano:1997cy}
-S.~Kumano, ``{Flavor asymmetry of anti-quark distributions in the nucleon},''
-  {\em Phys. Rept.}, vol.~303, pp.~183--257, 1998.
-
-\bibitem{Garvey:2001yq}
-G.~T. Garvey and J.-C. Peng, ``{Flavor asymmetry of light quarks in the nucleon
-  sea},'' {\em Prog. Part. Nucl. Phys.}, vol.~47, pp.~203--243, 2001.
-
-\bibitem{Ross:1978xk}
-D.~A. Ross and C.~T. Sachrajda, ``{Flavor Symmetry Breaking in anti-Quark
-  Distributions},'' {\em Nucl. Phys.}, vol.~B149, pp.~497--516, 1979.
-
-\bibitem{Peng:1998pa}
-J.~C. e.~a. Peng, ``{Anti-d / anti-u asymmetry and the origin of the nucleon
-  sea},'' {\em Phys. Rev.}, vol.~D58, p.~092004, 1998.
-
-\bibitem{Kumano:1990mm}
-S.~Kumano, ``{pi N N form-factor for explaining sea quark distributions in the
-  nucleon},'' {\em Phys. Rev.}, vol.~D43, pp.~59--63, 1991.
-
-\bibitem{Koepf:1995yh}
-W.~Koepf, L.~L. Frankfurt, and M.~Strikman, ``{The Nucleon's virtual meson
-  cloud and deep inelastic lepton scattering},'' {\em Phys. Rev.}, vol.~D53,
-  pp.~2586--2598, 1996.
-
-\bibitem{Szczurek:1996tp}
-A.~Szczurek, A.~J. Buchmann, and A.~Faessler, ``{On the flavor structure of the
-  constituent quark},'' {\em J. Phys.}, vol.~G22, pp.~1741--1750, 1996.
-
-\bibitem{Thomas:1983fh}
-A.~W. Thomas, ``{A Limit on the Pionic Component of the Nucleon Through SU(3)
-  Flavor Breaking in the Sea},'' {\em Phys. Lett.}, vol.~B126, pp.~97--100,
-  1983.
-
-\bibitem{Szczurek:1993sc}
-A.~Szczurek, J.~Speth, and G.~T. Garvey, ``{Meson cloud in the nucleon and
-  anti-u - anti-d asymmetry from the Drell-Yan processes},'' {\em Nucl. Phys.},
-  vol.~A570, pp.~765--781, 1994.
-\newblock [Acta Phys. Polon.B24,1833(1994)].
-
 \bibitem{Aubert:1983xm}
 J.~e.~a. Aubert, ``{The ratio of the nucleon structure functions $F2_n$ for
   iron and deuterium},'' {\em Phys.Lett.}, vol.~B123, p.~275, 1983.
@@ -238,6 +132,10 @@ J.~e.~a. Gomez, ``{Measurement of the A-dependence of deep inelastic electron
 A.~C. e.~a. Benvenuti, ``{Nuclear Effects in Deep Inelastic Muon Scattering on
   Deuterium and Iron Targets},'' {\em Phys. Lett.}, vol.~B189, p.~483, 1987.
 
+\bibitem{Amaudruz:1991nw}
+P.~e.~a. Amaudruz, ``{The ratio F2(n) / F2(p) in deep inelastic muon
+  scattering},'' {\em Nucl. Phys.}, vol.~B371, pp.~3--31, 1992.
+
 \bibitem{Ackerstaff:1999ac}
 K.~e.~a. Ackerstaff, ``{Nuclear effects on R = sigma(L) / sigma(T) in deep
   inelastic scattering},'' {\em Phys. Lett.}, vol.~B475, pp.~386--394, 2000.
@@ -247,6 +145,11 @@ K.~e.~a. Ackerstaff, ``{Nuclear effects on R = sigma(L) / sigma(T) in deep
 X.~Chen, J.~Ruan, R.~Wang, P.~Zhang, and W.~Zhu, ``{Applications of a nonlinear
   evolution equation II: the EMC effect},'' {\em Int. J. Mod. Phys.}, vol.~E23,
   no.~10, p.~1450058, 2014.
+
+\bibitem{PhysRevD.23.1070}
+A.~Bodek and J.~L. Ritchie, ``Fermi-motion effects in deep-inelastic lepton
+  scattering from nuclear targets,'' {\em Phys. Rev. D}, vol.~23,
+  pp.~1070--1091, Mar 1981.
 
 \bibitem{Stein:1975yy}
 S.~Stein, W.~B. Atwood, E.~D. Bloom, R.~L. Cottrell, H.~C. DeStaebler, C.~L.
@@ -282,11 +185,6 @@ V.~Guzey, L.~Zhu, C.~E. Keppel, M.~E. Christy, D.~Gaskell, P.~Solvignon, and
 B.~Z. Kopeliovich, J.~G. Morfin, and I.~Schmidt, ``{Nuclear Shadowing in
   Electro-Weak Interactions},'' {\em Prog. Part. Nucl. Phys.}, vol.~68,
   pp.~314--372, 2013.
-
-\bibitem{PhysRevD.23.1070}
-A.~Bodek and J.~L. Ritchie, ``Fermi-motion effects in deep-inelastic lepton
-  scattering from nuclear targets,'' {\em Phys. Rev. D}, vol.~23,
-  pp.~1070--1091, Mar 1981.
 
 \bibitem{Griffioen:2015hxa}
 K.~A. e.~a. Griffioen, ``{Measurement of the EMC Effect in the Deuteron},''
@@ -325,11 +223,6 @@ M.~Alvioli, C.~Ciofi~degli Atti, and H.~Morita, ``Proton-neutron and
 K.~e.~a. Egiyan, ``{Measurement of 2- and 3-nucleon short range correlation
   probabilities in nuclei},'' {\em Phys.Rev.Lett.}, vol.~96, p.~082501, 2006.
 
-\bibitem{Hen:2012fm}
-O.~Hen, E.~Piasetzky, and L.~Weinstein, ``{New data strengthen the connection
-  between Short Range Correlations and the EMC effect},'' {\em Phys.Rev.},
-  vol.~C85, p.~047301, 2012.
-
 \bibitem{Higinbotham:2010ye}
 D.~W. Higinbotham, J.~Gomez, and E.~Piasetzky, ``{Nuclear Scaling and the EMC
   Effect},'' 2010.
@@ -338,40 +231,14 @@ D.~W. Higinbotham, J.~Gomez, and E.~Piasetzky, ``{Nuclear Scaling and the EMC
 O.~Hen, L.~B. Weinstein, S.~Gilad, and S.~A. Wood, ``{In Medium Nucleon
   Structure Functions, SRC, and the EMC effect},'' 2014.
 
-\bibitem{Miller:1988hj}
-G.~A. Miller, ``{NUCLEAR WAVE FUNCTIONS IN DEEP INELASTIC SCATTERING AND
-  DRELL-YAN PROCESSES},'' in {\em {Workshop on Nuclear and Particle Physics on
-  the Light Cone Los Alamos, New Mexico, July 18-22, 1988}}, 1988.
+\bibitem{Hen:2012fm}
+O.~Hen, E.~Piasetzky, and L.~Weinstein, ``{New data strengthen the connection
+  between Short Range Correlations and the EMC effect},'' {\em Phys.Rev.},
+  vol.~C85, p.~047301, 2012.
 
 \bibitem{Berger:1985dr}
 E.~L. Berger, ``{Nuclear Effects in Massive Lepton Pair Production},'' {\em
   Nucl. Phys.}, vol.~B267, p.~231, 1986.
-
-\bibitem{Jung:1990pu}
-H.~Jung and G.~A. Miller, ``{Pionic contributions to deep inelastic nuclear
-  structure functions},'' {\em Phys. Rev.}, vol.~C41, pp.~659--664, 1990.
-
-\bibitem{Close:1983tn}
-F.~E. Close, R.~G. Roberts, and G.~G. Ross, ``{The Effect of Confinement Size
-  on Nuclear Structure Functions},'' {\em Phys. Lett.}, vol.~B129,
-  pp.~346--350, 1983.
-
-\bibitem{Nachtmann:1983py}
-O.~Nachtmann and H.~J. Pirner, ``{Color Conductivity in Nuclei and the Emc
-  Effect},'' {\em Z. Phys.}, vol.~C21, p.~277, 1984.
-
-\bibitem{Dommelen}
-L.~Dommelen, ``Quantum mechanics for engineers.''
-  \url{https://www.eng.fsu.edu/~dommelen/quantum/style_a/index.html}, 2013.
-
-\bibitem{GarciaCanal:1984eh}
-C.~A. Garcia~Canal, E.~M. Santangelo, and H.~Vucetich, ``{Nucleon Effective
-  Mass and the A-dependence of Structure Functions},'' {\em Phys. Rev. Lett.},
-  vol.~53, p.~1430, 1984.
-
-\bibitem{Staszel:1983qx}
-M.~Staszel, J.~Rozynek, and G.~Wilk, ``{Structure Functions of Bound
-  Nucleons},'' {\em Phys. Rev.}, vol.~D29, p.~2638, 1984.
 
 \bibitem{Vasilev:1999fa}
 M.~A. e.~a. Vasilev, ``{Parton energy loss limits and shadowing in Drell-Yan
@@ -420,53 +287,6 @@ S.-H. e.~a. Shiu, ``{FPGA-based trigger system for the Fermilab SeaQuest
 MVME, ``Mvme5500 series vmebus single-board computer.''
   \url{http://www.mvme.com/manuals/MVME5500e-SPEC.pdf}.
 \newblock Accessed: 2016-01-26.
-
-\bibitem{vanderEijk:2002sp}
-R.~M. van~der Eijk, {\em {Track reconstruction in the LHCb experiment}}.
-\newblock PhD thesis, Amsterdam U., 2002.
-
-\bibitem{kalman:1960}
-R.~E. Kalman, ``A new approach to linear filtering and prediction problems,''
-  {\em Transactions of the ASME--Journal of Basic Engineering}, vol.~82,
-  no.~Series D, pp.~35--45, 1960.
-
-\bibitem{Gorbunov:2010yda}
-S.~e.~a. Gorbunov, ``{ALICE HLT high speed tracking and vertexing},'' in {\em
-  {Proceedings, 17th Conference on Computing Applications in Nuclear and Plasma
-  Sciences on Real Time (RT2010)}}, 2010.
-
-\bibitem{Wang:1991wa}
-M.-j. Wang, {\em {A precision measurement of the A-dependence of dimuon
-  production in proton - nucleus collisions at 800-GeV/c}}.
-\newblock PhD thesis, Case Western Reserve U., 1991.
-
-\bibitem{blist:binomial}
-B.~List, ``Statistical error of efficiency determination from weighted
-  events.'' Accessed: 2016-03-16.
-
-\bibitem{Arrington:2008zh}
-J.~Arrington, F.~Coester, R.~J. Holt, and T.~S.~H. Lee, ``{Neutron Structure
-  Functions},'' {\em J. Phys.}, vol.~G36, p.~025005, 2009.
-
-\bibitem{Frankfurt:2012qs}
-L.~Frankfurt and M.~Strikman, ``{QCD and QED dynamics in the EMC effect},''
-  {\em Int. J. Mod. Phys.}, vol.~E21, p.~1230002, 2012.
-
-\bibitem{Hen:2013oha}
-O.~Hen, D.~W. Higinbotham, G.~A. Miller, E.~Piasetzky, and L.~B. Weinstein,
-  ``{The EMC Effect and High Momentum Nucleons in Nuclei},'' {\em Int. J. Mod.
-  Phys.}, vol.~E22, p.~1330017, 2013.
-
-\bibitem{Whitlow:1991uw}
-L.~W. Whitlow, E.~M. Riordan, S.~Dasu, S.~Rock, and A.~Bodek, ``{Precise
-  measurements of the proton and deuteron structure functions from a global
-  analysis of the SLAC deep inelastic electron scattering cross-sections},''
-  {\em Phys. Lett.}, vol.~B282, pp.~475--482, 1992.
-
-\bibitem{Bosted:2007xd}
-P.~E. Bosted and M.~E. Christy, ``{Empirical fit to inelastic electron-deuteron
-  and electron-neutron resonance region transverse cross-sections},'' {\em
-  Phys. Rev.}, vol.~C77, p.~065206, 2008.
 
 \bibitem{jlab:coda}
 J.~N. A. L. D.~A. Support, ``Coda (cebaf online data acquisition).''
@@ -536,5 +356,55 @@ LeCroy, ``Lecroy 1440 high voltage power supply manual.''
 \bibitem{Webb_Williams_1963}
 P.~Webb and R.~Williams, ``Gamma ray spectroscopy using a germanium
   lithium-drifted diode,'' {\em Nucl. Instr. Methods}, vol.~Vol: 22, Apr 1963.
+
+\bibitem{vanderEijk:2002sp}
+R.~M. van~der Eijk, {\em {Track reconstruction in the LHCb experiment}}.
+\newblock PhD thesis, Amsterdam U., 2002.
+
+\bibitem{kalman:1960}
+R.~E. Kalman, ``A new approach to linear filtering and prediction problems,''
+  {\em Transactions of the ASME--Journal of Basic Engineering}, vol.~82,
+  no.~Series D, pp.~35--45, 1960.
+
+\bibitem{Gorbunov:2010yda}
+S.~e.~a. Gorbunov, ``{ALICE HLT high speed tracking and vertexing},'' in {\em
+  {Proceedings, 17th Conference on Computing Applications in Nuclear and Plasma
+  Sciences on Real Time (RT2010)}}, 2010.
+
+\bibitem{Wang:1991wa}
+M.-j. Wang, {\em {A precision measurement of the A-dependence of dimuon
+  production in proton - nucleus collisions at 800-GeV/c}}.
+\newblock PhD thesis, Case Western Reserve U., 1991.
+
+\bibitem{blist:binomial}
+B.~List, ``Statistical error of efficiency determination from weighted
+  events.'' Accessed: 2016-03-16.
+
+\bibitem{Arrington:2008zh}
+J.~Arrington, F.~Coester, R.~J. Holt, and T.~S.~H. Lee, ``{Neutron Structure
+  Functions},'' {\em J. Phys.}, vol.~G36, p.~025005, 2009.
+
+\bibitem{Hen:2013oha}
+O.~Hen, D.~W. Higinbotham, G.~A. Miller, E.~Piasetzky, and L.~B. Weinstein,
+  ``{The EMC Effect and High Momentum Nucleons in Nuclei},'' {\em Int. J. Mod.
+  Phys.}, vol.~E22, p.~1330017, 2013.
+
+\bibitem{Brodsky:1996nj}
+S.~J. Brodsky, A.~Hebecker, and E.~Quack, ``{The Drell-Yan process and
+  factorization in impact parameter space},'' {\em Phys. Rev.}, vol.~D55,
+  pp.~2584--2590, 1997.
+
+\bibitem{Jung:1990pu}
+H.~Jung and G.~A. Miller, ``{Pionic contributions to deep inelastic nuclear
+  structure functions},'' {\em Phys. Rev.}, vol.~C41, pp.~659--664, 1990.
+
+\bibitem{Kulagin:2015lkm}
+S.~A. Kulagin and R.~Petti, ``{Nuclear Parton Distributions and the Drell-Yan
+  Reaction},'' {\em PoS}, vol.~DIS2015, p.~040, 2015.
+
+\bibitem{Miller:1988hj}
+G.~A. Miller, ``{Nuclear Wave Functions in Deep Inelastic Scattering nd
+  Drell-Yan Processes},'' in {\em {Workshop on Nuclear and Particle Physics on
+  the Light Cone Los Alamos, New Mexico, July 18-22, 1988}}, 1988.
 
 \end{thebibliography}

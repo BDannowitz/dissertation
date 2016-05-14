@@ -79,7 +79,7 @@ Once this has been done for all Station 2 and 3 hits, the set of their track stu
 	\label{fig:sagitta-ratio}
 \end{figure}
 
-With a set of reasonable tracklets, they are each projected through KMAG and onto Station 1 to find possible matching hits there. The method by which this is done makes use of an analysis of the \emph{sagitta ratio} if known DY muon tracks.  The magnetic field of KMAG applies a $p_T-$kick of \unit[0.404]{GeV} on the muon, and the influence on its deflection is based purely on the $p_z$ of the muon at hand (assuming charge is known). As such, a large set of DY muons within the spectrometer acceptance are generated via Monte Carlo in order to measure two quantities in relation to St.3-St.1 and St.2-St.1. In Figure~\ref{fig:sagitta-ratio}, the track path of a single muon is described with the influence of the magnets being treated as a single-impulse $p_T$ kick at its center. With a line drawn between the tracklet position at Station 3 and the target ($z=x=y=0$), the quantities $s_1$ and $s_2$ are defined, which are the distances between this line and the actual hits at Station 1 and Station 2, respectively. These studies show that the ratios of these two values across various muon characteristics is distributed as a gaussian with a defined mean and variance ($\mu=1.77, \sigma=0.055$). Since this ratio and $s_2$ is known for a given tracklet, $s_1$ can be approximated and used to constrain where the hit would actually be on Station 1 within a range of $\pm$\unit[5]{cm}. With this window established, triplets are matched up at Station 1 with the tracklet in order to find candidate \emph{global tracks}.
+With a set of reasonable tracklets, they are each projected through KMAG and onto Station 1 to find possible matching hits there. The method by which this is done makes use of an analysis of the \emph{sagitta ratio} if known DY muon tracks.  The magnetic field of KMAG applies a $p_T-$kick of \unit[0.404]{GeV} on the muon, and the influence on its deflection is based purely on the $p_z$ of the muon at hand (assuming charge is known). As such, a large set of DY muons within the spectrometer acceptance are generated via Monte Carlo in order to measure good track behavior and the relationship between hits in Stations 1, 2 and 3. In Figure~\ref{fig:sagitta-ratio}, the track path of a single muon is described with the influence of the magnets being treated as a single-impulse $p_T$ kick at its center. With a line drawn between the tracklet position at Station 3 and the target ($z=x=y=0$), the quantities $s_1$ and $s_2$ are defined, which are the distances between this line and the actual hits at Station 1 and Station 2, respectively. These studies show that the ratios of these two values across various muon characteristics is distributed as a gaussian with a defined mean and variance ($\mu=1.77, \sigma=0.055$). Since this ratio and $s_2$ is known for a given tracklet, $s_1$ can be approximated and used to constrain where the hit would actually be on Station 1 within a range of $\pm$\unit[5]{cm}. With this window established, triplets are matched up at Station 1 with the tracklet in order to find candidate \emph{global tracks}.
 
 Finally, with this set of candidate global tracks is narrowed down based on certain characteristics. This is useful as the track fitting phase which comes next is relatively intensive, so if there is any way to eliminate unlikely global tracks it should be done. The first step towards this end is the removal of hits with large \emph{residuals}, where hit residuals are defined as the difference between where the hit triplet is and where the track is projected to pass through at that $z$ position. Tracks with residuals greater than three times the resolution of the chambers are removed one at a time, with the track being refitted after each removal. Once this is done and all hits are within this acceptable residual range, then quality cuts are applied to the tracks. These cuts are (1) the hodoscope paddles along the track path must have fired, (2) the track momentum must be $5<p_{tot}<$\unit[100]{GeV}, (3) the track must have at least four hits in each station, (4) there must be at least one hit in each view (prime-unprime plane pairs) at each station, and (5) the multiple scattering in the iron absorber wall must not result in a scattering angle of more than \unit[30]{mrad}. With these quality cuts in place, the remaining tracks are passed on to the Kalman filter track fitting algorithm.
 
@@ -106,10 +106,7 @@ With the fitted global tracks, they are matched up with each other to create a t
 
 Before tracks can be combined to vertices, they are propagated upstream from Station 1 through FMAG via a method called a magnet `swim.' In this process, the solid iron magnet is considered as many small slices in $z$, and a commensurate amount of energy loss and $p_T-$kick is applied at each $z-$slice. Once it emerges from the upstream face of FMAG, the track is then projected as a straight line to the target region, and it is these straight segments which are used as inputs to the vertex fitting process.
 
-In the vertex fitting, a state is defined as being the position of the (presumedly) dimuon vertex ($x_d, y_d, z_d$). This is first initialized to ($0, 0, \bar{z}$), where $\bar{z}$ is the average of all tracks' points of closest approach to the $z-$axis.
-\red{talk with Evan and Jason about how track pairs are picked and vertex finding is done, then finish this subection.}
-
-\red{Express the calculation of M, dpx, dpy, dpz, x1, x2, xF, costheta, phi, phi\_gamma from two muon momenta.}
+In the vertex fitting, a state is defined as being the position of the (presumed) dimuon vertex ($x_d, y_d, z_d$). This is first initialized to ($0, 0, \bar{z}$), where $\bar{z}$ is the average of all tracks' points of closest approach to the $z-$axis. Pairs of tracks are matched up, and the vertex is then allowed to move around in order to minimize the the $\chi^2$ of this vertex fit. If the vertex position converges, then the reconstruction is complete and the vertex is stored. This can be done for any combination of tracks in a given event.
 
 \subsection{Monte Carlo Validation}
 
@@ -145,7 +142,9 @@ In this section, these cuts are discussed in the order of tiers of data taking: 
 
 \subsection{Data Selection}
 
-The first cut on analyzable data is the choice of dataset to use. This document presents and discusses the EMC ratio results for SeaQuest roadsets \#57, \#62, and \#67. Each of these roadset settings were in place for the span of months and contain varying amounts of statistics. In total, many millions of tracks and dimuons of varying quality are found through the track reconstruction and vertex fitting procedure discussed in the previous section. Several cuts regarding quality of track/dimuon fit and experimental conditions are discussed below and applied to these datasets in order to isolate signal dimuons from the \emph{target}.
+The first cut on analyzable data is the choice of dataset to use. At SeaQuest, the blocks of data are broken up into what are called \textbf{Roadsets}. A Roadset is technically the version of the firmware for the triggering system that defines what set of hodoscope combinations can fire the trigger. In practice, a Roadset is a contiguous block of data for which experimental conditions were stable.
+
+This document presents and discusses the EMC ratio results for SeaQuest roadsets \#57, \#62, and \#67. Each of these roadset settings were in place for the span of months and contain varying amounts of statistics. In total, many millions of tracks and dimuons of varying quality are found through the track reconstruction and vertex fitting procedure discussed in the previous section. Several cuts regarding quality of track/dimuon fit and experimental conditions are discussed below and applied to these datasets in order to isolate signal dimuons from the \emph{target}.
 
 The names of the SeaQuest MySQL merged productions along with their date range, magnet polarity, respective statistics, and notes regarding roadset differences are presented in Table~\ref{tab:roadset-stats}.
 
@@ -153,12 +152,14 @@ The names of the SeaQuest MySQL merged productions along with their date range, 
 	\centering
 	\caption{The experiment-specific data sources and their details.}
 	\label{tab:roadset-stats}
-	\begin{tabular}{c|rrr}
+	\begin{tabular}{c|ccl}
 		Schema & Date Range & \# Dimuons & Roadset Notes\\	
 		\hline
 		merged\_roadset57\_R005\_V001 & June 25 2014 - Aug. 20 2014 & 10.8 M &  \\
-		merged\_roadset62\_R005\_V001 & Nov. 8 2014 - Jan. 14 2015 & 13.3 M & Some hot roads removed, RF-clocked firmware \\
-		merged\_roadset67\_R005\_V001 & Jan. 25 2015 - June 19 2015 & 40.8 M & Magnet-flipped roads, hot roads re-evaluated
+		merged\_roadset62\_R005\_V001 & Nov. 8 2014 - Jan. 14 2015 & 13.3 M & Hot roads removed \\
+		 & & & RF-clocked firmware \\
+		merged\_roadset67\_R005\_V001 & Jan. 25 2015 - June 19 2015 & 40.8 M & Magnet-flipped roads \\
+		 & & & hot roads re-evaluated
 	\end{tabular}
 \end{table}
 
@@ -184,7 +185,7 @@ Beyond these issues, there are also ranges of runs for which there was some larg
 \textbf{Table} & \textbf{Value} & \textbf{Roadsets}  & \textbf{Good range} \\ \toprule
 Spill & dataQuality & all & 0 \\ \cmidrule(l){2-4}
  & targetPos & all & $\in\{1,2,3,4,5,6,7\}$ \\ \midrule
-Target & TARGPOS\_CONTROL & all &  = Spill table `targetPos' value \\ \midrule
+Target & TARGPOS\_CONTROL & all &  Match Spill tbl. \\ \midrule
 Scaler & TSgo & 57, 59 & [1e3, 8e3] \\
 	   & & 61 & [1e3, 1.2e4] \\
 	   & & 62, 67, 70 & [1e2, 6e3] \\ \cmidrule(l){2-4}
@@ -210,23 +211,24 @@ BeamDAQ & QIESum & all & [4e10, 1e12] \\ \cmidrule(l){2-4}
 kTrack & \#Tracks/Spill & all & $>0$ \\
 \bottomrule
 \end{tabular}
-\caption{The experiment-specific data sources and their details.}
+\caption{Some spill data quality criteria.}
 \label{tab:spill-cuts}
 \end{table}
 
-Seeing as most of the experimental readouts pertaining to the condition of the experiment are read out only once per spill, it is a natural result that a large variety of quality cuts that are applied are evaluated at the spill level. A summar of all such cuts are summarized in Table~\ref{tab:spill-cuts}, but I will discuss a few key conditions here briefly.
+Seeing as most of the experimental readouts pertaining to the condition of the experiment are read out only once per spill, it is a natural result that a large variety of quality cuts that are applied are evaluated at the spill level. A summary of all such cuts are summarized in Table~\ref{tab:spill-cuts}, but I will discuss a few key conditions here briefly.
 
-One feature of a spill is the ``dutyfactor53MHz'', which is the aggregated duty factor ($\frac{\langle I\rangle^{2}}{\langle I^{2}\rangle}$) measurement over the whole spill as calculated by the Beam Intensity Monitor discussed in an earlier chapter. This an important measure that directly describes the quality of the beam provided to the experiment. A value that is too low corresponds to a spill that had the majority of its protons in just a small number of RF buckets. A duty factor value that is too high exceeds the capability of the main injector, and must therefore be erroneous. A visualization of good and bad duty factor values over a certain range of spills can be seen in Figure%~\ref{fig:dutyfactor}.
+One feature of a spill is the ``dutyfactor53MHz'', which is the aggregated duty factor ($\frac{\langle I\rangle^{2}}{\langle I^{2}\rangle}$) measurement over the whole spill as calculated by the Beam Intensity Monitor discussed in an earlier chapter. This an important measure that directly describes the quality of the beam provided to the experiment. A value that is too low corresponds to a spill that had the majority of its protons in just a small number of RF buckets. A duty factor value that is too high exceeds the capability of the main injector, and must therefore be erroneous.
+% A visualization of good and bad duty factor values over a certain range of spills can be seen in Figure%~\ref{fig:dutyfactor}.
 
-\red{add scatterplot of dutyfactor with good values in black and bad values in red to show how much they're outliers.}
+%\red{add scatterplot of dutyfactor with good values in black and bad values in red to show how much they're outliers.}
 
-The ratio of ``acceptedMatrix1'' to ``afterInhMatrix1'' is another quality factor that may not be intuitively obvious. The acceptedMatrix1 value is the number of accepted triggers recorded by the DAQ, and the the afterInhMatrix1 value is the total number of FPGA1-triggered events that were not inhibited by the BIM. Putting bounds on the ratio of these two allows the exclusion of two things: (1) spills with high DAQ dead time and (2) spills where, for whatever reason, only part of the spill was recorded. The latter of these could be the case if a spill was being partially recorded after data taking for a run had just begun\red{how??}.
+The ratio of ``acceptedMatrix1'' to ``afterInhMatrix1'' is another quality factor that may not be intuitively obvious. The acceptedMatrix1 value is the number of accepted triggers recorded by the DAQ, and the the afterInhMatrix1 value is the total number of FPGA1-triggered events that were not inhibited by the BIM. Putting bounds on the ratio of these two allows the exclusion of two things: (1) spills with high DAQ dead time and (2) spills where, for whatever reason, only part of the spill was recorded. The latter of these could be the case if a spill was being partially recorded after data taking for a run had just begun. % \red{how??}.
 
-\red{add line of 3 scatterplots of accepted, afterInh, and ratio with good values in black and bad values in red to show how much they're outliers.}
+%\red{add line of 3 scatterplots of accepted, afterInh, and ratio with good values in black and bad values in red to show how much they're outliers.}
 
 Other bounds such as the ``S:G2SEM'' and ``QIESum'' are measures of total delivered beam in units of protons and QIE, respectively. By putting bounds on these values, we avoid spills that are empty (no beam delivered) and spills that have far too much beam delivered. The lower bounds are non-zero due to a pedestal in each measurement.
 
-\red{add both on same plot, but with a scale to bring them near each other. g2sem: good=blue, bad=violet, qiesum: good=orange, bad=reddish}
+% \red{add both on same plot, but with a scale to bring them near each other. g2sem: good=blue, bad=violet, qiesum: good=orange, bad=reddish}
 
 Other sweeping criteria for qualifying a spill as good are that spillID$\neq$0 and that there must be no duplicates of any of the values listed in Table~\ref{tab:spill-cuts}. It is necessary due to the relational nature of the data that there must be a real spillID by which one can determine all other spill-relevant values; cases where spillID=0 are cases in which no Spill Counter event was available, and these should be excluded. Regarding duplicate values, if such exist for one spillID, it is almost impossible which is the correct one, so the spill should not be considered.
 
